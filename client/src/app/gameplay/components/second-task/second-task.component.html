@@ -1,4 +1,14 @@
-<p>
-  second-task works!
-</p>
-<button class="next-task-button" mat-flat-button color="primary" (click)="nextTask.emit(taskId)">Dalej</button>
+<div class="scene">
+  <object type="image/svg+xml" class="scene-svg" id="scene-object" *ngIf="svgSource" [data]="svgSource">
+  </object>
+</div>
+<div class="command-box">
+  <p class="command" *ngIf="taskData.clues && !isCompleted">{{ taskData.clues[currentCommand].command }}</p>
+  <p class="command" *ngIf="isCompleted">Brawo, dobra robota!</p>
+</div>
+<div class="clues-bar" *ngIf="taskData && taskData.clues">
+  <div class="clue-item" *ngFor="let clue of taskData.clues">
+    <img class="clue-img" *ngIf="clue.found" src="assets/img/clues/{{ clue.clueName }}.png">
+  </div>
+</div>
+<button class="next-task-button" mat-flat-button color="primary" (click)="nextTask.emit(taskId)" [disabled]="!isCompleted">Dalej</button>

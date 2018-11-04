@@ -12,7 +12,13 @@ export interface Notes {
 }
 
 export interface SecondTaskData {
-  id: number;
+  scene: string;
+  clues: {
+    command: string;
+    item: string,
+    clueName: string;
+    found?: boolean;
+  }[];
 }
 
 export interface ThirdTaskData {

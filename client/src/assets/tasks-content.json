@@ -20,7 +20,31 @@
         }
       ]
     },
-    "secondTask": [],
+    "secondTask": {
+      "scene": "room",
+      "clues": [
+        {
+          "command": "Przesuń doniczkę",
+          "item": "plant",
+          "clueName": "coffee"
+        },
+        {
+          "command": "Zajrzyj pod dywan",
+          "item": "carpet",
+          "clueName": "ticket"
+        },
+        {
+          "command": "Otwórz dolną szufladę szafy",
+          "item": "drawer",
+          "clueName": "banana"
+        },
+        {
+          "command": "Zajrzyj pod kanapę",
+          "item": "sofa",
+          "clueName": "glasses"
+        }
+      ]
+    },
     "thirdTask": [],
     "fourthTask": []
   },
