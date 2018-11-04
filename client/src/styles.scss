@@ -30,3 +30,97 @@ $client-theme: mat-light-theme($client-primary, $client-accent, $client-warn);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  box-sizing: border-box;
+}
+
+app-game-task {
+  .next-task-button {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    z-index: 100;
+  }
+  .task-content {
+    .task-content-dialogue, .task-content-notepad {
+      width: 50%;
+      float: left;
+    }
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .task-content-notepad {
+      .questions {
+        .question {
+          min-width: 100px;
+          margin-right: 10px;
+        }
+        .answer-placeholder {
+          display: inline-block;
+          background: #eeeeee;
+          border-radius: 16px;
+          width: 300px;
+          height: 32px;
+          &.active-placeholder.empty-placeholder  {
+            background: #b0bcff;
+          }
+          &.correct:not(.empty-placeholder) {
+            background: #b9ffb0;
+          }
+          &.incorrect:not(.empty-placeholder) {
+            background: #ffb0b0;
+          }
+        }
+      }
+      .answers {
+        margin-top: 50px;
+        min-height: 42px;
+        padding: 5px;
+        background: #eeeeee;
+        border-radius: 16px;
+      }
+      .answer {
+        display: inline-block;
+        padding: 7px 12px;
+        margin-right: 10px;
+        background: #3F51B5;
+        color: #fff;
+        border-radius: 16px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+
+// DRAGULA
+/* in-flight clone */
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  pointer-events: none;
+}
+/* high-performance display:none; helper */
+.gu-hide {
+  left: -9999px !important;
+}
+/* added to mirrorContainer (default = body) while dragging */
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+/* added to the source element while its mirror is dragged */
+.gu-transit {
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}

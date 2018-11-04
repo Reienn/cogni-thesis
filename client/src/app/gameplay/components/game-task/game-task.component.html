@@ -1,3 +1,9 @@
-<p>
-  game-task works!
-</p>
+<ng-container *ngIf="caseId">
+  <mat-toolbar color="primary">
+    <h2>Aktualna sprawa: {{caseId}}, aktualne zadanie: {{currentTask}}</h2>
+  </mat-toolbar>
+  <app-first-task *ngIf="currentTask === 1" (nextTask)="nextTask($event)" [taskData]="tasksContent.firstTask"></app-first-task>
+  <app-second-task *ngIf="currentTask === 2" (nextTask)="nextTask($event)" [taskData]="tasksContent.secondTask"></app-second-task>
+  <app-third-task *ngIf="currentTask === 3" (nextTask)="nextTask($event)" [taskData]="tasksContent.thirdTask"></app-third-task>
+  <app-fourth-task *ngIf="currentTask === 4" (nextTask)="nextTask($event)" [taskData]="tasksContent.fourthTask"></app-fourth-task>
+</ng-container>

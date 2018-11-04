@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { DragulaModule } from 'ng2-dragula';
+import { MatToolbarModule, MatListModule, MatCardModule, MatButtonModule, MatDividerModule } from '@angular/material';
 
 import { IntroComponent } from './components/intro/intro.component';
 import { FirstTaskComponent } from './components/first-task/first-task.component';
@@ -9,6 +11,8 @@ import { ThirdTaskComponent } from './components/third-task/third-task.component
 import { FourthTaskComponent } from './components/fourth-task/fourth-task.component';
 import { GameTaskComponent } from './components/game-task/game-task.component';
 import { GuideComponent } from './components/guide/guide.component';
+import { AbstractTaskComponent } from './components/abstract-task/abstract-task.component';
+import { NotepadComponent } from './components/first-task/notepad/notepad.component';
 
 const ROUTES: Routes = [
   {
@@ -16,7 +20,7 @@ const ROUTES: Routes = [
     component: IntroComponent
   },
   {
-    path: 'game-task',
+    path: ':id',
     component: GameTaskComponent
   }
 ];
@@ -24,7 +28,13 @@ const ROUTES: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(ROUTES)
+    RouterModule.forChild(ROUTES),
+    DragulaModule.forRoot(),
+    MatToolbarModule,
+    MatCardModule,
+    MatListModule,
+    MatButtonModule,
+    MatDividerModule
   ],
   declarations: [
     IntroComponent,
@@ -33,7 +43,9 @@ const ROUTES: Routes = [
     ThirdTaskComponent,
     FourthTaskComponent,
     GameTaskComponent,
-    GuideComponent
+    GuideComponent,
+    AbstractTaskComponent,
+    NotepadComponent
   ]
 })
 export class GameplayModule { }

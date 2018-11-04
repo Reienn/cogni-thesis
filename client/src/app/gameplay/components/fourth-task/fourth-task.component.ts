@@ -1,13 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AbstractTaskComponent } from '../abstract-task/abstract-task.component';
+import { FourthTaskData } from '../../models/TaskContent.data';
 
 @Component({
   selector: 'app-fourth-task',
   templateUrl: './fourth-task.component.html',
   styleUrls: ['./fourth-task.component.scss']
 })
-export class FourthTaskComponent implements OnInit {
+export class FourthTaskComponent extends AbstractTaskComponent implements OnInit {
 
-  constructor() { }
+  @Input() taskData: FourthTaskData;
+
+  constructor() {
+    super();
+    this.taskId = 4;
+  }
 
   ngOnInit() {
   }

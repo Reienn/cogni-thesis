@@ -1,3 +1,13 @@
-<p>
-  intro works!
-</p>
+<mat-toolbar color="primary">
+  <h2>Witaj detektywie!</h2>
+</mat-toolbar>
+<mat-card>
+  <mat-card-title>Misje</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let case of cases">
+        <button mat-flat-button color="primary" [disabled]="!case.available" (click)="selectCase(case.id)">{{case.name}}</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
