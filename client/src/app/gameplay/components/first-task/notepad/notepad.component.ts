@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
 import { Subscription } from 'rxjs';
-import { FirstTaskData } from '../../../models/TaskContent.data';
+import { Notes } from '../../../models/TaskContent.data';
 
 const DRAGGABLE_GROUP = 'ANSWERS';
 
@@ -12,7 +12,7 @@ const DRAGGABLE_GROUP = 'ANSWERS';
 })
 export class NotepadComponent implements OnInit, OnDestroy {
 
-  @Input() taskData: FirstTaskData[];
+  @Input() taskData: Notes[];
   @Output() taskCompleted = new EventEmitter<boolean>();
 
   isDragging = false;
@@ -25,6 +25,7 @@ export class NotepadComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.dragulaSubscribe();
+    this.taskData.map(item => { item.correct = false; item.empty = true; return item; });
   }
 
   ngOnDestroy() {

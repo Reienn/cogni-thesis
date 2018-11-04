@@ -1,37 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CasesService } from '../../services/cases.service';
-import {TaskContent } from '../../models/TaskContent.data';
+import { TaskContent } from '../../models/TaskContent.data';
 
 const TASKS_NUMBER = 4;
-const TASKS_CONTENT = {
-  firstTask: [
-    {
-      id: 1,
-      question: 'Co zginęło?',
-      answer: 'zegarek',
-      empty: true,
-      correct: false
-    },
-    {
-      id: 2,
-      question: 'Kiedy?',
-      answer: 'w sobotę',
-      empty: true,
-      correct: false
-    },
-    {
-      id: 3,
-      question: 'Gdzie?',
-      answer: 'w domu Jasia',
-      empty: true,
-      correct: false
-    }
-  ],
-  secondTask: [],
-  thirdTask: [],
-  fourthTask: []
-};
+const TASKS_CONTENT = require('../../../../assets/tasks-content.json');
 @Component({
   selector: 'app-game-task',
   templateUrl: './game-task.component.html',
@@ -41,7 +14,7 @@ export class GameTaskComponent implements OnInit {
 
   caseId: number;
   currentTask: number;
-  tasksContent: TaskContent;
+  tasksContent: TaskContent[];
 
   constructor(
     private activatedRoute: ActivatedRoute,

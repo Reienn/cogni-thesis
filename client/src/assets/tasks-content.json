@@ -1,0 +1,229 @@
+[
+  {
+    "firstTask": {
+      "entry": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {
+          "id": 1,
+          "question": "Co zginęło?",
+          "answer": "zegarek"
+        },
+        {
+          "id": 2,
+          "question": "Kiedy?",
+          "answer": "w sobotę"
+        },
+        {
+          "id": 3,
+          "question": "Gdzie?",
+          "answer": "w domu Jasia"
+        }
+      ]
+    },
+    "secondTask": [],
+    "thirdTask": [],
+    "fourthTask": []
+  },
+  {
+    "firstTask": {
+      "entry": "Dzień dobry! Nazywam się Zuzia i mam kłopot. Ktoś ukradł mój aparat fotograficzny! W poniedziałek zabrałam go do szkoły w plecaku, a wieczorem już go nie było! To był drogi aparat, dostałam go od wujka na urodziny z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {
+          "id": 1,
+          "question": "Co zginęło?",
+          "answer": "aparat fotograficzny"
+        },
+        {
+          "id": 2,
+          "question": "Kiedy?",
+          "answer": "w poniedziałek"
+        },
+        {
+          "id": 3,
+          "question": "Gdzie?",
+          "answer": "w szkole"
+        }
+      ]
+    },
+    "secondTask": [],
+    "thirdTask": [],
+    "fourthTask": []
+  },
+  {
+    "firstTask": {
+      "entry": "Dzień dobry! Nazywam się Adam i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {
+          "id": 1,
+          "question": "Co zginęło?",
+          "answer": "zegarek"
+        },
+        {
+          "id": 2,
+          "question": "Kiedy?",
+          "answer": "w sobotę"
+        },
+        {
+          "id": 3,
+          "question": "Gdzie?",
+          "answer": "w domu Adama"
+        }
+      ]
+    },
+    "secondTask": [],
+    "thirdTask": [],
+    "fourthTask": []
+  },
+  {
+    "firstTask": {
+      "entry": "Dzień dobry! Nazywam się Ola i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłam go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałam go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {
+          "id": 1,
+          "question": "Co zginęło?",
+          "answer": "zegarek"
+        },
+        {
+          "id": 2,
+          "question": "Kiedy?",
+          "answer": "w sobotę"
+        },
+        {
+          "id": 3,
+          "question": "Gdzie?",
+          "answer": "w domu Oli"
+        }
+      ]
+    },
+    "secondTask": [],
+    "thirdTask": [],
+    "fourthTask": []
+  },
+  {
+    "firstTask": {
+      "entry": "Dzień dobry! Nazywam się Karol i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {
+          "id": 1,
+          "question": "Co zginęło?",
+          "answer": "zegarek"
+        },
+        {
+          "id": 2,
+          "question": "Kiedy?",
+          "answer": "w sobotę"
+        },
+        {
+          "id": 3,
+          "question": "Gdzie?",
+          "answer": "w domu Karola"
+        }
+      ]
+    },
+    "secondTask": [],
+    "thirdTask": [],
+    "fourthTask": []
+  },
+  {
+    "firstTask": {
+      "entry": "Dzień dobry! Nazywam się Kasia i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłam go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałam go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {
+          "id": 1,
+          "question": "Co zginęło?",
+          "answer": "zegarek"
+        },
+        {
+          "id": 2,
+          "question": "Kiedy?",
+          "answer": "w sobotę"
+        },
+        {
+          "id": 3,
+          "question": "Gdzie?",
+          "answer": "w domu Kasi"
+        }
+      ]
+    },
+    "secondTask": [],
+    "thirdTask": [],
+    "fourthTask": []
+  },
+  {
+    "firstTask": {
+      "entry": "Dzień dobry! Nazywam się Michał i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {
+          "id": 1,
+          "question": "Co zginęło?",
+          "answer": "zegarek"
+        },
+        {
+          "id": 2,
+          "question": "Kiedy?",
+          "answer": "w sobotę"
+        },
+        {
+          "id": 3,
+          "question": "Gdzie?",
+          "answer": "w domu Michała"
+        }
+      ]
+    },
+    "secondTask": [],
+    "thirdTask": [],
+    "fourthTask": []
+  },
+  {
+    "firstTask": {
+      "entry": "Dzień dobry! Nazywam się Ewa i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłam go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałam go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {
+          "id": 1,
+          "question": "Co zginęło?",
+          "answer": "zegarek"
+        },
+        {
+          "id": 2,
+          "question": "Kiedy?",
+          "answer": "w sobotę"
+        },
+        {
+          "id": 3,
+          "question": "Gdzie?",
+          "answer": "w domu Ewy"
+        }
+      ]
+    },
+    "secondTask": [],
+    "thirdTask": [],
+    "fourthTask": []
+  },
+  {
+    "firstTask": {
+      "entry": "Dzień dobry! Nazywam się Julia i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłam go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałam go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {
+          "id": 1,
+          "question": "Co zginęło?",
+          "answer": "zegarek"
+        },
+        {
+          "id": 2,
+          "question": "Kiedy?",
+          "answer": "w sobotę"
+        },
+        {
+          "id": 3,
+          "question": "Gdzie?",
+          "answer": "w domu Julii"
+        }
+      ]
+    },
+    "secondTask": [],
+    "thirdTask": [],
+    "fourthTask": []
+  }
+]
+
+

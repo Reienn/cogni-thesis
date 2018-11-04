@@ -1,9 +1,14 @@
 export interface FirstTaskData {
+  entry: string;
+  notes: Notes[];
+}
+
+export interface Notes {
   id: number;
   question: string;
   answer: string;
-  correct: boolean;
-  empty: boolean;
+  correct?: boolean;
+  empty?: boolean;
 }
 
 export interface SecondTaskData {

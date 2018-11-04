@@ -1,14 +1,8 @@
 <div class="task-content row">
   <div class="task-content-dialogue">
-    <mat-card>
-      Dzień dobry!<br>
-      Nazywam się Jaś i mam kłopot.<br>
-      Ktoś ukradł mój zegarek!<br>
-      W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było!<br>
-      To był bardzo cenny zegarek, dostałem go od babci z Ameryki.<br>
-      Proszę mi pomóc!
+    <mat-card>{{taskData.entry}}
     </mat-card>
   </div>
-  <app-notepad *ngIf="taskData" (taskCompleted)="taskCompleted($event)" [taskData]="taskData"></app-notepad>
+  <app-notepad *ngIf="taskData" (taskCompleted)="taskCompleted($event)" [taskData]="taskData.notes"></app-notepad>
 </div>
 <button class="next-task-button" mat-flat-button color="primary" (click)="nextTask.emit(taskId)" [disabled]="!isCompleted">Dalej</button>
