@@ -45,7 +45,35 @@
         }
       ]
     },
-    "thirdTask": [],
+    "thirdTask": {
+      "people": [
+        {
+          "sex": "female",
+          "name": "Karolina K.",
+          "description": "Bardzo lubi owoce. Ma słaby wzrok. Codziennie rano odwiedza pobliską kawiarnię. Chętnie chodzi do kina.",
+          "isCulprit": true
+        },
+        {
+          "sex": "male",
+          "name": "Damian D.",
+          "description": "Bardzo lubi owoce. Pracuje w księgarni. Codziennie rano odwiedza pobliską kawiarnię. Chętnie chodzi do kina.",
+          "isCulprit": false
+        },
+        {
+          "sex": "female",
+          "name": "Aleksandra A.",
+          "description": "Bardzo lubi słodycze. Często jeździ na rowerze. Codziennie rano odwiedza pobliską kawiarnię. Chętnie chodzi do kina.",
+          "isCulprit": false
+        },
+        {
+          "sex": "male",
+          "name": "Patryk P.",
+          "description": "Bardzo lubi słodycze. Jest gitarzystą. Codziennie rano odwiedza pobliską kawiarnię. Chętnie gra w gry planszowe.",
+          "isCulprit": false
+        }
+      ],
+      "clues": ["banana", "glasses", "coffee", "ticket"]
+    },
     "fourthTask": []
   },
   {

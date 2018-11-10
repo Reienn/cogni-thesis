@@ -11,6 +11,9 @@ export class ThirdTaskComponent extends AbstractTaskComponent implements OnInit 
 
   @Input() taskData: ThirdTaskData;
 
+  isCompleted = false;
+  mistake = false;
+
   constructor() {
     super();
     this.taskId = 3;
@@ -19,4 +22,12 @@ export class ThirdTaskComponent extends AbstractTaskComponent implements OnInit 
   ngOnInit() {
   }
 
+  decide(isCulprit) {
+    if (isCulprit) {
+      this.isCompleted = true;
+      this.mistake = false;
+    } else {
+      this.mistake = true;
+    }
+  }
 }

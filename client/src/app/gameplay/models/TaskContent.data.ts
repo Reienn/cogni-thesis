@@ -22,7 +22,13 @@ export interface SecondTaskData {
 }
 
 export interface ThirdTaskData {
-  id: number;
+  people: {
+    sex: 'male' | 'female';
+    name: string;
+    description: string;
+    isCulprit: boolean;
+  }[];
+  clues: string[];
 }
 
 export interface FourthTaskData {

@@ -4,7 +4,7 @@
 </div>
 <div class="command-box">
   <p class="command" *ngIf="taskData.clues && !isCompleted">{{ taskData.clues[currentCommand].command }}</p>
-  <p class="command" *ngIf="isCompleted">Brawo, dobra robota!</p>
+  <p class="command success" *ngIf="isCompleted">Brawo, dobra robota!</p>
 </div>
 <div class="clues-bar" *ngIf="taskData && taskData.clues">
   <div class="clue-item" *ngFor="let clue of taskData.clues">
