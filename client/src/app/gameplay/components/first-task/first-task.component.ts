@@ -4,8 +4,7 @@ import { FirstTaskData } from '../../models/TaskContent.data';
 
 @Component({
   selector: 'app-first-task',
-  templateUrl: './first-task.component.html',
-  styleUrls: ['./first-task.component.scss']
+  templateUrl: './first-task.component.html'
 })
 export class FirstTaskComponent extends AbstractTaskComponent implements OnInit {
 

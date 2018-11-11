@@ -4,8 +4,7 @@ import { AbstractTaskComponent } from '../abstract-task/abstract-task.component'
 import { SecondTaskData } from '../../models/TaskContent.data';
 @Component({
   selector: 'app-second-task',
-  templateUrl: './second-task.component.html',
-  styleUrls: ['./second-task.component.scss']
+  templateUrl: './second-task.component.html'
 })
 export class SecondTaskComponent extends AbstractTaskComponent implements OnInit, AfterViewInit {
 

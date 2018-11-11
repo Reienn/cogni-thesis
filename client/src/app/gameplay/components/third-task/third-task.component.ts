@@ -4,8 +4,7 @@ import { ThirdTaskData } from '../../models/TaskContent.data';
 
 @Component({
   selector: 'app-third-task',
-  templateUrl: './third-task.component.html',
-  styleUrls: ['./third-task.component.scss']
+  templateUrl: './third-task.component.html'
 })
 export class ThirdTaskComponent extends AbstractTaskComponent implements OnInit {
 

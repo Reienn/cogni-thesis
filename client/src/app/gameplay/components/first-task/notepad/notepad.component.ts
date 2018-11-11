@@ -7,8 +7,7 @@ const DRAGGABLE_GROUP = 'ANSWERS';
 
 @Component({
   selector: 'app-notepad',
-  templateUrl: './notepad.component.html',
-  styleUrls: ['./notepad.component.scss']
+  templateUrl: './notepad.component.html'
 })
 export class NotepadComponent implements OnInit, OnDestroy {
 

@@ -7,8 +7,7 @@ const TASKS_NUMBER = 4;
 const TASKS_CONTENT = require('../../../../assets/tasks-content.json');
 @Component({
   selector: 'app-game-task',
-  templateUrl: './game-task.component.html',
-  styleUrls: ['./game-task.component.scss']
+  templateUrl: './game-task.component.html'
 })
 export class GameTaskComponent implements OnInit {
 

@@ -4,8 +4,7 @@ import { FourthTaskData } from '../../models/TaskContent.data';
 
 @Component({
   selector: 'app-fourth-task',
-  templateUrl: './fourth-task.component.html',
-  styleUrls: ['./fourth-task.component.scss']
+  templateUrl: './fourth-task.component.html'
 })
 export class FourthTaskComponent extends AbstractTaskComponent implements OnInit {
 
