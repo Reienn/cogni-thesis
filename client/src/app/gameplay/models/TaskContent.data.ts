@@ -32,7 +32,13 @@ export interface ThirdTaskData {
 }
 
 export interface FourthTaskData {
-  id: number;
+  exercises: {
+    id: number;
+    question: string;
+    options: {id: number, text: string}[];
+    correct: number;
+    selected?: number;
+  }[];
 }
 
 export interface TaskContent {

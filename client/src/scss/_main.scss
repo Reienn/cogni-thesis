@@ -1,0 +1,33 @@
+@import "variables";
+@import "tasks/first_task";
+@import "tasks/second_task";
+@import "tasks/third_task";
+@import "tasks/fourth_task";
+@import "clues_bar";
+
+@import "dragula";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.centered {
+  text-align: center;
+}
+.failure {
+  color: rgb(211, 87, 87);
+}
+.success {
+  color: rgb(83, 160, 80);
+}
+app-game-task {
+  .next-task-button {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 100;
+  }  
+}

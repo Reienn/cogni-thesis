@@ -1,4 +1,26 @@
-<p>
-  fourth-task works!
-</p>
-<button class="next-task-button" mat-flat-button color="primary" (click)="nextTask.emit(taskId)">Dalej</button>
+<div *ngIf="taskData && taskData.exercises" class="fourth-task">
+  <div class="cipher-container">
+    <div class="cipher-box">
+      <div class="digit" *ngFor="let exercise of taskData.exercises"
+        [ngClass]="{'incorrect-digit': (exercise.selected && exercise.selected !== exercise.correct),
+                    'correct-digit': (exercise.selected && exercise.selected === exercise.correct)}">
+        {{ exercise.selected }}
+      </div>
+    </div>
+    <h4 *ngIf="isCompleted" class="success">Brawo, dobra robota!</h4>
+  </div>
+  <div class="exercises">
+    <mat-card *ngFor="let exercise of taskData.exercises">
+      <mat-card-title>{{ exercise.question }}
+      </mat-card-title>
+      <mat-card-content>
+        <mat-button-toggle-group [(ngModel)]="exercise.selected" class="options" (change)="selectAnswer()" [disabled]="exercise.selected === exercise.correct">
+          <mat-button-toggle class="option" *ngFor="let option of exercise.options" [value]="option.id">{{option.text}}</mat-button-toggle>
+        </mat-button-toggle-group>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
+<button class="next-task-button" mat-flat-button color="primary" (click)="nextTask.emit(taskId)" [disabled]="!isCompleted">Dalej</button>

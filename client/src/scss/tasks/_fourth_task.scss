@@ -1,0 +1,48 @@
+.fourth-task{
+  display: flex;
+  .cipher-container {
+    width: 20%;
+    padding: 5% 0 5% 5%;
+    .cipher-box {
+      background: #888888;
+      padding: 20% 2%;
+      display: flex;
+      justify-content: center;
+      border-radius: 32px;
+      .digit {
+        width: 30px;
+        height: 40px;
+        margin: 0 2px;
+        background: #fff;
+        text-align: center;
+        font-size: 1.5em;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        line-height: 40px;
+        &.correct-digit {
+          background: $correct-bg;
+        }
+        &.incorrect-digit {
+          background: $incorrect-bg;
+        }
+      }
+    }
+  }
+  .exercises {
+    .mat-card-title {
+      font-size: 1.1em;
+    }
+    width: 80%;
+    padding: 5%;
+    .options {
+      border: none;
+      .option {
+        border-radius: 24px;
+        margin-left: 10px;
+        border: 1px solid $light-gray;
+        padding: 0 20px;
+        line-height: 12px;
+      }
+    }
+  }
+}

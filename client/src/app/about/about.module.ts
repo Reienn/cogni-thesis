@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule } from '@angular/material';
 import { AboutComponent } from './about/about.component';
 
 @NgModule({
   imports: [
+    RouterModule,
     CommonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule
   ],
   declarations: [AboutComponent]
 })

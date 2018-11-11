@@ -1,0 +1,23 @@
+.profiles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2%;
+  mat-card {
+    width: 20%;
+    min-width: 200px;
+    max-width: 400px;
+    margin: 1%;
+    position: relative;
+    img {
+      padding: 5% 20%;
+    }
+    mat-card-content {
+      margin-bottom: 50px;
+    }
+    button {
+      position: absolute;
+      bottom: 10px;
+    }
+  }
+}

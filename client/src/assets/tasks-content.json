@@ -74,7 +74,43 @@
       ],
       "clues": ["banana", "glasses", "coffee", "ticket"]
     },
-    "fourthTask": []
+    "fourthTask": {
+      "exercises": [
+        {
+          "id": 1,
+          "question": "Które słowo nie pasuje do pozostałych?",
+          "options": [
+            {"id": 1, "text": "krzesło"},
+            {"id": 2, "text": "stół"},
+            {"id": 3, "text": "mleko"},
+            {"id": 4, "text": "szafa"}
+          ],
+          "correct": 3
+        },
+        {
+          "id": 2,
+          "question": "Które słowo nie pasuje do pozostałych?",
+          "options": [
+            {"id": 1, "text": "spodnie"},
+            {"id": 2, "text": "banan"},
+            {"id": 3, "text": "czapka"},
+            {"id": 4, "text": "skarpetki"}
+          ],
+          "correct": 2
+        },
+        {
+          "id": 3,
+          "question": "Które słowo nie pasuje do pozostałych?",
+          "options": [
+            {"id": 1, "text": "koń"},
+            {"id": 2, "text": "krowa"},
+            {"id": 3, "text": "kaczka"},
+            {"id": 4, "text": "samolot"}
+          ],
+          "correct": 4
+        }
+      ]
+    }
   },
   {
     "firstTask": {

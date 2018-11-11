@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DragulaModule } from 'ng2-dragula';
-import { MatToolbarModule, MatListModule, MatCardModule, MatButtonModule, MatDividerModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatListModule,
+  MatCardModule,
+  MatButtonModule,
+  MatDividerModule,
+  MatButtonToggleModule } from '@angular/material';
 
 import { IntroComponent } from './components/intro/intro.component';
 import { FirstTaskComponent } from './components/first-task/first-task.component';
@@ -27,6 +34,7 @@ const ROUTES: Routes = [
 
 @NgModule({
   imports: [
+    FormsModule,
     CommonModule,
     RouterModule.forChild(ROUTES),
     DragulaModule.forRoot(),
@@ -34,7 +42,8 @@ const ROUTES: Routes = [
     MatCardModule,
     MatListModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonToggleModule
   ],
   declarations: [
     IntroComponent,
