@@ -1,23 +1,23 @@
 <div class="task-content-notepad" *ngIf="taskData">
   <mat-card>
     <div class="questions">
-        <mat-list>
-          <ng-container *ngFor="let record of taskData">
-            <mat-list-item >
-              <div class="question">{{record.question}}</div>
-              <div class="answer-placeholder" [attr.data-id]="record.id" dragula="ANSWERS"
-                [ngClass]="{'active-placeholder': isDragging, 'empty-placeholder': record.empty,
-                           'correct': record.correct, 'incorrect': !record.correct}">
-              </div>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-          </ng-container>
-        </mat-list>
+      <mat-list>
+        <ng-container *ngFor="let record of taskData">
+          <mat-list-item >
+            <div class="question">{{record.question}}</div>
+            <div class="answer-placeholder" [attr.data-id]="record.id" dragula="ANSWERS"
+              [ngClass]="{'active-placeholder': isDragging, 'empty-placeholder': record.empty,
+                          'correct': record.correct, 'incorrect': !record.correct}">
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </ng-container>
+      </mat-list>
+    </div>
+    <div class="answers empty-placeholder" dragula="ANSWERS">
+      <div *ngFor="let record of randomizedTaskData" class="answer" [attr.data-id]="record.id">
+        {{record.answer}}
       </div>
-      <div class="answers empty-placeholder" dragula="ANSWERS">
-        <div *ngFor="let record of taskData" class="answer" [attr.data-id]="record.id">
-          {{record.answer}}
-        </div>
-      </div>
+    </div>
   </mat-card>
 </div>

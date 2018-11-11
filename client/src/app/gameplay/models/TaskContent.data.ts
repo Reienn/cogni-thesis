@@ -38,6 +38,7 @@ export interface FourthTaskData {
     options: {id: number, text: string}[];
     correct: number;
     selected?: number;
+    done?: boolean;
   }[];
 }
 

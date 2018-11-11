@@ -14,6 +14,8 @@ export class NotepadComponent implements OnInit, OnDestroy {
   @Input() taskData: Notes[];
   @Output() taskCompleted = new EventEmitter<boolean>();
 
+  randomizedTaskData: Notes[];
+
   isDragging = false;
 
   subs = new Subscription();
@@ -25,6 +27,7 @@ export class NotepadComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.dragulaSubscribe();
     this.taskData.map(item => { item.correct = false; item.empty = true; return item; });
+    this.randomizedTaskData = Array.from(this.taskData).sort(() => 0.5 - Math.random());
   }
 
   ngOnDestroy() {

@@ -18,10 +18,19 @@ export class FourthTaskComponent extends AbstractTaskComponent implements OnInit
   }
 
   ngOnInit() {
+    if (this.taskData && this.taskData.exercises) {
+      this.taskData.exercises.map(item => {
+        item.done = false;
+        item.options.sort(() => 0.5 - Math.random());
+        return item;
+      });
+      this.taskData.exercises.sort(() => 0.5 - Math.random());
+    }
   }
 
-  selectAnswer() {
-    this.isCompleted = this.taskData.exercises.filter(item => item.correct !== item.selected).length ? false : true;
+  selectAnswer(selected, correct, id) {
+    this.taskData.exercises.find(item => item.id === id).done = selected === correct ? true : false;
+    this.isCompleted = this.taskData.exercises.filter(item => !item.done).length ? false : true;
   }
 
 }

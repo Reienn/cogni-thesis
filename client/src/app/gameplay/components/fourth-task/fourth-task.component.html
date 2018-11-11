@@ -2,8 +2,8 @@
   <div class="cipher-container">
     <div class="cipher-box">
       <div class="digit" *ngFor="let exercise of taskData.exercises"
-        [ngClass]="{'incorrect-digit': (exercise.selected && exercise.selected !== exercise.correct),
-                    'correct-digit': (exercise.selected && exercise.selected === exercise.correct)}">
+        [ngClass]="{'incorrect-digit': (exercise.selected && !exercise.done),
+                    'correct-digit': (exercise.selected && exercise.done)}">
         {{ exercise.selected }}
       </div>
     </div>
@@ -14,8 +14,8 @@
       <mat-card-title>{{ exercise.question }}
       </mat-card-title>
       <mat-card-content>
-        <mat-button-toggle-group [(ngModel)]="exercise.selected" class="options" (change)="selectAnswer()" [disabled]="exercise.selected === exercise.correct">
-          <mat-button-toggle class="option" *ngFor="let option of exercise.options" [value]="option.id">{{option.text}}</mat-button-toggle>
+        <mat-button-toggle-group [(ngModel)]="exercise.selected" class="options" [disabled]="exercise.done">
+          <mat-button-toggle class="option" *ngFor="let option of exercise.options; index as i" [value]="i + 1" (change)="selectAnswer(option.id, exercise.correct, exercise.id)" >{{option.text}}</mat-button-toggle>
         </mat-button-toggle-group>
       </mat-card-content>
     </mat-card>
