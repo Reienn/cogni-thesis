@@ -3,6 +3,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
 import { AuthGuardService } from '../../services/auth-guard.service';
 import { Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,19 +14,25 @@ export class LoginComponent implements OnInit, OnDestroy {
   @Input() err: string;
   @Input() msg: string;
 
-  user: any = {};
+  loginForm: FormGroup;
 
   authSubscription: Subscription;
 
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
     if (localStorage.getItem('currentUser')) {
       this.router.navigate(['gameplay']);
     }
+
+    this.loginForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      psw: ['', Validators.required]
+    });
   }
 
   ngOnDestroy(): void {
@@ -35,7 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login() {
-    this.authSubscription = this.authenticationService.login(this.user.name, this.user.psw).subscribe(
+    this.authSubscription = this.authenticationService.login(this.loginForm.getRawValue()).subscribe(
       user => {
         this.router.navigate(['gameplay']);
       },

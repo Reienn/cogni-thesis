@@ -9,7 +9,7 @@ module.exports.signup = function(req, res, next) {
     if(count != 0) { return res.status(400).send('Nazwa użytkownika jest już zajęta.'); }
     let salt = bcrypt.genSaltSync(10);
     let hash = bcrypt.hashSync(req.body.psw, salt);
-    let user = new User({mail: req.body.mail, name: req.body.name, psw: hash});
+    let user = new User({mail: req.body.mail, name: req.body.name, psw: hash, group: req.body.group});
     user.save(function(err){
       if(err) { return next(err); }
     });

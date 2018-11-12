@@ -13,8 +13,8 @@ export class AuthenticationService {
     private router: Router
   ) { }
 
-  signup(name: string, psw: string, mail: string) {
-    return this.http.post<any>('http://localhost:3000/signup', { name: name, psw: psw, mail: mail })
+  signup(signupData) {
+    return this.http.post<any>('http://localhost:3000/signup', { ...signupData })
       .pipe(map((user: any) => {
         return user;
       }), catchError((err) => {
@@ -23,8 +23,8 @@ export class AuthenticationService {
     );
   }
 
-  login(name: string, psw: string) {
-    return this.http.post<any>('http://localhost:3000/login', { name: name, psw: psw })
+  login(loginData) {
+    return this.http.post<any>('http://localhost:3000/login', { ...loginData })
       .pipe(map((user: any) => {
         if (user && user.token) {
           localStorage.setItem('currentUser', user.token);

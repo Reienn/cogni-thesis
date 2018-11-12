@@ -1,17 +1,39 @@
-<form id="signupForm" class="auth-form" (ngSubmit)="signup()" ngNativeValidate>
+<form id="signupForm" class="auth-form" (ngSubmit)="signup()" [formGroup]="signupForm">
   <p *ngIf="err" class="failure">{{ err }}</p>
-  <p *ngIf="msg">{{ msg }}</p>
   <mat-form-field class="full-width">
-    <input matInput type="email" [(ngModel)]="user.mail" placeholder="Adres e-mail" name="mail" required>
+    <input matInput type="email" placeholder="Adres e-mail" formControlName="mail" required class="form-control">
+    <mat-hint *ngIf="signupForm?.controls.mail?.touched">
+      <div *ngIf="signupForm?.controls.mail?.errors?.required" class="failure">To pole jest wymagane</div>
+      <div *ngIf="signupForm?.controls.mail?.errors?.email" class="failure">Niepoprawny adres email</div>
+    </mat-hint>
   </mat-form-field>
   <mat-form-field class="full-width">
-    <input matInput type="text" [(ngModel)]="user.name" placeholder="Nazwa użytkownika" name="name" required>
+    <input matInput type="text" placeholder="Nazwa użytkownika" formControlName="name" required class="form-control">
+    <mat-hint *ngIf="signupForm?.controls.name?.touched">
+      <div *ngIf="signupForm?.controls.name?.errors?.required" class="failure">To pole jest wymagane</div>
+      <div *ngIf="signupForm?.controls.name?.errors?.minlength" class="failure">Nazwa musi mieć min. 5 znaków</div>
+    </mat-hint>
   </mat-form-field>
   <mat-form-field class="full-width">
-    <input matInput type="password" [(ngModel)]="user.psw" placeholder="Hasło" name="psw" required>
+    <input matInput type="password" placeholder="Hasło" formControlName="psw" required class="form-control">
+    <mat-hint *ngIf="signupForm?.controls.psw?.touched">
+      <div *ngIf="signupForm?.controls.psw?.errors?.required" class="failure">To pole jest wymagane</div>
+      <div *ngIf="signupForm?.controls.psw?.errors?.minlength" class="failure">Hasło musi mieć min. 7 znaków</div>
+    </mat-hint>
   </mat-form-field>
   <mat-form-field class="full-width">
-     <input matInput type="password" [(ngModel)]="user.psw2" placeholder="Powtórz hasło" name="psw2" required>
+     <input matInput type="password" placeholder="Powtórz hasło" formControlName="psw2" required class="form-control">
+     <mat-hint *ngIf="signupForm?.controls.psw2?.touched">
+      <div *ngIf="signupForm?.controls.psw2?.errors?.required" class="failure">To pole jest wymagane</div>
+      <div *ngIf="!signupForm?.controls.psw2?.errors?.required && signupForm?.errors?.mismatch" class="failure">Hasła się różnią</div>
+    </mat-hint>
   </mat-form-field>
-  <button mat-flat-button color="primary" type="submit" id="signup">Utwórz konto</button>
+  <div class="full-width radio">
+    <mat-radio-group formControlName="group" required class="form-control">
+      <mat-radio-button color="primary" value="educator">Nauczyciel</mat-radio-button>
+      <mat-radio-button color="primary" value="student">Uczeń</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <button mat-flat-button color="primary" type="submit" class="auth-button" [disabled]="!signupForm.valid">Utwórz konto</button>
 </form>

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule, MatInputModule, MatRadioModule, MatButtonModule } from '@angular/material';
 
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -14,9 +14,11 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
+    MatRadioModule,
     MatButtonModule
   ],
   declarations: [LoginComponent, SignupComponent],

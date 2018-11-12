@@ -1,11 +1,17 @@
-<form id="loginForm" class="auth-form" (ngSubmit)="login()" ngNativeValidate>
+<form id="loginForm" class="auth-form" (ngSubmit)="login()" [formGroup]="loginForm">
   <p *ngIf="err" class="failure">{{ err }}</p>
   <p *ngIf="msg">{{ msg }}</p>
   <mat-form-field class="full-width">
-    <input matInput type="text" [(ngModel)]="user.name" placeholder="Nazwa użytkownika" name="name" required>
+    <input matInput type="text" placeholder="Nazwa użytkownika" formControlName="name" required>
+    <mat-hint *ngIf="loginForm?.controls.name?.touched">
+      <div *ngIf="loginForm?.controls.name?.errors?.required" class="failure">To pole jest wymagane</div>
+    </mat-hint>
   </mat-form-field>
   <mat-form-field class="full-width">
-    <input matInput type="password" [(ngModel)]="user.psw" placeholder="Hasło" name="psw" required>
+    <input matInput type="password" placeholder="Hasło" formControlName="psw" required>
+    <mat-hint *ngIf="loginForm?.controls.psw?.touched">
+      <div *ngIf="loginForm?.controls.psw?.errors?.required" class="failure">To pole jest wymagane</div>
+    </mat-hint>
   </mat-form-field>
-  <button mat-flat-button color="primary" type="submit" id="login">Zaloguj się</button>
+  <button mat-flat-button color="primary" type="submit" class="auth-button" [disabled]="!loginForm.valid">Zaloguj się</button>
 </form>

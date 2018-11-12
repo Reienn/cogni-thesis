@@ -13,6 +13,21 @@ const UserSchema = new mongoose.Schema({
   psw: {
     type: String,
     required: true
+  },
+  group: {
+    type: String,
+    required: true
+  },
+
+  students: {
+    type: []
+  },
+
+  gamePlayTime: {
+    type: Number
+  },
+  points: {
+    type: Number
   }
 });
 
