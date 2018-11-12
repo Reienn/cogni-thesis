@@ -5,7 +5,7 @@ import { AuthenticationService } from './authentication.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate {
+export class EducatorAuthGuardService implements CanActivate {
   err: string;
   constructor(
     private router: Router,
@@ -15,9 +15,12 @@ export class AuthGuardService implements CanActivate {
   canActivate() {
     return this.authenticationService.authUser().then(
       data => {
-        if (data) {
+        if (data && data.user.user.group === 'educator') {
           this.err = '';
           return true;
+        } else {
+          this.router.navigate(['/gameplay']);
+          return false;
         }
       },
       error => {

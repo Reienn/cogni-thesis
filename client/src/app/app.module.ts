@@ -6,6 +6,8 @@ import { AboutModule } from './about/about.module';
 import { AuthModule } from './auth/auth.module';
 
 import { AuthGuardService } from './auth/services/auth-guard.service';
+import { EducatorAuthGuardService } from './auth/services/educator-auth-guard.service';
+import { LoggedGuardService } from './auth/services/logged-guard.service';
 import { AboutComponent } from './about/about/about.component';
 
 import { AppComponent } from './app.component';
@@ -19,12 +21,13 @@ const ROUTES: Routes = [
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
+    canActivate: [LoggedGuardService]
   },
   {
     path: 'control-panel',
     loadChildren: './control-panel/control-panel.module#ControlPanelModule',
-    canActivate: [AuthGuardService]
+    canActivate: [EducatorAuthGuardService]
   },
   {
     path: 'gameplay',

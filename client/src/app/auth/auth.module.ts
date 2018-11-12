@@ -8,6 +8,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { EducatorAuthGuardService } from './services/educator-auth-guard.service';
+import { LoggedGuardService } from './services/logged-guard.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 @NgModule({
@@ -25,6 +27,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
   providers: [
     AuthenticationService,
     AuthGuardService,
+    EducatorAuthGuardService,
+    LoggedGuardService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
   ],
   exports: [LoginComponent, SignupComponent],

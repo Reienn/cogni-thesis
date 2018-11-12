@@ -6,6 +6,6 @@ module.exports.verifyToken = function(req, res, next) {
     req.userData = jwt.verify(token, 'secretkey');
     next();
   } catch (error) {
-    res.status(400).send('Token verification failed');
+    res.status(400).send({error: 'Token verification failed'});
   }
 }

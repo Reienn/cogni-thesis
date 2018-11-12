@@ -13,38 +13,38 @@ export class AuthenticationService {
     private router: Router
   ) { }
 
-  signup(signupData) {
+  signup(signupData): Promise<any> {
     return this.http.post<any>('http://localhost:3000/signup', { ...signupData })
       .pipe(map((user: any) => {
         return user;
       }), catchError((err) => {
         throw(err.error);
       })
-    );
+    ).toPromise();
   }
 
-  login(loginData) {
+  login(loginData): Promise<any> {
     return this.http.post<any>('http://localhost:3000/login', { ...loginData })
       .pipe(map((user: any) => {
         if (user && user.token) {
-          localStorage.setItem('currentUser', user.token);
+          localStorage.setItem('currentUser', JSON.stringify(user));
           return user;
         }
       }), catchError((err) => {
         throw(err.error);
       })
-    );
+    ).toPromise();
   }
 
-  authUser() {
+  authUser(): Promise<any> {
     return this.http.get<any>('http://localhost:3000/auth-user')
       .pipe(map((user: any) => {
         if (user) {
           return user;
+        } else {
+          return false;
         }
-      }), catchError((err) => {
-        throw(err.error);
-      }));
+      })).toPromise();
   }
 
   logout() {

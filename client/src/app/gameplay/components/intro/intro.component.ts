@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CasesService, Case } from '../../services/cases.service';
 import { AuthenticationService } from '../../../auth/services/authentication.service';
@@ -8,13 +8,11 @@ import { Subscription } from 'rxjs';
   selector: 'app-intro',
   templateUrl: './intro.component.html'
 })
-export class IntroComponent implements OnInit, OnDestroy {
+export class IntroComponent implements OnInit {
 
-  userName: string;
+  user;
 
   cases: Case[];
-
-  userSubscription: Subscription;
 
   constructor(
     private router: Router,
@@ -24,20 +22,7 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getCases();
-
-    this.userSubscription = this.authenticationService.authUser().subscribe(
-      user => {
-        this.userName = user.user.user.name;
-      },
-      err => {
-        this.authenticationService.logout();
-    });
-  }
-
-  ngOnDestroy(): void {
-    if (this.userSubscription) {
-      this.userSubscription.unsubscribe();
-    }
+    this.user = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   selectCase(id) {
