@@ -1,3 +1,11 @@
-<p>
-  login works!
-</p>
+<form id="loginForm" class="auth-form" (ngSubmit)="login()" ngNativeValidate>
+  <p *ngIf="err" class="failure">{{ err }}</p>
+  <p *ngIf="msg">{{ msg }}</p>
+  <mat-form-field class="full-width">
+    <input matInput type="text" [(ngModel)]="user.name" placeholder="Nazwa użytkownika" name="name" required>
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput type="password" [(ngModel)]="user.psw" placeholder="Hasło" name="psw" required>
+  </mat-form-field>
+  <button mat-flat-button color="primary" type="submit" id="login">Zaloguj się</button>
+</form>

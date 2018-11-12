@@ -5,9 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutModule } from './about/about.module';
 import { AuthModule } from './auth/auth.module';
 
+import { AuthGuardService } from './auth/services/auth-guard.service';
 import { AboutComponent } from './about/about/about.component';
-import { LoginComponent } from './auth/components/login/login.component';
-import { SignupComponent } from './auth/components/signup/signup.component';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,20 +22,14 @@ const ROUTES: Routes = [
     component: AboutComponent
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'signup',
-    component: SignupComponent
-  },
-  {
     path: 'control-panel',
-    loadChildren: './control-panel/control-panel.module#ControlPanelModule'
+    loadChildren: './control-panel/control-panel.module#ControlPanelModule',
+    canActivate: [AuthGuardService]
   },
   {
     path: 'gameplay',
-    loadChildren: './gameplay/gameplay.module#GameplayModule'
+    loadChildren: './gameplay/gameplay.module#GameplayModule',
+    canActivate: [AuthGuardService]
   }
 ];
 

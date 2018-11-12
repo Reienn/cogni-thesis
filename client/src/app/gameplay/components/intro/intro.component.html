@@ -1,5 +1,7 @@
 <mat-toolbar color="primary">
-  <h2>Witaj detektywie!</h2>
+  <h2>Witaj detektywie {{userName}}</h2>
+  <span class="toolbar-spacer"></span>
+  <button mat-flat-button (click)="logout()">Wyloguj</button>
 </mat-toolbar>
 <mat-card>
   <mat-card-title>Misje</mat-card-title>

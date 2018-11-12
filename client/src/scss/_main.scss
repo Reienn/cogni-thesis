@@ -1,14 +1,15 @@
-@import "variables";
-@import "tasks/first_task";
-@import "tasks/second_task";
-@import "tasks/third_task";
-@import "tasks/fourth_task";
-@import "clues_bar";
+@import 'variables';
+@import 'auth';
+@import 'tasks/first_task';
+@import 'tasks/second_task';
+@import 'tasks/third_task';
+@import 'tasks/fourth_task';
+@import 'clues_bar';
 
-@import "dragula";
+@import 'dragula';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, 'Helvetica Neue', sans-serif; }
 * {
   box-sizing: border-box;
   user-select: none;
@@ -29,5 +30,9 @@ app-game-task {
     bottom: 5px;
     right: 5px;
     z-index: 100;
-  }  
+  }
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
 }

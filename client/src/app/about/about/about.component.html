@@ -1,4 +1,14 @@
 <mat-toolbar>
   <span>O aplikacji</span>
 </mat-toolbar>
-<a mat-flat-button color="primary" routerLink="/gameplay" routerLinkActive="active">Zagraj!</a>
+
+<div class="auth-wrapper">
+  <mat-tab-group [selectedIndex]="selectedAuthForm">
+    <mat-tab label="Utwórz konto">
+      <app-signup (signedUp)="redirectToLogin($event)"></app-signup>
+    </mat-tab>
+    <mat-tab label="Zaloguj się">
+      <app-login [err]="err" [msg]="msg"></app-login>
+    </mat-tab>
+  </mat-tab-group>
+</div>
