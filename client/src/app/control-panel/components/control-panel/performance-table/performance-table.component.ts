@@ -17,7 +17,7 @@ export class PerformanceTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['timestamp', 'case', 'task', 'points', 'maxPoints', 'percent'];
+  displayedColumns: string[] = ['timestamp', 'case', 'task', 'points', 'maxPoints', 'ratio'];
   dataSource: MatTableDataSource<any>;
   disableClear = true;
 

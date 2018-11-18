@@ -27,7 +27,7 @@ export class ControlPanelComponent implements OnInit {
     selectedPlayer = this.players.find(item => item.name === name);
     if (selectedPlayer.performance && selectedPlayer.performance.length) {
       selectedPlayer.performance = selectedPlayer.performance.map(item => {
-        item.percent = (100 * item.points / item.maxPoints).toFixed(2);
+        item.ratio = (item.points / item.maxPoints).toFixed(2);
         return item;
       });
       this.selectedPlayer = JSON.parse(JSON.stringify(selectedPlayer));
