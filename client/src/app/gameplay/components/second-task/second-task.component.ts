@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, Input, ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { AbstractTaskComponent } from '../abstract-task/abstract-task.component';
-import { SecondTaskData } from '../../models/TaskContent.data';
+import { SecondTaskData } from '../../models/task-content.data';
 @Component({
   selector: 'app-second-task',
   templateUrl: './second-task.component.html'
@@ -35,11 +35,14 @@ export class SecondTaskComponent extends AbstractTaskComponent implements OnInit
   itemClicked(item) {
     if (this.taskData.clues[this.currentCommand].item === item) {
       this.taskData.clues[this.currentCommand].found = true;
+      this.pointsChange.emit(1);
       if (this.currentCommand < this.taskData.clues.length - 1) {
         this.currentCommand++;
       } else {
         this.isCompleted = true;
       }
+    } else {
+      this.pointsChange.emit(-1);
     }
     this.changeDetector.detectChanges();
   }

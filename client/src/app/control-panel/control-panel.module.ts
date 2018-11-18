@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatButtonModule} from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatTableModule, MatSortModule, MatPaginatorModule } from '@angular/material';
 
 import { ControlPanelComponent } from './components/control-panel/control-panel.component';
 import { NewPlayerComponent } from './components/new-player/new-player.component';
 import { PlayersComponent } from './components/players/players.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { ControlService } from './services/control.service';
+import { PerformanceTableComponent } from './components/control-panel/performance-table/performance-table.component';
 
 const ROUTES: Routes = [
   {
@@ -37,8 +39,14 @@ const ROUTES: Routes = [
     CommonModule,
     RouterModule.forChild(ROUTES),
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
-  declarations: [ControlPanelComponent, NewPlayerComponent, PlayersComponent, SettingsComponent, StatsComponent]
+  declarations: [ControlPanelComponent, NewPlayerComponent, PlayersComponent, SettingsComponent, StatsComponent, PerformanceTableComponent],
+  providers: [
+    ControlService
+  ]
 })
 export class ControlPanelModule { }

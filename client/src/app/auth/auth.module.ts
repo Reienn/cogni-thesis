@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule, MatRadioModule, MatButtonModule } from '@angular/material';
 
@@ -10,14 +9,12 @@ import { AuthenticationService } from './services/authentication.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { EducatorAuthGuardService } from './services/educator-auth-guard.service';
 import { LoggedGuardService } from './services/logged-guard.service';
-import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
@@ -28,8 +25,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     AuthenticationService,
     AuthGuardService,
     EducatorAuthGuardService,
-    LoggedGuardService,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
+    LoggedGuardService
   ],
   exports: [LoginComponent, SignupComponent],
 })

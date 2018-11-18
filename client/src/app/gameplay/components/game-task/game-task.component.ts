@@ -1,11 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CasesService } from '../../services/cases.service';
-import { TaskContent } from '../../models/TaskContent.data';
+import { TaskContent } from '../../models/task-content.data';
 import { Subscription } from 'rxjs';
+import { Performance } from '../../models/game-data.data';
 
 const TASKS_NUMBER = 4;
-const TASKS_CONTENT = require('../../../../assets/tasks-content.json');
+
+interface TasksPoints {
+  [key: number]: number;
+}
 @Component({
   selector: 'app-game-task',
   templateUrl: './game-task.component.html'
@@ -13,42 +17,71 @@ const TASKS_CONTENT = require('../../../../assets/tasks-content.json');
 export class GameTaskComponent implements OnInit, OnDestroy {
 
   caseId: number;
-  currentTask: number;
+  currentTask = 1;
   tasksContent: TaskContent[];
 
   caseIdSubscription: Subscription;
+  performance: Performance[] = [];
+  pointsSum = 0;
+  tasksPoints: TasksPoints = {1: 0, 2: 0, 3: 0, 4: 0};
+  maxPoints: TasksPoints;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private changeDetector: ChangeDetectorRef,
     private casesService: CasesService) { }
 
   ngOnInit() {
     this.getCaseId();
-    this.currentTask = 1;
-    this.tasksContent = JSON.parse(JSON.stringify(TASKS_CONTENT));
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     if (this.caseIdSubscription) {
       this.caseIdSubscription.unsubscribe();
     }
   }
 
   nextTask(id) {
+    this.performance.push({
+      case: this.caseId,
+      task: this.currentTask,
+      timestamp: new Date(),
+      points: this.tasksPoints[this.currentTask],
+      maxPoints: this.maxPoints[this.currentTask]
+    });
     if (id < TASKS_NUMBER) {
       this.currentTask++;
     } else if (id === TASKS_NUMBER) {
-      this.casesService.completedCase(this.caseId);
+      this.casesService.completedCase(this.caseId, this.performance);
       this.router.navigate(['gameplay']);
     }
+  }
+
+  updatePoints(change) {
+    this.pointsSum += change;
+    this.tasksPoints[this.currentTask] += change;
+    this.changeDetector.detectChanges();
   }
 
   private getCaseId() {
     this.caseIdSubscription = this.activatedRoute.params.subscribe(params => {
       if (params['id']) {
-        this.caseId = params['id'];
+        this.caseId = +params['id'];
+        this.getTasksContent();
       }
+    });
+  }
+
+  private getTasksContent() {
+    this.casesService.getTasksContent().then(tasksContent => {
+      this.tasksContent = JSON.parse(JSON.stringify(tasksContent));
+      this.maxPoints = {
+        1: this.tasksContent[this.caseId - 1].firstTask.notes.length,
+        2: this.tasksContent[this.caseId - 1].secondTask.clues.length,
+        3: 1,
+        4: this.tasksContent[this.caseId - 1].fourthTask.exercises.length
+      };
     });
   }
 }

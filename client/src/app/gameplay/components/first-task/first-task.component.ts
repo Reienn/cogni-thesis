@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AbstractTaskComponent } from '../abstract-task/abstract-task.component';
-import { FirstTaskData } from '../../models/TaskContent.data';
+import { FirstTaskData } from '../../models/task-content.data';
 
 @Component({
   selector: 'app-first-task',
@@ -21,5 +21,9 @@ export class FirstTaskComponent extends AbstractTaskComponent implements OnInit 
 
   taskCompleted(event) {
     this.isCompleted = event;
+  }
+
+  updatePoints(change) {
+    this.pointsChange.emit(change);
   }
 }

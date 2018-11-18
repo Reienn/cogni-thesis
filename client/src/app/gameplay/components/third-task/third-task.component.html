@@ -1,7 +1,5 @@
 <div class="centered">
   <h2 >Wybierz podejrzanego</h2>
-  <h3 *ngIf="isCompleted" class="success">Brawo, dobra robota!</h3>
-  <h3 *ngIf="mistake" class="failure">Źle, spróbuj jeszcze raz</h3>
 </div>
 
 <div class="profiles" *ngIf="taskData && taskData.people">
@@ -15,9 +13,13 @@
     <mat-card-title>{{person.name}}</mat-card-title>
     <mat-card-content>{{person.description}}</mat-card-content>
     <mat-card-actions>
-      <button *ngIf="!isCompleted" mat-flat-button color="primary" (click)="decide(person.isCulprit)">Wybierz</button>
+      <button [disabled]="isCompleted" mat-flat-button color="primary" (click)="decide(person.isCulprit)">Wybierz</button>
     </mat-card-actions>
   </mat-card>
+</div>
+<div class="centered">
+  <h3 *ngIf="isCompleted" class="success">Brawo, dobra robota!</h3>
+  <h3 *ngIf="mistake" class="failure">Źle, spróbuj jeszcze raz</h3>
 </div>
 <div class="clues-bar" *ngIf="taskData && taskData.clues">
   <div class="clue-item" *ngFor="let clue of taskData.clues">

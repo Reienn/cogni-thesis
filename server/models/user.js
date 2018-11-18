@@ -19,16 +19,19 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
 
-  students: {
-    type: []
-  },
+  students: [String],
 
-  gamePlayTime: {
-    type: Number
-  },
-  points: {
-    type: Number
-  }
+  gameplayTime: Number,
+  loginDates: [Date],
+  currentCase: Number,
+  performance: [{
+    case: Number,
+    task: Number,
+    timestamp: Date,
+    points: Number,
+    maxPoints: Number
+  }]
+
 });
 
 module.exports = mongoose.model('User', UserSchema);

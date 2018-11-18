@@ -1,0 +1,25 @@
+.control-panel-container {
+  display: flex;
+  padding: 2% 5%;
+  .select-player {
+    display: block;
+    margin-bottom: 5px;
+    min-width: 150px;
+    &.active-player {
+      background: $primary;
+      color: #fff;
+    }
+  }
+  .players-list {
+    width: 30%;
+  }
+  .player-details {
+    width: 70%;
+  }
+  table {
+    width: 100%;
+  }
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+}

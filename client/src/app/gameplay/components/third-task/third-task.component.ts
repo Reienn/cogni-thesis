@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { AbstractTaskComponent } from '../abstract-task/abstract-task.component';
-import { ThirdTaskData } from '../../models/TaskContent.data';
+import { ThirdTaskData } from '../../models/task-content.data';
 
 @Component({
   selector: 'app-third-task',
@@ -32,5 +32,6 @@ export class ThirdTaskComponent extends AbstractTaskComponent implements OnInit 
     } else {
       this.mistake = true;
     }
+    this.pointsChange.emit(isCulprit ? 1 : -1);
   }
 }

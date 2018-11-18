@@ -43,8 +43,8 @@ export interface FourthTaskData {
 }
 
 export interface TaskContent {
-  firstTask: FirstTaskData[];
-  secondTask: SecondTaskData[];
-  thirdTask: ThirdTaskData[];
-  fourthTask: FourthTaskData[];
+  firstTask: FirstTaskData;
+  secondTask: SecondTaskData;
+  thirdTask: ThirdTaskData;
+  fourthTask: FourthTaskData;
 }

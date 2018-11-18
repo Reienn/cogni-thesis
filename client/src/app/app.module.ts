@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AboutModule } from './about/about.module';
 import { AuthModule } from './auth/auth.module';
 
+import { AuthInterceptorService } from './auth/services/auth-interceptor.service';
 import { AuthGuardService } from './auth/services/auth-guard.service';
 import { EducatorAuthGuardService } from './auth/services/educator-auth-guard.service';
 import { LoggedGuardService } from './auth/services/logged-guard.service';
@@ -42,12 +44,13 @@ const ROUTES: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(ROUTES),
     AboutModule,
     AuthModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

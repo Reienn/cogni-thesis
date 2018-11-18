@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
 import { Subscription } from 'rxjs';
-import { Notes } from '../../../models/TaskContent.data';
+import { Notes } from '../../../models/task-content.data';
 
 const DRAGGABLE_GROUP = 'ANSWERS';
 
@@ -13,6 +13,7 @@ export class NotepadComponent implements OnInit, OnDestroy {
 
   @Input() taskData: Notes[];
   @Output() taskCompleted = new EventEmitter<boolean>();
+  @Output() pointsChange = new EventEmitter<number>();
 
   randomizedTaskData: Notes[];
 
@@ -44,8 +45,6 @@ export class NotepadComponent implements OnInit, OnDestroy {
   private isTaskCompleted() {
     if (!this.taskData.filter( item => !item.correct ).length) {
       this.taskCompleted.emit(true);
-    } else {
-      this.taskCompleted.emit(false);
     }
   }
 
@@ -63,6 +62,7 @@ export class NotepadComponent implements OnInit, OnDestroy {
         this.taskData.map( item => {
           if (item.id === +question.dataset.id) {
             item.correct = answer.dataset.id === question.dataset.id ? true : false;
+            this.pointsChange.emit(item.correct ? 1 : -1);
             item.empty = false;
           }
           return item;

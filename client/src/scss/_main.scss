@@ -1,10 +1,11 @@
 @import 'variables';
 @import 'auth';
-@import 'tasks/first_task';
-@import 'tasks/second_task';
-@import 'tasks/third_task';
-@import 'tasks/fourth_task';
-@import 'clues_bar';
+@import 'tasks/first-task';
+@import 'tasks/second-task';
+@import 'tasks/third-task';
+@import 'tasks/fourth-task';
+@import 'control-panel';
+@import 'clues-bar';
 
 @import 'dragula';
 
@@ -30,6 +31,19 @@ app-game-task {
     bottom: 5px;
     right: 5px;
     z-index: 100;
+  }
+  .task-points {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    text-align: center;
+    z-index: 100;
+    background: $light-gray;
+    border-radius: 50%;
   }
 }
 

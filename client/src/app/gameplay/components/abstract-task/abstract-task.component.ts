@@ -8,6 +8,7 @@ export class AbstractTaskComponent implements OnInit {
 
   taskId: number;
   @Output() nextTask = new EventEmitter<number>();
+  @Output() pointsChange = new EventEmitter<number>();
 
   constructor() { }
 
