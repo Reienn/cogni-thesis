@@ -23,7 +23,6 @@ export class SecondTaskComponent extends AbstractTaskComponent implements OnInit
   ngOnInit() {
     if (this.taskData && this.taskData.clues) {
       this.taskData.clues.map(item => { item.found = false; return item; });
-      this.taskData.clues.sort(() => 0.5 - Math.random());
     }
     this.svgSource = this.sanitizer.bypassSecurityTrustResourceUrl(`../../../../assets/img/scenes/${this.taskData.scene}.svg`);
   }

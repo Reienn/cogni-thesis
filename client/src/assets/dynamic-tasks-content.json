@@ -1,0 +1,272 @@
+{
+  "people": [
+    {"sex": "male", "name": "Andrzej A."},
+    {"sex": "female", "name": "Anna A."},
+    {"sex": "male", "name": "Bartek B."},
+    {"sex": "female", "name": "Barbara B."},
+    {"sex": "male", "name": "Cezary C."},
+    {"sex": "female", "name": "Celina C."},
+    {"sex": "male", "name": "Daniel D."},
+    {"sex": "female", "name": "Dominika D."},
+    {"sex": "male", "name": "Emil E."},
+    {"sex": "female", "name": "Ewa E."},
+    {"sex": "male", "name": "Feliks F."},
+    {"sex": "female", "name": "Felicja F."},
+    {"sex": "male", "name": "Grzegorz G."},
+    {"sex": "female", "name": "Gabriela G."},
+    {"sex": "male", "name": "Henryk H."},
+    {"sex": "female", "name": "Hanna H."},
+    {"sex": "male", "name": "Igor I."},
+    {"sex": "female", "name": "Izabela I."},
+    {"sex": "male", "name": "Jan J."},
+    {"sex": "female", "name": "Julia J."},
+    {"sex": "male", "name": "Karol K."},
+    {"sex": "female", "name": "Kasia K."},
+    {"sex": "male", "name": "Ludwik L."},
+    {"sex": "female", "name": "Laura L."},
+    {"sex": "male", "name": "Łukasz Ł."},
+    {"sex": "female", "name": "Łucja Ł."},
+    {"sex": "male", "name": "Mateusz M."},
+    {"sex": "female", "name": "Marta M."},
+    {"sex": "male", "name": "Norbert N."},
+    {"sex": "female", "name": "Natalia N."},
+    {"sex": "male", "name": "Oskar O."},
+    {"sex": "female", "name": "Olga O."},
+    {"sex": "male", "name": "Patryk P."},
+    {"sex": "female", "name": "Paulina P."},
+    {"sex": "male", "name": "Robert R."},
+    {"sex": "female", "name": "Renata R."},
+    {"sex": "male", "name": "Sebastian S."},
+    {"sex": "female", "name": "Sylwia S."},
+    {"sex": "male", "name": "Tomasz T."},
+    {"sex": "female", "name": "Teresa T."},
+    {"sex": "male", "name": "Wiktor W."},
+    {"sex": "female", "name": "Weronika W."},
+    {"sex": "male", "name": "Zygmunt Z."},
+    {"sex": "female", "name": "Zuzanna Z."}
+  ],
+
+  "clues": [
+    {"name": "coffee", "description": "Często odwiedza pobliską kawiarnię."},
+    {"name": "banana", "description": "Bardzo lubi owoce."},
+    {"name": "ticket", "description": "Często chodzi do kina."},
+    {"name": "glasses", "description": "Ma słaby wzrok."},
+    {"name": "cookie", "description": "Lubi słodycze."},
+    {"name": "flower", "description": "Pracuje w kwiaciarni."},
+    {"name": "scarf", "description": "Jest zmarzluchem."},
+    {"name": "hat", "description": "Lubi eleganckie nakrycia głowy."}
+  ],
+
+  "exercises": {
+    "wordGroups": [
+      ["krzesło", "stół", "biurko", "szafa", "fotel", "łóżko", "regał", "komoda", "sofa", "lampa"],
+      ["kot", "pies", "tygrys", "koń", "pingwin", "żyrafa", "niedźwiedź", "lis", "słoń", "wąż"],
+      ["spodnie", "sukienka", "skarpetki", "podkoszulek", "sweter", "czapka", "kurtka", "rękawiczki", "szalik", "buty"],
+      ["samolot", "samochód", "pociąg", "autobus", "tramwaj", "statek", "motor", "helikopter", "rower", "metro"],
+      ["jabłko", "banan", "truskawka", "śliwka", "gruszka", "pomarańcza", "arbuz", "brzoskwinia", "wiśnia", "ananas"]
+    ]
+  },
+
+  "cases": [
+    {
+      "id": 1,
+      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {"question": "Co zginęło?", "answer": "zegarek"},
+        {"question": "Kiedy?", "answer": "w sobotę"},
+        {"question": "Gdzie?", "answer": "w domu Jasia"}
+      ],
+      "stolenItem": "zegarek",
+      "scene": "room",
+      "searchingCommands": [
+        {"command": "Przesuń doniczkę", "item": "plant"},
+        {"command": "Zajrzyj pod dywan", "item": "carpet"},
+        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
+        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+      ],
+      "exercises": [
+        {"type": "wordGroups", "amount": 3, "question": "Które słowo nie pasuje do pozostałych?"}
+      ]
+    },
+    {
+      "id": 2,
+      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {"question": "Co zginęło?", "answer": "zegarek"},
+        {"question": "Kiedy?", "answer": "w sobotę"},
+        {"question": "Gdzie?", "answer": "w domu Jasia"}
+      ],
+      "stolenItem": "zegarek",
+      "scene": "room",
+      "searchingCommands": [
+        {"command": "Przesuń doniczkę", "item": "plant"},
+        {"command": "Zajrzyj pod dywan", "item": "carpet"},
+        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
+        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+      ],
+      "exercises": [
+        {"type": "wordGroups", "amount": 3, "question": "Które słowo nie pasuje do pozostałych?"}
+      ]
+    },
+    {
+      "id": 3,
+      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {"question": "Co zginęło?", "answer": "zegarek"},
+        {"question": "Kiedy?", "answer": "w sobotę"},
+        {"question": "Gdzie?", "answer": "w domu Jasia"}
+      ],
+      "stolenItem": "zegarek",
+      "scene": "room",
+      "searchingCommands": [
+        {"command": "Przesuń doniczkę", "item": "plant"},
+        {"command": "Zajrzyj pod dywan", "item": "carpet"},
+        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
+        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+      ],
+      "exercises": [
+        {"type": "wordGroups", "amount": 3, "question": "Które słowo nie pasuje do pozostałych?"}
+      ]
+    },
+    {
+      "id": 4,
+      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {"question": "Co zginęło?", "answer": "zegarek"},
+        {"question": "Kiedy?", "answer": "w sobotę"},
+        {"question": "Gdzie?", "answer": "w domu Jasia"}
+      ],
+      "stolenItem": "zegarek",
+      "scene": "room",
+      "searchingCommands": [
+        {"command": "Przesuń doniczkę", "item": "plant"},
+        {"command": "Zajrzyj pod dywan", "item": "carpet"},
+        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
+        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+      ],
+      "exercises": [
+        {"type": "wordGroups", "amount": 4, "question": "Które słowo nie pasuje do pozostałych?"}
+      ]
+    },
+    {
+      "id": 5,
+      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {"question": "Co zginęło?", "answer": "zegarek"},
+        {"question": "Kiedy?", "answer": "w sobotę"},
+        {"question": "Gdzie?", "answer": "w domu Jasia"}
+      ],
+      "stolenItem": "zegarek",
+      "scene": "room",
+      "searchingCommands": [
+        {"command": "Przesuń doniczkę", "item": "plant"},
+        {"command": "Zajrzyj pod dywan", "item": "carpet"},
+        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
+        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+      ],
+      "exercises": [
+        {"type": "wordGroups", "amount": 4, "question": "Które słowo nie pasuje do pozostałych?"}
+      ]
+    },
+    {
+      "id": 6,
+      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {"question": "Co zginęło?", "answer": "zegarek"},
+        {"question": "Kiedy?", "answer": "w sobotę"},
+        {"question": "Gdzie?", "answer": "w domu Jasia"}
+      ],
+      "stolenItem": "zegarek",
+      "scene": "room",
+      "searchingCommands": [
+        {"command": "Przesuń doniczkę", "item": "plant"},
+        {"command": "Zajrzyj pod dywan", "item": "carpet"},
+        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
+        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+      ],
+      "exercises": [
+        {"type": "wordGroups", "amount": 4, "question": "Które słowo nie pasuje do pozostałych?"}
+      ]
+    },
+    {
+      "id": 7,
+      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {"question": "Co zginęło?", "answer": "zegarek"},
+        {"question": "Kiedy?", "answer": "w sobotę"},
+        {"question": "Gdzie?", "answer": "w domu Jasia"}
+      ],
+      "stolenItem": "zegarek",
+      "scene": "room",
+      "searchingCommands": [
+        {"command": "Przesuń doniczkę", "item": "plant"},
+        {"command": "Zajrzyj pod dywan", "item": "carpet"},
+        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
+        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+      ],
+      "exercises": [
+        {"type": "wordGroups", "amount": 5, "question": "Które słowo nie pasuje do pozostałych?"}
+      ]
+    },
+    {
+      "id": 8,
+      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {"question": "Co zginęło?", "answer": "zegarek"},
+        {"question": "Kiedy?", "answer": "w sobotę"},
+        {"question": "Gdzie?", "answer": "w domu Jasia"}
+      ],
+      "stolenItem": "zegarek",
+      "scene": "room",
+      "searchingCommands": [
+        {"command": "Przesuń doniczkę", "item": "plant"},
+        {"command": "Zajrzyj pod dywan", "item": "carpet"},
+        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
+        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+      ],
+      "exercises": [
+        {"type": "wordGroups", "amount": 5, "question": "Które słowo nie pasuje do pozostałych?"}
+      ]
+    },
+    {
+      "id": 9,
+      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {"question": "Co zginęło?", "answer": "zegarek"},
+        {"question": "Kiedy?", "answer": "w sobotę"},
+        {"question": "Gdzie?", "answer": "w domu Jasia"}
+      ],
+      "stolenItem": "zegarek",
+      "scene": "room",
+      "searchingCommands": [
+        {"command": "Przesuń doniczkę", "item": "plant"},
+        {"command": "Zajrzyj pod dywan", "item": "carpet"},
+        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
+        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+      ],
+      "exercises": [
+        {"type": "wordGroups", "amount": 5, "question": "Które słowo nie pasuje do pozostałych?"}
+      ]
+    },
+    {
+      "id": 10,
+      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "notes": [
+        {"question": "Co zginęło?", "answer": "zegarek"},
+        {"question": "Kiedy?", "answer": "w sobotę"},
+        {"question": "Gdzie?", "answer": "w domu Jasia"}
+      ],
+      "stolenItem": "zegarek",
+      "scene": "room",
+      "searchingCommands": [
+        {"command": "Przesuń doniczkę", "item": "plant"},
+        {"command": "Zajrzyj pod dywan", "item": "carpet"},
+        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
+        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+      ],
+      "exercises": [
+        {"type": "wordGroups", "amount": 5, "question": "Które słowo nie pasuje do pozostałych?"}
+      ]
+    }
+  ]
+}

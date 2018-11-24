@@ -1,10 +1,10 @@
 <div class="task-points">{{pointsSum}}</div>
-<ng-container *ngIf="caseId && currentTask && tasksContent">
+<ng-container *ngIf="caseId && currentTask && dynamicTasksContent">
   <mat-toolbar color="primary">
     <h2>Aktualna sprawa: {{caseId}}, aktualne zadanie: {{currentTask}}</h2>
   </mat-toolbar>
-  <app-first-task *ngIf="currentTask === 1" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="tasksContent[caseId - 1].firstTask"></app-first-task>
-  <app-second-task *ngIf="currentTask === 2" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="tasksContent[caseId - 1].secondTask"></app-second-task>
-  <app-third-task *ngIf="currentTask === 3" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="tasksContent[caseId - 1].thirdTask"></app-third-task>
-  <app-fourth-task *ngIf="currentTask === 4" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="tasksContent[caseId - 1].fourthTask"></app-fourth-task>
+  <app-first-task *ngIf="currentTask === 1" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.firstTask"></app-first-task>
+  <app-second-task *ngIf="currentTask === 2" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.secondTask"></app-second-task>
+  <app-third-task *ngIf="currentTask === 3" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.thirdTask"></app-third-task>
+  <app-fourth-task *ngIf="currentTask === 4" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.fourthTask"></app-fourth-task>
 </ng-container>

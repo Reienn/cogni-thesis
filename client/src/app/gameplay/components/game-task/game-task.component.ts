@@ -18,7 +18,7 @@ export class GameTaskComponent implements OnInit, OnDestroy {
 
   caseId: number;
   currentTask = 1;
-  tasksContent: TaskContent[];
+  dynamicTasksContent: TaskContent;
 
   caseIdSubscription: Subscription;
   performance: Performance[] = [];
@@ -68,19 +68,19 @@ export class GameTaskComponent implements OnInit, OnDestroy {
     this.caseIdSubscription = this.activatedRoute.params.subscribe(params => {
       if (params['id']) {
         this.caseId = +params['id'];
-        this.getTasksContent();
+        this.getCaseTasksContent(this.caseId);
       }
     });
   }
 
-  private getTasksContent() {
-    this.casesService.getTasksContent().then(tasksContent => {
-      this.tasksContent = JSON.parse(JSON.stringify(tasksContent));
+  private getCaseTasksContent(caseId: number) {
+    this.casesService.getDynamicTasksContent(caseId).then(tasksContent => {
+      this.dynamicTasksContent = JSON.parse(JSON.stringify(tasksContent));
       this.maxPoints = {
-        1: this.tasksContent[this.caseId - 1].firstTask.notes.length,
-        2: this.tasksContent[this.caseId - 1].secondTask.clues.length,
+        1: this.dynamicTasksContent.firstTask.notes.length,
+        2: this.dynamicTasksContent.secondTask.clues.length,
         3: 1,
-        4: this.tasksContent[this.caseId - 1].fourthTask.exercises.length
+        4: this.dynamicTasksContent.fourthTask.exercises.length
       };
     });
   }
