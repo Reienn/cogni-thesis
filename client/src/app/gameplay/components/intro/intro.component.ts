@@ -13,6 +13,7 @@ export class IntroComponent implements OnInit {
   user;
 
   cases: Case[];
+  currentCase: number;
 
   constructor(
     private router: Router,
@@ -36,7 +37,8 @@ export class IntroComponent implements OnInit {
   private getCases() {
     this.casesService.getCases().then(
       (val) => {
-        this.cases = val;
+        this.cases = val.cases;
+        this.currentCase = val.currentCase ? val.currentCase : 0;
       },
       (err) => {
         console.log(err);

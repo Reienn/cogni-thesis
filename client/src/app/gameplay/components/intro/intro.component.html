@@ -1,15 +1,19 @@
-<mat-toolbar color="primary">
-  <h2>Witaj detektywie {{user?.name}}</h2>
-  <span class="toolbar-spacer"></span>
-  <button mat-flat-button (click)="logout()">Wyloguj</button>
-</mat-toolbar>
-<mat-card>
-  <mat-card-title>Misje</mat-card-title>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item *ngFor="let case of cases">
-        <button mat-flat-button color="primary" [disabled]="!case.available" (click)="selectCase(case.id)">{{case.name}}</button>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+<ng-container *ngIf="user">
+  <mat-toolbar color="primary">
+    <h2>Witaj detektywie {{user.name}}</h2>
+    <span class="toolbar-spacer"></span>
+    <button mat-flat-button (click)="logout()">Wyloguj</button>
+  </mat-toolbar>
+  <mat-card>
+    <mat-card-title>Misje</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let case of cases">
+          <button mat-flat-button [color]="case.id === currentCase + 1 ? 'accent' : 'primary'" [disabled]="case.id > currentCase + 1" (click)="selectCase(case.id)">
+            {{case.name}}
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</ng-container>

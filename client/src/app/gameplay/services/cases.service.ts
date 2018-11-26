@@ -72,13 +72,14 @@ export class CasesService {
 
   cases: Case[] = JSON.parse(JSON.stringify(CASES));
   dynamicTasksContent = JSON.parse(JSON.stringify(DYNAMIC_TASKS_CONTENT));
+  currentCase: number;
 
   constructor(private http: HttpClient) { }
 
-  getCases(): Promise<Case[]> {
+  getCases(): Promise<{cases: Case[], currentCase: number}> {
     return new Promise((resolve, reject) => {
       if (this.cases) {
-        resolve(this.cases);
+        resolve({cases: this.cases, currentCase: JSON.parse(localStorage.getItem('currentUser')).currentCase});
       } else {
         reject('No cases');
       }
@@ -118,18 +119,15 @@ export class CasesService {
     });
   }
 
-  completedCase(id: number, performance: Performance[]) {
-    this.updatePerformance(performance).then(data => {
-      console.log(data);
-    });
-    if (id < this.cases.length) {
-      this.cases[id].available = true;
-    }
-  }
-
-  private updatePerformance(performance: Performance[]): Promise<any> {
-    return this.http.post<any>('http://localhost:3000/performance', {performance: performance})
+  completedCase(id: number, performance: Performance[]): Promise<any> {
+    return this.http.post<any>('http://localhost:3000/performance', {performance: performance, id: id})
       .pipe(map((response: any) => {
+        let user;
+        user = JSON.parse(localStorage.getItem('currentUser'));
+        if (!user.currentCase || (user.currentCase && user.currentCase < id)) {
+          user.currentCase = id;
+          localStorage.setItem('currentUser', JSON.stringify(user));
+        }
         return response;
       }), catchError((err) => {
         throw(err.error);
@@ -183,7 +181,7 @@ export class CasesService {
         options.sort(() => 0.5 - Math.random());
         options = options.slice(0, 3);
 
-        correctOption = source[ i < source.length ? i + 1 : 0];
+        correctOption = source[ i < source.length - 1 ? i + 1 : 0];
         correctOption.sort(() => 0.5 - Math.random());
         options.unshift(correctOption[0]);
 

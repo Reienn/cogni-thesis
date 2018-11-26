@@ -10,7 +10,7 @@ module.exports.login = function(req, res, next) {
     if(user && bcrypt.compareSync(req.body.psw, user.psw)) {
       jwt.sign({user}, 'secretkey', {expiresIn: '7d'}, (err, token) => {
         if(err) return next(err);
-        res.json({token: token, group: user.group, name: user.name});
+        res.json({token: token, group: user.group, name: user.name, currentCase: user.currentCase});
       });
       console.log('login: '+user.name);
     } else {
