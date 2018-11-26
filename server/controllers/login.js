@@ -14,7 +14,7 @@ module.exports.login = function(req, res, next) {
       });
       console.log('login: '+user.name);
     } else {
-      res.status(400).send('Błędne dane');
+      res.status(422).send('Błędne dane');
     }
   });
 }

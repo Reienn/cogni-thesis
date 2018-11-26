@@ -18,7 +18,7 @@ export class AuthenticationService {
       .pipe(map((user: any) => {
         return user;
       }), catchError((err) => {
-        throw(err.error);
+        throw(err);
       })
     ).toPromise();
   }
@@ -31,7 +31,7 @@ export class AuthenticationService {
           return user;
         }
       }), catchError((err) => {
-        throw(err.error);
+        throw(err);
       })
     ).toPromise();
   }

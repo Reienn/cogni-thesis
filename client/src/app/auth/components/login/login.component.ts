@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
         this.redirectLogged(user);
       },
       err => {
-        this.err = err;
+        console.log(err);
+        this.err = err.status === 422 ? 'Błędne dane' : 'Błąd logowania';
       });
   }
 

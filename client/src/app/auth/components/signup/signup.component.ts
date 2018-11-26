@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
         this.signedUp.emit('Utworzono konto, możesz się zalogować');
       },
       err => {
-        this.err = err;
+        this.err = err.status === 409 ? 'Nazwa użytkownika jest już zajęta' : 'Błąd rejestracji';
     });
   }
 
