@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const SETTINGS = require('./settings.conf.json');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 8080;
+app.use(express.static(__dirname + '/../client/dist/client'));
 
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
