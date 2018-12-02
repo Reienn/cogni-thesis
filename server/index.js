@@ -1,8 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
-// const socketIoService = require('./services/socket-io')
+const SETTINGS = require('./settings.conf.json');
 
 const app = express();
 const port = 3000;
@@ -15,9 +14,8 @@ const server = app.listen(port, (err) => {
   if (err) return console.log(err);
   console.log(`Server is listening on port ${port}`);
 });
-// socketIoService.socketIo(server);
 
-mongoose.connect('mongodb://127.0.0.1:27017/asd-reading-game-app');
+mongoose.connect(SETTINGS.db.address);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
