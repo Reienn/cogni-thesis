@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { TaskContent } from '../models/task-content.data';
 import { Performance } from '../models/game-data.data';
+import { environment } from '../../../environments/environment';
 
 const DYNAMIC_TASKS_CONTENT = require('../../../assets/dynamic-tasks-content.json');
 const CASES =  [
@@ -120,7 +121,7 @@ export class CasesService {
   }
 
   completedCase(id: number, performance: Performance[]): Promise<any> {
-    return this.http.post<any>('http://localhost:3000/performance', {performance: performance, id: id})
+    return this.http.post<any>(environment.baseUrl + '/performance', {performance: performance, id: id})
       .pipe(map((response: any) => {
         let user;
         user = JSON.parse(localStorage.getItem('currentUser'));
