@@ -2,6 +2,7 @@
   "name": "asd-reading-game",
   "version": "1.0.0",
   "scripts": {
+    "start": "npm start --prefix server",
     "postinstall": "npm install --prefix server && npm install --prefix client"
   },
   "engines": {
