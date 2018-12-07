@@ -11,6 +11,7 @@ import { AuthGuardService } from './auth/services/auth-guard.service';
 import { EducatorAuthGuardService } from './auth/services/educator-auth-guard.service';
 import { LoggedGuardService } from './auth/services/logged-guard.service';
 import { AboutComponent } from './about/about/about.component';
+import { NotFoundComponent } from './about/not-found/not-found.component';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,6 +36,10 @@ const ROUTES: Routes = [
     path: 'gameplay',
     loadChildren: './gameplay/gameplay.module#GameplayModule',
     canActivate: [AuthGuardService]
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   }
 ];
 

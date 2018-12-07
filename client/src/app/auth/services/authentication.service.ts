@@ -15,7 +15,7 @@ export class AuthenticationService {
   ) { }
 
   signup(signupData): Promise<any> {
-    return this.http.post<any>(environment.baseUrl + '/signup', { ...signupData })
+    return this.http.post<any>(environment.baseUrl + '/api/signup', { ...signupData })
       .pipe(map((user: any) => {
         return user;
       }), catchError((err) => {
@@ -25,7 +25,7 @@ export class AuthenticationService {
   }
 
   login(loginData): Promise<any> {
-    return this.http.post<any>(environment.baseUrl + '/login', { ...loginData })
+    return this.http.post<any>(environment.baseUrl + '/api/login', { ...loginData })
       .pipe(map((user: any) => {
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
@@ -38,7 +38,7 @@ export class AuthenticationService {
   }
 
   authUser(): Promise<any> {
-    return this.http.get<any>(environment.baseUrl + '/auth-user')
+    return this.http.get<any>(environment.baseUrl + '/api/auth-user')
       .pipe(map((user: any) => {
         if (user) {
           return user;

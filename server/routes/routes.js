@@ -15,17 +15,13 @@ module.exports = function(app) {
   }
   app.use(cors(corsOptions));
 
-  app.get('/', (req, res) => {
-    res.send('Hello from Express!')
-  });
+  app.post('/api/login', loginController.login);
 
-  app.post('/login', loginController.login);
+  app.post('/api/signup', signupController.signup);
 
-  app.post('/signup', signupController.signup);
+  app.get('/api/auth-user', jwt.verifyToken, authUserController.authUser);
 
-  app.get('/auth-user', jwt.verifyToken, authUserController.authUser);
+  app.post('/api/performance', jwt.verifyToken, updatePerformanceController.updatePerformance);
 
-  app.post('/performance', jwt.verifyToken, updatePerformanceController.updatePerformance);
-
-  app.get('/players-performance', jwt.verifyToken, playersPerformanceController.playersPerformance);
+  app.get('/api/players-performance', jwt.verifyToken, playersPerformanceController.playersPerformance);
 }

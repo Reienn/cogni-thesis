@@ -121,7 +121,7 @@ export class CasesService {
   }
 
   completedCase(id: number, performance: Performance[]): Promise<any> {
-    return this.http.post<any>(environment.baseUrl + '/performance', {performance: performance, id: id})
+    return this.http.post<any>(environment.baseUrl + '/api/performance', {performance: performance, id: id})
       .pipe(map((response: any) => {
         let user;
         user = JSON.parse(localStorage.getItem('currentUser'));

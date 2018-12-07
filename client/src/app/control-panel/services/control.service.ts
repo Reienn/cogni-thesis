@@ -11,7 +11,7 @@ export class ControlService {
   constructor(private http: HttpClient) { }
 
   getPlayers(): Promise<any> {
-    return this.http.get<any>(environment.baseUrl + '/players-performance')
+    return this.http.get<any>(environment.baseUrl + '/api/players-performance')
     .pipe(map((players: any) => {
       if (players) {
         return players;

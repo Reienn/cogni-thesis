@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatTabsModule } from '@angular/material';
+import { MatToolbarModule, MatTabsModule, MatButtonModule } from '@angular/material';
 import { AuthModule } from '../auth/auth.module';
 import { AboutComponent } from './about/about.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -11,8 +12,9 @@ import { AboutComponent } from './about/about.component';
     CommonModule,
     AuthModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonModule
   ],
-  declarations: [AboutComponent]
+  declarations: [AboutComponent, NotFoundComponent]
 })
 export class AboutModule { }
