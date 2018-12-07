@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const SETTINGS = require('./settings.conf.json');
+
+const DB_URL = process.env.DATABASE_URL ? process.env.DATABASE_URL : require('./settings.conf.json').db.url;
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -16,7 +17,7 @@ const server = app.listen(port, (err) => {
   console.log(`Server is listening on port ${port}`);
 });
 
-mongoose.connect(SETTINGS.db.address);
+mongoose.connect(DB_URL);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
