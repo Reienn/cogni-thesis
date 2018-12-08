@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { AboutModule } from './about/about.module';
+import { StartModule } from './start/start.module';
 import { AuthModule } from './auth/auth.module';
 
 import { AuthInterceptorService } from './auth/services/auth-interceptor.service';
 import { AuthGuardService } from './auth/services/auth-guard.service';
 import { EducatorAuthGuardService } from './auth/services/educator-auth-guard.service';
 import { LoggedGuardService } from './auth/services/logged-guard.service';
-import { AboutComponent } from './about/about/about.component';
-import { NotFoundComponent } from './about/not-found/not-found.component';
+import { StartComponent } from './start/start/start.component';
+import { NotFoundComponent } from './start/not-found/not-found.component';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,12 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const ROUTES: Routes = [
   {
     path: '',
-    redirectTo: 'about',
-    pathMatch: 'full'
-  },
-  {
-    path: 'about',
-    component: AboutComponent,
+    component: StartComponent,
+    pathMatch: 'full',
     canActivate: [LoggedGuardService]
   },
   {
@@ -51,7 +47,7 @@ const ROUTES: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
-    AboutModule,
+    StartModule,
     AuthModule,
     BrowserAnimationsModule
   ],

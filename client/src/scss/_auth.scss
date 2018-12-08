@@ -1,12 +1,13 @@
 .auth-wrapper {
-  margin: 20px auto;
-  width: 50%;
-  min-width: 250px;
-  max-width: 550px;
-  border: 1px solid $light-gray;
-  .auth-form {
+  padding: 20px 10px;
+  .mat-tab-group {
     min-width: 200px;
-    max-width: 500px;
+    max-width: 550px;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid $light-gray;
+  }
+  .auth-form {
     width: 100%;
     margin: 20px auto;
     padding: 5%;

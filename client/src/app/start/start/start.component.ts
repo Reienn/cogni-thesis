@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthGuardService } from '../../auth/services/auth-guard.service';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html'
+  selector: 'app-start',
+  templateUrl: './start.component.html'
 })
-export class AboutComponent implements OnInit {
+export class StartComponent implements OnInit {
 
   selectedAuthForm = 0;
   err: string;

@@ -5,6 +5,7 @@ import { MatToolbarModule, MatTabsModule, MatButtonModule } from '@angular/mater
 import { AuthModule } from '../auth/auth.module';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { StartComponent } from './start/start.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatTabsModule,
     MatButtonModule
   ],
-  declarations: [AboutComponent, NotFoundComponent]
+  declarations: [AboutComponent, NotFoundComponent, StartComponent]
 })
-export class AboutModule { }
+export class StartModule { }

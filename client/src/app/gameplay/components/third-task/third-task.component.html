@@ -21,7 +21,7 @@
   <h3 *ngIf="isCompleted" class="success">Brawo, dobra robota!</h3>
   <h3 *ngIf="mistake" class="failure">Źle, spróbuj jeszcze raz</h3>
 </div>
-<div class="clues-bar" *ngIf="taskData && taskData.clues">
+<div class="clues-bar fixed-bar" *ngIf="taskData && taskData.clues">
   <div class="clue-item" *ngFor="let clue of taskData.clues">
     <img class="clue-img" src="assets/img/clues/{{ clue }}.png">
   </div>

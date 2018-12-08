@@ -97,6 +97,9 @@ export class CasesService {
         const people = this.preparePeople([...this.dynamicTasksContent.people], preparedClues, cluesNumber);
         const exercises = this.prepareExercises({...this.dynamicTasksContent.exercises}, [...item.exercises]);
 
+        const randomizedCommands = item.searchingCommands;
+        randomizedCommands.sort(() => 0.5 - Math.random());
+
         resolve({
           firstTask: {
             entry: item.description,
@@ -104,7 +107,7 @@ export class CasesService {
           },
           secondTask: {
             scene: item.scene,
-            clues: item.searchingCommands.map((command, index) => ({...command, clueName: preparedClues.active[index].name}))
+            clues: randomizedCommands.map((command, index) => ({...command, clueName: preparedClues.active[index].name}))
           },
           thirdTask: {
             people: people,
