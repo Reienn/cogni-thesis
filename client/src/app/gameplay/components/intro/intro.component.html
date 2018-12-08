@@ -1,8 +1,11 @@
 <ng-container *ngIf="user">
   <mat-toolbar color="primary">
-    <h2>Witaj detektywie {{user.name}}</h2>
-    <span class="toolbar-spacer"></span>
-    <button mat-flat-button (click)="logout()">Wyloguj</button>
+    <h2 class="title">Witaj detektywie!</h2>
+    <span class="navbar-right">
+      <span class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user?.name}}</span>
+      <button mat-flat-button (click)="logout()">Wyloguj</button>
+      <button mat-flat-button (click)="showAbout = !showAbout">O grze</button>
+    </span>
   </mat-toolbar>
   <mat-card>
     <mat-card-title>Misje</mat-card-title>
@@ -17,3 +20,5 @@
     </mat-card-content>
   </mat-card>
 </ng-container>
+
+<app-about *ngIf="showAbout" (modalClose)="showAbout = !showAbout"></app-about>

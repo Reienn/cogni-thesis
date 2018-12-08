@@ -6,6 +6,7 @@
 @import 'tasks/fourth-task';
 @import 'control-panel';
 @import 'clues-bar';
+@import 'about';
 
 @import 'dragula';
 
@@ -63,4 +64,10 @@ app-game-task {
 .title {
   width: 100%;
   text-align: center;
+}
+
+.navbar-right {
+  > span, > button {
+    margin-left: 15px;
+  }
 }

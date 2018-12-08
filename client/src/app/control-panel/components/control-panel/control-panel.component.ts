@@ -11,6 +11,7 @@ export class ControlPanelComponent implements OnInit {
   user;
   players;
   selectedPlayer;
+  showAbout = false;
 
   constructor(private authenticationService: AuthenticationService,
               private controlService: ControlService) { }

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule, MatButtonModule, MatTableModule, MatSortModule, MatPaginatorModule } from '@angular/material';
 
+import { StartModule } from '../start/start.module';
+
 import { ControlPanelComponent } from './components/control-panel/control-panel.component';
 import { NewPlayerComponent } from './components/new-player/new-player.component';
 import { PlayersComponent } from './components/players/players.component';
@@ -42,7 +44,8 @@ const ROUTES: Routes = [
     MatButtonModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    StartModule
   ],
   declarations: [ControlPanelComponent, NewPlayerComponent, PlayersComponent, SettingsComponent, StatsComponent, PerformanceTableComponent],
   providers: [

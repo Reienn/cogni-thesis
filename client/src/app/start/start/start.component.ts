@@ -11,6 +11,8 @@ export class StartComponent implements OnInit {
   err: string;
   msg: string;
 
+  showAbout = false;
+
   constructor(private authGuardService: AuthGuardService) { }
 
   ngOnInit() {

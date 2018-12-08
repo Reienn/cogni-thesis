@@ -16,6 +16,7 @@ import { StartComponent } from './start/start.component';
     MatTabsModule,
     MatButtonModule
   ],
-  declarations: [AboutComponent, NotFoundComponent, StartComponent]
+  declarations: [AboutComponent, NotFoundComponent, StartComponent],
+  exports: [AboutComponent]
 })
 export class StartModule { }

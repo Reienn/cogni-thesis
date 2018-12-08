@@ -11,6 +11,8 @@ import {
   MatDividerModule,
   MatButtonToggleModule } from '@angular/material';
 
+import { StartModule } from '../start/start.module';
+
 import { IntroComponent } from './components/intro/intro.component';
 import { FirstTaskComponent } from './components/first-task/first-task.component';
 import { SecondTaskComponent } from './components/second-task/second-task.component';
@@ -43,7 +45,8 @@ const ROUTES: Routes = [
     MatListModule,
     MatButtonModule,
     MatDividerModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    StartModule
   ],
   declarations: [
     IntroComponent,

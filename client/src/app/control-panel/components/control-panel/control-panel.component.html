@@ -1,8 +1,12 @@
 <mat-toolbar color="primary">
-  <h2>Jesteś zalogowany/a jako {{user?.name}}</h2>
-  <span class="toolbar-spacer"></span>
-  <button mat-flat-button (click)="logout()">Wyloguj</button>
+  <h2 class="title">Gra "AHA!" - panel nauczyciela</h2>
+  <span class="navbar-right">
+    <span class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user?.name}}</span>
+    <button mat-flat-button (click)="logout()">Wyloguj</button>
+    <button mat-flat-button (click)="showAbout = !showAbout">O grze</button>
+  </span>
 </mat-toolbar>
+
 <div class="control-panel-container">
   <div class="players-list" >
     <h3>Lista graczy:</h3>
@@ -23,3 +27,5 @@
     <ng-template #noData>Brak danych</ng-template>
   </div>
 </div>
+
+<app-about *ngIf="showAbout" (modalClose)="showAbout = !showAbout"></app-about>
