@@ -4,6 +4,7 @@
 @import 'tasks/second-task';
 @import 'tasks/third-task';
 @import 'tasks/fourth-task';
+@import 'tasks/game-task';
 @import 'control-panel';
 @import 'clues-bar';
 @import 'about';
@@ -25,27 +26,6 @@ body { margin: 0; font-family: Roboto, 'Helvetica Neue', sans-serif; }
 }
 .success {
   color: rgb(83, 160, 80);
-}
-app-game-task {
-  .next-task-button {
-    position: fixed;
-    bottom: 5px;
-    right: 5px;
-    z-index: 100;
-  }
-  .task-points {
-    position: fixed;
-    top: 5px;
-    right: 5px;
-    height: 50px;
-    width: 50px;
-    line-height: 50px;
-    font-size: 24px;
-    text-align: center;
-    z-index: 100;
-    background: $light-gray;
-    border-radius: 50%;
-  }
 }
 
 .page-not-found {
@@ -89,4 +69,3 @@ app-game-task {
     }
   }
 }
-

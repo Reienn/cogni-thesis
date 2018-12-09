@@ -1,0 +1,43 @@
+app-game-task {
+  .next-task-button {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 100;
+    font-size: 1.2em;
+    padding: 5px 30px;
+  }
+  .task-points {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    text-align: center;
+    z-index: 100;
+    background: $light-gray;
+    border-radius: 50%;
+    &.add-point {
+      animation-name: add-point-animation;
+      animation-duration: 2s;
+    }
+    &.lose-point {
+      animation-name: lose-point-animation;
+      animation-duration: 2s;
+    }
+  }
+}
+
+@keyframes add-point-animation {
+  0%   {background-color: #fff;}
+  50%  {background-color: $correct-bg;}
+  100% {background-color: #fff;}
+}
+
+@keyframes lose-point-animation {
+  0%   {background-color: #fff;}
+  50%  {background-color: $incorrect-bg;}
+  100% {background-color: #fff;}
+}

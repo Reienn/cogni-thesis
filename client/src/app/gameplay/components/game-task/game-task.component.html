@@ -1,4 +1,4 @@
-<div class="task-points">{{pointsSum}}</div>
+<div class="task-points" [@add]="addPoint ? 'add' : 'noChange'" [@lose]="losePoint ? 'lose' : 'noChange'" >{{pointsSum}}</div>
 <ng-container *ngIf="caseId && currentTask && dynamicTasksContent">
   <mat-toolbar color="primary">
     <h2>

@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
+
 import { CasesService } from '../../services/cases.service';
 import { TaskContent } from '../../models/task-content.data';
 import { Subscription } from 'rxjs';
@@ -12,7 +14,27 @@ interface TasksPoints {
 }
 @Component({
   selector: 'app-game-task',
-  templateUrl: './game-task.component.html'
+  templateUrl: './game-task.component.html',
+  animations: [
+    trigger('add', [
+      transition('noChange => add', [
+        animate('0.7s', keyframes([
+          style({background: '#eee', transform: 'scale(1)'}),
+          style({background: '#b9ffb0', transform: 'scale(1.3)'}),
+          style({background: '#eee', transform: 'scale(1)'})
+        ]))
+      ])
+    ]),
+    trigger('lose', [
+      transition('noChange => lose', [
+        animate('1s', keyframes([
+          style({background: '#eee', transform: 'scale(1)'}),
+          style({background: '#ffb0b0', transform: 'scale(1.3)'}),
+          style({background: '#eee', transform: 'scale(1)'})
+        ]))
+      ])
+    ])
+  ]
 })
 export class GameTaskComponent implements OnInit, OnDestroy {
 
@@ -25,6 +47,9 @@ export class GameTaskComponent implements OnInit, OnDestroy {
   pointsSum = 0;
   tasksPoints: TasksPoints = {1: 0, 2: 0, 3: 0, 4: 0};
   maxPoints: TasksPoints;
+
+  addPoint = false;
+  losePoint = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -60,8 +85,13 @@ export class GameTaskComponent implements OnInit, OnDestroy {
   }
 
   updatePoints(change) {
+    this.addPoint = false;
+    this.losePoint = false;
     this.pointsSum += change;
     this.tasksPoints[this.currentTask] += change;
+    this.changeDetector.detectChanges();
+    this.addPoint = change > 0 ? true : false;
+    this.losePoint = change < 0 ? true : false;
     this.changeDetector.detectChanges();
   }
 

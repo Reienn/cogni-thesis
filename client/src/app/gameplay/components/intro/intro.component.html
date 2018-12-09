@@ -12,8 +12,7 @@
       <mat-card-title>{{i + 1}}. {{case.name}}</mat-card-title>
       <!-- <mat-card-content *ngIf="case.id <= currentCase">Najlepszy wynik: </mat-card-content> -->
       <mat-card-actions>
-        <button mat-flat-button [color]="case.id === currentCase + 1 ? 'accent' : 'primary'"
-          [disabled]="case.id > currentCase + 1" (click)="selectCase(case.id)">
+        <button mat-flat-button color="primary" [disabled]="case.id > currentCase + 1" (click)="selectCase(case.id)">
           <ng-container *ngIf="case.id > currentCase">Zacznij</ng-container>
           <ng-container *ngIf="case.id <= currentCase">Jeszcze raz</ng-container>
         </button>

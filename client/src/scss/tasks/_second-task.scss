@@ -22,22 +22,12 @@
   top: 100px;
   right: 20px;
   width: 200px;
-  height: 100px;
+  padding: 10px;
+  height: auto;
+  font-size: 1.2em;
   background: $light-gray;
   border: 2px dashed $primary;
   border-radius: 16px;
   z-index: 50;
   text-align: center;
-  .command{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 0;
-    margin: 0;
-  }
-}
-
-
-svg .interactive:hover {
-  cursor: pointer;
 }
