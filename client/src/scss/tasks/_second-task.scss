@@ -24,6 +24,7 @@
   width: 200px;
   height: 100px;
   background: $light-gray;
+  border: 2px dashed $primary;
   border-radius: 16px;
   z-index: 50;
   text-align: center;
@@ -34,4 +35,9 @@
     padding: 0;
     margin: 0;
   }
+}
+
+
+svg .interactive:hover {
+  cursor: pointer;
 }

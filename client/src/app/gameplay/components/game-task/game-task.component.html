@@ -1,7 +1,12 @@
 <div class="task-points">{{pointsSum}}</div>
 <ng-container *ngIf="caseId && currentTask && dynamicTasksContent">
   <mat-toolbar color="primary">
-    <h2>Aktualna sprawa: {{caseId}}, aktualne zadanie: {{currentTask}}</h2>
+    <h2>
+      <ng-container *ngIf="currentTask === 1">1. Uzupełnij szczegóły sprawy</ng-container>
+      <ng-container *ngIf="currentTask === 2">2. Odszukaj poszlaki </ng-container>
+      <ng-container *ngIf="currentTask === 3">3. Rozpoznaj podejrzanego</ng-container>
+      <ng-container *ngIf="currentTask === 4">4. Odzyskaj skradziony przedmiot</ng-container>
+    </h2>
   </mat-toolbar>
   <app-first-task *ngIf="currentTask === 1" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.firstTask"></app-first-task>
   <app-second-task *ngIf="currentTask === 2" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.secondTask"></app-second-task>

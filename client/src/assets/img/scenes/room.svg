@@ -185,6 +185,9 @@
        width="6"
        patternUnits="userSpaceOnUse"
        id="EMFhbasepattern" />
+    <filter id="interactiveHover">
+      <feDropShadow stdDeviation="2" in="SourceGraphic" dx="0" dy="0" flood-color="#181818" flood-opacity="1"/>
+    </filter>
     <filter
        style="color-interpolation-filters:sRGB"
        inkscape:label="Lighting"
@@ -390,6 +393,7 @@
           <rect
              style="fill:#e5d4a4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.13888967;stroke-opacity:1;paint-order:fill markers stroke"
              id="rect3693"
+             class="interactive"
              width="31.193579"
              height="84.753372"
              x="50.006382"
@@ -400,6 +404,7 @@
              height="84.753372"
              width="31.193579"
              id="rect3695"
+             class="interactive"
              style="fill:#e5d4a4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.13888967;stroke-opacity:1;paint-order:fill markers stroke" />
           <rect
              ry="0"
@@ -408,6 +413,7 @@
              height="20.032736"
              width="64.713837"
              id="rect3701"
+             class="interactive"
              style="fill:#e5d4a4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.24955522;stroke-opacity:1;paint-order:fill markers stroke" />
           <rect
              style="fill:#e5d4a4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.24955522;stroke-opacity:1;paint-order:fill markers stroke"
@@ -580,6 +586,7 @@
         <rect
            style="fill:url(#linearGradient4382);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.26477528;stroke-opacity:1;paint-order:fill markers stroke"
            id="rect4374"
+           class="interactive"
            width="6.1471992"
            height="28.063301"
            x="-182.45927"
@@ -593,10 +600,12 @@
            height="34.745041"
            width="6.9490075"
            id="rect4384"
+           class="interactive"
            style="fill:url(#linearGradient4386);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.31323999;stroke-opacity:1;paint-order:fill markers stroke" />
         <rect
            style="fill:url(#linearGradient4396);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.22049251;stroke-opacity:1;paint-order:fill markers stroke"
            id="rect4394"
+           class="interactive"
            width="4.4099469"
            height="27.127857"
            x="162.80396"
@@ -605,6 +614,7 @@
         <rect
            style="fill:url(#linearGradient4406);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.31323999;stroke-opacity:1;paint-order:fill markers stroke"
            id="rect4404"
+           class="interactive"
            width="6.9490075"
            height="34.745041"
            x="-142.91913"
@@ -676,6 +686,7 @@
              height="17.635002"
              width="28.715881"
              id="rect4444"
+             class="interactive"
              style="fill:#e5d4a4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.13033882;stroke-opacity:1;paint-order:fill markers stroke" />
           <circle
              r="3.4217634"

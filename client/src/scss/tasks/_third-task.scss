@@ -1,6 +1,6 @@
 .profiles {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   overflow-x: auto;
   padding: 2%;
   mat-card {
@@ -19,5 +19,18 @@
       position: absolute;
       bottom: 10px;
     }
+  }
+  &.culprit-found {
+    .innocent-img {
+       filter: grayscale(100%);
+    }
+  }
+}
+.third-task-feedback {
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  h3 {
+    margin: 0;
   }
 }

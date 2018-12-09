@@ -11,6 +11,7 @@ export class SecondTaskComponent extends AbstractTaskComponent implements OnInit
   @Input() taskData: SecondTaskData;
 
   isCompleted = false;
+  mistake = false;
 
   currentCommand = 0;
   svgSource: SafeHtml;
@@ -32,18 +33,29 @@ export class SecondTaskComponent extends AbstractTaskComponent implements OnInit
   }
 
   itemClicked(item) {
-    if (this.taskData.clues[this.currentCommand].item === item) {
-      this.taskData.clues[this.currentCommand].found = true;
-      this.pointsChange.emit(1);
-      if (this.currentCommand < this.taskData.clues.length - 1) {
-        this.currentCommand++;
+    if (!this.isCompleted) {
+      if (this.taskData.clues[this.currentCommand].item === item) {
+        this.taskData.clues[this.currentCommand].found = true;
+        this.mistake = false;
+        this.pointsChange.emit(1);
+        if (this.currentCommand < this.taskData.clues.length - 1) {
+          this.currentCommand++;
+        } else {
+          this.isCompleted = true;
+        }
       } else {
-        this.isCompleted = true;
+        this.mistake = true;
+        this.pointsChange.emit(-1);
       }
-    } else {
-      this.pointsChange.emit(-1);
+      this.changeDetector.detectChanges();
     }
-    this.changeDetector.detectChanges();
+  }
+
+  itemOver(item) {
+    item.setAttribute('filter', 'url(#interactiveHover)');
+  }
+  itemOut(item) {
+    item.removeAttribute('filter');
   }
 
   private accessSvgObjects() {
@@ -53,6 +65,8 @@ export class SecondTaskComponent extends AbstractTaskComponent implements OnInit
       const svgDoc = sceneSvg.contentDocument;
       Array.from(svgDoc.getElementsByClassName('interactive')).forEach(element => {
         element.addEventListener('click', event => this.itemClicked(element.id));
+        element.addEventListener('mouseover', event => this.itemOver(element));
+        element.addEventListener('mouseout', event => this.itemOut(element));
       });
     });
 

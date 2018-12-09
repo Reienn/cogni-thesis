@@ -1,14 +1,14 @@
-<div class="centered">
-  <h2 >Wybierz podejrzanego</h2>
+<div class="third-task-feedback centered">
+  <h3 *ngIf="isCompleted" class="success">Brawo, dobra robota!</h3>
+  <h3 *ngIf="mistake" class="failure">Źle, spróbuj jeszcze raz</h3>
 </div>
-
-<div class="profiles" *ngIf="taskData && taskData.people">
+<div class="profiles" *ngIf="taskData && taskData.people" [ngClass]="{'culprit-found': isCompleted}">
   <mat-card *ngFor="let person of taskData.people">
     <ng-container *ngIf="person.sex === 'male'">
-      <img mat-card-image src="assets/img/man_profile.png">
+      <img mat-card-image src="assets/img/man_profile.png" [ngClass]="{'innocent-img': !person.isCulprit}">
     </ng-container>
     <ng-container *ngIf="person.sex === 'female'">
-      <img mat-card-image src="assets/img/woman_profile.png">
+      <img mat-card-image src="assets/img/woman_profile.png" [ngClass]="{'innocent-img': !person.isCulprit}">
     </ng-container>
     <mat-card-title>{{person.name}}</mat-card-title>
     <mat-card-content>{{person.description}}</mat-card-content>
@@ -16,10 +16,6 @@
       <button [disabled]="isCompleted" mat-flat-button color="primary" (click)="decide(person.isCulprit)">Wybierz</button>
     </mat-card-actions>
   </mat-card>
-</div>
-<div class="centered">
-  <h3 *ngIf="isCompleted" class="success">Brawo, dobra robota!</h3>
-  <h3 *ngIf="mistake" class="failure">Źle, spróbuj jeszcze raz</h3>
 </div>
 <div class="clues-bar fixed-bar" *ngIf="taskData && taskData.clues">
   <div class="clue-item" *ngFor="let clue of taskData.clues">
