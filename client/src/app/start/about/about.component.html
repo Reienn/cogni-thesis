@@ -1,7 +1,22 @@
 <div class="about-modal">
   <div class="about-modal-content">
     <h2>O grze</h2>
-    "AHA!" to gra o tematyce detektywistycznej dla dzieci ze spektrum autyzmu mająca na celu ćwiczenie umiejętności czytania ze zrozumieniem.
+    <p>"AHA!" to gra dla dzieci ze spektrum autyzmu mająca na celu ćwiczenie umiejętności czytania ze zrozumieniem.</p>
+    <p>
+      Gracz wciela się w detektywa rozwiązującego zagadki dotyczące zaginionych przedmiotów.
+      Każde z dziesięciu śledztw składa się z czterech zadań:
+    </p>
+    <table class="about-tasks-table">
+      <tr><th></th><th>Treść zadania</th><th>Forma zadania</th></tr>
+      <tr><td>1</td><td>Ustalenie szczegółów sprawy</td><td>Dopasowanie odpowiedzi do pytań na podstawie podanego tekstu</td></tr>
+      <tr><td>2</td><td>Odszukanie poszlak</td><td>Wykonywanie poleceń słownych</td></tr>
+      <tr><td>3</td><td>Wydedukowanie, kto jest sprawcą</td><td>Dopasowanie symboli poszlak do podanych opisów postaci</td></tr>
+      <tr><td>4</td><td>Złamanie szyfru do sejfu ze skradzionym przedmiotem</td><td>Odpowiedź na pytania jednokrotnego wyboru</td></tr>
+    </table>
+    <p>W zależności od poprawności wykonywanych ćwiczeń gracz otrzymuje lub traci punkty.
+      Postęp gracza jest automatycznie zapisywany w bazie danych.</p>
+    <p>W grze można zarejestrować się jako gracz lub nauczyciel.
+      Nauczyciel ma dostęp do statystyk graczy, którzy podczas rejestracji podali jego nazwę użytkownika.</p>
     <div class="about-logo"><img src="assets/img/logo.svg"></div>
     <button class="button-close-modal" (click)="modalClose.emit(true)"><i class="fa fa-times"></i></button>
   </div>

@@ -8,6 +8,9 @@
   z-index: 500;
   padding: 0 5%;
   .about-modal-content {
+    height: 80vh;
+    overflow-y: auto;
+    display: block;
     text-align: center;
     padding: 5%;
     background: #fff;
@@ -47,6 +50,17 @@
     margin-top: 40px;
     img {
       height: 100px;
+    }
+  }
+  table, th, td {
+    border: 1px solid $light-gray;
+    text-align: left;
+  }
+  .about-tasks-table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    th, td {
+      padding: 10px;
     }
   }
 }

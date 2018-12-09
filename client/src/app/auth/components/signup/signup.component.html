@@ -31,9 +31,14 @@
   <div class="full-width radio">
     <mat-radio-group formControlName="group" required class="form-control">
       <mat-radio-button color="primary" value="educator">Nauczyciel</mat-radio-button>
-      <mat-radio-button color="primary" value="student">Uczeń</mat-radio-button>
+      <mat-radio-button color="primary" value="student">Gracz</mat-radio-button>
     </mat-radio-group>
   </div>
+
+  <mat-form-field class="full-width" *ngIf="signupForm?.controls?.group?.value === 'student'">
+    <input matInput type="text" placeholder="Login nauczyciela" formControlName="educator" class="form-control">
+    <mat-hint>Ten nauczyciel będzie mógł śledzić twój postęp w grze</mat-hint>
+  </mat-form-field>
 
   <button mat-flat-button color="primary" type="submit" class="auth-button" [disabled]="!signupForm.valid">Utwórz konto</button>
 </form>

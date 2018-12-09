@@ -33,6 +33,7 @@ export class SignupComponent implements OnInit {
       psw: ['', [Validators.required, Validators.minLength(7)]],
       psw2: ['', [Validators.required, Validators.minLength(7)]],
       group: ['', Validators.required],
+      educator: ['', []]
     }, {validator: this.passwordMatchValidator});
   }
 

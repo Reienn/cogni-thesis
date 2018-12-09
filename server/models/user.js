@@ -18,6 +18,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  educator: {
+    type: String
+  },
 
   students: [String],
 

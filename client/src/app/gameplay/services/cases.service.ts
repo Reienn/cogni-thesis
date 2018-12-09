@@ -9,52 +9,52 @@ const DYNAMIC_TASKS_CONTENT = require('../../../assets/dynamic-tasks-content.jso
 const CASES =  [
   {
     id: 1,
-    name: 'Misja pierwsza',
+    name: 'Sprawa pierwsza',
     available: true
   },
   {
     id: 2,
-    name: 'Misja druga',
+    name: 'Sprawa druga',
     available: false
   },
   {
     id: 3,
-    name: 'Misja trzecia',
+    name: 'Sprawa trzecia',
     available: false
   },
   {
     id: 4,
-    name: 'Misja czwarta',
+    name: 'Sprawa czwarta',
     available: false
   },
   {
     id: 5,
-    name: 'Misja piąta',
+    name: 'Sprawa piąta',
     available: false
   },
   {
     id: 6,
-    name: 'Misja szósta',
+    name: 'Sprawa szósta',
     available: false
   },
   {
     id: 7,
-    name: 'Misja siódma',
+    name: 'Sprawa siódma',
     available: false
   },
   {
     id: 8,
-    name: 'Misja ósma',
+    name: 'Sprawa ósma',
     available: false
   },
   {
     id: 9,
-    name: 'Misja dziewiąta',
+    name: 'Sprawa dziewiąta',
     available: false
   },
   {
     id: 10,
-    name: 'Misja dziesiąta',
+    name: 'Sprawa dziesiąta',
     available: false
   }
 ];
