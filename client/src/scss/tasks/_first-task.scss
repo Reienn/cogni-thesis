@@ -1,11 +1,42 @@
-.task-content-dialogue, .task-content-notepad {
-  width: 50%;
-  float: left;
+.task-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
 }
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.task-content-dialogue, app-notepad {
+  width: 50%;
+  min-width: 250px;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+}
+.task-content-dialogue {
+  padding: 20px;
+  position: relative;
+  .dialogue-character {
+    height: 60vh;
+    min-height: 300px;
+    padding: 45px 0 5px;
+    display: block;
+    margin: 0 auto;
+  }
+  .mat-card {
+    background: $light-gray;
+    box-shadow: none;
+  }
+  .mat-card:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 20px solid $light-gray;
+    border-right: 20px solid transparent;
+    border-top: 20px solid $light-gray;
+    border-bottom: 20px solid transparent;
+    bottom: -40px;
+    left: 50%;
+  }
 }
 .task-content-notepad {
   .questions {

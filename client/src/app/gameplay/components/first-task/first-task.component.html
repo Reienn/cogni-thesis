@@ -2,6 +2,7 @@
   <div class="task-content-dialogue">
     <mat-card>{{taskData.entry}}
     </mat-card>
+    <img class="dialogue-character" src="assets/img/characters/boy_01.png">
   </div>
   <app-notepad *ngIf="taskData" (pointsChange)="updatePoints($event)" (taskCompleted)="taskCompleted($event)" [taskData]="taskData.notes"></app-notepad>
 </div>
