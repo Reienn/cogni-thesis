@@ -1,20 +1,41 @@
 .control-panel-container {
   display: flex;
-  padding: 2% 7%;
-  .select-player {
-    display: block;
-    margin-bottom: 5px;
-    min-width: 150px;
-    &.active-player {
-      background: $primary;
-      color: #fff;
+  flex-wrap: wrap;
+  padding: 2% 5%;
+  .player-record {
+    border-bottom: 1px solid $light-gray;
+    padding: 10px 0;
+    &:first-child {
+      border-top: 1px solid $light-gray;
+    }
+    .player-name {
+      display: inline-block;
+      min-width: 100px;
+      line-height: 36px;
+      .fa {
+        margin-right: 5px;
+        color: $primary;
+      }
+    }
+    .select-player {
+      &.active-player {
+        background: $primary;
+        color: #fff;
+      }
     }
   }
+
   .players-list {
     width: 20%;
+    min-width: 250px;
+    padding-right: 20px;
   }
   .player-details {
     width: 80%;
+  }
+  .mat-elevation-z8 {
+    display: block;
+    overflow-x: auto;
   }
   table {
     width: 100%;

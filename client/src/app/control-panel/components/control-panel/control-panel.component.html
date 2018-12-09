@@ -11,11 +11,14 @@
   <div class="players-list" >
     <h3>Lista graczy:</h3>
     <div *ngIf="players && players.length; else noPlayers">
-      <button mat-raised-button class="select-player"
-        *ngFor="let player of players" (click)="selectPlayer(player.name)"
-        [ngClass]="{'active-player': selectedPlayer && selectedPlayer.name === player.name}">
-        {{player.name}}
-      </button>
+      <div class="player-record" *ngFor="let player of players">
+        <span class="player-name"><i class="fa fa-user-o"></i>{{player.name}}</span>
+        <button mat-raised-button class="select-player"
+          (click)="selectPlayer(player.name)"
+          [ngClass]="{'active-player': selectedPlayer && selectedPlayer.name === player.name}">
+          szczegóły
+        </button>
+      </div>
     </div>
     <ng-template #noPlayers>Brak graczy</ng-template>
   </div>
