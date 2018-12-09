@@ -6,18 +6,20 @@
       <button mat-flat-button (click)="logout()">Wyloguj</button>
     </span>
   </mat-toolbar>
-  <mat-card>
-    <mat-card-title>Misje</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let case of cases">
-          <button mat-flat-button [color]="case.id === currentCase + 1 ? 'accent' : 'primary'" [disabled]="case.id > currentCase + 1" (click)="selectCase(case.id)">
-            {{case.name}}
-          </button>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
+
+  <div class="case-list">
+    <mat-card *ngFor="let case of cases; let i = index" class="case-item">
+      <mat-card-title>{{i + 1}}. {{case.name}}</mat-card-title>
+      <!-- <mat-card-content *ngIf="case.id <= currentCase">Najlepszy wynik: </mat-card-content> -->
+      <mat-card-actions>
+        <button mat-flat-button [color]="case.id === currentCase + 1 ? 'accent' : 'primary'"
+          [disabled]="case.id > currentCase + 1" (click)="selectCase(case.id)">
+          <ng-container *ngIf="case.id > currentCase">Zacznij</ng-container>
+          <ng-container *ngIf="case.id <= currentCase">Jeszcze raz</ng-container>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </ng-container>
 
 <app-about *ngIf="showAbout" (modalClose)="showAbout = !showAbout"></app-about>

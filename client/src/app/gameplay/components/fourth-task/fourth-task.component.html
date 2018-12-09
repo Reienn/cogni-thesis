@@ -12,7 +12,7 @@
   </div>
   <div class="exercises">
     <mat-card *ngFor="let exercise of taskData.exercises">
-      <mat-card-title>{{ exercise.question }}
+      <mat-card-title class="centered">{{ exercise.question }}
       </mat-card-title>
       <mat-card-content>
         <mat-button-toggle-group [(ngModel)]="exercise.selected" class="options" [disabled]="exercise.done">

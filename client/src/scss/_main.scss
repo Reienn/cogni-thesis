@@ -71,3 +71,22 @@ app-game-task {
     margin-left: 15px;
   }
 }
+
+.case-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5%;
+  .case-item {
+    width: 250px;
+    margin: 1%;
+    padding: 20px;
+    mat-card-title {
+      font-size: 1.2em;
+    }
+    mat-card-actions {
+      text-align: center;
+    }
+  }
+}
+
