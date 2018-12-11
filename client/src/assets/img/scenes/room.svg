@@ -17,7 +17,30 @@
    version="1.1"
    id="svg"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
-   sodipodi:docname="room.svg">
+   sodipodi:docname="room.svg"
+   inkscape:export-filename="E:\WebDev\cogni_thesis\client\src\assets\img\scenes\room.png"
+   inkscape:export-xdpi="95.459999"
+   inkscape:export-ydpi="95.459999">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="781"
+     inkscape:window-height="480"
+     id="namedview126"
+     showgrid="false"
+     inkscape:zoom="0.94373698"
+     inkscape:cx="182.13662"
+     inkscape:cy="86.98061"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
   <defs
      id="defs7320">
     <pattern
@@ -185,8 +208,15 @@
        width="6"
        patternUnits="userSpaceOnUse"
        id="EMFhbasepattern" />
-    <filter id="interactiveHover">
-      <feDropShadow stdDeviation="2" in="SourceGraphic" dx="0" dy="0" flood-color="#181818" flood-opacity="1"/>
+    <filter
+       id="interactiveHover">
+      <feDropShadow
+         stdDeviation="2"
+         in="SourceGraphic"
+         dx="0"
+         dy="0"
+         flood-color="#181818"
+         flood-opacity="1" />
     </filter>
     <filter
        style="color-interpolation-filters:sRGB"
@@ -345,7 +375,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>

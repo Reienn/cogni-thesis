@@ -71,6 +71,7 @@
     {
       "id": 1,
       "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "character": "boy_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
         {"question": "Kiedy?", "answer": "w sobotę"},
@@ -90,19 +91,22 @@
     },
     {
       "id": 2,
-      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "description": "Dzień dobry! Jestem Ola i potrzebna mi pomoc. Moja skarbonka zniknęła! Kiedy w poniedziałek wróciłam ze szkoły, już jej nie było! W tej skarbonce trzymałam całe kieszonkowe. Chciałam kupić za nie nowy rower.",
+      "character": "girl_01",
       "notes": [
-        {"question": "Co zginęło?", "answer": "zegarek"},
-        {"question": "Kiedy?", "answer": "w sobotę"},
-        {"question": "Gdzie?", "answer": "w domu Jasia"}
+        {"question": "Co zginęło?", "answer": "skarbonka"},
+        {"question": "Kiedy?", "answer": "w poniedziałek"},
+        {"question": "Gdzie?", "answer": "w domu Oli"},
+        {"question": "Co chciała kupić Ola?", "answer": "rower"}
       ],
       "stolenItem": "zegarek",
-      "scene": "room",
+      "scene": "room2",
       "searchingCommands": [
-        {"command": "Przesuń doniczkę", "item": "plant"},
-        {"command": "Zajrzyj pod dywan", "item": "carpet"},
-        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
-        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+        {"command": "Zajrzyj za lewą zasłonę", "item": "left_curtain"},
+        {"command": "Przesuń czerwoną książkę na dolnej półce", "item": "red_book4"},
+        {"command": "Otwórz górną szufladę biurka", "item": "desk_top_drawer"},
+        {"command": "Przesuń fioletową książkę na górnej półce", "item": "purple_book1"},
+        {"command": "Zajrzyj za zegar", "item": "clock"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 3, "question": "Które słowo nie pasuje do pozostałych?"}
@@ -111,6 +115,7 @@
     {
       "id": 3,
       "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "character": "boy_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
         {"question": "Kiedy?", "answer": "w sobotę"},
@@ -131,6 +136,7 @@
     {
       "id": 4,
       "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "character": "boy_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
         {"question": "Kiedy?", "answer": "w sobotę"},
@@ -151,6 +157,7 @@
     {
       "id": 5,
       "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "character": "boy_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
         {"question": "Kiedy?", "answer": "w sobotę"},
@@ -171,6 +178,7 @@
     {
       "id": 6,
       "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "character": "boy_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
         {"question": "Kiedy?", "answer": "w sobotę"},
@@ -191,6 +199,7 @@
     {
       "id": 7,
       "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "character": "boy_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
         {"question": "Kiedy?", "answer": "w sobotę"},
@@ -211,6 +220,7 @@
     {
       "id": 8,
       "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "character": "boy_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
         {"question": "Kiedy?", "answer": "w sobotę"},
@@ -231,6 +241,7 @@
     {
       "id": 9,
       "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "character": "boy_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
         {"question": "Kiedy?", "answer": "w sobotę"},
@@ -251,6 +262,7 @@
     {
       "id": 10,
       "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "character": "boy_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
         {"question": "Kiedy?", "answer": "w sobotę"},

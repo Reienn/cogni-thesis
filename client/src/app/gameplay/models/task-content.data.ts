@@ -1,6 +1,7 @@
 export interface FirstTaskData {
   entry: string;
   notes: Notes[];
+  character: string;
 }
 
 export interface Notes {

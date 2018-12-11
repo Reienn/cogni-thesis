@@ -9,6 +9,7 @@
 
   <div class="case-list">
     <mat-card *ngFor="let case of cases; let i = index" class="case-item">
+      <img *ngIf="case.image" mat-card-image src="assets/img/scenes/{{case.image}}.png">
       <mat-card-title>{{i + 1}}. {{case.name}}</mat-card-title>
       <!-- <mat-card-content *ngIf="case.id <= currentCase">Najlepszy wynik: </mat-card-content> -->
       <mat-card-actions>

@@ -10,51 +10,61 @@ const CASES =  [
   {
     id: 1,
     name: 'Sprawa pierwsza',
+    image: 'room',
     available: true
   },
   {
     id: 2,
     name: 'Sprawa druga',
+    image: 'room2',
     available: false
   },
   {
     id: 3,
     name: 'Sprawa trzecia',
+    image: 'inprogress',
     available: false
   },
   {
     id: 4,
     name: 'Sprawa czwarta',
+    image: 'inprogress',
     available: false
   },
   {
     id: 5,
     name: 'Sprawa piąta',
+    image: 'inprogress',
     available: false
   },
   {
     id: 6,
     name: 'Sprawa szósta',
+    image: 'inprogress',
     available: false
   },
   {
     id: 7,
     name: 'Sprawa siódma',
+    image: 'inprogress',
     available: false
   },
   {
     id: 8,
     name: 'Sprawa ósma',
+    image: 'inprogress',
     available: false
   },
   {
     id: 9,
     name: 'Sprawa dziewiąta',
+    image: 'inprogress',
     available: false
   },
   {
     id: 10,
     name: 'Sprawa dziesiąta',
+    image: 'inprogress',
     available: false
   }
 ];
@@ -103,7 +113,8 @@ export class CasesService {
         resolve({
           firstTask: {
             entry: item.description,
-            notes: item.notes.map((note, index) => ({...note, id: index + 1}))
+            notes: item.notes.map((note, index) => ({...note, id: index + 1})),
+            character: item.character
           },
           secondTask: {
             scene: item.scene,
