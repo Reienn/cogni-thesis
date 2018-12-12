@@ -15,7 +15,7 @@ export class EducatorAuthGuardService implements CanActivate {
   canActivate() {
     return this.authenticationService.authUser().then(
       data => {
-        if (data && data.user.user.group === 'educator') {
+        if (data && data.user.group === 'educator') {
           this.err = '';
           return true;
         } else {

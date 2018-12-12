@@ -2,7 +2,7 @@ const User = require('../models/user');
 
 module.exports.updatePerformance = function(req, res, next) {
   if(!req.body) { res.status(400).send('Brak danych'); }
-  let user = req.userData.user;
+  let user = req.userData;
   User.findOneAndUpdate({name: user.name}, {
     $push: { performance: req.body.performance },
     $max: { currentCase: req.body.id }
