@@ -8,9 +8,9 @@ module.exports.login = function(req, res, next) {
   User.findOne({name: req.body.name}, (err, user) => {
     if(err) return next(err);
     if(user && bcrypt.compareSync(req.body.psw, user.psw)) {
-      jwt.sign({name: user.name, group: user.group, currentCase: user.currentCase}, 'secretkey', {expiresIn: '7d'}, (err, token) => {
+      jwt.sign({name: user.name, group: user.group, currentCase: user.currentCase ? user.currentCase : 1}, 'secretkey', {expiresIn: '7d'}, (err, token) => {
         if(err) return next(err);
-        res.json({token: token, group: user.group, name: user.name, currentCase: user.currentCase});
+        res.json({token: token, group: user.group, name: user.name, currentCase: user.currentCase ? user.currentCase : 1});
       });
       console.log('login: '+user.name);
     } else {
