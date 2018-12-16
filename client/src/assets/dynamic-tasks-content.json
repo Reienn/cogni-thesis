@@ -116,13 +116,13 @@
     },
     {
       "id": 3,
-      "description": "Dzień dobry. Nazywam się Adam, jestem sprzedawcą w sklepie elektronicznym. Przychodzę w sprawie włamania i kradzieży sprzętu. We wtorek wieczorem zamknąłem sklep, a następnego ranka okazało się, że ktoś włamał się i ukradł drogi laptop. Proszę jak najszybciej znaleźć złodzieja!",
+      "description": "Dzień dobry. Nazywam się Adam, jestem sprzedawcą w sklepie elektronicznym. Przychodzę w sprawie kradzieży sprzętu. We wtorek wieczorem zamknąłem sklep, a następnego ranka okazało się, że ktoś włamał się i ukradł drogi laptop. Proszę jak najszybciej znaleźć złodzieja!",
       "character": "man_01",
       "notes": [
         {"question": "Kim jest Adam?", "answer": "sprzedawcą"},
         {"question": "Co zginęło?", "answer": "laptop"},
         {"question": "Kiedy?", "answer": "w nocy z wtorku na środę"},
-        {"question": "Gdzie?", "answer": "w sklepie elektronicznych"},
+        {"question": "Gdzie?", "answer": "w sklepie elektronicznym"},
         {"question": "distractor", "answer": "we wtorek rano"}
       ],
       "stolenItem": "laptop",
