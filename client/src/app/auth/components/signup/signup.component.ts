@@ -41,6 +41,7 @@ export class SignupComponent implements OnInit {
     this.authenticationService.signup(this.signupForm.getRawValue()).then(
       user => {
         this.err = '';
+        this.signupForm.reset();
         this.signedUp.emit('Utworzono konto, możesz się zalogować');
       },
       err => {

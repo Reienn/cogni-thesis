@@ -6,4 +6,5 @@
   </div>
   <app-notepad *ngIf="taskData" (pointsChange)="updatePoints($event)" (taskCompleted)="taskCompleted($event)" [taskData]="taskData.notes"></app-notepad>
 </div>
-<button class="next-task-button" mat-flat-button color="primary" (click)="nextTask.emit(taskId)" [disabled]="!isCompleted">Dalej</button>
+
+<app-completed *ngIf="isCompleted" [taskId]="taskId" (nextTask)="nextTask.emit(taskId)"></app-completed>

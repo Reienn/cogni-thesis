@@ -1,5 +1,4 @@
 <div class="third-task-feedback centered">
-  <h3 *ngIf="isCompleted" class="success">Brawo, dobra robota!</h3>
   <h3 *ngIf="mistake" class="failure">Źle, spróbuj jeszcze raz</h3>
 </div>
 <div class="profiles" *ngIf="taskData && taskData.people" [ngClass]="{'culprit-found': isCompleted}">
@@ -22,4 +21,5 @@
     <img class="clue-img" src="assets/img/clues/{{ clue }}.png">
   </div>
 </div>
-<button class="next-task-button" mat-flat-button color="primary" (click)="nextTask.emit(taskId)" [disabled]="!isCompleted">Dalej</button>
+
+<app-completed *ngIf="isCompleted" [taskId]="taskId" (nextTask)="nextTask.emit(taskId)"></app-completed>

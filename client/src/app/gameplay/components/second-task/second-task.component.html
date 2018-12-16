@@ -3,15 +3,15 @@
   </object>
 </div>
 <div class="command-box">
-  <p class="command" *ngIf="taskData.clues && !isCompleted">
+  <p class="command" *ngIf="taskData.clues">
     {{ taskData.clues[currentCommand].command }}<br>
     <span *ngIf="mistake" class="failure">Źle, spróbuj jeszcze raz</span>
   </p>
-  <p class="command success" *ngIf="isCompleted">Brawo, dobra robota!</p>
 </div>
 <div class="clues-bar" *ngIf="taskData && taskData.clues">
   <div class="clue-item" *ngFor="let clue of taskData.clues">
     <img class="clue-img" *ngIf="clue.found" src="assets/img/clues/{{ clue.clueName }}.png">
   </div>
 </div>
-<button class="next-task-button" mat-flat-button color="primary" (click)="nextTask.emit(taskId)" [disabled]="!isCompleted">Dalej</button>
+
+<app-completed *ngIf="isCompleted" [taskId]="taskId" (nextTask)="nextTask.emit(taskId)"></app-completed>

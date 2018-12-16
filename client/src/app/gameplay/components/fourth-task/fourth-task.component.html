@@ -1,6 +1,5 @@
 <div *ngIf="taskData && taskData.exercises" class="fourth-task">
-  <h3 *ngIf="!isCompleted" class="centered">Skradziony przedmiot znajduje się w sejfie.<br>Odpowiedz na pytania, aby odkryć tajny szyfr!</h3>
-  <h3 *ngIf="isCompleted" class="centered success">Brawo, dobra robota!</h3>
+  <h3 class="centered">Skradziony przedmiot znajduje się w sejfie.<br>Odpowiedz na pytania, aby odkryć tajny szyfr!</h3>
   <div class="cipher-container">
     <div class="cipher-box">
       <div class="digit" *ngFor="let exercise of taskData.exercises"
@@ -23,5 +22,4 @@
   </div>
 </div>
 
-
-<button class="next-task-button" mat-flat-button color="primary" (click)="nextTask.emit(taskId)" [disabled]="!isCompleted">Zakończ sprawę</button>
+<app-completed *ngIf="isCompleted" [taskId]="taskId" (nextTask)="nextTask.emit(taskId)"></app-completed>

@@ -77,6 +77,7 @@ export class GameTaskComponent implements OnInit, OnDestroy {
     });
     if (id < TASKS_NUMBER) {
       this.currentTask++;
+      this.changeDetector.detectChanges();
     } else if (id === TASKS_NUMBER) {
       this.casesService.completedCase(this.caseId, this.performance).then(data => {
         this.router.navigate(['gameplay']);
