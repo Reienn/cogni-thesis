@@ -75,7 +75,8 @@
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
         {"question": "Kiedy?", "answer": "w sobotę"},
-        {"question": "Gdzie?", "answer": "w domu Jasia"}
+        {"question": "Gdzie?", "answer": "w domu Jasia"},
+        {"question": "distractor", "answer": "w domu babci"}
       ],
       "stolenItem": "zegarek",
       "scene": "room",
@@ -97,9 +98,10 @@
         {"question": "Co zginęło?", "answer": "skarbonka"},
         {"question": "Kiedy?", "answer": "w poniedziałek"},
         {"question": "Gdzie?", "answer": "w domu Oli"},
-        {"question": "Co chciała kupić Ola?", "answer": "rower"}
+        {"question": "Co chciała kupić Ola?", "answer": "rower"},
+        {"question": "distractor", "answer": "w szkole"}
       ],
-      "stolenItem": "zegarek",
+      "stolenItem": "skarbonka",
       "scene": "room2",
       "searchingCommands": [
         {"command": "Zajrzyj za lewą zasłonę", "item": "left_curtain"},
@@ -114,20 +116,23 @@
     },
     {
       "id": 3,
-      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
-      "character": "boy_01",
+      "description": "Dzień dobry. Nazywam się Adam, jestem sprzedawcą w sklepie elektronicznym. Przychodzę w sprawie włamania i kradzieży sprzętu. We wtorek wieczorem zamknąłem sklep, a następnego ranka okazało się, że ktoś włamał się i ukradł drogi laptop. Proszę jak najszybciej znaleźć złodzieja!",
+      "character": "man_01",
       "notes": [
-        {"question": "Co zginęło?", "answer": "zegarek"},
-        {"question": "Kiedy?", "answer": "w sobotę"},
-        {"question": "Gdzie?", "answer": "w domu Jasia"}
+        {"question": "Kim jest Adam?", "answer": "sprzedawcą"},
+        {"question": "Co zginęło?", "answer": "laptop"},
+        {"question": "Kiedy?", "answer": "w nocy z wtorku na środę"},
+        {"question": "Gdzie?", "answer": "w sklepie elektronicznych"},
+        {"question": "distractor", "answer": "we wtorek rano"}
       ],
-      "stolenItem": "zegarek",
-      "scene": "room",
+      "stolenItem": "laptop",
+      "scene": "store1",
       "searchingCommands": [
-        {"command": "Przesuń doniczkę", "item": "plant"},
-        {"command": "Zajrzyj pod dywan", "item": "carpet"},
-        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
-        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+        {"command": "Otwórz pralkę", "item": "washing_machine"},
+        {"command": "Zajrzyj za telewizor", "item": "tv"},
+        {"command": "Przesuń aparat fotograficzny z górnej półki", "item": "camera2"},
+        {"command": "Zajrzyj pod czerwony laptop", "item": "laptop2"},
+        {"command": "Przesuń żółte słuchawki", "item": "headphones2"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 3, "question": "Które słowo nie pasuje do pozostałych?"}

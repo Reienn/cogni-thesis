@@ -22,7 +22,7 @@ const CASES =  [
   {
     id: 3,
     name: 'Sprawa trzecia',
-    image: 'inprogress',
+    image: 'store1',
     available: false
   },
   {

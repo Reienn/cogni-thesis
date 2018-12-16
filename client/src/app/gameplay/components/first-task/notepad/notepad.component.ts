@@ -43,7 +43,7 @@ export class NotepadComponent implements OnInit, OnDestroy {
   }
 
   private isTaskCompleted() {
-    if (!this.taskData.filter( item => !item.correct ).length) {
+    if (!this.taskData.filter( item => item.question !== 'distractor' && !item.correct ).length) {
       this.taskCompleted.emit(true);
     }
   }

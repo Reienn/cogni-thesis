@@ -4,7 +4,7 @@
     <div class="questions">
       <mat-list>
         <ng-container *ngFor="let record of taskData">
-          <mat-list-item >
+          <mat-list-item *ngIf="record.question !== 'distractor'">
             <div class="question">{{record.question}}</div>
             <div class="answer-placeholder" [attr.data-id]="record.id" dragula="ANSWERS"
               [ngClass]="{'active-placeholder': isDragging, 'empty-placeholder': record.empty,
