@@ -12,6 +12,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { ControlService } from './services/control.service';
 import { PerformanceTableComponent } from './components/control-panel/performance-table/performance-table.component';
+import { PerformanceChartComponent } from './components/control-panel/performance-chart/performance-chart.component';
 
 const ROUTES: Routes = [
   {
@@ -47,7 +48,15 @@ const ROUTES: Routes = [
     MatPaginatorModule,
     StartModule
   ],
-  declarations: [ControlPanelComponent, NewPlayerComponent, PlayersComponent, SettingsComponent, StatsComponent, PerformanceTableComponent],
+  declarations: [
+    ControlPanelComponent,
+    NewPlayerComponent,
+    PlayersComponent,
+    SettingsComponent,
+    StatsComponent,
+    PerformanceTableComponent,
+    PerformanceChartComponent
+  ],
   providers: [
     ControlService
   ]

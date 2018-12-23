@@ -11,11 +11,11 @@ const port = process.env.PORT || 8080;
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/../client/dist/client'));
+// app.use(express.static(__dirname + '/../client/dist/client'));
 require('./routes/routes')(app);
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../client/dist/client/index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/../client/dist/client/index.html'));
+// });
 
 const server = app.listen(port, (err) => {
   if (err) return console.log(err);

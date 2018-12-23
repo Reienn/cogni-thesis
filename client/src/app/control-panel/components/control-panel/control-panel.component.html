@@ -27,6 +27,10 @@
     <app-performance-table [performance]="selectedPlayer.performance"
       *ngIf="selectedPlayer.performance && selectedPlayer.performance.length; else noData">
     </app-performance-table>
+
+    <app-performance-chart [performance]="selectedPlayer.performance"
+      *ngIf="selectedPlayer.performance && selectedPlayer.performance.length; else noData">
+    </app-performance-chart>
     <ng-template #noData>Brak danych</ng-template>
   </div>
 </div>
