@@ -28,7 +28,7 @@ const CASES =  [
   {
     id: 4,
     name: 'Sprawa czwarta',
-    image: 'inprogress',
+    image: 'museum',
     available: false
   },
   {

@@ -140,20 +140,23 @@
     },
     {
       "id": 4,
-      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
-      "character": "boy_01",
+      "description": "Dzień dobry. Nazywam się Maria, jestem dyrektorką muzeum. Chciałam zgłosić kradzież dzieła sztuki. W niedzielę z powodu awarii prądu przez godzinę nie działały kamery i alarm. W tym czasie ktoś włamał się do muzeum i ukradł cenny obraz. Proszę rozwiązać tę sprawę!",
+      "character": "woman_01",
       "notes": [
-        {"question": "Co zginęło?", "answer": "zegarek"},
-        {"question": "Kiedy?", "answer": "w sobotę"},
-        {"question": "Gdzie?", "answer": "w domu Jasia"}
+        {"question": "Co zginęło?", "answer": "obraz"},
+        {"question": "Kiedy?", "answer": "w niedzielę"},
+        {"question": "Gdzie?", "answer": "w muzeum"},
+        {"question": "Dlaczego nie działał alarm?", "answer": "z powodu awarii prądu"},
+        {"question": "distractor", "answer": "kamery"}
       ],
-      "stolenItem": "zegarek",
-      "scene": "room",
+      "stolenItem": "obraz",
+      "scene": "museum",
       "searchingCommands": [
-        {"command": "Przesuń doniczkę", "item": "plant"},
-        {"command": "Zajrzyj pod dywan", "item": "carpet"},
-        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
-        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+        {"command": "Zajrzyj do wazy", "item": "vase"},
+        {"command": "Sprawdź za rzeźbą", "item": "sculpture"},
+        {"command": "Podnieś koronę", "item": "crown"},
+        {"command": "Zajrzyj za obraz znajdujący się z prawej strony", "item": "painting2"},
+        {"command": "Poszukaj w gablotce z mieczem", "item": "sword_box"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 4, "question": "Które słowo nie pasuje do pozostałych?"}
