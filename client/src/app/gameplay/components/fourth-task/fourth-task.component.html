@@ -22,4 +22,4 @@
   </div>
 </div>
 
-<app-completed *ngIf="isCompleted" [taskId]="taskId" (nextTask)="nextTask.emit(taskId)"></app-completed>
+<app-completed *ngIf="isCompleted" [taskId]="taskId" [character]="taskData.character" (nextTask)="nextTask.emit(taskId)"></app-completed>

@@ -30,17 +30,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="781"
-     inkscape:window-height="480"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
      id="namedview126"
      showgrid="false"
-     inkscape:zoom="0.94373698"
-     inkscape:cx="182.13662"
-     inkscape:cy="86.98061"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:zoom="2.2480315"
+     inkscape:cx="254"
+     inkscape:cy="142.875"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="shelve" />
   <defs
      id="defs7320">
     <pattern
@@ -499,16 +499,16 @@
         </g>
       </g>
       <g
-         transform="matrix(0.85032077,0,0,0.85032077,12.573963,42.819245)"
          id="sofa"
          class="interactive">
         <path
            inkscape:connector-curvature="0"
            id="path4047"
-           d="M 92.593897,233.20866 H 273.53558 v 11.10584 c -0.1023,1.014 -0.68952,1.48923 -1.75588,1.32219 H 93.945982 c -1.464513,-0.29385 -1.352085,-1.54934 -1.352085,-1.54934 z"
-           style="fill:#624c4c;fill-opacity:0.24390247;fill-rule:nonzero;stroke:none;stroke-width:0.4425368;stroke-opacity:1;paint-order:fill markers stroke"
+           d="M 91.308477,241.12141 H 245.16695 v 9.44353 c -0.087,0.86222 -0.58632,1.26632 -1.49306,1.12428 H 92.458183 c -1.245306,-0.24986 -1.149706,-1.31743 -1.149706,-1.31743 z"
+           style="fill:#624c4c;fill-opacity:0.24390247;fill-rule:nonzero;stroke:none;stroke-width:0.37629822;stroke-opacity:1;paint-order:fill markers stroke"
            sodipodi:nodetypes="ccccccc" />
         <g
+           transform="matrix(0.85032077,0,0,0.85032077,12.573963,42.819245)"
            id="g4045">
           <rect
              style="fill:#a52f2f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.38692185;stroke-opacity:1;paint-order:fill markers stroke"
@@ -727,10 +727,10 @@
         </g>
       </g>
       <g
-         transform="matrix(0.76580812,0,0,0.76580812,23.037014,82.694055)"
          id="plant"
          class="interactive">
         <g
+           transform="matrix(0.76580812,0,0,0.76580812,23.037014,82.694055)"
            id="g4553">
           <path
              sodipodi:nodetypes="cc"
@@ -765,7 +765,7 @@
         </g>
         <g
            id="g4512"
-           transform="translate(-5.4118704,6.7023617)">
+           transform="matrix(0.76580812,0,0,0.76580812,18.89256,87.826778)">
           <path
              sodipodi:nodetypes="ccccc"
              inkscape:connector-curvature="0"

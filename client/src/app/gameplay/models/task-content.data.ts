@@ -41,6 +41,7 @@ export interface FourthTaskData {
     selected?: number;
     done?: boolean;
   }[];
+  character: string;
 }
 
 export interface TaskContent {

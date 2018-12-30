@@ -13,6 +13,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
           <ng-container *ngIf="taskId !== 4">Dalej</ng-container>
           <ng-container *ngIf="taskId === 4">Zakończ sprawę</ng-container>
         </button>
+        <img *ngIf="character" src="assets/img/characters/face_{{character}}.png" class="completed-character">
       </div>
     </div>
   `
@@ -20,6 +21,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 export class CompletedComponent implements OnInit {
 
   @Input() taskId: number;
+  @Input() character: string;
   @Output() nextTask = new EventEmitter<boolean>();
 
   freezeButton = false;

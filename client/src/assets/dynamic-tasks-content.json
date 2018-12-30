@@ -164,20 +164,23 @@
     },
     {
       "id": 5,
-      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
-      "character": "boy_01",
+      "description": "Dzień dobry. Nazywam się Alicja, pracuję w sklepie z zabawkami. W piątek po zamknięciu sklepu, około godziny dziewiętnastej, mieliśmy włamanie. Złodziej wybił szybę w oknie, dostał się do środka i ukradł wszystkie pieniądze z kasy! Zanim przyjechała firma ochroniarska, zdążył uciec. Proszę odnaleźć włamywacza!",
+      "character": "woman_02",
       "notes": [
-        {"question": "Co zginęło?", "answer": "zegarek"},
-        {"question": "Kiedy?", "answer": "w sobotę"},
-        {"question": "Gdzie?", "answer": "w domu Jasia"}
+        {"question": "Co zginęło?", "answer": "pieniądze z kasy"},
+        {"question": "Kiedy?", "answer": "w piątek wieczorem"},
+        {"question": "Gdzie?", "answer": "w sklepie z zabawkami"},
+        {"question": "Jak złodziej dostał się do sklepu?", "answer": "przez okno"},
+        {"question": "distractor", "answer": "w piątek rano"}
       ],
-      "stolenItem": "zegarek",
-      "scene": "room",
+      "stolenItem": "pieniądze",
+      "scene": "store2",
       "searchingCommands": [
-        {"command": "Przesuń doniczkę", "item": "plant"},
-        {"command": "Zajrzyj pod dywan", "item": "carpet"},
-        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
-        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+        {"command": "Przesuń największego misia", "item": "teddy_bear1"},
+        {"command": "Zajrzyj pod samochód na środkowej półce", "item": "car2"},
+        {"command": "Podnieś dinozaura", "item": "dinosaur"},
+        {"command": "Przesuń lalkę w różowej sukience", "item": "doll1"},
+        {"command": "Sprawdź za rakietą", "item": "rocket"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 4, "question": "Które słowo nie pasuje do pozostałych?"}

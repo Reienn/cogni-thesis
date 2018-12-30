@@ -34,7 +34,7 @@ const CASES =  [
   {
     id: 5,
     name: 'Sprawa piąta',
-    image: 'inprogress',
+    image: 'store2',
     available: false
   },
   {
@@ -125,7 +125,8 @@ export class CasesService {
             clues: preparedClues.active.map(el => el.name)
           },
           fourthTask: {
-            exercises: exercises
+            exercises: exercises,
+            character: item.character
           }
         });
       } else {
