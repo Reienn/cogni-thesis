@@ -13,7 +13,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
           <ng-container *ngIf="taskId !== 4">Dalej</ng-container>
           <ng-container *ngIf="taskId === 4">Zakończ sprawę</ng-container>
         </button>
-        <img *ngIf="character" src="assets/img/characters/face_{{character}}.png" class="completed-character">
+        <img *ngIf="character" src="assets/img/characters/faces/face_{{character}}.png" class="completed-character">
       </div>
     </div>
   `
