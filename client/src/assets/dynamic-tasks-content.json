@@ -188,20 +188,24 @@
     },
     {
       "id": 6,
-      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
-      "character": "boy_01",
+      "description": "Dzień dobry! Nazywam się Edward, jestem właścicielem niewielkiej restauracji. Niestety w ostatnią środę doszło w niej do kradzieży. Kiedy jedna z klientek wyszła do toalety, ktoś zabrał jej torebkę! W środku znajdowały się pieniądze i dokumenty. Zdarzenie miało miejsce w porze obiadowej, gdy w restauracji przebywało dużo ludzi, więc nikt nie zwrócił uwagi na przestępcę. Liczę na szybkie rozwiązanie tej sprawy.",
+      "character": "man_02",
       "notes": [
-        {"question": "Co zginęło?", "answer": "zegarek"},
-        {"question": "Kiedy?", "answer": "w sobotę"},
-        {"question": "Gdzie?", "answer": "w domu Jasia"}
+        {"question": "Co zginęło?", "answer": "torebka"},
+        {"question": "Kiedy?", "answer": "w środę w porze obiadowej"},
+        {"question": "Gdzie?", "answer": "w restauracji Edwarda"},
+        {"question": "Dlaczego nikt nie zauważył kradzieży?", "answer": "ponieważ restauracja była zatłoczona"},
+        {"question": "distractor", "answer": "w toalecie"},
+        {"question": "distractor", "answer": "w środę rano"}
       ],
-      "stolenItem": "zegarek",
-      "scene": "room",
+      "stolenItem": "torebka",
+      "scene": "restaurant",
       "searchingCommands": [
-        {"command": "Przesuń doniczkę", "item": "plant"},
-        {"command": "Zajrzyj pod dywan", "item": "carpet"},
-        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
-        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+        {"command": "Przesuń wazon", "item": "vase"},
+        {"command": "Sprawdź za lewą zasłoną prawego okna", "item": "curtain3"},
+        {"command": "Przesuń dzbanek", "item": "teapot"},
+        {"command": "Zajrzyj pod stolik, na którym znajduje się zupa", "item": "table2"},
+        {"command": "Przesuń pusty talerzyk", "item": "plate2"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 4, "question": "Które słowo nie pasuje do pozostałych?"}

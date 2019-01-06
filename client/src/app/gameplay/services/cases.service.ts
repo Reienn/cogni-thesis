@@ -40,7 +40,7 @@ const CASES =  [
   {
     id: 6,
     name: 'Sprawa szósta',
-    image: 'inprogress',
+    image: 'restaurant',
     available: false
   },
   {
