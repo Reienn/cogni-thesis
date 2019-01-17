@@ -46,7 +46,7 @@ const CASES =  [
   {
     id: 7,
     name: 'Sprawa siódma',
-    image: 'inprogress',
+    image: 'classroom',
     available: false
   },
   {

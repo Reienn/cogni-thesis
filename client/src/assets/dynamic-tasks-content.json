@@ -70,7 +70,7 @@
   "cases": [
     {
       "id": 1,
-      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+      "description": "Dzień dobry! Mam na imię Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
       "character": "boy_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
@@ -116,7 +116,7 @@
     },
     {
       "id": 3,
-      "description": "Dzień dobry. Nazywam się Adam, jestem sprzedawcą w sklepie elektronicznym. Przychodzę w sprawie kradzieży sprzętu. We wtorek wieczorem zamknąłem sklep, a następnego ranka okazało się, że ktoś włamał się i ukradł drogi laptop. Proszę jak najszybciej znaleźć złodzieja!",
+      "description": "Dzień dobry. Mam na imię Adam, jestem sprzedawcą w sklepie elektronicznym. Przychodzę w sprawie kradzieży sprzętu. We wtorek wieczorem zamknąłem sklep, a następnego ranka okazało się, że ktoś włamał się i ukradł drogi laptop. Proszę jak najszybciej znaleźć złodzieja!",
       "character": "man_01",
       "notes": [
         {"question": "Kim jest Adam?", "answer": "sprzedawcą"},
@@ -140,7 +140,7 @@
     },
     {
       "id": 4,
-      "description": "Dzień dobry. Nazywam się Maria, jestem dyrektorką muzeum. Chciałam zgłosić kradzież dzieła sztuki. W niedzielę z powodu awarii prądu przez godzinę nie działały kamery i alarm. W tym czasie ktoś włamał się do muzeum i ukradł cenny obraz. Proszę rozwiązać tę sprawę!",
+      "description": "Dzień dobry. Mam na imię Maria, jestem dyrektorką muzeum. Chciałam zgłosić kradzież dzieła sztuki. W niedzielę z powodu awarii prądu przez godzinę nie działały kamery i alarm. W tym czasie ktoś włamał się do muzeum i ukradł cenny obraz. Proszę rozwiązać tę sprawę!",
       "character": "woman_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "obraz"},
@@ -164,7 +164,7 @@
     },
     {
       "id": 5,
-      "description": "Dzień dobry. Nazywam się Alicja, pracuję w sklepie z zabawkami. W piątek po zamknięciu sklepu, około godziny dziewiętnastej, mieliśmy włamanie. Złodziej wybił szybę w oknie, dostał się do środka i ukradł wszystkie pieniądze z kasy! Zanim przyjechała firma ochroniarska, zdążył uciec. Proszę odnaleźć włamywacza!",
+      "description": "Dzień dobry. Mam na imię Alicja, pracuję w sklepie z zabawkami. W piątek po zamknięciu sklepu, około godziny dziewiętnastej, mieliśmy włamanie. Złodziej wybił szybę w oknie, dostał się do środka i ukradł wszystkie pieniądze z kasy! Zanim przyjechała firma ochroniarska, zdążył uciec. Proszę odnaleźć włamywacza!",
       "character": "woman_02",
       "notes": [
         {"question": "Co zginęło?", "answer": "pieniądze z kasy"},
@@ -188,7 +188,7 @@
     },
     {
       "id": 6,
-      "description": "Dzień dobry! Nazywam się Edward, jestem właścicielem niewielkiej restauracji. Niestety w ostatnią środę doszło w niej do kradzieży. Kiedy jedna z klientek wyszła do toalety, ktoś zabrał jej torebkę! W środku znajdowały się pieniądze i dokumenty. Zdarzenie miało miejsce w porze obiadowej, gdy w restauracji przebywało dużo ludzi, więc nikt nie zwrócił uwagi na przestępcę. Liczę na szybkie rozwiązanie tej sprawy.",
+      "description": "Dzień dobry! Mam na imię Edward, jestem właścicielem niewielkiej restauracji. Niestety w ostatnią środę doszło w niej do kradzieży. Kiedy jedna z klientek wyszła do toalety, ktoś zabrał jej torebkę! W środku znajdowały się pieniądze i dokumenty. Zdarzenie miało miejsce w porze obiadowej, gdy w restauracji przebywało dużo ludzi, więc nikt nie zwrócił uwagi na przestępcę. Liczę na szybkie rozwiązanie tej sprawy.",
       "character": "man_02",
       "notes": [
         {"question": "Co zginęło?", "answer": "torebka"},
@@ -213,20 +213,26 @@
     },
     {
       "id": 7,
-      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
-      "character": "boy_01",
+      "description": "Dzień dobry. Mam na imię Antonii, jestem dyrektorem szkoły podstawowej. W piątek po czwartej lekcji doszło u nas do kradzieży. Gdy nikogo nie było w sali geograficznej, ktoś zabrał plecak Wojtka z klasy piątej C. Oprócz książek i zeszytów w plecaku znajdowały się pieniądze, które chłopiec miał wpłacić na wycieczkę do Warszawy. Proszę szybko znaleźć złodzieja.",
+      "character": "man_03",
       "notes": [
-        {"question": "Co zginęło?", "answer": "zegarek"},
-        {"question": "Kiedy?", "answer": "w sobotę"},
-        {"question": "Gdzie?", "answer": "w domu Jasia"}
+        {"question": "Co zginęło?", "answer": "plecak"},
+        {"question": "Kiedy?", "answer": "w piątek po czwartej lekcji"},
+        {"question": "Gdzie?", "answer": "w szkole"},
+        {"question": "W której sali?", "answer": "geograficznej"},
+        {"question": "Do kogo należał plecak?", "answer": "do Wojtka"},
+        {"question": "distractor", "answer": "do Warszawy"},
+        {"question": "distractor", "answer": "w czwartek po piątej lekcji"},
+        {"question": "distractor", "answer": "do Antoniego"}
       ],
       "stolenItem": "zegarek",
-      "scene": "room",
+      "scene": "classroom",
       "searchingCommands": [
-        {"command": "Przesuń doniczkę", "item": "plant"},
-        {"command": "Zajrzyj pod dywan", "item": "carpet"},
-        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
-        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+        {"command": "Podnieś globus", "item": "globe"},
+        {"command": "Zajrzyj pod biurko nauczyciela", "item": "teacher_desk"},
+        {"command": "Przesuń kosz na śmieci", "item": "dustbin"},
+        {"command": "Sprawdź za tablicą", "item": "chalk_board"},
+        {"command": "Otwórz szafkę obok kosza na śmieci", "item": "bookcase"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 5, "question": "Które słowo nie pasuje do pozostałych?"}
