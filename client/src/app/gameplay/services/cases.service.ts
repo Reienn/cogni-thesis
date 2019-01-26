@@ -52,7 +52,7 @@ const CASES =  [
   {
     id: 8,
     name: 'Sprawa ósma',
-    image: 'inprogress',
+    image: 'playground',
     available: false
   },
   {

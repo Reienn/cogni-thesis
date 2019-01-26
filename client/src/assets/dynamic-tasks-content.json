@@ -240,20 +240,27 @@
     },
     {
       "id": 8,
-      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
-      "character": "boy_01",
+      "description": "Dzień dobry! Mam na imię Emilia, jestem mamą pięcioletniego Krzysia. W sobotę po południu byliśmy na placu zabaw. Mój synek huśtał się na huśtawce, a ja siedziałam na ławce i robiłam mu zdjęcia. Nagle Krzyś spadł z huśtawki, a ja pobiegłam mu pomóc. Zostawiłam aparat fotograficzny na ławce. Na szczeście Krzysiowi nic się nie stało, więc wróciliśmy po aparat, jednak okazało się, że ktoś go ukradł! Proszę odnaleźć złodzieja!",
+      "character": "woman_03",
       "notes": [
-        {"question": "Co zginęło?", "answer": "zegarek"},
-        {"question": "Kiedy?", "answer": "w sobotę"},
-        {"question": "Gdzie?", "answer": "w domu Jasia"}
+        {"question": "Co zginęło?", "answer": "aparat fotograficzny"},
+        {"question": "Kiedy?", "answer": "w sobotę po południu"},
+        {"question": "Gdzie?", "answer": "na placu zabaw"},
+        {"question": "Jak ma na imię synek Emilii?", "answer": "Krzyś"},
+        {"question": "Ile lat ma synek Emilii", "answer": "pięć"},
+        {"question": "Dlaczego mama pobiegła do synka?", "answer": "bo spadł z huśtawki"},
+        {"question": "Gdzie mama położyła aparat?", "answer": "na ławce"},
+        {"question": "distractor", "answer": "na huśtawce"},
+        {"question": "distractor", "answer": "bo chciała zrobić mu zdjęcie"}
       ],
-      "stolenItem": "zegarek",
-      "scene": "room",
+      "stolenItem": "aparat fotograficzny",
+      "scene": "playground",
       "searchingCommands": [
-        {"command": "Przesuń doniczkę", "item": "plant"},
-        {"command": "Zajrzyj pod dywan", "item": "carpet"},
-        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
-        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+        {"command": "Poszukaj w piaskownicy", "item": "sandbox"},
+        {"command": "Zajrzyj pod zjeżdżalnię", "item": "slide"},
+        {"command": "Sprawdź pod niebieską huśtawką", "item": "swing2"},
+        {"command": "Zajrzyj pod ławkę", "item": "bench"},
+        {"command": "Poszukaj pod drzewem koło latarni z lewej strony", "item": "tree1"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 5, "question": "Które słowo nie pasuje do pozostałych?"}
