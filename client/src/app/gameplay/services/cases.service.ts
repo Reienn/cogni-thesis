@@ -58,7 +58,7 @@ const CASES =  [
   {
     id: 9,
     name: 'Sprawa dziewiąta',
-    image: 'inprogress',
+    image: 'beach',
     available: false
   },
   {
