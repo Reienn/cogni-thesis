@@ -225,7 +225,7 @@
         {"question": "distractor", "answer": "w czwartek po piątej lekcji"},
         {"question": "distractor", "answer": "do Antoniego"}
       ],
-      "stolenItem": "zegarek",
+      "stolenItem": "plecak",
       "scene": "classroom",
       "searchingCommands": [
         {"command": "Podnieś globus", "item": "globe"},
@@ -296,20 +296,27 @@
     },
     {
       "id": 10,
-      "description": "Dzień dobry! Nazywam się Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
-      "character": "boy_01",
+      "description": "Dzień dobry! Mam na imię Paweł. Mieszkam za miastem, w dużym domu z ogrodem. W piątek po południu postanowiłem skosić trawnik. Podczas pracy zrobiło mi się gorąco, więc zdjąłem kurtkę i położyłem ją na ławce. W kieszeni kurtki znajdował się portfel z pieniędzmi, kartą bankomatową i dokumentami. Gdy skosiłem trawnik, poszedłem po kurtkę i zauważyłem, że kieszeń jest pusta! Ktoś musiał ukraść portfel. Proszę znaleźć złodzieja.",
+      "character": "man_04",
       "notes": [
-        {"question": "Co zginęło?", "answer": "zegarek"},
-        {"question": "Kiedy?", "answer": "w sobotę"},
-        {"question": "Gdzie?", "answer": "w domu Jasia"}
+        {"question": "Co zginęło?", "answer": "portfel"},
+        {"question": "Kiedy?", "answer": "w piątek po południu"},
+        {"question": "Gdzie?", "answer": "w ogrodzie"},
+        {"question": "Co Paweł robił w ogrodzie?", "answer": "kosił trawnik"},
+        {"question": "Gdzie był portfel?", "answer": "w kieszeni kurtki"},
+        {"question": "Dlaczego Paweł zdjął kurtkę?", "answer": "bo zrobiło mu się gorąco"},
+        {"question": "Gdzie Paweł położył kurtkę?", "answer": "na ławce"},
+        {"question": "distractor", "answer": "w domu"},
+        {"question": "distractor", "answer": "bo chciał skosić trawnik"}
       ],
-      "stolenItem": "zegarek",
-      "scene": "room",
+      "stolenItem": "portfel",
+      "scene": "garden",
       "searchingCommands": [
-        {"command": "Przesuń doniczkę", "item": "plant"},
-        {"command": "Zajrzyj pod dywan", "item": "carpet"},
-        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
-        {"command": "Zajrzyj pod kanapę", "item": "sofa"}
+        {"command": "Poszukaj w hamaku", "item": "hammock"},
+        {"command": "Zajrzyj do taczki", "item": "wheelbarrow"},
+        {"command": "Przesuń konewkę", "item": "watering_can"},
+        {"command": "Sprawdź w koszyku pod jabłonką", "item": "basket"},
+        {"command": "Poszukaj za krzakiem malin", "item": "bush"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 5, "question": "Które słowo nie pasuje do pozostałych?"}

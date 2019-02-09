@@ -64,7 +64,7 @@ const CASES =  [
   {
     id: 10,
     name: 'Sprawa dziesiąta',
-    image: 'inprogress',
+    image: 'garden',
     available: false
   }
 ];
