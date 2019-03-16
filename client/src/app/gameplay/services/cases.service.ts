@@ -6,69 +6,6 @@ import { Performance } from '../models/game-data.data';
 import { environment } from '../../../environments/environment';
 
 const DYNAMIC_TASKS_CONTENT = require('../../../assets/dynamic-tasks-content.json');
-const CASES =  [
-  {
-    id: 1,
-    name: 'Sprawa pierwsza',
-    image: 'room',
-    available: true
-  },
-  {
-    id: 2,
-    name: 'Sprawa druga',
-    image: 'room2',
-    available: false
-  },
-  {
-    id: 3,
-    name: 'Sprawa trzecia',
-    image: 'store1',
-    available: false
-  },
-  {
-    id: 4,
-    name: 'Sprawa czwarta',
-    image: 'museum',
-    available: false
-  },
-  {
-    id: 5,
-    name: 'Sprawa piąta',
-    image: 'store2',
-    available: false
-  },
-  {
-    id: 6,
-    name: 'Sprawa szósta',
-    image: 'restaurant',
-    available: false
-  },
-  {
-    id: 7,
-    name: 'Sprawa siódma',
-    image: 'classroom',
-    available: false
-  },
-  {
-    id: 8,
-    name: 'Sprawa ósma',
-    image: 'playground',
-    available: false
-  },
-  {
-    id: 9,
-    name: 'Sprawa dziewiąta',
-    image: 'beach',
-    available: false
-  },
-  {
-    id: 10,
-    name: 'Sprawa dziesiąta',
-    image: 'garden',
-    available: false
-  }
-];
-
 
 export interface Case {
   id: number;
@@ -81,7 +18,6 @@ export interface Case {
 })
 export class CasesService {
 
-  cases: Case[] = JSON.parse(JSON.stringify(CASES));
   dynamicTasksContent = JSON.parse(JSON.stringify(DYNAMIC_TASKS_CONTENT));
   currentCase: number;
 
@@ -89,8 +25,14 @@ export class CasesService {
 
   getCases(): Promise<{cases: Case[], currentCase: number}> {
     return new Promise((resolve, reject) => {
-      if (this.cases) {
-        resolve({cases: this.cases, currentCase: JSON.parse(localStorage.getItem('currentUser')).currentCase});
+      if (this.dynamicTasksContent && this.dynamicTasksContent.cases) {
+        const casesList = this.dynamicTasksContent.cases.map(el => ({
+          id: el.id,
+          name: el.name,
+          image: el.scene,
+          available: false
+        }));
+        resolve({cases: casesList, currentCase: JSON.parse(localStorage.getItem('currentUser')).currentCase});
       } else {
         reject('No cases');
       }
@@ -183,6 +125,7 @@ export class CasesService {
         description: cluesForInnocent.map(el => el.description).join(' ')
       };
     }
+    people.sort(() => 0.5 - Math.random());
     return people;
   }
 
@@ -203,12 +146,14 @@ export class CasesService {
 
         exercisesContent.push({
           id: i + 1,
+          done: false,
           question: el.question,
-          options: options.map((option, index) => ({id: index + 1, text: option})),
+          options: options.map((option, index) => ({id: index + 1, text: option})).sort(() => 0.5 - Math.random()),
           correct: 1
         });
       }
     });
+    exercisesContent.sort(() => 0.5 - Math.random());
     return exercisesContent;
   }
 }

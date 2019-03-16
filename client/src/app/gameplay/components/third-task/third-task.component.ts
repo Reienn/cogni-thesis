@@ -19,9 +19,6 @@ export class ThirdTaskComponent extends AbstractTaskComponent implements OnInit 
    }
 
   ngOnInit() {
-    if (this.taskData && this.taskData.people && this.taskData.people) {
-      this.taskData.people.sort(() => 0.5 - Math.random());
-    }
   }
 
   decide(isCulprit) {

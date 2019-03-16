@@ -70,6 +70,7 @@
   "cases": [
     {
       "id": 1,
+      "name": "Sprawa pierwsza",
       "description": "Dzień dobry! Mam na imię Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
       "character": "boy_01",
       "notes": [
@@ -92,6 +93,7 @@
     },
     {
       "id": 2,
+      "name": "Sprawa druga",
       "description": "Dzień dobry! Jestem Ola i potrzebna mi pomoc. Moja skarbonka zniknęła! Kiedy w poniedziałek wróciłam ze szkoły, już jej nie było! W tej skarbonce trzymałam całe kieszonkowe. Chciałam kupić za nie nowy rower.",
       "character": "girl_01",
       "notes": [
@@ -116,6 +118,7 @@
     },
     {
       "id": 3,
+      "name": "Sprawa trzecia",
       "description": "Dzień dobry. Mam na imię Adam, jestem sprzedawcą w sklepie elektronicznym. Przychodzę w sprawie kradzieży sprzętu. We wtorek wieczorem zamknąłem sklep, a następnego ranka okazało się, że ktoś włamał się i ukradł drogi laptop. Proszę jak najszybciej znaleźć złodzieja!",
       "character": "man_01",
       "notes": [
@@ -140,6 +143,7 @@
     },
     {
       "id": 4,
+      "name": "Sprawa czwarta",
       "description": "Dzień dobry. Mam na imię Maria, jestem dyrektorką muzeum. Chciałam zgłosić kradzież dzieła sztuki. W niedzielę z powodu awarii prądu przez godzinę nie działały kamery i alarm. W tym czasie ktoś włamał się do muzeum i ukradł cenny obraz. Proszę rozwiązać tę sprawę!",
       "character": "woman_01",
       "notes": [
@@ -164,6 +168,7 @@
     },
     {
       "id": 5,
+      "name": "Sprawa piąta",
       "description": "Dzień dobry. Mam na imię Alicja, pracuję w sklepie z zabawkami. W piątek po zamknięciu sklepu, około godziny dziewiętnastej, mieliśmy włamanie. Złodziej wybił szybę w oknie, dostał się do środka i ukradł wszystkie pieniądze z kasy! Zanim przyjechała firma ochroniarska, zdążył uciec. Proszę odnaleźć włamywacza!",
       "character": "woman_02",
       "notes": [
@@ -188,6 +193,7 @@
     },
     {
       "id": 6,
+      "name": "Sprawa szósta",
       "description": "Dzień dobry! Mam na imię Edward, jestem właścicielem niewielkiej restauracji. Niestety w ostatnią środę doszło w niej do kradzieży. Kiedy jedna z klientek wyszła do toalety, ktoś zabrał jej torebkę! W środku znajdowały się pieniądze i dokumenty. Zdarzenie miało miejsce w porze obiadowej, gdy w restauracji przebywało dużo ludzi, więc nikt nie zwrócił uwagi na przestępcę. Liczę na szybkie rozwiązanie tej sprawy.",
       "character": "man_02",
       "notes": [
@@ -213,6 +219,7 @@
     },
     {
       "id": 7,
+      "name": "Sprawa siódma",
       "description": "Dzień dobry. Mam na imię Antonii, jestem dyrektorem szkoły podstawowej. W piątek po czwartej lekcji doszło u nas do kradzieży. Gdy nikogo nie było w sali geograficznej, ktoś zabrał plecak Wojtka z klasy piątej C. Oprócz książek i zeszytów w plecaku znajdowały się pieniądze, które chłopiec miał wpłacić na wycieczkę do Warszawy. Proszę szybko znaleźć złodzieja.",
       "character": "man_03",
       "notes": [
@@ -240,6 +247,7 @@
     },
     {
       "id": 8,
+      "name": "Sprawa ósma",
       "description": "Dzień dobry! Mam na imię Emilia, jestem mamą pięcioletniego Krzysia. W sobotę po południu byliśmy na placu zabaw. Mój synek huśtał się na huśtawce, a ja siedziałam na ławce i robiłam mu zdjęcia. Nagle Krzyś spadł z huśtawki, a ja pobiegłam mu pomóc. Zostawiłam aparat fotograficzny na ławce. Na szczeście Krzysiowi nic się nie stało, więc wróciliśmy po aparat, jednak okazało się, że ktoś go ukradł! Proszę odnaleźć złodzieja!",
       "character": "woman_03",
       "notes": [
@@ -268,6 +276,7 @@
     },
     {
       "id": 9,
+      "name": "Sprawa dziewiąta",
       "description": "Dzień dobry. Mam na imię Zofia. W ostatnią niedzielę około południa wybrałam się razem z moją wnuczką Hanią na plażę. Opalałam się na leżaku, a Hania bawiła się w pobliżu. W pewnej chwili zawołała mnie, żebym pomogła jej zbudować zamek z piasku. Zostawiłam swoje rzeczy na leżaku i podeszłam do Hani. Pół godziny później postanowiłyśmy wrócić do domu, więc zaczęłam się pakować. Wtedy zauważyłam, że mój telefon zniknął! Bardzo proszę go odszukać!",
       "character": "woman_04",
       "notes": [
@@ -296,6 +305,7 @@
     },
     {
       "id": 10,
+      "name": "Sprawa dziesiąta",
       "description": "Dzień dobry! Mam na imię Paweł. Mieszkam za miastem, w dużym domu z ogrodem. W piątek po południu postanowiłem skosić trawnik. Podczas pracy zrobiło mi się gorąco, więc zdjąłem kurtkę i położyłem ją na ławce. W kieszeni kurtki znajdował się portfel z pieniędzmi, kartą bankomatową i dokumentami. Gdy skosiłem trawnik, poszedłem po kurtkę i zauważyłem, że kieszeń jest pusta! Ktoś musiał ukraść portfel. Proszę znaleźć złodzieja.",
       "character": "man_04",
       "notes": [
