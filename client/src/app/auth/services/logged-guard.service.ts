@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoggedGuardService implements CanActivate {
   constructor(
-    private router: Router
+    private router: Router,
+    private authenticationService: AuthenticationService
   ) { }
 
   canActivate() {
-    if (localStorage.getItem('currentUser')) {
-      const user = JSON.parse(localStorage.getItem('currentUser'));
+    const user = this.authenticationService.getUser();
+    if (user) {
       if ( user.group && user.group === 'student') {
         this.router.navigate(['gameplay']);
         return false;

@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (localStorage.getItem('currentUser')) {
+    if (this.authenticationService.getUser()) {
       this.router.navigate(['gameplay']);
     }
 
@@ -39,10 +39,10 @@ export class SignupComponent implements OnInit {
 
   signup() {
     this.authenticationService.signup(this.signupForm.getRawValue()).then(
-      user => {
+      userName => {
         this.err = '';
         this.signupForm.reset();
-        this.signedUp.emit('Utworzono konto, możesz się zalogować');
+        this.signedUp.emit(`Witaj ${userName}, możesz się zalogować`);
       },
       err => {
         this.err = err.status === 409 ? 'Nazwa użytkownika jest już zajęta' : 'Błąd rejestracji';
@@ -50,7 +50,7 @@ export class SignupComponent implements OnInit {
   }
 
   private passwordMatchValidator(frm: FormGroup) {
-    return frm.controls['psw'].value === frm.controls['psw2'].value ? null : {'mismatch': true};
+    return frm.get('psw').value === frm.get('psw2').value ? null : {'mismatch': true};
   }
 
 }

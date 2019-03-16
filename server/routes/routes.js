@@ -3,6 +3,7 @@ const cors = require('cors');
 const loginController= require('../controllers/login');
 const signupController = require('../controllers/signup');
 const authUserController = require('../controllers/auth-user');
+const updateUserController = require('../controllers/update-user');
 const updatePerformanceController = require('../controllers/update-performance');
 const playersPerformanceController = require('../controllers/players-performance');
 const jwt = require('../services/jwt');
@@ -18,6 +19,8 @@ module.exports = function(app) {
   app.post('/api/login', loginController.login);
 
   app.post('/api/signup', signupController.signup);
+
+  app.post('/api/update-user', jwt.verifyToken, updateUserController.updateUser);
 
   app.get('/api/auth-user', jwt.verifyToken, authUserController.authUser);
 

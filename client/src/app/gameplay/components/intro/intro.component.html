@@ -1,5 +1,8 @@
 <ng-container *ngIf="user">
   <mat-toolbar color="primary">
+    <span class=navbar-left>
+      <span class="settings-icon"><i class="fa fa-cog" (click)="showSettings()"></i></span>
+    </span>
     <h2 class="title">Witaj detektywie!</h2>
     <span class="navbar-right">
       <span class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user?.name}}</span>
@@ -22,4 +25,10 @@
   </div>
 </ng-container>
 
-<app-about *ngIf="showAbout" (modalClose)="showAbout = !showAbout"></app-about>
+<div *ngIf="settingsVisible" class="modal about-modal">
+  <div class="modal-content">
+    <h2>Gracz {{user.name}}</h2>
+    <app-edit-user [user]="user" (updatedUser)="updatedUser($event)"></app-edit-user>
+    <button class="button-close-modal" (click)="hideSettings()"><i class="fa fa-times"></i></button>
+  </div>
+</div>

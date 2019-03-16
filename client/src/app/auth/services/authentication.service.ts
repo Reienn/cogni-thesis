@@ -4,6 +4,15 @@ import { map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 
+export interface User {
+  token: string;
+  group: string;
+  name: string;
+  currentCase: number;
+  educator?: string;
+  mail: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,19 +23,23 @@ export class AuthenticationService {
     private router: Router
   ) { }
 
-  signup(signupData): Promise<any> {
+  getUser(): User {
+    return JSON.parse(localStorage.getItem('currentUser'));
+  }
+
+  signup(signupData): Promise<string> {
     return this.http.post<any>(environment.baseUrl + '/api/signup', { ...signupData })
       .pipe(map((user: any) => {
-        return user;
+        return user.name;
       }), catchError((err) => {
         throw(err);
       })
     ).toPromise();
   }
 
-  login(loginData): Promise<any> {
+  login(loginData): Promise<User> {
     return this.http.post<any>(environment.baseUrl + '/api/login', { ...loginData })
-      .pipe(map((user: any) => {
+      .pipe(map((user: User) => {
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
           return user;
@@ -51,8 +64,17 @@ export class AuthenticationService {
   logout() {
     if (localStorage.getItem('currentUser')) {
       localStorage.removeItem('currentUser');
-      this.router.navigate(['']);
     }
+    this.router.navigate(['']);
   }
 
+  updateUser(userUpdate): Promise<any> {
+    return this.http.post<any>(environment.baseUrl + '/api/update-user', {userUpdate: userUpdate})
+      .pipe(map((response: any) => {
+        return response;
+      }), catchError((err) => {
+        throw(err.error);
+      })
+    ).toPromise();
+  }
 }

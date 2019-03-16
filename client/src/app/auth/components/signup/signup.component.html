@@ -2,30 +2,30 @@
   <p *ngIf="err" class="failure">{{ err }}</p>
   <mat-form-field class="full-width">
     <input matInput type="email" placeholder="Adres e-mail" formControlName="mail" required class="form-control">
-    <mat-hint *ngIf="signupForm?.controls.mail?.touched">
-      <div *ngIf="signupForm?.controls.mail?.errors?.required" class="failure">To pole jest wymagane</div>
-      <div *ngIf="signupForm?.controls.mail?.errors?.email" class="failure">Niepoprawny adres email</div>
+    <mat-hint *ngIf="signupForm?.get('mail')?.dirty">
+      <div *ngIf="signupForm?.get('mail')?.errors?.required" class="failure">To pole jest wymagane</div>
+      <div *ngIf="signupForm?.get('mail')?.errors?.email" class="failure">Niepoprawny adres email</div>
     </mat-hint>
   </mat-form-field>
   <mat-form-field class="full-width">
     <input matInput type="text" placeholder="Nazwa użytkownika" formControlName="name" required class="form-control">
-    <mat-hint *ngIf="signupForm?.controls.name?.touched">
-      <div *ngIf="signupForm?.controls.name?.errors?.required" class="failure">To pole jest wymagane</div>
-      <div *ngIf="signupForm?.controls.name?.errors?.minlength" class="failure">Nazwa musi mieć min. 5 znaków</div>
+    <mat-hint *ngIf="signupForm?.get('name')?.dirty">
+      <div *ngIf="signupForm?.get('name')?.errors?.required" class="failure">To pole jest wymagane</div>
+      <div *ngIf="signupForm?.get('name')?.errors?.minlength" class="failure">Nazwa musi mieć min. 5 znaków</div>
     </mat-hint>
   </mat-form-field>
   <mat-form-field class="full-width">
     <input matInput type="password" placeholder="Hasło" formControlName="psw" required class="form-control">
-    <mat-hint *ngIf="signupForm?.controls.psw?.touched">
-      <div *ngIf="signupForm?.controls.psw?.errors?.required" class="failure">To pole jest wymagane</div>
-      <div *ngIf="signupForm?.controls.psw?.errors?.minlength" class="failure">Hasło musi mieć min. 7 znaków</div>
+    <mat-hint *ngIf="signupForm?.get('psw')?.dirty">
+      <div *ngIf="signupForm?.get('psw')?.errors?.required" class="failure">To pole jest wymagane</div>
+      <div *ngIf="signupForm?.get('psw')?.errors?.minlength" class="failure">Hasło musi mieć min. 7 znaków</div>
     </mat-hint>
   </mat-form-field>
   <mat-form-field class="full-width">
      <input matInput type="password" placeholder="Powtórz hasło" formControlName="psw2" required class="form-control">
-     <mat-hint *ngIf="signupForm?.controls.psw2?.touched">
-      <div *ngIf="signupForm?.controls.psw2?.errors?.required" class="failure">To pole jest wymagane</div>
-      <div *ngIf="!signupForm?.controls.psw2?.errors?.required && signupForm?.errors?.mismatch" class="failure">Hasła się różnią</div>
+     <mat-hint *ngIf="signupForm?.get('psw2')?.dirty">
+      <div *ngIf="signupForm?.get('psw2')?.errors?.required" class="failure">To pole jest wymagane</div>
+      <div *ngIf="!signupForm?.get('psw2')?.errors?.required && signupForm?.errors?.mismatch" class="failure">Hasła się różnią</div>
     </mat-hint>
   </mat-form-field>
   <div class="full-width radio">
@@ -35,7 +35,7 @@
     </mat-radio-group>
   </div>
 
-  <mat-form-field class="full-width" *ngIf="signupForm?.controls?.group?.value === 'student'">
+  <mat-form-field class="full-width" *ngIf="signupForm?.get('group').value === 'student'">
     <input matInput type="text" placeholder="Login nauczyciela" formControlName="educator" class="form-control">
     <mat-hint>Ten nauczyciel będzie mógł śledzić twój postęp w grze</mat-hint>
   </mat-form-field>

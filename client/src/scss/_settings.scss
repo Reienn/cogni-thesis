@@ -1,0 +1,44 @@
+.edit-user-form {
+  width: 95%;
+  max-width: 900px;
+  margin: 0 auto;
+  .form-field {
+    display: flex;
+    flex-wrap: wrap;
+    .form-label {
+      width: 25%;
+      min-width: 100px;
+      text-align: right;
+      padding-right: 15px;
+      padding-top: 20px;
+    }
+    .form-edit {
+      width: 50%;
+      min-width: 200px;
+    }
+    .form-readonly {
+      padding-top: 20px;
+      text-align: left;
+    }
+  }
+  .field-buttons {
+    width: 25%;
+    padding-top: 10px;
+    text-align: left;
+    button {
+      margin-left: 5px;
+      i {
+        padding-right: 5px;
+      }
+    }
+  }
+  .mat-form-field-disabled .mat-form-field-underline {
+    background-image: none;
+  }
+  &.freeze-buttons {
+    button {
+      pointer-events: none;
+      color: gray;
+    }
+  }
+}

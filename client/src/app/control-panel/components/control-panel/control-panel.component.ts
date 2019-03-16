@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../../auth/services/authentication.service';
+import { AuthenticationService, User } from '../../../auth/services/authentication.service';
 import { ControlService } from '../../services/control.service';
+import { Performance } from '../../../gameplay/models/game-data.data';
+
+interface PlayerPerformance extends Performance {
+  ratio: string;
+}
+interface Player {
+  name: string;
+  performance: PlayerPerformance[];
+}
 
 @Component({
   selector: 'app-control-panel',
@@ -8,30 +17,29 @@ import { ControlService } from '../../services/control.service';
 })
 export class ControlPanelComponent implements OnInit {
 
-  user;
-  players;
-  selectedPlayer;
+  user: User;
+  players: Player[];
+  selectedPlayer: Player;
   showAbout = false;
 
   constructor(private authenticationService: AuthenticationService,
               private controlService: ControlService) { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
+    this.user = this.authenticationService.getUser();
     this.controlService.getPlayers().then(players => {
-      this.players = JSON.parse(JSON.stringify(players));
+      this.players = players;
     });
   }
 
-  selectPlayer(name) {
-    let selectedPlayer;
-    selectedPlayer = this.players.find(item => item.name === name);
+  selectPlayer(name: string) {
+    const selectedPlayer = this.players.find(item => item.name === name);
     if (selectedPlayer.performance && selectedPlayer.performance.length) {
       selectedPlayer.performance = selectedPlayer.performance.map(item => {
         item.ratio = (item.points / item.maxPoints).toFixed(2);
         return item;
       });
-      this.selectedPlayer = JSON.parse(JSON.stringify(selectedPlayer));
+      this.selectedPlayer = selectedPlayer;
     } else {
       this.selectedPlayer = null;
     }

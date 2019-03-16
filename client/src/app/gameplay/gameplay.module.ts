@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DragulaModule } from 'ng2-dragula';
@@ -9,7 +9,8 @@ import {
   MatCardModule,
   MatButtonModule,
   MatDividerModule,
-  MatButtonToggleModule } from '@angular/material';
+  MatButtonToggleModule,
+  MatFormFieldModule, MatInputModule } from '@angular/material';
 
 import { StartModule } from '../start/start.module';
 
@@ -23,6 +24,7 @@ import { GuideComponent } from './components/guide/guide.component';
 import { AbstractTaskComponent } from './components/abstract-task/abstract-task.component';
 import { NotepadComponent } from './components/first-task/notepad/notepad.component';
 import { CompletedComponent } from './components/guide/completed/completed.component';
+import { EditUserComponent } from './components/intro/edit-user/edit-user.component';
 
 const ROUTES: Routes = [
   {
@@ -38,6 +40,7 @@ const ROUTES: Routes = [
 @NgModule({
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     RouterModule.forChild(ROUTES),
     DragulaModule.forRoot(),
@@ -47,6 +50,8 @@ const ROUTES: Routes = [
     MatButtonModule,
     MatDividerModule,
     MatButtonToggleModule,
+    MatFormFieldModule,
+    MatInputModule,
     StartModule
   ],
   declarations: [
@@ -59,7 +64,8 @@ const ROUTES: Routes = [
     GuideComponent,
     AbstractTaskComponent,
     NotepadComponent,
-    CompletedComponent
+    CompletedComponent,
+    EditUserComponent
   ]
 })
 export class GameplayModule { }

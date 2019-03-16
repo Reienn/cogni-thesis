@@ -9,6 +9,7 @@
 @import 'control-panel';
 @import 'clues-bar';
 @import 'about';
+@import 'settings';
 
 @import 'dragula';
 
@@ -50,6 +51,19 @@ body { margin: 0; font-family: Roboto, 'Helvetica Neue', sans-serif; }
 .navbar-right {
   > span, > button {
     margin-left: 15px;
+  }
+}
+
+mat-toolbar {
+  .settings-icon {
+    font-size: 1.7em;
+    width: 40px;
+    display: inline-block;
+    text-align: center;
+    &:hover {
+      font-size: 2em;
+      cursor: pointer;
+    }
   }
 }
 

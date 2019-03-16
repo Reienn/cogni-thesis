@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CasesService, Case } from '../../services/cases.service';
-import { AuthenticationService } from '../../../auth/services/authentication.service';
-import { Subscription } from 'rxjs';
+import { AuthenticationService, User } from '../../../auth/services/authentication.service';
 
 @Component({
   selector: 'app-intro',
@@ -10,12 +9,12 @@ import { Subscription } from 'rxjs';
 })
 export class IntroComponent implements OnInit {
 
-  user;
+  user: User;
 
   cases: Case[];
   currentCase: number;
 
-  showAbout = false;
+  settingsVisible = false;
 
   constructor(
     private router: Router,
@@ -25,15 +24,28 @@ export class IntroComponent implements OnInit {
 
   ngOnInit() {
     this.getCases();
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
+    this.user = this.authenticationService.getUser();
   }
 
-  selectCase(id) {
+  selectCase(id: number) {
     this.router.navigate(['/gameplay', id]);
   }
 
   logout() {
     this.authenticationService.logout();
+  }
+
+  showSettings() {
+    this.settingsVisible = true;
+  }
+
+  hideSettings() {
+    this.settingsVisible = false;
+  }
+
+  updatedUser(user) {
+    this.user = user;
+    localStorage.setItem('currentUser', JSON.stringify(user));
   }
 
   private getCases() {

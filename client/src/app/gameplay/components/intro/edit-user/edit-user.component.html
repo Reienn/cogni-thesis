@@ -1,0 +1,56 @@
+<form *ngIf="editUserForm" class="edit-user-form" [formGroup]="editUserForm" [ngClass]="{'freeze-buttons': freeze}">
+  <div class="form-field">
+    <div class="form-label">Adres e-mail:</div>
+    <mat-form-field class="form-edit">
+      <input matInput type="email" formControlName="mail" required class="form-control">
+      <mat-hint *ngIf="editUserForm.get('mail')?.dirty" class="form-hint" >
+        <div *ngIf="editUserForm.get('mail').errors?.required" class="failure">To pole jest wymagane</div>
+        <div *ngIf="editUserForm.get('mail')?.errors?.email" class="failure">Niepoprawny adres email</div>
+      </mat-hint>
+    </mat-form-field>
+    <ng-container *ngTemplateOutlet="fieldButtons; context: {control: editUserForm.get('mail'), initial: this.user.mail, name: 'mail'}"></ng-container>
+  </div>
+  <div class="form-field">
+    <div class="form-label">Login nauczyciela:</div>
+    <mat-form-field class="form-edit">
+      <input matInput type="text" formControlName="educator" class="form-control">
+      <mat-hint class="form-hint">Ten nauczyciel może śledzić twój postęp w grze</mat-hint>
+    </mat-form-field>
+    <ng-container *ngTemplateOutlet="fieldButtons; context: {control: editUserForm.get('educator'), initial: this.user.educator, name: 'educator'}"></ng-container>
+  </div>
+  <div class="form-field">
+    <div class="form-label">Nowe hasło:</div>
+    <mat-form-field class="form-edit">
+      <input matInput type="password" formControlName="psw" required class="form-control">
+      <mat-hint class="form-hint" *ngIf="editUserForm.get('psw')?.dirty">
+        <div *ngIf="editUserForm.get('psw')?.errors?.required" class="failure">To pole jest wymagane</div>
+        <div *ngIf="editUserForm.get('psw')?.errors?.minlength" class="failure">Hasło musi mieć min. 7 znaków</div>
+      </mat-hint>
+    </mat-form-field>
+    <ng-container *ngTemplateOutlet="fieldButtons; context: {control: editUserForm.get('psw'), initial: '', name: 'psw'}"></ng-container>
+  </div>
+  <div *ngIf="editUserForm.get('psw')?.enabled" class="form-field">
+    <div class="form-label">Powtórz nowe hasło:</div>
+    <mat-form-field class="form-edit">
+      <input matInput type="password" formControlName="psw2" required class="form-control">
+      <mat-hint class="form-hint" *ngIf="editUserForm.get('psw2')?.dirty">
+        <div *ngIf="editUserForm.get('psw2')?.errors?.required" class="failure">To pole jest wymagane</div>
+        <div *ngIf="!editUserForm.get('psw2')?.errors?.required && editUserForm?.errors?.mismatch" class="failure">Hasła się różnią</div>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+</form>
+<p *ngIf="err" class="failure">{{ err }}</p>
+
+<ng-template #fieldButtons let-control="control" let-initial="initial" let-name="name">
+  <div class="field-buttons">
+    <button mat-stroked-button *ngIf="control?.disabled" (click)="edit(control)">
+      <i class="fa fa-pencil" aria-hidden="true"></i>Edytuj</button>
+    <button mat-stroked-button *ngIf="control?.enabled" (click)="cancel(control, initial)">
+      <i class="fa fa-times" aria-hidden="true"></i>Anuluj</button>
+    <button mat-stroked-button *ngIf="control?.enabled" (click)="save(control, name)"
+      [disabled]="!(control?.valid && control?.dirty &&
+        !(name === 'psw' && (editUserForm.get('psw2')?.invalid || editUserForm?.errors?.mismatch)))">
+      <i class="fa fa-check" aria-hidden="true"></i>Zapisz</button>
+  </div>
+</ng-template>

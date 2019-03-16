@@ -3,14 +3,14 @@
   <p *ngIf="msg">{{ msg }}</p>
   <mat-form-field class="full-width">
     <input matInput type="text" placeholder="Nazwa użytkownika" formControlName="name" required>
-    <mat-hint *ngIf="loginForm?.controls.name?.touched">
-      <div *ngIf="loginForm?.controls.name?.errors?.required" class="failure">To pole jest wymagane</div>
+    <mat-hint *ngIf="loginForm?.get('name')?.dirty">
+      <div *ngIf="loginForm?.get('name')?.errors?.required" class="failure">To pole jest wymagane</div>
     </mat-hint>
   </mat-form-field>
   <mat-form-field class="full-width">
     <input matInput type="password" placeholder="Hasło" formControlName="psw" required>
-    <mat-hint *ngIf="loginForm?.controls.psw?.touched">
-      <div *ngIf="loginForm?.controls.psw?.errors?.required" class="failure">To pole jest wymagane</div>
+    <mat-hint *ngIf="loginForm?.get('psw')?.dirty">
+      <div *ngIf="loginForm?.get('psw')?.errors?.required" class="failure">To pole jest wymagane</div>
     </mat-hint>
   </mat-form-field>
   <button mat-flat-button color="primary" type="submit" class="auth-button" [disabled]="!loginForm.valid">Zaloguj się</button>

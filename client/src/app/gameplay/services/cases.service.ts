@@ -4,6 +4,7 @@ import { map, catchError } from 'rxjs/operators';
 import { TaskContent } from '../models/task-content.data';
 import { Performance } from '../models/game-data.data';
 import { environment } from '../../../environments/environment';
+import { AuthenticationService } from '../../auth/services/authentication.service';
 
 const DYNAMIC_TASKS_CONTENT = require('../../../assets/dynamic-tasks-content.json');
 
@@ -11,6 +12,7 @@ export interface Case {
   id: number;
   name: string;
   available: boolean;
+  image: string;
 }
 
 @Injectable({
@@ -21,18 +23,19 @@ export class CasesService {
   dynamicTasksContent = JSON.parse(JSON.stringify(DYNAMIC_TASKS_CONTENT));
   currentCase: number;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
 
   getCases(): Promise<{cases: Case[], currentCase: number}> {
     return new Promise((resolve, reject) => {
       if (this.dynamicTasksContent && this.dynamicTasksContent.cases) {
-        const casesList = this.dynamicTasksContent.cases.map(el => ({
+        const casesList: Case[] = this.dynamicTasksContent.cases.map(el => ({
           id: el.id,
           name: el.name,
           image: el.scene,
           available: false
         }));
-        resolve({cases: casesList, currentCase: JSON.parse(localStorage.getItem('currentUser')).currentCase});
+        const currentCase = this.authenticationService.getUser().currentCase;
+        resolve({cases: casesList, currentCase: currentCase});
       } else {
         reject('No cases');
       }
@@ -80,8 +83,7 @@ export class CasesService {
   completedCase(id: number, performance: Performance[]): Promise<any> {
     return this.http.post<any>(environment.baseUrl + '/api/performance', {performance: performance, id: id})
       .pipe(map((response: any) => {
-        let user;
-        user = JSON.parse(localStorage.getItem('currentUser'));
+        const user = this.authenticationService.getUser();
         if (!user.currentCase || (user.currentCase && user.currentCase < id)) {
           user.currentCase = id;
           localStorage.setItem('currentUser', JSON.stringify(user));
