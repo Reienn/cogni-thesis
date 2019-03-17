@@ -14,7 +14,7 @@ export class IntroComponent implements OnInit {
   cases: Case[];
   currentCase: number;
 
-  settingsVisible = false;
+  showSettings = false;
 
   constructor(
     private router: Router,

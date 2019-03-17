@@ -21,7 +21,7 @@ export class ControlPanelComponent implements OnInit {
   players: Player[];
   selectedPlayer: Player;
   showAbout = false;
-  settingsVisible = false;
+  showSettings = false;
 
   constructor(private authenticationService: AuthenticationService,
               private controlService: ControlService) { }
