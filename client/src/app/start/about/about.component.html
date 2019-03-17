@@ -1,5 +1,5 @@
-<div class="modal about-modal">
-  <div class="modal-content">
+<div class="modal about-modal" (click)="modalClose.emit(true)">
+  <div class="modal-content" (click)="$event.stopPropagation()">
     <h2>O grze</h2>
     <p>"AHA!" to gra dla dzieci ze spektrum autyzmu mająca na celu ćwiczenie umiejętności czytania ze zrozumieniem.</p>
     <p>

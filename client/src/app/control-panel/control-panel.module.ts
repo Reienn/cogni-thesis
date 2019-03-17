@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatToolbarModule, MatButtonModule, MatTableModule, MatSortModule, MatPaginatorModule } from '@angular/material';
 
 import { StartModule } from '../start/start.module';
+import { AuthModule } from '../auth/auth.module';
 
 import { ControlPanelComponent } from './components/control-panel/control-panel.component';
 import { NewPlayerComponent } from './components/new-player/new-player.component';
@@ -46,7 +47,8 @@ const ROUTES: Routes = [
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    StartModule
+    StartModule,
+    AuthModule
   ],
   declarations: [
     ControlPanelComponent,

@@ -22,9 +22,9 @@ const server = app.listen(port, (err) => {
   console.log(`Server is listening on port ${port}`);
 });
 
-mongoose.connect(DB_URL);
+mongoose.connect(DB_URL, {useNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-    console.log('MongoDB connected');
+  console.log('MongoDB connected');
 });

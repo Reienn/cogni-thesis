@@ -13,6 +13,7 @@ import {
   MatFormFieldModule, MatInputModule } from '@angular/material';
 
 import { StartModule } from '../start/start.module';
+import { AuthModule } from '../auth/auth.module';
 
 import { IntroComponent } from './components/intro/intro.component';
 import { FirstTaskComponent } from './components/first-task/first-task.component';
@@ -24,7 +25,6 @@ import { GuideComponent } from './components/guide/guide.component';
 import { AbstractTaskComponent } from './components/abstract-task/abstract-task.component';
 import { NotepadComponent } from './components/first-task/notepad/notepad.component';
 import { CompletedComponent } from './components/guide/completed/completed.component';
-import { EditUserComponent } from './components/intro/edit-user/edit-user.component';
 
 const ROUTES: Routes = [
   {
@@ -52,7 +52,8 @@ const ROUTES: Routes = [
     MatButtonToggleModule,
     MatFormFieldModule,
     MatInputModule,
-    StartModule
+    StartModule,
+    AuthModule
   ],
   declarations: [
     IntroComponent,
@@ -64,8 +65,7 @@ const ROUTES: Routes = [
     GuideComponent,
     AbstractTaskComponent,
     NotepadComponent,
-    CompletedComponent,
-    EditUserComponent
+    CompletedComponent
   ]
 })
 export class GameplayModule { }

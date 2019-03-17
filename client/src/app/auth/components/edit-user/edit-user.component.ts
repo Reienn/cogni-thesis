@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { AuthenticationService, User } from '../../../../auth/services/authentication.service';
+import { AuthenticationService, User } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -45,6 +45,7 @@ export class EditUserComponent implements OnInit {
         this.freeze = false;
         if (name !== 'psw') {
           this.user = {...this.user, [name]: control.value};
+          localStorage.setItem('currentUser', JSON.stringify(this.user));
           this.updatedUser.emit(this.user);
         }
       },

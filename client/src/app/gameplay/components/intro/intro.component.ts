@@ -35,17 +35,8 @@ export class IntroComponent implements OnInit {
     this.authenticationService.logout();
   }
 
-  showSettings() {
-    this.settingsVisible = true;
-  }
-
-  hideSettings() {
-    this.settingsVisible = false;
-  }
-
   updatedUser(user) {
     this.user = user;
-    localStorage.setItem('currentUser', JSON.stringify(user));
   }
 
   private getCases() {

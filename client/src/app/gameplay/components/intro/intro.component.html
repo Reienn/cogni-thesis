@@ -1,12 +1,13 @@
 <ng-container *ngIf="user">
   <mat-toolbar color="primary">
     <span class=navbar-left>
-      <span class="settings-icon"><i class="fa fa-cog" (click)="showSettings()"></i></span>
+      <span class="settings-icon"><i class="fa fa-cog" (click)="showSettings = true"></i></span>
     </span>
     <h2 class="title">Witaj detektywie!</h2>
     <span class="navbar-right">
       <span class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user?.name}}</span>
-      <button mat-flat-button (click)="logout()">Wyloguj</button>
+      <button mat-flat-button (click)="logout()">
+        <i class="fa fa-sign-out" aria-hidden="true"></i> Wyloguj</button>
     </span>
   </mat-toolbar>
 
@@ -25,10 +26,10 @@
   </div>
 </ng-container>
 
-<div *ngIf="settingsVisible" class="modal about-modal">
-  <div class="modal-content">
+<div *ngIf="showSettings" class="modal about-modal" (click)="showSettings = false">
+  <div class="modal-content" (click)="$event.stopPropagation()">
     <h2>Gracz {{user.name}}</h2>
     <app-edit-user [user]="user" (updatedUser)="updatedUser($event)"></app-edit-user>
-    <button class="button-close-modal" (click)="hideSettings()"><i class="fa fa-times"></i></button>
+    <button class="button-close-modal" (click)="showSettings = false"><i class="fa fa-times"></i></button>
   </div>
 </div>

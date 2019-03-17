@@ -5,6 +5,7 @@ import { MatFormFieldModule, MatInputModule, MatRadioModule, MatButtonModule } f
 
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { EducatorAuthGuardService } from './services/educator-auth-guard.service';
@@ -20,13 +21,13 @@ import { LoggedGuardService } from './services/logged-guard.service';
     MatRadioModule,
     MatButtonModule
   ],
-  declarations: [LoginComponent, SignupComponent],
+  declarations: [LoginComponent, SignupComponent, EditUserComponent],
   providers: [
     AuthenticationService,
     AuthGuardService,
     EducatorAuthGuardService,
     LoggedGuardService
   ],
-  exports: [LoginComponent, SignupComponent],
+  exports: [LoginComponent, SignupComponent, EditUserComponent],
 })
 export class AuthModule { }

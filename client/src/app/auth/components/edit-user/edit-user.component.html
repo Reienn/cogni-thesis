@@ -10,7 +10,7 @@
     </mat-form-field>
     <ng-container *ngTemplateOutlet="fieldButtons; context: {control: editUserForm.get('mail'), initial: this.user.mail, name: 'mail'}"></ng-container>
   </div>
-  <div class="form-field">
+  <div *ngIf="user.group === 'student'" class="form-field">
     <div class="form-label">Login nauczyciela:</div>
     <mat-form-field class="form-edit">
       <input matInput type="text" formControlName="educator" class="form-control">

@@ -1,7 +1,8 @@
 <mat-toolbar color="primary">
   <div class="title">AHA! Gra ćwicząca czytanie ze zrozumieniem</div>
   <div class="navbar-right">
-    <button mat-flat-button (click)="showAbout = !showAbout">O grze</button>
+    <button mat-flat-button (click)="showAbout = true">
+      <i class="fa fa-info-circle" aria-hidden="true"></i> O grze</button>
   </div>
 </mat-toolbar>
 
@@ -16,4 +17,4 @@
   </mat-tab-group>
 </div>
 
-<app-about *ngIf="showAbout" (modalClose)="showAbout = !showAbout"></app-about>
+<app-about *ngIf="showAbout" (modalClose)="showAbout = false"></app-about>
