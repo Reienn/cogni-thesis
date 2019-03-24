@@ -21,13 +21,13 @@ export class ThirdTaskComponent extends AbstractTaskComponent implements OnInit 
   ngOnInit() {
   }
 
-  decide(isCulprit) {
-    if (isCulprit) {
+  decide(person) {
+    if (person.isCulprit) {
       this.isCompleted = true;
       this.mistake = false;
     } else {
-      this.mistake = true;
+      person.mistake = true;
     }
-    this.pointsChange.emit(isCulprit ? 1 : -1);
+    this.pointsChange.emit(person.isCulprit ? 1 : -1);
   }
 }

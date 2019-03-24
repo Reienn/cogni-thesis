@@ -1,15 +1,26 @@
 <div *ngIf="taskData && taskData.exercises" class="fourth-task">
-  <h3 class="centered">Skradziony przedmiot znajduje się w sejfie.<br>Odpowiedz na pytania, aby odkryć tajny szyfr!</h3>
+  <h3 *ngIf="!hasCode" class="centered">Skradziony przedmiot znajduje się w sejfie.<br>Odpowiedz na pytania, aby odkryć tajny szyfr!</h3>
+  <h3 *ngIf="hasCode && !isOpen" class="centered">Brawo!<br>Teraz możesz otworzyć sejf!</h3>
+  <h3 *ngIf="isOpen" class="centered"><button *ngIf="isOpen" mat-flat-button color="primary" class="complete-button" (click)="isCompleted = true">Zakończ sprawę</button>
+  </h3>
   <div class="cipher-container">
-    <div class="cipher-box">
-      <div class="digit" *ngFor="let exercise of taskData.exercises"
-        [ngClass]="{'incorrect-digit': (exercise.selected && !exercise.done),
-                    'correct-digit': (exercise.selected && exercise.done)}">
-        {{ exercise.selected }}
+    <div class="cipher-box" [ngClass]="{'has-code': hasCode}">
+      <div class="digits">
+        <div class="digit" *ngFor="let exercise of taskData.exercises"
+          [ngClass]="{'incorrect-digit': (exercise.selected && !exercise.done),
+                      'correct-digit': (exercise.selected && exercise.done)}">
+          {{ exercise.selected }}
+        </div>
+      </div>
+      <div *ngIf="hasCode" class="safe-box">
+        <button *ngIf="!isOpen" mat-raised-button (click)="isOpen = true">OTWÓRZ</button>
+        <div *ngIf="isOpen">
+          <img class="stolen-item" src="assets/img/stolen/{{taskData.stolenItem}}.png">
+        </div>
       </div>
     </div>
   </div>
-  <div class="exercises">
+  <div *ngIf="!hasCode" class="exercises">
     <mat-card *ngFor="let exercise of taskData.exercises">
       <mat-card-title class="centered">{{ exercise.question }}
       </mat-card-title>

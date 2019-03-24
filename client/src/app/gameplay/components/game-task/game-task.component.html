@@ -1,15 +1,23 @@
 <div class="task-points" [@add]="addPoint ? 'add' : 'noChange'" [@lose]="losePoint ? 'lose' : 'noChange'" >{{pointsSum}}</div>
 <ng-container *ngIf="caseId && currentTask && dynamicTasksContent">
-  <mat-toolbar color="primary">
-    <h2>
-      <ng-container *ngIf="currentTask === 1">1. Uzupełnij szczegóły sprawy</ng-container>
-      <ng-container *ngIf="currentTask === 2">2. Odszukaj poszlaki</ng-container>
-      <ng-container *ngIf="currentTask === 3">3. Wskaż sprawcę</ng-container>
-      <ng-container *ngIf="currentTask === 4">4. Odzyskaj skradziony przedmiot</ng-container>
-    </h2>
-  </mat-toolbar>
+  <div class="help-button"><i class="fa fa-question" (click)="showHelp = true"></i></div>
+  <div class="nav-bar">
+    <div class="nav-tabs">
+      <div *ngFor="let tab of tasksHeaders" class="nav-tab" [ngClass]="{'active-tab': currentTask === tab.id}">
+        <div class="tab-icon"><i class="fa fa-{{tab.icon}}"></i></div>
+      </div>
+    </div>
+  </div>
   <app-first-task *ngIf="currentTask === 1" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.firstTask"></app-first-task>
   <app-second-task *ngIf="currentTask === 2" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.secondTask"></app-second-task>
   <app-third-task *ngIf="currentTask === 3" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.thirdTask"></app-third-task>
   <app-fourth-task *ngIf="currentTask === 4" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.fourthTask"></app-fourth-task>
 </ng-container>
+
+<div *ngIf="showHelp && currentTask" class="modal about-modal" (click)="showHelp = false">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <app-guide [currentTask]="currentTask"></app-guide>
+    <button mat-flat-button color="primary" (click)="showHelp = false">OK</button>
+    <button class="button-close-modal" (click)="showHelp = false"><i class="fa fa-times"></i></button>
+  </div>
+</div>

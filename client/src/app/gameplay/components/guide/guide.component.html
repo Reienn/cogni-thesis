@@ -1,3 +1,28 @@
-<p>
-  guide works!
-</p>
+<ng-container [ngSwitch]="currentTask">
+  <div *ngSwitchCase="1">
+    <h2>Uzupełnij szczegóły sprawy</h2>
+    <p>Pora rozwiązać nową zagadkę! Najpierw musisz poznać szczegóły sprawy.</p>
+    <p>Przeczytaj uważnie wypowiedź i dopasuj właściwą odpowiedź do każdego z pytań.</p>
+    <p>Aby dopasować odpowiedź przeciągnij ją w puste miejsce obok pytania.</p>
+  </div>
+  <div *ngSwitchCase="2">
+    <h2>Odszukaj poszlaki</h2>
+    <p>Musisz przeszukać miejsce przestępstwa. Złodziej na pewno zostawił jakieś ślady!</p>
+    <p>Instrukcja w ramce wskazuje, gdzie należy szukać.</p>
+    <p>Kliknij w miejsce, które chcesz przeszukać, a odnaleziona poszlaka pojawi się na pasku w dolnej części ekranu</p>
+  </div>
+  <div *ngSwitchCase="3">
+    <h2>Wskaż sprawcę</h2>
+    <p>Wszystkie poszlaki z miejsca przestępstwa zostały odnalezione.</p>
+    <p>Kto z podejrzanych mógł zostawić takie ślady?</p>
+    <p>Przeczytaj uważnie opisy podejrzanych.</p>
+    <p>Wybierz osobę, z którą łączy się najwięcej poszlak.</p>
+  </div>
+  <div *ngSwitchCase="4">
+    <h2>Odzyskaj skradziony przedmiot</h2>
+    <p>Złodziej został odnaleziony!</p>
+    <p>Musisz jeszcze odzyskać przedmiot, który złodziej schował w sejfie.</p>
+    <p>Odpowiedz na pytania, aby odkryć tajny szyfr!</p>
+  </div>
+  <div *ngSwitchDefault></div>
+</ng-container>

@@ -24,6 +24,67 @@ app-game-task {
       animation-duration: 2s;
     }
   }
+  .nav-bar {
+    background: $primary;
+    position: relative;
+    z-index: -1;
+  }
+  .nav-tabs {
+    display: flex;
+    height: 64px;
+    position: relative;
+    padding-top: 5px;
+    margin: 0 70px;
+    z-index: -1;
+    .nav-tab {
+      width: 25%;
+      text-align: center;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 30px;
+        left: 12.5%;
+        border-top: 2px solid $light-primary;
+        background: $light-primary;
+        width: 75%;
+        z-index: -1;
+      }
+      .tab-icon {
+        display: inline-block;
+        background: $primary;
+        border: 2px solid $light-primary;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        line-height: 50px;
+        font-size: 24px;
+        text-align: center;
+        z-index: 10;
+        color: $light-primary;
+      }
+      &.active-tab {
+        .tab-icon {
+          border-color: #ffffff;
+          background: #ffffff;
+          color: $primary;
+        }
+      }
+    }
+  }
+  .help-button {
+    position: absolute;
+    left: 5px;
+    color: #ffffff;
+    font-size: 3em;
+    width: 50px;
+    line-height: 64px;
+    display: inline-block;
+    text-align: center;
+    &:hover {
+      font-size: 3.5em;
+      cursor: pointer;
+    }
+  }
 }
 
 .completed-character {

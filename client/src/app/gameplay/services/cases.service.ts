@@ -71,7 +71,8 @@ export class CasesService {
           },
           fourthTask: {
             exercises: exercises,
-            character: item.character
+            character: item.character,
+            stolenItem: item.stolenItem
           }
         });
       } else {

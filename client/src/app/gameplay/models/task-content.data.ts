@@ -42,6 +42,7 @@ export interface FourthTaskData {
     done?: boolean;
   }[];
   character: string;
+  stolenItem: string;
 }
 
 export interface TaskContent {

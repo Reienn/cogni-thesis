@@ -2,38 +2,43 @@
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
+  align-items: stretch;
   padding: 2%;
-  margin-bottom: 100px;
+  height: calc(100vh - 170px);
+  margin-bottom: 10px;
   mat-card {
     width: 20%;
     min-width: 200px;
     max-width: 400px;
     margin: 1%;
+    min-height: 350px;
     position: relative;
+    text-align: center;
+    &.person-failure {
+      button {
+        background: $incorrect;
+      }
+    }
     img {
-      padding: 5% 20%;
+      padding: 5% 30%;
+    }
+    mat-card-title {
+      font-size: 1.1em;
     }
     mat-card-content {
-      margin-bottom: 50px;
-      font-size: 1.1em;
+      margin-bottom: 60px;
+      font-size: 1em;
     }
     button {
       position: absolute;
       bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
   &.culprit-found {
     .innocent-img {
        filter: grayscale(100%);
     }
-  }
-}
-.third-task-feedback {
-  height: 30px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  h3 {
-    font-size: 1.5em;
-    margin: 0;
   }
 }

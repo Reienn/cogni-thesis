@@ -10,6 +10,8 @@ export class FourthTaskComponent extends AbstractTaskComponent implements OnInit
 
   @Input() taskData: FourthTaskData;
 
+  hasCode = false;
+  isOpen = false;
   isCompleted = false;
 
   constructor() {
@@ -22,7 +24,7 @@ export class FourthTaskComponent extends AbstractTaskComponent implements OnInit
   selectAnswer(selected, correct, id) {
     this.taskData.exercises.find(item => item.id === id).done = selected === correct ? true : false;
     this.pointsChange.emit(selected === correct ? 1 : -1);
-    this.isCompleted = this.taskData.exercises.filter(item => !item.done).length ? false : true;
+    this.hasCode = this.taskData.exercises.filter(item => !item.done).length ? false : true;
   }
 
 }

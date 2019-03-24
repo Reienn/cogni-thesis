@@ -79,7 +79,7 @@
         {"question": "Gdzie?", "answer": "w domu Jasia"},
         {"question": "distractor", "answer": "w domu babci"}
       ],
-      "stolenItem": "zegarek",
+      "stolenItem": "watch",
       "scene": "room",
       "searchingCommands": [
         {"command": "Przesuń doniczkę", "item": "plant"},
@@ -103,7 +103,7 @@
         {"question": "Co chciała kupić Ola?", "answer": "rower"},
         {"question": "distractor", "answer": "w szkole"}
       ],
-      "stolenItem": "skarbonka",
+      "stolenItem": "piggybank",
       "scene": "room2",
       "searchingCommands": [
         {"command": "Zajrzyj za lewą zasłonę", "item": "left_curtain"},
@@ -153,7 +153,7 @@
         {"question": "Dlaczego nie działał alarm?", "answer": "z powodu awarii prądu"},
         {"question": "distractor", "answer": "kamery"}
       ],
-      "stolenItem": "obraz",
+      "stolenItem": "painting",
       "scene": "museum",
       "searchingCommands": [
         {"command": "Zajrzyj do wazy", "item": "vase"},
@@ -178,7 +178,7 @@
         {"question": "Jak złodziej dostał się do sklepu?", "answer": "przez okno"},
         {"question": "distractor", "answer": "w piątek rano"}
       ],
-      "stolenItem": "pieniądze",
+      "stolenItem": "money",
       "scene": "store2",
       "searchingCommands": [
         {"command": "Przesuń największego misia", "item": "teddy_bear1"},
@@ -204,7 +204,7 @@
         {"question": "distractor", "answer": "w toalecie"},
         {"question": "distractor", "answer": "w środę rano"}
       ],
-      "stolenItem": "torebka",
+      "stolenItem": "handbag",
       "scene": "restaurant",
       "searchingCommands": [
         {"command": "Przesuń wazon", "item": "vase"},
@@ -232,7 +232,7 @@
         {"question": "distractor", "answer": "w czwartek po piątej lekcji"},
         {"question": "distractor", "answer": "do Antoniego"}
       ],
-      "stolenItem": "plecak",
+      "stolenItem": "rucksack",
       "scene": "classroom",
       "searchingCommands": [
         {"command": "Podnieś globus", "item": "globe"},
@@ -261,7 +261,7 @@
         {"question": "distractor", "answer": "na huśtawce"},
         {"question": "distractor", "answer": "bo chciała zrobić mu zdjęcie"}
       ],
-      "stolenItem": "aparat fotograficzny",
+      "stolenItem": "camera",
       "scene": "playground",
       "searchingCommands": [
         {"command": "Poszukaj w piaskownicy", "item": "sandbox"},
@@ -290,7 +290,7 @@
         {"question": "distractor", "answer": "z babcią"},
         {"question": "distractor", "answer": "żeby pomogła jej się spakować"}
       ],
-      "stolenItem": "telefon",
+      "stolenItem": "phone",
       "scene": "beach",
       "searchingCommands": [
         {"command": "Sprawdź pod kocem", "item": "blanket"},
@@ -319,7 +319,7 @@
         {"question": "distractor", "answer": "w domu"},
         {"question": "distractor", "answer": "bo chciał skosić trawnik"}
       ],
-      "stolenItem": "portfel",
+      "stolenItem": "wallet",
       "scene": "garden",
       "searchingCommands": [
         {"command": "Poszukaj w hamaku", "item": "hammock"},

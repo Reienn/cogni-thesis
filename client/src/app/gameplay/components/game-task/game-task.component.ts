@@ -8,6 +8,12 @@ import { Subscription } from 'rxjs';
 import { Performance } from '../../models/game-data.data';
 
 const TASKS_NUMBER = 4;
+const TASKS_HEADERS = [
+  {id: 1, text: 'Uzupełnij szczegóły sprawy', icon: 'comment'},
+  {id: 2, text: 'Odszukaj poszlaki', icon: 'search'},
+  {id: 3, text: 'Wskaż sprawcę', icon: 'user'},
+  {id: 4, text: 'Odzyskaj skradziony przedmiot', icon: 'key'}
+];
 
 interface TasksPoints {
   [key: number]: number;
@@ -50,6 +56,9 @@ export class GameTaskComponent implements OnInit, OnDestroy {
 
   addPoint = false;
   losePoint = false;
+  showHelp = true;
+
+  tasksHeaders = TASKS_HEADERS;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -77,6 +86,7 @@ export class GameTaskComponent implements OnInit, OnDestroy {
     });
     if (id < TASKS_NUMBER) {
       this.currentTask++;
+      this.showHelp = true;
       this.changeDetector.detectChanges();
     } else if (id === TASKS_NUMBER) {
       this.casesService.completedCase(this.caseId, this.performance).then(data => {

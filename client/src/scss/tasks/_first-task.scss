@@ -4,8 +4,13 @@
   justify-content: center;
   padding: 20px;
 }
+.task-content-dialogue {
+  width: 45%;
+}
+app-notepad {
+  width: 55%;
+}
 .task-content-dialogue, app-notepad {
-  width: 50%;
   min-width: 250px;
   @media (max-width: 600px) {
     width: 100%;
@@ -15,7 +20,7 @@
   padding: 20px;
   position: relative;
   .dialogue-character {
-    height: 60vh;
+    height: 55vh;
     min-height: 300px;
     padding: 45px 0 5px;
     display: block;
@@ -41,14 +46,13 @@
 .task-content-notepad {
   .questions {
     .question {
-      min-width: 100px;
       margin-right: 10px;
     }
     .answer-placeholder {
       display: inline-block;
       background: $light-gray;
       border-radius: 16px;
-      width: 300px;
+      width: 100%;
       min-height: 32px;
       &.active-placeholder.empty-placeholder  {
         background: #b0bcff;
@@ -65,6 +69,7 @@
     margin-top: 50px;
     min-height: 42px;
     padding: 5px;
+    padding-bottom: 0;
     background: $light-gray;
     border-radius: 16px;
     .answer {
