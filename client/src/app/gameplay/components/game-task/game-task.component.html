@@ -14,10 +14,10 @@
   <app-fourth-task *ngIf="currentTask === 4" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.fourthTask"></app-fourth-task>
 </ng-container>
 
-<div *ngIf="showHelp && currentTask" class="modal about-modal" (click)="showHelp = false">
+<div *ngIf="showHelp && currentTask" class="modal about-modal" (click)="showHelp = false;changeDetector.detectChanges()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <app-guide [currentTask]="currentTask"></app-guide>
-    <button mat-flat-button color="primary" (click)="showHelp = false">OK</button>
-    <button class="button-close-modal" (click)="showHelp = false"><i class="fa fa-times"></i></button>
+    <button mat-flat-button color="primary" (click)="showHelp = false;changeDetector.detectChanges()">OK</button>
+    <button class="button-close-modal" (click)="showHelp = false;changeDetector.detectChanges()"><i class="fa fa-times"></i></button>
   </div>
 </div>

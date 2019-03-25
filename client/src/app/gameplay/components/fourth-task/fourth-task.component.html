@@ -1,8 +1,7 @@
 <div *ngIf="taskData && taskData.exercises" class="fourth-task">
   <h3 *ngIf="!hasCode" class="centered">Skradziony przedmiot znajduje się w sejfie.<br>Odpowiedz na pytania, aby odkryć tajny szyfr!</h3>
   <h3 *ngIf="hasCode && !isOpen" class="centered">Brawo!<br>Teraz możesz otworzyć sejf!</h3>
-  <h3 *ngIf="isOpen" class="centered"><button *ngIf="isOpen" mat-flat-button color="primary" class="complete-button" (click)="isCompleted = true">Zakończ sprawę</button>
-  </h3>
+  <h3 *ngIf="isOpen" class="centered">Udało się!<br>W sejfie jest skradziony przedmiot!</h3>
   <div class="cipher-container">
     <div class="cipher-box" [ngClass]="{'has-code': hasCode}">
       <div class="digits">
@@ -31,6 +30,8 @@
       </mat-card-content>
     </mat-card>
   </div>
+  <button *ngIf="isOpen" mat-flat-button color="primary" class="complete-button" (click)="isCompleted = true">
+    <i class="fa  fa-arrow-circle-right" aria-hidden="true"></i> Zakończ sprawę</button>
 </div>
 
 <app-completed *ngIf="isCompleted" [taskId]="taskId" [character]="taskData.character" (nextTask)="nextTask.emit(taskId)"></app-completed>

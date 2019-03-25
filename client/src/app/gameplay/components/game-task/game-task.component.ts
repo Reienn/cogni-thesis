@@ -7,6 +7,11 @@ import { TaskContent } from '../../models/task-content.data';
 import { Subscription } from 'rxjs';
 import { Performance } from '../../models/game-data.data';
 
+const AUDIO_SET = [
+  'click',
+  'failure',
+  'correct'
+];
 const TASKS_NUMBER = 4;
 const TASKS_HEADERS = [
   {id: 1, text: 'Uzupełnij szczegóły sprawy', icon: 'comment'},
@@ -59,6 +64,9 @@ export class GameTaskComponent implements OnInit, OnDestroy {
   showHelp = true;
 
   tasksHeaders = TASKS_HEADERS;
+  sounds: {
+    [key: string]: any
+  } = {};
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -68,6 +76,7 @@ export class GameTaskComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getCaseId();
+    this.loadSounds();
   }
 
   ngOnDestroy() {
@@ -104,6 +113,12 @@ export class GameTaskComponent implements OnInit, OnDestroy {
     this.addPoint = change > 0 ? true : false;
     this.losePoint = change < 0 ? true : false;
     this.changeDetector.detectChanges();
+    if (change > 0) {
+      this.sounds.correct.play();
+    }
+    if (change < 0) {
+      this.sounds.failure.play();
+    }
   }
 
   private getCaseId() {
@@ -124,6 +139,14 @@ export class GameTaskComponent implements OnInit, OnDestroy {
         3: 1,
         4: this.dynamicTasksContent.fourthTask.exercises.length
       };
+    });
+  }
+
+  private loadSounds() {
+    AUDIO_SET.forEach(sound => {
+      this.sounds[sound] = new Audio();
+      this.sounds[sound].src = `assets/audio/${sound}.mp3`;
+      this.sounds[sound].load();
     });
   }
 }

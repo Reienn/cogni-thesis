@@ -87,7 +87,14 @@
     }
   }
   .complete-button {
-    margin-top: 9px;
-    font-size: 1.1em;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    i {
+      font-size: 2em;
+      padding-right: 10px;
+    }
   }
 }

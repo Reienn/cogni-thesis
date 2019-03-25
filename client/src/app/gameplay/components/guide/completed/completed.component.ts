@@ -9,9 +9,10 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
         <p *ngIf="taskId === 1">Teraz musisz poszukać wskazówek, które pomogą znaleźć złodzieja!</p>
         <p *ngIf="taskId === 2">Teraz musisz wskazać złodzieja!</p>
         <p *ngIf="taskId === 3">Pora udać się do kryjówki złodzieja, by odzyskać skradziony przedmiot!</p>
+        <p *ngIf="taskId === 4">Udało Ci się znaleźć złodzieja i odzyskać skradziony przedmiot!</p>
         <button class="next-task-button" mat-flat-button color="primary" (click)="next()" [disabled]="freezeButton">
           <ng-container *ngIf="taskId !== 4">Dalej</ng-container>
-          <ng-container *ngIf="taskId === 4">Zakończ sprawę</ng-container>
+          <ng-container *ngIf="taskId === 4">Zakończ</ng-container>
         </button>
         <img *ngIf="character" src="assets/img/characters/faces/face_{{character}}.png" class="completed-character">
       </div>
