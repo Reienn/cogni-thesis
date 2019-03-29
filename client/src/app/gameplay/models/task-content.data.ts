@@ -16,7 +16,7 @@ export interface SecondTaskData {
   scene: string;
   clues: {
     command: string;
-    item: string,
+    item: string;
     clueName: string;
     found?: boolean;
   }[];
@@ -36,7 +36,7 @@ export interface FourthTaskData {
   exercises: {
     id: number;
     question: string;
-    options: {id: number, text: string}[];
+    options: {id: number; text: string}[];
     correct: number;
     selected?: number;
     done?: boolean;
@@ -50,4 +50,49 @@ export interface TaskContent {
   secondTask: SecondTaskData;
   thirdTask: ThirdTaskData;
   fourthTask: FourthTaskData;
+}
+
+export interface SourceTaskData {
+  people: {
+    sex: string;
+    name: string
+  }[];
+  clues: SourceClues;
+  exercises: {
+    wordGroups: string[][];
+  };
+  cases: {
+    id: number;
+    name: string;
+    description: string;
+    character: string;
+    notes: {
+      question: string;
+      answer: string
+    }[];
+    stolenItem: string;
+    scene: string;
+    searchingCommands: {
+      command: string;
+      item: string
+    }[];
+    exercises: {
+      type: string;
+      amount: number;
+      question: string
+    }[]
+  }[];
+}
+
+export interface SourceClues {
+  jobs: SourceClue[];
+  other: SourceClue[];
+}
+export interface SourceClue {
+  name: string;
+  description: {
+    unisex?: string;
+    male?: string;
+    female?: string;
+  };
 }

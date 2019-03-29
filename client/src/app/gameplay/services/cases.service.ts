@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-import { TaskContent } from '../models/task-content.data';
+import { TaskContent, SourceTaskData, SourceClues, SourceClue } from '../models/task-content.data';
 import { Performance } from '../models/game-data.data';
 import { environment } from '../../../environments/environment';
 import { AuthenticationService } from '../../auth/services/authentication.service';
@@ -20,7 +20,7 @@ export interface Case {
 })
 export class CasesService {
 
-  dynamicTasksContent = JSON.parse(JSON.stringify(DYNAMIC_TASKS_CONTENT));
+  dynamicTasksContent: SourceTaskData = JSON.parse(JSON.stringify(DYNAMIC_TASKS_CONTENT));
   currentCase: number;
 
   constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
@@ -48,12 +48,15 @@ export class CasesService {
         const item = this.dynamicTasksContent.cases.find(el => el.id === caseId);
         const cluesNumber = item.searchingCommands.length;
 
-        const preparedClues = this.prepareClues([...this.dynamicTasksContent.clues], cluesNumber);
+        const preparedClues = this.prepareClues(this.dynamicTasksContent.clues, cluesNumber);
         const people = this.preparePeople([...this.dynamicTasksContent.people], preparedClues, cluesNumber);
         const exercises = this.prepareExercises({...this.dynamicTasksContent.exercises}, [...item.exercises]);
 
         const randomizedCommands = item.searchingCommands;
         randomizedCommands.sort(() => 0.5 - Math.random());
+
+        const activeClues = [...preparedClues.active.other, ...preparedClues.active.jobs];
+        activeClues.sort(() => 0.5 - Math.random());
 
         resolve({
           firstTask: {
@@ -63,11 +66,11 @@ export class CasesService {
           },
           secondTask: {
             scene: item.scene,
-            clues: randomizedCommands.map((command, index) => ({...command, clueName: preparedClues.active[index].name}))
+            clues: randomizedCommands.map((command, index) => ({...command, clueName: activeClues[index].name}))
           },
           thirdTask: {
             people: people,
-            clues: preparedClues.active.map(el => el.name)
+            clues: activeClues.map(el => el.name)
           },
           fourthTask: {
             exercises: exercises,
@@ -96,21 +99,24 @@ export class CasesService {
     ).toPromise();
   }
 
-  private prepareClues(clues, cluesNumber: number) {
-    let activeClues, otherClues;
-    clues.sort(() => 0.5 - Math.random());
-    activeClues = clues.slice(0, cluesNumber);
-    activeClues.sort(() => 0.5 - Math.random());
-    otherClues = clues.slice(cluesNumber, clues.length);
-    return({active: activeClues, other: otherClues});
+  private prepareClues(clues: SourceClues, cluesNumber: number) {
+    let activeClues: SourceClue[], inactiveClues: SourceClue[];
+    clues.other.sort(() => 0.5 - Math.random());
+    activeClues = clues.other.slice(0, cluesNumber - 1);
+    inactiveClues = clues.other.slice(cluesNumber - 1, clues.other.length);
+    clues.jobs.sort(() => 0.5 - Math.random());
+    const activeJob = clues.jobs.shift();
+    return({active: {jobs: [activeJob], other: activeClues},
+            inactive: {jobs: clues.jobs, other: inactiveClues}});
   }
 
-  private preparePeople(people, clues, cluesNumber: number) {
-    let culpritDescription;
+  private preparePeople(people, clues: {active: SourceClues, inactive: SourceClues}, cluesNumber: number) {
+    let culpritDescription: string[];
     people.sort(() => 0.5 - Math.random());
     people = people.slice(0, cluesNumber);
 
-    culpritDescription = clues.active.map(el => el.description);
+    culpritDescription = [...clues.active.jobs, ...clues.active.other].map(el =>
+      el.description.unisex ? el.description.unisex : el.description[people[0].sex]);
     culpritDescription.sort(() => 0.5 - Math.random());
     people[0] = {...people[0],
       isCulprit: true,
@@ -118,14 +124,17 @@ export class CasesService {
     };
 
     for (let i = 1; i < people.length; i++) {
-      let cluesForInnocent = [...clues.active];
+      const jobs = [...clues.inactive.jobs, ...clues.active.jobs];
+      jobs.sort(() => 0.5 - Math.random());
+      let cluesForInnocent = [...clues.active.other];
       cluesForInnocent.sort(() => 0.5 - Math.random());
       cluesForInnocent.pop();
-      cluesForInnocent = [...cluesForInnocent, ...clues.other];
+      cluesForInnocent = [...cluesForInnocent, ...clues.inactive.other, jobs[0]];
+      cluesForInnocent.sort(() => 0.5 - Math.random());
       cluesForInnocent = cluesForInnocent.slice(0, cluesNumber);
       people[i] = {...people[i],
         isCulprit: false,
-        description: cluesForInnocent.map(el => el.description).join(' ')
+        description: cluesForInnocent.map(el => el.description.unisex ? el.description.unisex : el.description[people[i].sex]).join(' ')
       };
     }
     people.sort(() => 0.5 - Math.random());

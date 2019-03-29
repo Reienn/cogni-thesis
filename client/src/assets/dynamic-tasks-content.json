@@ -46,16 +46,25 @@
     {"sex": "female", "name": "Zuzanna Z."}
   ],
 
-  "clues": [
-    {"name": "coffee", "description": "Często odwiedza pobliską kawiarnię."},
-    {"name": "banana", "description": "Bardzo lubi owoce."},
-    {"name": "ticket", "description": "Często chodzi do kina."},
-    {"name": "glasses", "description": "Ma słaby wzrok."},
-    {"name": "cookie", "description": "Lubi słodycze."},
-    {"name": "flower", "description": "Pracuje w kwiaciarni."},
-    {"name": "scarf", "description": "Jest zmarzluchem."},
-    {"name": "hat", "description": "Lubi eleganckie nakrycia głowy."}
-  ],
+  "clues": {
+    "jobs": [
+      {"name": "flower", "description": {"unisex": "Pracuje w kwiaciarni."}},
+      {"name": "scissors", "description": {"male": "Jest fryzjerem.", "female": "Jest fryzjerką."}},
+      {"name": "syringe", "description": {"male": "Jest pielęgniarzem.", "female": "Jest pielęgniarką."}},
+      {"name": "wrench", "description": {"unisex": "Pracuje w zakładzie samochodowym."}}
+    ],
+    "other": [
+      {"name": "coffee", "description": {"unisex": "Często odwiedza pobliską kawiarnię."}},
+      {"name": "banana", "description": {"unisex": "Bardzo lubi owoce."}},
+      {"name": "ticket", "description": {"unisex": "Często chodzi do kina."}},
+      {"name": "glasses", "description": {"unisex": "Ma słaby wzrok."}},
+      {"name": "cookie", "description": {"unisex": "Lubi słodycze."}},
+      {"name": "scarf", "description": {"unisex": "Jest zmarzluchem."}},
+      {"name": "hat", "description": {"unisex": "Lubi eleganckie nakrycia głowy."}},
+      {"name": "brush", "description": {"unisex": "Uwielbia malować."}},
+      {"name": "dice", "description": {"male": "Jego hobby to gry planszowe.", "female": "Jej hobby to gry planszowe."}}
+    ]
+  },
 
   "exercises": {
     "wordGroups": [
