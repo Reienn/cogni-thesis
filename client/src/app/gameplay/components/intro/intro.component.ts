@@ -14,8 +14,6 @@ export class IntroComponent implements OnInit {
   cases: Case[];
   currentCase: number;
 
-  showSettings = false;
-
   constructor(
     private router: Router,
     private casesService: CasesService,
@@ -28,15 +26,11 @@ export class IntroComponent implements OnInit {
   }
 
   selectCase(id: number) {
-    this.router.navigate(['/gameplay', id]);
+    this.router.navigate(['gameplay/list', id]);
   }
 
-  logout() {
-    this.authenticationService.logout();
-  }
-
-  updatedUser(user) {
-    this.user = user;
+  back() {
+    this.router.navigate(['gameplay']);
   }
 
   private getCases() {

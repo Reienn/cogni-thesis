@@ -10,6 +10,8 @@
 @import 'clues-bar';
 @import 'about';
 @import 'settings';
+@import 'menu';
+@import 'cases';
 
 @import 'dragula';
 
@@ -65,22 +67,8 @@ mat-toolbar {
       cursor: pointer;
     }
   }
-}
-
-.case-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 5%;
-  .case-item {
-    width: 250px;
-    margin: 1%;
-    padding: 20px;
-    mat-card-title {
-      font-size: 1.2em;
-    }
-    mat-card-actions {
-      text-align: center;
-    }
+  &.control-panel-toolbar {
+    position: fixed;
+    top: 0;
   }
 }

@@ -1,18 +1,8 @@
-<ng-container *ngIf="user">
-  <mat-toolbar color="primary">
-    <span class=navbar-left>
-      <span class="settings-icon"><i class="fa fa-cog" (click)="showSettings = true"></i></span>
-    </span>
-    <h2 class="title">Witaj detektywie!</h2>
-    <span class="navbar-right">
-      <span class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user?.name}}</span>
-      <button mat-flat-button (click)="logout()">
-        <i class="fa fa-sign-out" aria-hidden="true"></i> Wyloguj</button>
-    </span>
-  </mat-toolbar>
-
+<div class="cases-wrapper" *ngIf="user">
+  <span class="back-icon"><i class="fa fa-arrow-circle-left" (click)="back()"></i></span>
+  <h1 class="title">Witaj detektywie! Wybierz sprawę:</h1>
   <div class="case-list">
-    <mat-card *ngFor="let case of cases; let i = index" class="case-item">
+    <mat-card *ngFor="let case of cases; let i = index" class="case-item" [ngClass]="{'disabled-case': case.id > currentCase + 1}">
       <img *ngIf="case.image" mat-card-image src="assets/img/scenes/{{case.image}}.png">
       <mat-card-title>{{i + 1}}. {{case.name}}</mat-card-title>
       <!-- <mat-card-content *ngIf="case.id <= currentCase">Najlepszy wynik: </mat-card-content> -->
@@ -23,13 +13,5 @@
         </button>
       </mat-card-actions>
     </mat-card>
-  </div>
-</ng-container>
-
-<div *ngIf="showSettings" class="modal about-modal" (click)="showSettings = false">
-  <div class="modal-content" (click)="$event.stopPropagation()">
-    <h2>Gracz {{user.name}}</h2>
-    <app-edit-user [user]="user" (updatedUser)="updatedUser($event)"></app-edit-user>
-    <button class="button-close-modal" (click)="showSettings = false"><i class="fa fa-times"></i></button>
   </div>
 </div>

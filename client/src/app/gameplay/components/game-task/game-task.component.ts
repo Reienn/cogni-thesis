@@ -99,7 +99,7 @@ export class GameTaskComponent implements OnInit, OnDestroy {
       this.changeDetector.detectChanges();
     } else if (id === TASKS_NUMBER) {
       this.casesService.completedCase(this.caseId, this.performance).then(data => {
-        this.router.navigate(['gameplay']);
+        this.router.navigate(['gameplay/list']);
       });
     }
   }

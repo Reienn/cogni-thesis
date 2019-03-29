@@ -19,7 +19,7 @@ export class EducatorAuthGuardService implements CanActivate {
           this.err = '';
           return true;
         } else {
-          this.router.navigate(['/gameplay']);
+          this.router.navigate(['gameplay']);
           return false;
         }
       },
