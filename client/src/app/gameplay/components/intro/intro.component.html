@@ -1,6 +1,7 @@
 <div class="cases-wrapper" *ngIf="user">
   <span class="back-icon"><i class="fa fa-arrow-circle-left" (click)="back()"></i></span>
   <h1 class="title">Witaj detektywie! Wybierz sprawę:</h1>
+  <i *ngIf="loading" class="fa fa-spinner loading-icon"></i>
   <div class="case-list" [ngClass]="{'visibility-hidden': loading}">
     <mat-card *ngFor="let case of cases; let i = index" class="case-item" [ngClass]="{'disabled-case': case.id > currentCase + 1}">
       <img *ngIf="case.image" (load)="onImageLoad(i)" mat-card-image src="assets/img/scenes/{{case.image}}.png">
