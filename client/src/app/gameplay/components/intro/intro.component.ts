@@ -13,6 +13,7 @@ export class IntroComponent implements OnInit {
 
   cases: Case[];
   currentCase: number;
+  loading = true;
 
   constructor(
     private router: Router,
@@ -31,6 +32,12 @@ export class IntroComponent implements OnInit {
 
   back() {
     this.router.navigate(['gameplay']);
+  }
+
+  onImageLoad(index: number) {
+    if (index >= this.cases.length - 1 ) {
+      this.loading = false;
+    }
   }
 
   private getCases() {

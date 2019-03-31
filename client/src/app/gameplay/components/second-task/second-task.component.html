@@ -1,5 +1,5 @@
-<div class="scene">
-  <object type="image/svg+xml" class="scene-svg" id="scene-object" *ngIf="svgSource" [data]="svgSource">
+<div class="scene" [ngClass]="{'visibility-hidden': loading}">
+  <object type="image/svg+xml" (load)="loading = false" class="scene-svg" id="scene-object" *ngIf="svgSource" [data]="svgSource">
   </object>
 </div>
 <div class="command-box">
