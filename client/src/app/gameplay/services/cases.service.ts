@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-import { TaskContent, SourceTaskData, SourceClues, SourceClue } from '../models/task-content.data';
+import { TaskContent, SourceTaskData, SourceClues, SourceClue, EXERCISE_QUESTIONS, EXERCISE_BLANK,
+        EXERCISE_TYPE_WORD_GROUPS, EXERCISE_TYPE_CLOZE_TEST, EXERCISE_TYPE_CLOZE_TEST_REVERSED } from '../models/task-content.data';
 import { Performance } from '../models/game-data.data';
 import { environment } from '../../../environments/environment';
 import { AuthenticationService } from '../../auth/services/authentication.service';
@@ -142,30 +143,71 @@ export class CasesService {
   }
 
   private prepareExercises(exercisesSource, exercises) {
-    let exercisesContent, source, options, correctOption;
-    exercisesContent = [];
+    let exercisesContent = [];
     exercises.map(el => {
-      source = exercisesSource[el.type];
-      source.sort(() => 0.5 - Math.random());
-      for (let i = 0; i < el.amount; i++) {
-        options = source[i];
-        options.sort(() => 0.5 - Math.random());
-        options = options.slice(0, 3);
+      switch (el.type) {
+        case EXERCISE_TYPE_WORD_GROUPS:
+          const wordGroups = exercisesSource.wordGroups;
+          wordGroups.sort(() => 0.5 - Math.random());
+          for (let i = 0; i < el.amount; i++) {
+            let options = wordGroups[i];
+            options.sort(() => 0.5 - Math.random());
+            options = options.slice(0, 3);
 
-        correctOption = source[ i < source.length - 1 ? i + 1 : 0];
-        correctOption.sort(() => 0.5 - Math.random());
-        options.unshift(correctOption[0]);
+            const correctOption = wordGroups[ i < wordGroups.length - 1 ? i + 1 : 0];
+            correctOption.sort(() => 0.5 - Math.random());
+            options.unshift(correctOption[0]);
 
-        exercisesContent.push({
-          id: i + 1,
-          done: false,
-          question: el.question,
-          options: options.map((option, index) => ({id: index + 1, text: option})).sort(() => 0.5 - Math.random()),
-          correct: 1
-        });
+            exercisesContent.push({
+              question: EXERCISE_QUESTIONS[el.type],
+              options: options.map((option, index) => ({id: index + 1, text: option})).sort(() => 0.5 - Math.random()),
+            });
+          }
+          break;
+        case EXERCISE_TYPE_CLOZE_TEST:
+          exercisesSource.clozeTest.sort(() => 0.5 - Math.random());
+          for (let i = 0; i < el.amount; i++) {
+            const clozeTestTask = exercisesSource.clozeTest.shift();
+            if (!clozeTestTask) {
+              break;
+            }
+            const correct = clozeTestTask.correct;
+            correct.sort(() => 0.5 - Math.random());
+            const incorrect = clozeTestTask.incorrect;
+            incorrect.sort(() => 0.5 - Math.random());
+            const options = [correct.pop(), ...incorrect.slice(0, 3)];
+            exercisesContent.push({
+              question: EXERCISE_QUESTIONS[el.type],
+              sentence: clozeTestTask.sentence.replace('*', EXERCISE_BLANK),
+              options: options.map((option, index) => ({id: index + 1, text: option})).sort(() => 0.5 - Math.random()),
+             });
+          }
+          break;
+        case EXERCISE_TYPE_CLOZE_TEST_REVERSED:
+          exercisesSource.clozeTest.sort(() => 0.5 - Math.random());
+          for (let i = 0; i < el.amount; i++) {
+            const clozeTestReversedTask = exercisesSource.clozeTest.pop();
+            if (!clozeTestReversedTask) {
+              break;
+            }
+            const correct = clozeTestReversedTask.incorrect;
+            correct.sort(() => 0.5 - Math.random());
+            const incorrect = clozeTestReversedTask.correct;
+            incorrect.sort(() => 0.5 - Math.random());
+            const options = [correct.pop(), ...incorrect.slice(0, 3)];
+            exercisesContent.push({
+              question: EXERCISE_QUESTIONS[el.type],
+              sentence: clozeTestReversedTask.sentence.replace('*', EXERCISE_BLANK),
+              options: options.map((option, index) => ({id: index + 1, text: option})).sort(() => 0.5 - Math.random()),
+            });
+          }
+          break;
+        default:
+          break;
       }
     });
-    exercisesContent.sort(() => 0.5 - Math.random());
+    exercisesContent = exercisesContent.map((el, i) =>
+      ({...el, id: i + 1, done: false, correct: 1})).sort(() => 0.5 - Math.random());
     return exercisesContent;
   }
 }

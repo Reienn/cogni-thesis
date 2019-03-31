@@ -20,8 +20,9 @@
     </div>
   </div>
   <div *ngIf="!hasCode" class="exercises">
-    <mat-card *ngFor="let exercise of taskData.exercises">
-      <mat-card-title class="centered">{{ exercise.question }}
+    <mat-card *ngFor="let exercise of taskData.exercises; let i = index">
+      <mat-card-title class="centered">{{i + 1}}. <span [innerHTML]="exercise.question"></span>
+        <span *ngIf="exercise.sentence" class="exercise-sentence">&bdquo;<span [innerHTML]="exercise.sentence"></span>&rdquo;</span>
       </mat-card-title>
       <mat-card-content>
         <mat-button-toggle-group [(ngModel)]="exercise.selected" class="options" [disabled]="exercise.done">

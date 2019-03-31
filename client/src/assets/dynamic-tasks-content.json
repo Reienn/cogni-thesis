@@ -72,7 +72,24 @@
       ["kot", "pies", "tygrys", "koń", "pingwin", "żyrafa", "niedźwiedź", "lis", "słoń", "wąż"],
       ["spodnie", "sukienka", "skarpetki", "podkoszulek", "sweter", "czapka", "kurtka", "rękawiczki", "szalik", "buty"],
       ["samolot", "samochód", "pociąg", "autobus", "tramwaj", "statek", "motor", "helikopter", "rower", "metro"],
-      ["jabłko", "banan", "truskawka", "śliwka", "gruszka", "pomarańcza", "arbuz", "brzoskwinia", "wiśnia", "ananas"]
+      ["jabłko", "banan", "truskawka", "śliwka", "gruszka", "pomarańcza", "arbuz", "brzoskwinia", "wiśnia", "ananas"],
+      ["radość", "zdziwienie", "złość", "strach", "smutek", "wstręt", "wstyd", "zadowolenie", "zachwyt", "duma"],
+      ["strażak", "nauczyciel", "lekarz", "sprzedawca", "policjant", "kucharz", "ogrodnik", "architekt", "aktor", "naukowiec"],
+      ["zielony", "czerwony", "niebieski", "żółty", "pomarańczowy", "szary", "różowy", "granatowy", "fioletowy", "brązowy"],
+      ["piłka nożna", "koszykówka", "tenis", "pływanie", "siatkówka", "narciarstwo", "piłka ręczna", "hokej", "boks", "biegi"],
+      ["słońce", "chmury", "deszcz", "wiatr", "śnieg", "grad", "mgła", "burza", "tęcza", "ulewa"]
+    ],
+    "clozeTest": [
+      {"sentence": "Ala bardzo lubi czytać * .", "correct": ["książki", "komiksy", "gazety", "powieści", "opowiadania"], "incorrect": ["koty", "sukienki", "niebieski", "pomarańcze", "samolot"]},
+      {"sentence": "Brat Kasi był *, bo spóźnił się na pociąg.", "correct": ["smutny", "niezadowolny", "zdenerwowany", "rozgniewany", "przygnębiony"], "incorrect": ["wesoły", "zadowolony", "dumny", "rozbawiony", "wdzięczny"]},
+      {"sentence": "Karolina zapisała się na lekcje * .", "correct": ["języka niemieckiego", "śpiewu", "rysunku", "gry na gitarze", "pływania"], "incorrect": ["spania", "ubrań", "latania", "narzekania", "szczekania"]},
+      {"sentence": "Janek bardzo ucieszył się * .", "correct": ["z nowego roweru", "z odwiedzin kolegi", "z wycieczki do zoo", "z wyjścia do kina", "z pysznego deseru"], "incorrect": ["ze złamanej nogi", "z zepsutego komputera", "z bolącego zęba", "z kłótni z kolegą", "z brzydkiej pogody"]},
+      {"sentence": "Ela przestraszyła się * .", "correct": ["dużego psa", "burzy", "pająka", "węża", "gdy zgasło światło"], "incorrect": ["smacznego ciastka", "ładnej sukienki", "kwiatka", "słonecznej pogody", "pluszowego misia"]},
+      {"sentence": "Dawid wrócił do domu, bo * .", "correct": ["zaczęło padać", "zapomniał plecaka", "był zmęczony", "zrobiło się zimno", "zawołała go mama"], "incorrect": ["przestało padać", "zrobiła się ładna pogoda", "chciał pobiegać", "chciał zrobić ognisko", "dobrze się bawił"]},
+      {"sentence": "Uczniowie pojechali na wycieczkę * .", "correct": ["autobusem", "pociągiem", "nad morze", "w góry", "nad jezioro"], "incorrect": ["do domu", "do toalety", "do wiaderka", "do widzenia", "latawcem"]},
+      {"sentence": "Dziewczynki zjadły obiad * .", "correct": ["z deserem", "w restauracji", "w stołówce", "przy stole", "ze smakiem"], "incorrect": ["w bibliotece", "z piaskownicy", "w basenie", "przez telefon", "na ucho"]},
+      {"sentence": "Marcin był z siebie dumny, bo * .", "correct": ["wygrał konkurs", "pochwalił go tata", "pierwszy dobiegł do mety", "zdał egzamin", "nauczył się pływać"], "incorrect": ["spadł ze schodów", "miał brudne buty", "zgubił się w lesie", "zapomniał kluczy", "nie umył zębów"]},
+      {"sentence": "Julka płacze, bo * .", "correct": ["boli ją brzuch", "jej piesek jest chory", "zgubiła lalkę", "uderzyła się w nogę", "pokłóciła się z koleżanką"], "incorrect": ["dostała prezent", "pojechała do wesołego miasteczka", "wygrała konkurs", "odwiedziła babcię", "zbliżają się wakacje"]}
     ]
   },
 
@@ -97,7 +114,8 @@
         {"command": "Zajrzyj pod kanapę", "item": "sofa"}
       ],
       "exercises": [
-        {"type": "wordGroups", "amount": 3, "question": "Które słowo nie pasuje do pozostałych?"}
+        {"type": "wordGroups", "amount": 2},
+        {"type": "clozeTest", "amount": 1}
       ]
     },
     {
@@ -122,7 +140,8 @@
         {"command": "Zajrzyj za zegar", "item": "clock"}
       ],
       "exercises": [
-        {"type": "wordGroups", "amount": 3, "question": "Które słowo nie pasuje do pozostałych?"}
+        {"type": "wordGroups", "amount": 2},
+        {"type": "clozeTest", "amount": 1}
       ]
     },
     {
@@ -147,7 +166,9 @@
         {"command": "Przesuń żółte słuchawki", "item": "headphones2"}
       ],
       "exercises": [
-        {"type": "wordGroups", "amount": 3, "question": "Które słowo nie pasuje do pozostałych?"}
+        {"type": "wordGroups", "amount": 1},
+        {"type": "clozeTest", "amount": 1},
+        {"type": "clozeTestReversed", "amount": 1}
       ]
     },
     {
@@ -172,7 +193,9 @@
         {"command": "Poszukaj w gablotce z mieczem", "item": "sword_box"}
       ],
       "exercises": [
-        {"type": "wordGroups", "amount": 4, "question": "Które słowo nie pasuje do pozostałych?"}
+        {"type": "wordGroups", "amount": 2},
+        {"type": "clozeTest", "amount": 1},
+        {"type": "clozeTestReversed", "amount": 1}
       ]
     },
     {
@@ -197,7 +220,9 @@
         {"command": "Sprawdź za rakietą", "item": "rocket"}
       ],
       "exercises": [
-        {"type": "wordGroups", "amount": 4, "question": "Które słowo nie pasuje do pozostałych?"}
+        {"type": "wordGroups", "amount": 2},
+        {"type": "clozeTest", "amount": 1},
+        {"type": "clozeTestReversed", "amount": 1}
       ]
     },
     {
@@ -223,7 +248,9 @@
         {"command": "Przesuń pusty talerzyk", "item": "plate2"}
       ],
       "exercises": [
-        {"type": "wordGroups", "amount": 4, "question": "Które słowo nie pasuje do pozostałych?"}
+        {"type": "wordGroups", "amount": 2},
+        {"type": "clozeTest", "amount": 1},
+        {"type": "clozeTestReversed", "amount": 1}
       ]
     },
     {
@@ -251,7 +278,9 @@
         {"command": "Otwórz szafkę obok kosza na śmieci", "item": "bookcase"}
       ],
       "exercises": [
-        {"type": "wordGroups", "amount": 5, "question": "Które słowo nie pasuje do pozostałych?"}
+        {"type": "wordGroups", "amount": 2},
+        {"type": "clozeTest", "amount": 2},
+        {"type": "clozeTestReversed", "amount": 1}
       ]
     },
     {
@@ -280,7 +309,9 @@
         {"command": "Poszukaj pod drzewem koło latarni z lewej strony", "item": "tree1"}
       ],
       "exercises": [
-        {"type": "wordGroups", "amount": 5, "question": "Które słowo nie pasuje do pozostałych?"}
+        {"type": "wordGroups", "amount": 2},
+        {"type": "clozeTest", "amount": 2},
+        {"type": "clozeTestReversed", "amount": 1}
       ]
     },
     {
@@ -309,7 +340,9 @@
         {"command": "Przesuń koło ratunkowe", "item": "safering"}
       ],
       "exercises": [
-        {"type": "wordGroups", "amount": 5, "question": "Które słowo nie pasuje do pozostałych?"}
+        {"type": "wordGroups", "amount": 2},
+        {"type": "clozeTest", "amount": 1},
+        {"type": "clozeTestReversed", "amount": 2}
       ]
     },
     {
@@ -338,7 +371,9 @@
         {"command": "Poszukaj za krzakiem malin", "item": "bush"}
       ],
       "exercises": [
-        {"type": "wordGroups", "amount": 5, "question": "Które słowo nie pasuje do pozostałych?"}
+        {"type": "wordGroups", "amount": 2},
+        {"type": "clozeTest", "amount": 1},
+        {"type": "clozeTestReversed", "amount": 2}
       ]
     }
   ]

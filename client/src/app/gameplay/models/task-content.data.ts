@@ -1,3 +1,14 @@
+export const EXERCISE_TYPE_WORD_GROUPS = 'wordGroups';
+export const EXERCISE_TYPE_CLOZE_TEST = 'clozeTest';
+export const EXERCISE_TYPE_CLOZE_TEST_REVERSED = 'clozeTestReversed';
+
+export const EXERCISE_QUESTIONS = {
+  [EXERCISE_TYPE_WORD_GROUPS]: 'Które słowo <b>NIE pasuje</b> do pozostałych?',
+  [EXERCISE_TYPE_CLOZE_TEST]: 'Która odpowiedź <b>pasuje</b> w puste miejse?',
+  [EXERCISE_TYPE_CLOZE_TEST_REVERSED]: 'Która odpowiedź <b>NIE pasuje</b> w puste miejsce?'
+};
+export const EXERCISE_BLANK = '....................';
+
 export interface FirstTaskData {
   entry: string;
   notes: Notes[];
@@ -36,6 +47,7 @@ export interface FourthTaskData {
   exercises: {
     id: number;
     question: string;
+    sentence?: string;
     options: {id: number; text: string}[];
     correct: number;
     selected?: number;
@@ -60,6 +72,7 @@ export interface SourceTaskData {
   clues: SourceClues;
   exercises: {
     wordGroups: string[][];
+    clozeTest: {sentence: string, correct: string[], incorrect: string[]}[];
   };
   cases: {
     id: number;
@@ -78,8 +91,7 @@ export interface SourceTaskData {
     }[];
     exercises: {
       type: string;
-      amount: number;
-      question: string
+      amount: number
     }[]
   }[];
 }
