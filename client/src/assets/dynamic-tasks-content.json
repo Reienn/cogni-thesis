@@ -82,7 +82,7 @@
     "clozeTest": [
       {"sentence": "Ala bardzo lubi czytać * .", "correct": ["książki", "komiksy", "gazety", "powieści", "opowiadania"], "incorrect": ["koty", "sukienki", "niebieski", "pomarańcze", "samolot"]},
       {"sentence": "Brat Kasi był *, bo spóźnił się na pociąg.", "correct": ["smutny", "niezadowolny", "zdenerwowany", "rozgniewany", "przygnębiony"], "incorrect": ["wesoły", "zadowolony", "dumny", "rozbawiony", "wdzięczny"]},
-      {"sentence": "Karolina zapisała się na lekcje * .", "correct": ["języka niemieckiego", "śpiewu", "rysunku", "gry na gitarze", "pływania"], "incorrect": ["spania", "ubrań", "latania", "narzekania", "szczekania"]},
+      {"sentence": "Karolina zapisała się na lekcje * .", "correct": ["języka niemieckiego", "śpiewu", "rysunku", "gry na gitarze", "pływania"], "incorrect": ["spania", "ubrań", "spadania ze schodów", "narzekania", "szczekania"]},
       {"sentence": "Janek bardzo ucieszył się * .", "correct": ["z nowego roweru", "z odwiedzin kolegi", "z wycieczki do zoo", "z wyjścia do kina", "z pysznego deseru"], "incorrect": ["ze złamanej nogi", "z zepsutego komputera", "z bolącego zęba", "z kłótni z kolegą", "z brzydkiej pogody"]},
       {"sentence": "Ela przestraszyła się * .", "correct": ["dużego psa", "burzy", "pająka", "węża", "gdy zgasło światło"], "incorrect": ["smacznego ciastka", "ładnej sukienki", "kwiatka", "słonecznej pogody", "pluszowego misia"]},
       {"sentence": "Dawid wrócił do domu, bo * .", "correct": ["zaczęło padać", "zapomniał plecaka", "był zmęczony", "zrobiło się zimno", "zawołała go mama"], "incorrect": ["przestało padać", "zrobiła się ładna pogoda", "chciał pobiegać", "chciał zrobić ognisko", "dobrze się bawił"]},

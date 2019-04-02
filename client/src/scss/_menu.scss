@@ -1,6 +1,7 @@
 .menu-wrapper {
   background: $primary url('assets/img/menu_bg.svg');
-  background-position: top center;
+  background-size: auto 100%;
+  background-position: center;
   background-repeat: no-repeat;
   color: #ffffff;
   position: fixed;
@@ -9,6 +10,9 @@
   overflow-y: auto;
   .title-logo {
     text-align: center;
+    h1 {
+      font-weight: normal;
+    }
     .menu-logo {
       background: #ffffff;
       border-radius: 50%;

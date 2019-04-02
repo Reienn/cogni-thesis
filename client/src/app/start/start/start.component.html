@@ -1,4 +1,16 @@
-<mat-toolbar color="primary">
+<div class="start-wrapper">
+  <div class="start-title"><h1>&bdquo;AHA&rdquo;</h1><h2>Gra ćwicząca czytanie ze zrozumieniem</h2></div>
+  <div class="start-buttons">
+    <button mat-flat-button (click)="showSignup = true" class="play-button">
+        <i class="fa fa-user-plus" aria-hidden="true"></i> Utwórz konto</button>
+    <button mat-flat-button (click)="showLogin = true">
+        <i class="fa fa-sign-in" aria-hidden="true"></i> Zaloguj się</button>
+    <button mat-flat-button (click)="showAbout = true">
+        <i class="fa fa-info-circle" aria-hidden="true"></i> O grze</button>
+  </div>
+</div>
+
+<!-- <mat-toolbar color="primary">
   <div class="title">AHA! Gra ćwicząca czytanie ze zrozumieniem</div>
   <div class="navbar-right">
     <button mat-flat-button (click)="showAbout = true">
@@ -15,6 +27,20 @@
       <app-login [err]="err" [msg]="msg"></app-login>
     </mat-tab>
   </mat-tab-group>
-</div>
+</div> -->
 
 <app-about *ngIf="showAbout" (modalClose)="showAbout = false"></app-about>
+<div *ngIf="showSignup" class="modal auth-modal" (click)="showSignup = false">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Utwórz konto</h2>
+    <app-signup (signedUp)="redirectToLogin($event)"></app-signup>
+    <button class="button-close-modal" (click)="showSignup = false"><i class="fa fa-times"></i></button>
+  </div>
+</div>
+<div *ngIf="showLogin" class="modal auth-modal" (click)="showLogin = false">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Zaloguj się</h2>
+    <app-login [err]="err" [msg]="msg"></app-login>
+    <button class="button-close-modal" (click)="showLogin = false"><i class="fa fa-times"></i></button>
+  </div>
+</div>

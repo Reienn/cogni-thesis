@@ -1,0 +1,40 @@
+.start-wrapper {
+  background: $primary url('assets/img/menu_bg.svg');
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  .start-title {
+    text-align: center;
+    h1, h2 {
+      font-weight: normal;
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+  }
+  .start-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vh 0;
+    button {
+      display: block;
+      width: 250px;
+      padding: 20px;
+      margin: 3vh 0;
+      font-size: 1.3em;
+      color: $primary;
+      text-align: left;
+      i {
+        font-size: 2em;
+        margin-right: 20px;
+      }
+    }
+  }
+}
