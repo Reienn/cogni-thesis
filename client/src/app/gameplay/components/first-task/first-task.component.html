@@ -4,7 +4,8 @@
     </mat-card>
     <img class="dialogue-character" src="assets/img/characters/{{taskData.character}}.png">
   </div>
-  <app-notepad *ngIf="taskData" (pointsChange)="updatePoints($event)" (taskCompleted)="taskCompleted($event)" [taskData]="taskData.notes"></app-notepad>
+  <!-- <app-notepad *ngIf="taskData" (pointsChange)="updatePoints($event)" (taskCompleted)="taskCompleted($event)" [taskData]="taskData.notes"></app-notepad> -->
+  <app-notepad2 *ngIf="taskData" (pointsChange)="updatePoints($event)" (taskCompleted)="taskCompleted($event)" [taskData]="taskData.notes"></app-notepad2>
 </div>
 
 <app-completed *ngIf="isCompleted" [taskId]="taskId" (nextTask)="nextTask.emit(taskId)"></app-completed>

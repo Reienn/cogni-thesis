@@ -101,8 +101,8 @@
       "character": "boy_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "zegarek"},
-        {"question": "Kiedy?", "answer": "w sobotę"},
-        {"question": "Gdzie?", "answer": "w domu Jasia"},
+        {"question": "Kiedy doszło do kradzieży?", "answer": "w sobotę"},
+        {"question": "Gdzie doszło do kradzieży?", "answer": "w domu Jasia"},
         {"question": "distractor", "answer": "w domu babci"}
       ],
       "stolenItem": "watch",
@@ -125,8 +125,8 @@
       "character": "girl_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "skarbonka"},
-        {"question": "Kiedy?", "answer": "w poniedziałek"},
-        {"question": "Gdzie?", "answer": "w domu Oli"},
+        {"question": "Kiedy doszło do kradzieży?", "answer": "w poniedziałek"},
+        {"question": "Gdzie doszło do kradzieży?", "answer": "w domu Oli"},
         {"question": "Co chciała kupić Ola?", "answer": "rower"},
         {"question": "distractor", "answer": "w szkole"}
       ],
@@ -152,8 +152,8 @@
       "notes": [
         {"question": "Kim jest Adam?", "answer": "sprzedawcą"},
         {"question": "Co zginęło?", "answer": "laptop"},
-        {"question": "Kiedy?", "answer": "w nocy z wtorku na środę"},
-        {"question": "Gdzie?", "answer": "w sklepie elektronicznym"},
+        {"question": "Kiedy doszło do kradzieży?", "answer": "w nocy z wtorku na środę"},
+        {"question": "Gdzie doszło do kradzieży?", "answer": "w sklepie elektronicznym"},
         {"question": "distractor", "answer": "we wtorek rano"}
       ],
       "stolenItem": "laptop",
@@ -178,8 +178,8 @@
       "character": "woman_01",
       "notes": [
         {"question": "Co zginęło?", "answer": "obraz"},
-        {"question": "Kiedy?", "answer": "w niedzielę"},
-        {"question": "Gdzie?", "answer": "w muzeum"},
+        {"question": "Kiedy doszło do kradzieży?", "answer": "w niedzielę"},
+        {"question": "Gdzie doszło do kradzieży?", "answer": "w muzeum"},
         {"question": "Dlaczego nie działał alarm?", "answer": "z powodu awarii prądu"},
         {"question": "distractor", "answer": "kamery"}
       ],
@@ -205,8 +205,8 @@
       "character": "woman_02",
       "notes": [
         {"question": "Co zginęło?", "answer": "pieniądze z kasy"},
-        {"question": "Kiedy?", "answer": "w piątek wieczorem"},
-        {"question": "Gdzie?", "answer": "w sklepie z zabawkami"},
+        {"question": "Kiedy doszło do kradzieży?", "answer": "w piątek wieczorem"},
+        {"question": "Gdzie doszło do kradzieży?", "answer": "w sklepie z zabawkami"},
         {"question": "Jak złodziej dostał się do sklepu?", "answer": "przez okno"},
         {"question": "distractor", "answer": "w piątek rano"}
       ],
@@ -232,8 +232,8 @@
       "character": "man_02",
       "notes": [
         {"question": "Co zginęło?", "answer": "torebka"},
-        {"question": "Kiedy?", "answer": "w środę w porze obiadowej"},
-        {"question": "Gdzie?", "answer": "w restauracji Edwarda"},
+        {"question": "Kiedy doszło do kradzieży?", "answer": "w środę w porze obiadowej"},
+        {"question": "Gdzie doszło do kradzieży?", "answer": "w restauracji Edwarda"},
         {"question": "Dlaczego nikt nie zauważył kradzieży?", "answer": "ponieważ restauracja była zatłoczona"},
         {"question": "distractor", "answer": "w toalecie"},
         {"question": "distractor", "answer": "w środę rano"}
@@ -260,8 +260,8 @@
       "character": "man_03",
       "notes": [
         {"question": "Co zginęło?", "answer": "plecak"},
-        {"question": "Kiedy?", "answer": "w piątek po czwartej lekcji"},
-        {"question": "Gdzie?", "answer": "w szkole"},
+        {"question": "Kiedy doszło do kradzieży?", "answer": "w piątek po czwartej lekcji"},
+        {"question": "Gdzie doszło do kradzieży?", "answer": "w szkole"},
         {"question": "W której sali?", "answer": "geograficznej"},
         {"question": "Do kogo należał plecak?", "answer": "do Wojtka"},
         {"question": "distractor", "answer": "do Warszawy"},
@@ -290,8 +290,8 @@
       "character": "woman_03",
       "notes": [
         {"question": "Co zginęło?", "answer": "aparat fotograficzny"},
-        {"question": "Kiedy?", "answer": "w sobotę po południu"},
-        {"question": "Gdzie?", "answer": "na placu zabaw"},
+        {"question": "Kiedy doszło do kradzieży?", "answer": "w sobotę po południu"},
+        {"question": "Gdzie doszło do kradzieży?", "answer": "na placu zabaw"},
         {"question": "Jak ma na imię synek Emilii?", "answer": "Krzyś"},
         {"question": "Ile lat ma synek Emilii?", "answer": "pięć"},
         {"question": "Dlaczego mama pobiegła do synka?", "answer": "bo spadł z huśtawki"},
@@ -321,8 +321,8 @@
       "character": "woman_04",
       "notes": [
         {"question": "Co zginęło?", "answer": "telefon"},
-        {"question": "Kiedy?", "answer": "w niedzielę"},
-        {"question": "Gdzie?", "answer": "na plaży"},
+        {"question": "Kiedy doszło do kradzieży?", "answer": "w niedzielę"},
+        {"question": "Gdzie doszło do kradzieży?", "answer": "na plaży"},
         {"question": "Z kim Zofia poszła na plażę?", "answer": "z wnuczką"},
         {"question": "Dlaczego Hania zawołała babcię?", "answer": "żeby pomogła jej zbudować zamek z piasku"},
         {"question": "Gdzie Zofia zostawiła swoje rzeczy?", "answer": "na leżaku"},
@@ -352,8 +352,8 @@
       "character": "man_04",
       "notes": [
         {"question": "Co zginęło?", "answer": "portfel"},
-        {"question": "Kiedy?", "answer": "w piątek po południu"},
-        {"question": "Gdzie?", "answer": "w ogrodzie"},
+        {"question": "Kiedy doszło do kradzieży?", "answer": "w piątek po południu"},
+        {"question": "Gdzie doszło do kradzieży?", "answer": "w ogrodzie"},
         {"question": "Co Paweł robił w ogrodzie?", "answer": "kosił trawnik"},
         {"question": "Gdzie był portfel?", "answer": "w kieszeni kurtki"},
         {"question": "Dlaczego Paweł zdjął kurtkę?", "answer": "bo zrobiło mu się gorąco"},

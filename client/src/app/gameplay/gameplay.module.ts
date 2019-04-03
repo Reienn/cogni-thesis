@@ -26,6 +26,7 @@ import { AbstractTaskComponent } from './components/abstract-task/abstract-task.
 import { NotepadComponent } from './components/first-task/notepad/notepad.component';
 import { CompletedComponent } from './components/guide/completed/completed.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { Notepad2Component } from './components/first-task/notepad2/notepad2.component';
 
 const ROUTES: Routes = [
   {
@@ -71,7 +72,8 @@ const ROUTES: Routes = [
     AbstractTaskComponent,
     NotepadComponent,
     CompletedComponent,
-    MenuComponent
+    MenuComponent,
+    Notepad2Component
   ]
 })
 export class GameplayModule { }

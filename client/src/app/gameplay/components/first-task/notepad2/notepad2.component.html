@@ -1,0 +1,14 @@
+<div class="task-content-notepad" *ngIf="taskData && randomizedTaskData">
+  <div class="notepad">
+    <div class="questions">
+      <div class="question">
+        {{currentQuestion + 1}}. {{taskData[currentQuestion].question}}
+      </div>
+    </div>
+    <div class="answers">
+      <div *ngFor="let record of randomizedTaskData" class="answer" (click)="chooseAnswer(record.id)">
+        {{record.answer}}
+      </div>
+    </div>
+  </div>
+</div>

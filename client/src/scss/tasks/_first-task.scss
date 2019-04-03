@@ -4,23 +4,21 @@
   justify-content: center;
   padding: 20px;
 }
-.task-content-dialogue {
-  width: 45%;
-}
-app-notepad {
-  width: 55%;
-}
-.task-content-dialogue, app-notepad {
+.task-content-dialogue, app-notepad2 {
   min-width: 250px;
-  @media (max-width: 600px) {
+  width: 50%;
+  @media (max-width: 640px) {
     width: 100%;
   }
+}
+app-notepad2 {
+  min-width: 300px;
 }
 .task-content-dialogue {
   padding: 20px;
   position: relative;
   .dialogue-character {
-    height: 55vh;
+    height: 60vh;
     min-height: 300px;
     padding: 45px 0 5px;
     display: block;
@@ -44,37 +42,53 @@ app-notepad {
   }
 }
 .task-content-notepad {
+  .notepad {
+    background-image: url('assets/img/notepad.svg');
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    text-align: center;
+    padding: 15% 5%;
+    color: $primary;
+  }
   .questions {
     .question {
-      margin-right: 10px;
+      font-size: 1.3em;
     }
-    .answer-placeholder {
-      display: inline-block;
-      background: $light-gray;
-      border-radius: 16px;
-      width: 100%;
-      min-height: 32px;
-      &.active-placeholder.empty-placeholder  {
-        background: #b0bcff;
-      }
-      &.correct:not(.empty-placeholder) {
-        background: $correct-bg;
-      }
-      &.incorrect:not(.empty-placeholder) {
-        background: $incorrect-bg;
-      }
-    }
+    // .question {
+    //   margin-right: 10px;
+    // }
+    // .answer-placeholder {
+    //   display: inline-block;
+    //   background: $light-gray;
+    //   border-radius: 16px;
+    //   width: 100%;
+    //   min-height: 32px;
+    //   &.active-placeholder.empty-placeholder  {
+    //     background: #b0bcff;
+    //   }
+    //   &.correct:not(.empty-placeholder) {
+    //     background: $correct-bg;
+    //   }
+    //   &.incorrect:not(.empty-placeholder) {
+    //     background: $incorrect-bg;
+    //   }
+    // }
   }
   .answers {
-    margin-top: 50px;
-    min-height: 42px;
+    max-width: 300px;
+    margin: 5% auto 0;
     padding: 5px;
-    padding-bottom: 0;
-    background: $light-gray;
-    border-radius: 16px;
+    // border-radius: 40px;
+    // border: 3px dotted $primary;
+    background: #ffe883;
+    box-shadow: 10px 10px 8px -6px #a6a6a6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     .answer {
-      margin-right: 10px;
-      margin-bottom: 5px;
+      margin: 2px;
     }
   }
 
@@ -87,7 +101,7 @@ app-notepad {
   border-radius: 16px;
   font-size: 14px;
   font-weight: 500;
-  cursor: grab;
+  cursor: pointer;
   &:hover {
     background: #556cec;
   }
