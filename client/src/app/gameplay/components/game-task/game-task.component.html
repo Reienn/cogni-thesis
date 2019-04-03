@@ -1,6 +1,6 @@
 <div *ngIf="errorMsg" class="error-container"><div class="error-msg">
   <h2><i class="fa fa-exclamation-triangle"></i> Błąd</h2>{{errorMsg}}
-  <a mat-flat-button color="primary" [routerLink]="['/gameplay/list']"><i class="fa fa-arrow-circle-left"></i> Powrót</a>
+  <a mat-flat-button color="primary" href="/gameplay/list"><i class="fa fa-arrow-circle-left"></i> Powrót</a>
 </div></div>
 
 <ng-container *ngIf="!errorMsg && caseId && currentTask && dynamicTasksContent">
