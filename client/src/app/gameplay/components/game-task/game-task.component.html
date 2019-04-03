@@ -1,6 +1,6 @@
 <div *ngIf="errorMsg" class="error-container"><div class="error-msg">
-  <h2><i class="fa fa-exclamation-triangle"></i> Błąd</h2>{{errorMsg}}
-  <a mat-flat-button color="primary" href="/gameplay/list"><i class="fa fa-arrow-circle-left"></i> Powrót</a>
+  <h2><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Błąd</h2>{{errorMsg}}
+  <a mat-flat-button color="primary" href="/gameplay/list"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Powrót</a>
 </div></div>
 
 <ng-container *ngIf="!errorMsg && caseId && currentTask && dynamicTasksContent">
@@ -9,7 +9,7 @@
   <div class="nav-bar">
     <div class="nav-tabs">
       <div *ngFor="let tab of tasksHeaders" class="nav-tab" [ngClass]="{'active-tab': currentTask === tab.id}">
-        <div class="tab-icon"><i class="fa fa-{{tab.icon}}"></i></div>
+        <div class="tab-icon"><i class="fa fa-{{tab.icon}}" aria-hidden="true"></i></div>
       </div>
     </div>
   </div>

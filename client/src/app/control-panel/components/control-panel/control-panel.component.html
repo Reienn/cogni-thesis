@@ -17,7 +17,7 @@
     <h3>Lista graczy:</h3>
     <div *ngIf="players && players.length; else noPlayers">
       <div class="player-record" *ngFor="let player of players">
-        <span class="player-name"><i class="fa fa-user-o"></i>{{player.name}}</span>
+        <span class="player-name"><i class="fa fa-user-o" aria-hidden="true"></i>{{player.name}}</span>
         <button mat-raised-button class="select-player"
           (click)="selectPlayer(player.name)"
           [ngClass]="{'active-player': selectedPlayer && selectedPlayer.name === player.name}">

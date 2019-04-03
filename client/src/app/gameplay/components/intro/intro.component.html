@@ -1,6 +1,6 @@
 <div *ngIf="errorMsg" class="error-container"><div class="error-msg">
-  <h2><i class="fa fa-exclamation-triangle"></i> Błąd</h2>{{errorMsg}}
-  <a mat-flat-button color="primary" href="/gameplay"><i class="fa fa-arrow-circle-left"></i> Powrót</a>
+  <h2><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Błąd</h2>{{errorMsg}}
+  <a mat-flat-button color="primary" href="/gameplay"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Powrót</a>
 </div></div>
 
 <div class="cases-wrapper" *ngIf="user && !errorMsg">
@@ -14,8 +14,8 @@
       <!-- <mat-card-content *ngIf="case.id <= currentCase">Najlepszy wynik: </mat-card-content> -->
       <mat-card-actions>
         <button mat-flat-button color="primary" [disabled]="case.id > currentCase + 1" (click)="selectCase(case.id)">
-          <ng-container *ngIf="case.id > currentCase">Zacznij</ng-container>
-          <ng-container *ngIf="case.id <= currentCase">Jeszcze raz</ng-container>
+          <ng-container *ngIf="case.id > currentCase"><i class="fa fa-play" aria-hidden="true"></i> Zacznij</ng-container>
+          <ng-container *ngIf="case.id <= currentCase"><i class="fa fa-repeat" aria-hidden="true"></i> Jeszcze raz</ng-container>
         </button>
       </mat-card-actions>
     </mat-card>
