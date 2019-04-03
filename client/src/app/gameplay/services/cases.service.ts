@@ -21,12 +21,13 @@ export interface Case {
 })
 export class CasesService {
 
-  dynamicTasksContent: SourceTaskData = JSON.parse(JSON.stringify(DYNAMIC_TASKS_CONTENT));
+  dynamicTasksContent: SourceTaskData;
   currentCase: number;
 
   constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
 
   getCases(): Promise<{cases: Case[], currentCase: number}> {
+    this.dynamicTasksContent = JSON.parse(JSON.stringify(DYNAMIC_TASKS_CONTENT));
     return new Promise((resolve, reject) => {
       if (this.dynamicTasksContent && this.dynamicTasksContent.cases) {
         const casesList: Case[] = this.dynamicTasksContent.cases.map(el => ({
@@ -44,6 +45,7 @@ export class CasesService {
   }
 
   getDynamicTasksContent(caseId: number): Promise<TaskContent> {
+    this.dynamicTasksContent = JSON.parse(JSON.stringify(DYNAMIC_TASKS_CONTENT));
     return new Promise((resolve, reject) => {
       if (this.dynamicTasksContent && this.dynamicTasksContent.cases
           && this.dynamicTasksContent.cases.find(el => el.id === caseId) ) {
