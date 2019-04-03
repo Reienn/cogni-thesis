@@ -144,7 +144,7 @@ export class GameTaskComponent implements OnInit, OnDestroy {
       this.errorMsg = null;
       this.showHelp = true;
     }).catch(err => {
-      this.errorMsg = err;
+      this.errorMsg = 'Nie udało się pobrać treści zadania.';
     });
   }
 
