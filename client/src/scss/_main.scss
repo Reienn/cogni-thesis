@@ -33,15 +33,6 @@ body { margin: 0; font-family: Roboto, 'Helvetica Neue', sans-serif; }
   color: $correct;
 }
 
-.page-not-found {
-  text-align: center;
-  background: $primary;
-  color: white;
-  padding: 10%;
-  width: 100%;
-  height: 100vh;
-}
-
 .toolbar-spacer {
   flex: 1 1 auto;
 }
@@ -76,6 +67,36 @@ mat-toolbar {
 
 .visibility-hidden {
   visibility: hidden;
+}
+
+.error-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary;
+  z-index: 500;
+  .error-msg {
+    border-radius: 5px;
+    max-height: 500px;
+    max-width: 500px;
+    overflow-y: auto;
+    display: block;
+    text-align: center;
+    padding: 5%;
+    background: #fff;
+    color: $primary;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    a {
+      display: block;
+      width: 100px;
+      margin: 20px auto 0;
+    }
+  }
 }
 
 .fa.loading-icon {

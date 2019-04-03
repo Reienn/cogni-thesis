@@ -15,6 +15,8 @@ export class IntroComponent implements OnInit {
   currentCase: number;
   loading = true;
 
+  errorMsg: string;
+
   constructor(
     private router: Router,
     private casesService: CasesService,
@@ -47,7 +49,7 @@ export class IntroComponent implements OnInit {
         this.currentCase = val.currentCase ? val.currentCase : 0;
       },
       (err) => {
-        console.log(err);
+        this.errorMsg = err;
       }
     );
   }

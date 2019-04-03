@@ -1,4 +1,9 @@
-<div class="cases-wrapper" *ngIf="user">
+<div *ngIf="errorMsg" class="error-container"><div class="error-msg">
+  <h2><i class="fa fa-exclamation-triangle"></i> Błąd</h2>{{errorMsg}}
+  <a mat-flat-button color="primary" [routerLink]="['/gameplay']"><i class="fa fa-arrow-circle-left"></i> Powrót</a>
+</div></div>
+
+<div class="cases-wrapper" *ngIf="user && !errorMsg">
   <span class="back-icon"><i class="fa fa-arrow-circle-left" (click)="back()"></i></span>
   <h1 class="title">Witaj detektywie! Wybierz sprawę:</h1>
   <i *ngIf="loading" class="fa fa-spinner loading-icon"></i>

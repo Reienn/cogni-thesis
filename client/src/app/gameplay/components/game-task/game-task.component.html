@@ -1,5 +1,10 @@
-<div class="task-points" [@add]="addPoint ? 'add' : 'noChange'" [@lose]="losePoint ? 'lose' : 'noChange'" >{{pointsSum}}</div>
-<ng-container *ngIf="caseId && currentTask && dynamicTasksContent">
+<div *ngIf="errorMsg" class="error-container"><div class="error-msg">
+  <h2><i class="fa fa-exclamation-triangle"></i> Błąd</h2>{{errorMsg}}
+  <a mat-flat-button color="primary" [routerLink]="['/gameplay/list']"><i class="fa fa-arrow-circle-left"></i> Powrót</a>
+</div></div>
+
+<ng-container *ngIf="!errorMsg && caseId && currentTask && dynamicTasksContent">
+  <div class="task-points" [@add]="addPoint ? 'add' : 'noChange'" [@lose]="losePoint ? 'lose' : 'noChange'" >{{pointsSum}}</div>
   <div class="help-button"><i class="fa fa-question" (click)="showHelp = true"></i></div>
   <div class="nav-bar">
     <div class="nav-tabs">

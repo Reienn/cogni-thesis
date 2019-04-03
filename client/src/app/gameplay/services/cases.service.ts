@@ -38,14 +38,15 @@ export class CasesService {
         const currentCase = this.authenticationService.getUser().currentCase;
         resolve({cases: casesList, currentCase: currentCase});
       } else {
-        reject('No cases');
+        reject('Nie udało się pobrać listy spraw.');
       }
     });
   }
 
   getDynamicTasksContent(caseId: number): Promise<TaskContent> {
     return new Promise((resolve, reject) => {
-      if (this.dynamicTasksContent && this.dynamicTasksContent.cases) {
+      if (this.dynamicTasksContent && this.dynamicTasksContent.cases
+          && this.dynamicTasksContent.cases.find(el => el.id === caseId) ) {
         const item = this.dynamicTasksContent.cases.find(el => el.id === caseId);
         const cluesNumber = item.searchingCommands.length;
 
@@ -80,7 +81,7 @@ export class CasesService {
           }
         });
       } else {
-        reject('No task content');
+        reject('Nie udało się pobrać treści zadania.');
       }
     });
   }

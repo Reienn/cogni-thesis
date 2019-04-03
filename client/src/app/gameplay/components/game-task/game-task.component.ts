@@ -61,7 +61,9 @@ export class GameTaskComponent implements OnInit, OnDestroy {
 
   addPoint = false;
   losePoint = false;
-  showHelp = true;
+  showHelp = false;
+
+  errorMsg: string;
 
   tasksHeaders = TASKS_HEADERS;
   sounds: {
@@ -139,6 +141,10 @@ export class GameTaskComponent implements OnInit, OnDestroy {
         3: 1,
         4: this.dynamicTasksContent.fourthTask.exercises.length
       };
+      this.errorMsg = null;
+      this.showHelp = true;
+    }).catch(err => {
+      this.errorMsg = err;
     });
   }
 
