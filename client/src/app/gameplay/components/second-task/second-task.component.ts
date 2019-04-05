@@ -16,8 +16,6 @@ export class SecondTaskComponent extends AbstractTaskComponent implements OnInit
   currentCommand = 0;
   svgSource: SafeHtml;
 
-  loading = true;
-
   constructor(private sanitizer: DomSanitizer, private changeDetector: ChangeDetectorRef) {
     super();
     this.taskId = 2;
