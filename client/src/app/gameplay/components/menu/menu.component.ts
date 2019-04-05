@@ -21,6 +21,9 @@ export class MenuComponent implements OnInit {
   }
 
   logout() {
+    if (document && document.fullscreenElement && document.exitFullscreen) {
+      document.exitFullscreen();
+    }
     this.authenticationService.logout();
   }
 
@@ -32,4 +35,16 @@ export class MenuComponent implements OnInit {
     this.user = user;
   }
 
+  toggleFullscreen() {
+    const elem = document.documentElement;
+    if (!document.fullscreenElement) {
+      if (elem && elem.requestFullscreen) {
+        elem.requestFullscreen();
+      }
+    } else {
+      if (document && document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  }
 }

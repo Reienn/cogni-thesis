@@ -1,7 +1,7 @@
 <div class="modal about-modal" (click)="modalClose.emit(true)">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <h2>O grze</h2>
-    <p>"AHA!" to gra dla dzieci z zaburzeniami ze spektrum autyzmu mająca na celu ćwiczenie umiejętności czytania ze zrozumieniem.</p>
+    <p>&bdquo;AHA!&rdquo; to gra dla dzieci z zaburzeniami ze spektrum autyzmu mająca na celu ćwiczenie umiejętności czytania ze zrozumieniem.</p>
     <p>
       Gracz wciela się w detektywa rozwiązującego zagadki dotyczące zaginionych przedmiotów.
       Każde z dziesięciu śledztw składa się z czterech zadań:
@@ -18,6 +18,6 @@
     <p>W grze można zarejestrować się jako gracz lub nauczyciel.
       Nauczyciel ma dostęp do statystyk graczy, którzy podczas rejestracji podali jego nazwę użytkownika.</p>
     <div class="about-logo"><img src="assets/img/logo.svg"></div>
-    <button class="button-close-modal" (click)="modalClose.emit(true)"><i class="fa fa-times"></i></button>
+    <button class="button-close-modal" (click)="modalClose.emit(true)" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
   </div>
 </div>

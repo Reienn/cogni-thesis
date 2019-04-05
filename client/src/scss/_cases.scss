@@ -48,6 +48,22 @@
       }
       mat-card-actions {
         text-align: center;
+        position: relative;
+        .best-score {
+          position: absolute;
+          right: -10px;
+          bottom: -5px;
+          font-size: 30px;
+          .fa-trophy {
+            color: $points-bg;
+          }
+          .points-number {
+            color: #ffffff;
+            font-family: inherit;
+            margin-top: -10px;
+            font-size: 0.8em;
+          }
+        }
       }
       &.disabled-case {
         color: #adadad;

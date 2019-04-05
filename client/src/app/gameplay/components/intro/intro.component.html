@@ -4,19 +4,25 @@
 </div></div>
 
 <div class="cases-wrapper" *ngIf="user && !errorMsg">
-  <span class="back-icon"><i class="fa fa-arrow-circle-left" (click)="back()"></i></span>
+  <span class="back-icon"><i class="fa fa-arrow-circle-left" (click)="back()" aria-label="Wstecz"></i></span>
+  <div class="fullscreen-button"><i class="fa fa-arrows-alt" (click)="toggleFullscreen()"></i></div>
   <h1 class="title">Witaj detektywie! Wybierz sprawę:</h1>
-  <i *ngIf="loading" class="fa fa-spinner loading-icon"></i>
+  <i *ngIf="loading" class="fa fa-spinner loading-icon" aria-label="Trwa ładowanie"></i>
   <div class="case-list" [ngClass]="{'visibility-hidden': loading}">
     <mat-card *ngFor="let case of cases; let i = index" class="case-item" [ngClass]="{'disabled-case': case.id > currentCase + 1}">
       <img *ngIf="case.image" (load)="onImageLoad(i)" mat-card-image src="assets/img/scenes/{{case.image}}.png">
       <mat-card-title>{{i + 1}}. {{case.name}}</mat-card-title>
-      <!-- <mat-card-content *ngIf="case.id <= currentCase">Najlepszy wynik: </mat-card-content> -->
       <mat-card-actions>
         <button mat-flat-button color="primary" [disabled]="case.id > currentCase + 1" (click)="selectCase(case.id)">
           <ng-container *ngIf="case.id > currentCase"><i class="fa fa-play" aria-hidden="true"></i> Zacznij</ng-container>
           <ng-container *ngIf="case.id <= currentCase"><i class="fa fa-repeat" aria-hidden="true"></i> Jeszcze raz</ng-container>
         </button>
+        <div *ngIf="user.bestScores && (user.bestScores[i] || user.bestScores[i] === 0)" class="best-score">
+          <span class="fa-stack fa-1x">
+            <i class="fa fa-trophy fa-stack-2x"></i>
+            <span class="fa fa-stack-1x points-number">{{user.bestScores[i]}}</span>
+          </span>
+        </div>
       </mat-card-actions>
     </mat-card>
   </div>

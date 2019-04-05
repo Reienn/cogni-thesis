@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment';
 import { AuthenticationService } from '../../auth/services/authentication.service';
 
 const DYNAMIC_TASKS_CONTENT = require('../../../assets/dynamic-tasks-content.json');
+const DEFAULT_BEST_SCORES = [null, null, null, null, null, null, null, null, null, null];
 
 export interface Case {
   id: number;
@@ -88,14 +89,17 @@ export class CasesService {
     });
   }
 
-  completedCase(id: number, performance: Performance[]): Promise<any> {
-    return this.http.post<any>(environment.baseUrl + '/api/performance', {performance: performance, id: id})
+  completedCase(id: number, performance: Performance[], score: number): Promise<any> {
+    const user = this.authenticationService.getUser();
+    user.bestScores = user.bestScores && user.bestScores.length ? user.bestScores : DEFAULT_BEST_SCORES;
+    user.bestScores[id - 1] = user.bestScores[id - 1] === null || score > user.bestScores[id - 1] ? score : user.bestScores[id - 1];
+    return this.http.post<any>(environment.baseUrl + '/api/performance',
+      {performance: performance, bestScores: user.bestScores, id: id})
       .pipe(map((response: any) => {
-        const user = this.authenticationService.getUser();
         if (!user.currentCase || (user.currentCase && user.currentCase < id)) {
           user.currentCase = id;
-          localStorage.setItem('currentUser', JSON.stringify(user));
         }
+        localStorage.setItem('currentUser', JSON.stringify(user));
         return response;
       }), catchError((err) => {
         throw(err.error);

@@ -42,6 +42,19 @@ export class IntroComponent implements OnInit {
     }
   }
 
+  toggleFullscreen() {
+    const elem = document.documentElement;
+    if (!document.fullscreenElement ) {
+      if (elem && elem.requestFullscreen) {
+        elem.requestFullscreen();
+      }
+    } else {
+      if (document && document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  }
+
   private getCases() {
     this.casesService.getCases().then(
       (val) => {

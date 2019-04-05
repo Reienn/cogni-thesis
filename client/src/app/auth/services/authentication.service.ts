@@ -9,6 +9,7 @@ export interface User {
   group: string;
   name: string;
   currentCase: number;
+  bestScores?: number[];
   educator?: string;
   mail: string;
 }

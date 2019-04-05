@@ -1,33 +1,41 @@
 app-game-task {
+  position: relative;
+  display: block;
+  width: 100%;
   .next-task-button {
     font-size: 1.2em;
     padding: 5px 30px;
   }
   .task-points {
     position: fixed;
-    top: 5px;
-    right: 5px;
-    height: 50px;
-    width: 50px;
-    line-height: 50px;
-    font-size: 24px;
+    bottom: 5px;
+    left: 5px;
+    font-size: 3em;
     text-align: center;
     z-index: 100;
-    background: $light-gray;
-    border-radius: 50%;
-    &.add-point {
-      animation-name: add-point-animation;
-      animation-duration: 2s;
+    color: $points-bg;
+    .points-number {
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.8em;
     }
-    &.lose-point {
-      animation-name: lose-point-animation;
-      animation-duration: 2s;
-    }
+    // &.add-point {
+    //   animation: add-point-animation 1s infinite;
+    // }
+    // &.lose-point {
+    //   animation: lose-point-animation 1s infinite;
+    // }
+  }
+  .task-wrapper {
+    width: 100%;
+    padding-top: 64px;
   }
   .nav-bar {
     background: $primary;
-    position: relative;
-    z-index: -1;
+    position: fixed;
+    width: 100%;
+    height: 64px;
+    z-index: 50;
   }
   .nav-tabs {
     display: flex;
@@ -36,6 +44,7 @@ app-game-task {
     padding-top: 5px;
     margin: 0 70px;
     z-index: -1;
+    background: $primary;
     .nav-tab {
       width: 25%;
       text-align: center;
@@ -71,22 +80,20 @@ app-game-task {
       }
     }
   }
-  .help-button {
-    position: absolute;
-    left: 5px;
+}
+.completed-points {
+  padding-bottom: 20px;
+  font-size: 1.2em;
+  .fa-stack {
+    color: $points-bg;
+    font-size: 2em;
+  }
+  .points-number {
     color: #ffffff;
-    font-size: 3em;
-    width: 50px;
-    line-height: 64px;
-    display: inline-block;
-    text-align: center;
-    &:hover {
-      font-size: 3.5em;
-      cursor: pointer;
-    }
+    font-family: inherit;
+    font-size: 0.8em;
   }
 }
-
 .completed-character {
   display: block;
   margin: 20px auto;
@@ -97,13 +104,13 @@ app-game-task {
 }
 
 @keyframes add-point-animation {
-  0%   {background-color: #fff;}
-  50%  {background-color: $correct-bg;}
-  100% {background-color: #fff;}
+  0%   {color: $points-bg; transform: scale(1)}
+  50%  {color: $correct-bg; transform: scale(1.5)}
+  100% {color: $points-bg; transform: scale(1)}
 }
 
 @keyframes lose-point-animation {
-  0%   {background-color: #fff;}
-  50%  {background-color: $incorrect-bg;}
-  100% {background-color: #fff;}
+  0%   {color: $points-bg; transform: scale(1)}
+  50%  {color: $incorrect-bg; transform: scale(1.5)}
+  100% {color: $points-bg; transform: scale(1)}
 }

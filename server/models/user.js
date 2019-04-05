@@ -27,6 +27,7 @@ const UserSchema = new mongoose.Schema({
   gameplayTime: Number,
   loginDates: [Date],
   currentCase: Number,
+  bestScores: [Number],
   performance: [{
     case: Number,
     task: Number,

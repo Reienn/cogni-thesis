@@ -9,6 +9,8 @@ import { FourthTaskData } from '../../models/task-content.data';
 export class FourthTaskComponent extends AbstractTaskComponent implements OnInit {
 
   @Input() taskData: FourthTaskData;
+  @Input() pointsSum: number;
+  @Input() caseId: number;
 
   hasCode = false;
   isOpen = false;

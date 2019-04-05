@@ -4,25 +4,34 @@
 </div></div>
 
 <ng-container *ngIf="!errorMsg && caseId && currentTask && dynamicTasksContent">
-  <div class="task-points" [@add]="addPoint ? 'add' : 'noChange'" [@lose]="losePoint ? 'lose' : 'noChange'" >{{pointsSum}}</div>
-  <div class="help-button"><i class="fa fa-question" (click)="showHelp = true"></i></div>
+  <div class="task-points" [@add]="addPoint ? 'add' : 'noChange'" [@lose]="losePoint ? 'lose' : 'noChange'" >
+    <span class="fa-stack fa-1x">
+      <i class="fa fa-star fa-stack-2x"></i>
+      <i class="fa fa-star fa-stack-2x fa-rotate-180"></i>
+      <span class="fa fa-stack-1x points-number">{{pointsSum}}</span>
+    </span>
+  </div>
   <div class="nav-bar">
+    <div class="help-button"><i class="fa fa-question" (click)="showHelp = true"></i></div>
+    <div class="fullscreen-button"><i class="fa fa-arrows-alt" (click)="toggleFullscreen()"></i></div>
     <div class="nav-tabs">
       <div *ngFor="let tab of tasksHeaders" class="nav-tab" [ngClass]="{'active-tab': currentTask === tab.id}">
         <div class="tab-icon"><i class="fa fa-{{tab.icon}}" aria-hidden="true"></i></div>
       </div>
     </div>
   </div>
-  <app-first-task *ngIf="currentTask === 1" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.firstTask"></app-first-task>
-  <app-second-task *ngIf="currentTask === 2" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.secondTask"></app-second-task>
-  <app-third-task *ngIf="currentTask === 3" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.thirdTask"></app-third-task>
-  <app-fourth-task *ngIf="currentTask === 4" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.fourthTask"></app-fourth-task>
+  <div class="task-wrapper">
+    <app-first-task *ngIf="currentTask === 1" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.firstTask"></app-first-task>
+    <app-second-task *ngIf="currentTask === 2" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.secondTask"></app-second-task>
+    <app-third-task *ngIf="currentTask === 3" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.thirdTask"></app-third-task>
+    <app-fourth-task *ngIf="currentTask === 4" (nextTask)="nextTask($event)" (pointsChange)="updatePoints($event)" [taskData]="dynamicTasksContent.fourthTask" [pointsSum]="pointsSum" [caseId]="caseId"></app-fourth-task>
+  </div>
 </ng-container>
 
 <div *ngIf="showHelp && currentTask" class="modal about-modal" (click)="showHelp = false;changeDetector.detectChanges()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <app-guide [currentTask]="currentTask"></app-guide>
     <button mat-flat-button color="primary" (click)="showHelp = false;changeDetector.detectChanges()">OK</button>
-    <button class="button-close-modal" (click)="showHelp = false;changeDetector.detectChanges()"><i class="fa fa-times"></i></button>
+    <button class="button-close-modal" (click)="showHelp = false;changeDetector.detectChanges()" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
   </div>
 </div>

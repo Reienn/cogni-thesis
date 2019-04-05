@@ -30,7 +30,6 @@ export class StartComponent implements OnInit {
     // this.selectedAuthForm = 1;
     this.showSignup = false;
     this.showLogin = true;
-
   }
 
 }

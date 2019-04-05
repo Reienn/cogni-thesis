@@ -20,6 +20,8 @@ const TASKS_HEADERS = [
   {id: 4, text: 'Odzyskaj skradziony przedmiot', icon: 'unlock-alt'}
 ];
 
+const POINT_COLOR = '#f2b021';
+
 interface TasksPoints {
   [key: number]: number;
 }
@@ -29,19 +31,19 @@ interface TasksPoints {
   animations: [
     trigger('add', [
       transition('noChange => add', [
-        animate('0.7s', keyframes([
-          style({background: '#eee', transform: 'scale(1)'}),
-          style({background: '#b9ffb0', transform: 'scale(1.3)'}),
-          style({background: '#eee', transform: 'scale(1)'})
+        animate('1s', keyframes([
+          style({color: POINT_COLOR, transform: 'scale(1)'}),
+          style({color: '#9fe25d', transform: 'scale(1.3)'}),
+          style({color: POINT_COLOR, transform: 'scale(1)'})
         ]))
       ])
     ]),
     trigger('lose', [
       transition('noChange => lose', [
         animate('1s', keyframes([
-          style({background: '#eee', transform: 'scale(1)'}),
-          style({background: '#ffb0b0', transform: 'scale(1.3)'}),
-          style({background: '#eee', transform: 'scale(1)'})
+          style({color: POINT_COLOR, transform: 'scale(1)'}),
+          style({color: '#ff7560', transform: 'scale(0.7)'}),
+          style({color: POINT_COLOR, transform: 'scale(1)'})
         ]))
       ])
     ])
@@ -100,7 +102,7 @@ export class GameTaskComponent implements OnInit, OnDestroy {
       this.showHelp = true;
       this.changeDetector.detectChanges();
     } else if (id === TASKS_NUMBER) {
-      this.casesService.completedCase(this.caseId, this.performance).then(data => {
+      this.casesService.completedCase(this.caseId, this.performance, this.pointsSum).then(data => {
         this.router.navigate(['gameplay/list']);
       });
     }
@@ -120,6 +122,19 @@ export class GameTaskComponent implements OnInit, OnDestroy {
     }
     if (change < 0) {
       this.sounds.failure.play();
+    }
+  }
+
+  toggleFullscreen() {
+    const elem = document.documentElement;
+    if (!document.fullscreenElement ) {
+      if (elem && elem.requestFullscreen) {
+        elem.requestFullscreen();
+      }
+    } else {
+      if (document && document.exitFullscreen) {
+        document.exitFullscreen();
+      }
     }
   }
 
@@ -152,6 +167,7 @@ export class GameTaskComponent implements OnInit, OnDestroy {
     AUDIO_SET.forEach(sound => {
       this.sounds[sound] = new Audio();
       this.sounds[sound].src = `assets/audio/${sound}.mp3`;
+      this.sounds[sound].volume = 1;
       this.sounds[sound].load();
     });
   }

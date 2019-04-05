@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
   private redirectLogged(user) {
     if ( user.group && user.group === 'student') {
       this.router.navigate(['gameplay']);
+      const elem = document.documentElement;
+      if (elem && elem.requestFullscreen) {
+        elem.requestFullscreen();
+      }
     } else if (user.group && user.group === 'educator') {
       this.router.navigate(['control-panel']);
     }

@@ -1,8 +1,8 @@
 <mat-toolbar color="primary" class="control-panel-toolbar">
   <span class="navbar-left">
-    <span class="settings-icon"><i class="fa fa-cog" (click)="showSettings = true"></i></span>
+    <span class="settings-icon"><i class="fa fa-cog" (click)="showSettings = true" aria-label="Ustawienia"></i></span>
   </span>
-  <h2 class="title">Gra "AHA!" - panel nauczyciela</h2>
+  <h2 class="title">Gra &bdquo;AHA!&rdquo; - panel nauczyciela</h2>
   <span class="navbar-right">
     <span class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user?.name}}</span>
     <button mat-flat-button (click)="logout()">
@@ -46,6 +46,6 @@
   <div class="modal-content" (click)="$event.stopPropagation()">
     <h2>Nauczyciel {{user.name}}</h2>
     <app-edit-user [user]="user" (updatedUser)="updatedUser($event)"></app-edit-user>
-    <button class="button-close-modal" (click)="showSettings = false"><i class="fa fa-times"></i></button>
+    <button class="button-close-modal" (click)="showSettings = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
   </div>
 </div>

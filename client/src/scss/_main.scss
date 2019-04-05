@@ -62,6 +62,7 @@ mat-toolbar {
   &.control-panel-toolbar {
     position: fixed;
     top: 0;
+    z-index: 50;
   }
 }
 
@@ -113,4 +114,33 @@ mat-toolbar {
 @keyframes spinner-animation {
   from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
+}
+
+.help-button, .fullscreen-button {
+  position: absolute;
+  color: #ffffff;
+  font-size: 3em;
+  width: 50px;
+  line-height: 64px;
+  display: inline-block;
+  text-align: center;
+  &.help-button {
+    left: 5px;
+  }
+  &.fullscreen-button {
+    right: 7px;
+    font-size: 2.7em;
+  }
+  &:hover {
+    font-size: 3.5em;
+    cursor: pointer;
+  }
+}
+.cases-wrapper, .menu-wrapper {
+  .fullscreen-button {
+    position: fixed;
+    z-index: 100;
+    right: 20px;
+    top: 10px;
+  }
 }
