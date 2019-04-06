@@ -15,7 +15,7 @@ import {
 import { StartModule } from '../start/start.module';
 import { AuthModule } from '../auth/auth.module';
 
-import { IntroComponent } from './components/intro/intro.component';
+import { CasesListComponent } from './components/cases-list/cases-list.component';
 import { FirstTaskComponent } from './components/first-task/first-task.component';
 import { SecondTaskComponent } from './components/second-task/second-task.component';
 import { ThirdTaskComponent } from './components/third-task/third-task.component';
@@ -35,7 +35,7 @@ const ROUTES: Routes = [
   },
   {
     path: 'list',
-    component: IntroComponent
+    component: CasesListComponent
   },
   {
     path: 'list/:id',
@@ -62,7 +62,7 @@ const ROUTES: Routes = [
     AuthModule
   ],
   declarations: [
-    IntroComponent,
+    CasesListComponent,
     FirstTaskComponent,
     SecondTaskComponent,
     ThirdTaskComponent,

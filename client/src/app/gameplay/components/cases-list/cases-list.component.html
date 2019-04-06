@@ -17,10 +17,10 @@
           <ng-container *ngIf="case.id > currentCase"><i class="fa fa-play" aria-hidden="true"></i> Zacznij</ng-container>
           <ng-container *ngIf="case.id <= currentCase"><i class="fa fa-repeat" aria-hidden="true"></i> Jeszcze raz</ng-container>
         </button>
-        <div *ngIf="user.bestScores && (user.bestScores[i] || user.bestScores[i] === 0)" class="best-score">
+        <div [ngClass]="{'has-score': user.bestScores && (user.bestScores[i] || user.bestScores[i] === 0)}" class="best-score">
           <span class="fa-stack fa-1x">
             <i class="fa fa-trophy fa-stack-2x"></i>
-            <span class="fa fa-stack-1x points-number">{{user.bestScores[i]}}</span>
+            <span *ngIf="user.bestScores && (user.bestScores[i] || user.bestScores[i] === 0)" class="fa fa-stack-1x points-number">{{user.bestScores[i]}}</span>
           </span>
         </div>
       </mat-card-actions>

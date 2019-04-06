@@ -4,10 +4,10 @@ import { CasesService, Case } from '../../services/cases.service';
 import { AuthenticationService, User } from '../../../auth/services/authentication.service';
 
 @Component({
-  selector: 'app-intro',
-  templateUrl: './intro.component.html'
+  selector: 'app-cases-list',
+  templateUrl: './cases-list.component.html'
 })
-export class IntroComponent implements OnInit {
+export class CasesListComponent implements OnInit {
 
   user: User;
 

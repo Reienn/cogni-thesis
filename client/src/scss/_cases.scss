@@ -47,14 +47,16 @@
         font-size: 1.2em;
       }
       mat-card-actions {
-        text-align: center;
         position: relative;
         .best-score {
           position: absolute;
           right: -10px;
           bottom: -5px;
           font-size: 30px;
-          .fa-trophy {
+          &:not(.has-score) .fa-trophy {
+            color: $light-gray;
+          }
+          &.has-score .fa-trophy {
             color: $points-bg;
           }
           .points-number {
