@@ -51,6 +51,16 @@ export class AuthenticationService {
     ).toPromise();
   }
 
+  requestReset(mail: string): Promise<any> {
+    return this.http.post<any>(environment.baseUrl + '/api/reset-password', {mail: mail})
+      .pipe(map((user: any) => {
+        return user.name;
+      }), catchError((err) => {
+        throw(err);
+      })
+    ).toPromise();
+  }
+
   authUser(): Promise<any> {
     return this.http.get<any>(environment.baseUrl + '/api/auth-user')
       .pipe(map((user: any) => {
@@ -75,6 +85,16 @@ export class AuthenticationService {
         return response;
       }), catchError((err) => {
         throw(err.error);
+      })
+    ).toPromise();
+  }
+
+  changePsw(change: {psw: string, id: string, token: string}): Promise<any> {
+    return this.http.post<any>(environment.baseUrl + '/api/new-password', {...change})
+      .pipe(map((response: any) => {
+        return response;
+      }), catchError((err) => {
+        throw(err);
       })
     ).toPromise();
   }

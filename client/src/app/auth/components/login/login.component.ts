@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +14,11 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
+  requestResetControl: FormControl;
+  resetErr: string;
+  resetMsg: string;
+  requestResetVisible = false;
+
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
@@ -25,6 +30,9 @@ export class LoginComponent implements OnInit {
       name: ['', Validators.required],
       psw: ['', Validators.required]
     });
+    this.requestResetControl = new FormControl('', [
+      Validators.required, Validators.email
+    ]);
   }
 
   login() {
@@ -33,9 +41,28 @@ export class LoginComponent implements OnInit {
         this.redirectLogged(user);
       },
       err => {
-        console.log(err);
         this.err = err.status === 422 ? 'Błędne dane' : 'Błąd logowania';
       });
+  }
+
+  showRequestReset() {
+    this.requestResetVisible = true;
+    this.resetErr = null;
+    this.resetMsg = null;
+  }
+
+  requestReset() {
+    if (this.requestResetControl.valid) {
+      this.authenticationService.requestReset(this.requestResetControl.value).then(
+        user => {
+          this.resetErr = null;
+          this.resetMsg = 'Wysłano wiadomość na podany adres email.';
+          this.requestResetVisible = false;
+        },
+        err => {
+          this.resetErr = err.status === 422 ? 'Nie znaleziono podanego adresu email.' : 'Błąd wysyłania wiadomości.';
+        });
+    }
   }
 
   private redirectLogged(user) {

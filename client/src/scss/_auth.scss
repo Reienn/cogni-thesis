@@ -19,4 +19,16 @@
   .auth-button {
     margin-top: 20px;
   }
+  .forget-psw-button {
+    display: block;
+    padding: 0;
+    color: #444444;
+  }
+  .request-reset {
+    display: flex;
+    .request-reset-button {
+      margin: 10px 0 0 10px;
+      height: 36px;
+    }
+  }
 }

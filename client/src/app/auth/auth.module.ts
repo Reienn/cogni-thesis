@@ -10,6 +10,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { EducatorAuthGuardService } from './services/educator-auth-guard.service';
 import { LoggedGuardService } from './services/logged-guard.service';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { LoggedGuardService } from './services/logged-guard.service';
     MatRadioModule,
     MatButtonModule
   ],
-  declarations: [LoginComponent, SignupComponent, EditUserComponent],
+  declarations: [LoginComponent, SignupComponent, EditUserComponent, NewPasswordComponent],
   providers: [
     AuthenticationService,
     AuthGuardService,

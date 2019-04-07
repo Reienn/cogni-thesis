@@ -1,7 +1,10 @@
+'use strict';
 const cors = require('cors');
 
 const loginController= require('../controllers/login');
 const signupController = require('../controllers/signup');
+const resetPassword = require('../controllers/reset-password');
+const newPassword = require('../controllers/new-password');
 const authUserController = require('../controllers/auth-user');
 const updateUserController = require('../controllers/update-user');
 const updatePerformanceController = require('../controllers/update-performance');
@@ -19,6 +22,10 @@ module.exports = function(app) {
   app.post('/api/login', loginController.login);
 
   app.post('/api/signup', signupController.signup);
+
+  app.post('/api/reset-password', resetPassword.resetPassword);
+
+  app.post('/api/new-password', newPassword.newPassword);
 
   app.post('/api/update-user', jwt.verifyToken, updateUserController.updateUser);
 

@@ -15,3 +15,21 @@
   </mat-form-field>
   <button mat-flat-button color="primary" type="submit" class="auth-button" [disabled]="!loginForm.valid">Zaloguj się</button>
 </form>
+
+<button *ngIf="!requestResetVisible" mat-flat-button class="forget-psw-button" (click)="showRequestReset()">Nie pamiętam hasła</button>
+
+<p *ngIf="resetErr" class="failure">{{ resetErr }}</p>
+<p *ngIf="resetMsg">{{ resetMsg }}</p>
+<ng-container *ngIf="requestResetVisible">
+  <p>Podaj adres email, aby otrzymać link do zresetowania hasła</p>
+  <div class="request-reset">
+    <mat-form-field class="full-width">
+      <input matInput type="email" placeholder="Adres e-mail" [formControl]="requestResetControl" required class="form-control">
+      <mat-hint *ngIf="requestResetControl.dirty">
+        <div *ngIf="requestResetControl.errors?.required" class="failure">To pole jest wymagane</div>
+        <div *ngIf="requestResetControl.errors?.email" class="failure">Niepoprawny adres email</div>
+      </mat-hint>
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="request-reset-button" (click)="requestReset()" [disabled]="!requestResetControl.valid">Wyślij</button>
+  </div>
+</ng-container>

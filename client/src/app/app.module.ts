@@ -12,6 +12,7 @@ import { EducatorAuthGuardService } from './auth/services/educator-auth-guard.se
 import { LoggedGuardService } from './auth/services/logged-guard.service';
 import { StartComponent } from './start/start/start.component';
 import { NotFoundComponent } from './start/not-found/not-found.component';
+import { NewPasswordComponent } from './auth/components/new-password/new-password.component';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,8 +35,12 @@ const ROUTES: Routes = [
     canActivate: [AuthGuardService]
   },
   {
+    path: 'reset',
+    component: NewPasswordComponent
+  },
+  {
     path: '**',
-    component: NotFoundComponent,
+    component: NotFoundComponent
   }
 ];
 

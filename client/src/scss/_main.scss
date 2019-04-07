@@ -70,7 +70,7 @@ mat-toolbar {
   visibility: hidden;
 }
 
-.error-container {
+.error-container, .new-psw-container {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -78,7 +78,7 @@ mat-toolbar {
   height: 100vh;
   background-color: $primary;
   z-index: 500;
-  .error-msg {
+  .error-msg, .new-psw-msg {
     border-radius: 5px;
     max-height: 500px;
     max-width: 500px;
@@ -96,6 +96,11 @@ mat-toolbar {
       display: block;
       width: 100px;
       margin: 20px auto 0;
+    }
+  }
+  .new-psw-msg {
+    mat-form-field {
+      width: 100%;
     }
   }
 }
