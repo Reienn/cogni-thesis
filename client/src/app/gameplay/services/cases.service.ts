@@ -51,14 +51,15 @@ export class CasesService {
       if (this.dynamicTasksContent && this.dynamicTasksContent.cases
           && this.dynamicTasksContent.cases.find(el => el.id === caseId) ) {
         const item = this.dynamicTasksContent.cases.find(el => el.id === caseId);
-        const cluesNumber = item.searchingCommands.length;
+        const cluesNumber = item.cluesNumber;
 
         const preparedClues = this.prepareClues(this.dynamicTasksContent.clues, cluesNumber);
         const people = this.preparePeople([...this.dynamicTasksContent.people], preparedClues, cluesNumber);
         const exercises = this.prepareExercises({...this.dynamicTasksContent.exercises}, [...item.exercises]);
 
-        const randomizedCommands = item.searchingCommands;
+        let randomizedCommands = item.searchingCommands;
         randomizedCommands.sort(() => 0.5 - Math.random());
+        randomizedCommands = randomizedCommands.slice(0, cluesNumber);
 
         const activeClues = [...preparedClues.active.other, ...preparedClues.active.jobs];
         activeClues.sort(() => 0.5 - Math.random());

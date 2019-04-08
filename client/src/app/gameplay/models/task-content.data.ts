@@ -85,6 +85,7 @@ export interface SourceTaskData {
     }[];
     stolenItem: string;
     scene: string;
+    cluesNumber: number;
     searchingCommands: {
       command: string;
       item: string

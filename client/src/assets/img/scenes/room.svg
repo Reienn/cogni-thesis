@@ -16,7 +16,7 @@
    viewBox="0 0 508.00001 285.74999"
    version="1.1"
    id="svg"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="room.svg"
    inkscape:export-filename="E:\WebDev\cogni_thesis\client\src\assets\img\scenes\room.png"
    inkscape:export-xdpi="95.459999"
@@ -31,16 +31,16 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1051"
+     inkscape:window-height="1046"
      id="namedview126"
      showgrid="false"
      inkscape:zoom="2.2480315"
-     inkscape:cx="254"
+     inkscape:cx="253.56559"
      inkscape:cy="142.875"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="shelve" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs7320">
     <pattern
@@ -422,7 +422,7 @@
              y="105.9791" />
           <rect
              style="fill:#e5d4a4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.13888967;stroke-opacity:1;paint-order:fill markers stroke"
-             id="rect3693"
+             id="right_door"
              class="interactive"
              width="31.193579"
              height="84.753372"
@@ -433,7 +433,7 @@
              x="16.486122"
              height="84.753372"
              width="31.193579"
-             id="rect3695"
+             id="left_door"
              class="interactive"
              style="fill:#e5d4a4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.13888967;stroke-opacity:1;paint-order:fill markers stroke" />
           <rect
@@ -442,12 +442,12 @@
              x="16.486122"
              height="20.032736"
              width="64.713837"
-             id="rect3701"
+             id="upper_drawer"
              class="interactive"
              style="fill:#e5d4a4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.24955522;stroke-opacity:1;paint-order:fill markers stroke" />
           <rect
              style="fill:#e5d4a4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.24955522;stroke-opacity:1;paint-order:fill markers stroke"
-             id="drawer"
+             id="lower_drawer"
              class="interactive"
              width="64.713837"
              height="20.032736"
@@ -715,7 +715,7 @@
              x="258.90039"
              height="17.635002"
              width="28.715881"
-             id="rect4444"
+             id="table_drawer"
              class="interactive"
              style="fill:#e5d4a4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.13033882;stroke-opacity:1;paint-order:fill markers stroke" />
           <circle

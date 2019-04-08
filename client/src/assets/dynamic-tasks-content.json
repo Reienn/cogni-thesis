@@ -107,10 +107,15 @@
       ],
       "stolenItem": "watch",
       "scene": "room",
+      "cluesNumber": 4,
       "searchingCommands": [
         {"command": "Przesuń doniczkę", "item": "plant"},
         {"command": "Zajrzyj pod dywan", "item": "carpet"},
-        {"command": "Otwórz dolną szufladę szafy", "item": "drawer"},
+        {"command": "Otwórz dolną szufladę szafy", "item": "lower_drawer"},
+        {"command": "Otwórz górną szufladę szafy", "item": "upper_drawer"},
+        {"command": "Otwórz lewe drzwi szafy", "item": "left_door"},
+        {"command": "Otwórz prawe drzwi szafy", "item": "right_door"},
+        {"command": "Sprawdź w szufladzie stolika", "item": "table_drawer"},
         {"command": "Zajrzyj pod kanapę", "item": "sofa"}
       ],
       "exercises": [
@@ -132,12 +137,28 @@
       ],
       "stolenItem": "piggybank",
       "scene": "room2",
+      "cluesNumber": 5,
       "searchingCommands": [
         {"command": "Zajrzyj za lewą zasłonę", "item": "left_curtain"},
+        {"command": "Zajrzyj za prawą zasłonę", "item": "right_curtain"},
+        {"command": "Sprawdź za fioletową książką na górnej półce", "item": "purple_book1"},
+        {"command": "Przesuń niebieską książkę stojącą obok zielonej książki", "item": "blue_book1"},
+        {"command": "Poszukaj za zieloną książką na najwyższej półce", "item": "green_book1"},
+        {"command": "Zajrzyj za czerwoną książkę na górnej półce", "item": "red_book1"},
+        {"command": "Przesuń niebieską książkę na drugiej półce od góry", "item": "blue_book2"},
+        {"command": "Przesuń żółtą książkę leżącą na niebieskiej książce", "item": "yellow_book2"},
+        {"command": "Przesuń pomarańczową książkę na drugiej półce od góry", "item": "orange_book2"},
+        {"command": "Poszukaj za pomarańczową książką leżącą obok wazonika", "item": "orange_book3"},
+        {"command": "Zajrzyj za fioletową książkę na drugiej półce od dołu", "item": "purple_book3"},
         {"command": "Przesuń czerwoną książkę na dolnej półce", "item": "red_book4"},
+        {"command": "Sprawdź za zieloną książką na dolnej półce", "item": "green_book4"},
+        {"command": "Przesuń żółtą książkę na najniższej półce", "item": "yellow_book4"},
         {"command": "Otwórz górną szufladę biurka", "item": "desk_top_drawer"},
-        {"command": "Przesuń fioletową książkę na górnej półce", "item": "purple_book1"},
-        {"command": "Zajrzyj za zegar", "item": "clock"}
+        {"command": "Otwórz dolną szufladę biurka", "item": "desk_bottom_drawer"},
+        {"command": "Zajrzyj za zegar", "item": "clock"},
+        {"command": "Zajrzyj pod dywan", "item": "carpet"},
+        {"command": "Przesuń krzesło obrotowe", "item": "chair"},
+        {"command": "Przesuń wazonik", "item": "vase"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 2},
@@ -158,12 +179,22 @@
       ],
       "stolenItem": "laptop",
       "scene": "store1",
+      "cluesNumber": 5,
       "searchingCommands": [
         {"command": "Otwórz pralkę", "item": "washing_machine"},
         {"command": "Zajrzyj za telewizor", "item": "tv"},
         {"command": "Przesuń aparat fotograficzny z górnej półki", "item": "camera2"},
+        {"command": "Poszukaj za aparatem fotograficznym leżącym na środkowej półce", "item": "camera1"},
         {"command": "Zajrzyj pod czerwony laptop", "item": "laptop2"},
-        {"command": "Przesuń żółte słuchawki", "item": "headphones2"}
+        {"command": "Poszukaj pod laptopem leżącym z prawej strony", "item": "laptop3"},
+        {"command": "Poszukaj pod laptopem leżącym z lewej strony", "item": "laptop1"},
+        {"command": "Przesuń żółte słuchawki", "item": "headphones2"},
+        {"command": "Przesuń zielone słuchawki", "item": "headphones1"},
+        {"command": "Sprawdź za żelazkiem na górnej półce", "item": "iron1"},
+        {"command": "Sprawdź za żelazkiem na niższej półce", "item": "iron2"},
+        {"command": "Przesuń telefon leżący z lewej strony", "item": "smartphone1"},
+        {"command": "Przesuń środkowy telefon", "item": "smartphone2"},
+        {"command": "Przesuń telefon leżący z prawej strony", "item": "smartphone3"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 1},
@@ -185,11 +216,13 @@
       ],
       "stolenItem": "painting",
       "scene": "museum",
+      "cluesNumber": 5,
       "searchingCommands": [
         {"command": "Zajrzyj do wazy", "item": "vase"},
         {"command": "Sprawdź za rzeźbą", "item": "sculpture"},
         {"command": "Podnieś koronę", "item": "crown"},
         {"command": "Zajrzyj za obraz znajdujący się z prawej strony", "item": "painting2"},
+        {"command": "Zajrzyj za obraz znajdujący się z lewej strony", "item": "painting1"},
         {"command": "Poszukaj w gablotce z mieczem", "item": "sword_box"}
       ],
       "exercises": [
@@ -212,12 +245,22 @@
       ],
       "stolenItem": "money",
       "scene": "store2",
+      "cluesNumber": 5,
       "searchingCommands": [
         {"command": "Przesuń największego misia", "item": "teddy_bear1"},
+        {"command": "Przesuń misia z czerwoną kokardą", "item": "teddy_bear2"},
+        {"command": "Przesuń najmniejszego misia", "item": "teddy_bear3"},
+        {"command": "Zajrzyj pod czerwony samochód", "item": "car1"},
         {"command": "Zajrzyj pod samochód na środkowej półce", "item": "car2"},
         {"command": "Podnieś dinozaura", "item": "dinosaur"},
+        {"command": "Sprawdź za pudełkiem z klockami", "item": "blocks"},
         {"command": "Przesuń lalkę w różowej sukience", "item": "doll1"},
-        {"command": "Sprawdź za rakietą", "item": "rocket"}
+        {"command": "Przesuń lalkę w niebieskiej sukience", "item": "doll2"},
+        {"command": "Sprawdź za rakietą", "item": "rocket"},
+        {"command": "Poszukaj za robotem", "item": "robot"},
+        {"command": "Poszukaj za piłką plażową", "item": "ball1"},
+        {"command": "Poszukaj za piłką do piłki nożnej", "item": "ball2"}
+
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 2},
@@ -240,12 +283,23 @@
       ],
       "stolenItem": "handbag",
       "scene": "restaurant",
+      "cluesNumber": 5,
       "searchingCommands": [
         {"command": "Przesuń wazon", "item": "vase"},
+        {"command": "Sprawdź za lewą zasłoną lewego okna", "item": "curtain1"},
+        {"command": "Sprawdź za prawą zasłoną lewego okna", "item": "curtain2"},
         {"command": "Sprawdź za lewą zasłoną prawego okna", "item": "curtain3"},
+        {"command": "Sprawdź za prawą zasłoną prawego okna", "item": "curtain4"},
         {"command": "Przesuń dzbanek", "item": "teapot"},
         {"command": "Zajrzyj pod stolik, na którym znajduje się zupa", "item": "table2"},
-        {"command": "Przesuń pusty talerzyk", "item": "plate2"}
+        {"command": "Zajrzyj pod stolik, na którym znajduje się dzbanek", "item": "table1"},
+        {"command": "Przesuń talerzyk z ciastem", "item": "plate1"},
+        {"command": "Przesuń pusty talerzyk", "item": "plate2"},
+        {"command": "Przesuń krzesło stojące z lewej strony", "item": "chair1"},
+        {"command": "Przesuń krzesło stojące na środku", "item": "chair2"},
+        {"command": "Przesuń krzesło stojące przy stoliku z zupą", "item": "chair3"},
+        {"command": "Sprawdź za filiżanką stojącą obok talerzyka z ciastem", "item": "cup1"},
+        {"command": "Sprawdź za filiżanką stojącą obok pustego talerzyka", "item": "cup2"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 2},
@@ -270,12 +324,22 @@
       ],
       "stolenItem": "rucksack",
       "scene": "classroom",
+      "cluesNumber": 5,
       "searchingCommands": [
         {"command": "Podnieś globus", "item": "globe"},
         {"command": "Zajrzyj pod biurko nauczyciela", "item": "teacher_desk"},
+        {"command": "Przesuń książkę leżącą na biurku nauczyciela", "item": "teacher_book"},
         {"command": "Przesuń kosz na śmieci", "item": "dustbin"},
-        {"command": "Sprawdź za tablicą", "item": "chalk_board"},
-        {"command": "Otwórz szafkę obok kosza na śmieci", "item": "bookcase"}
+        {"command": "Sprawdź za zieloną tablicą", "item": "chalk_board"},
+        {"command": "Sprawdź za tablicą korkową nad biurkiem nauczyciela", "item": "pin_board"},
+        {"command": "Otwórz szafkę obok kosza na śmieci", "item": "bookcase"},
+        {"command": "Przeszukaj ławkę stojącą z lewej strony", "item": "desk1"},
+        {"command": "Przeszukaj środkową ławkę", "item": "desk2"},
+        {"command": "Przeszukaj ławkę stojącą z prawej strony", "item": "desk3"},
+        {"command": "Przesuń krzesło stojące z lewej strony", "item": "chair1"},
+        {"command": "Przesuń środkowe krzesło", "item": "chair2"},
+        {"command": "Przesuń krzesło stojące z prawej strony", "item": "chair3"},
+        {"command": "Sprawdź za zegarem", "item": "clock"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 2},
@@ -301,12 +365,19 @@
       ],
       "stolenItem": "camera",
       "scene": "playground",
+      "cluesNumber": 5,
       "searchingCommands": [
         {"command": "Poszukaj w piaskownicy", "item": "sandbox"},
         {"command": "Zajrzyj pod zjeżdżalnię", "item": "slide"},
+        {"command": "Sprawdź pod czerwoną huśtawką", "item": "swing1"},
         {"command": "Sprawdź pod niebieską huśtawką", "item": "swing2"},
+        {"command": "Sprawdź pod fioletową huśtawką", "item": "seesaw"},
         {"command": "Zajrzyj pod ławkę", "item": "bench"},
-        {"command": "Poszukaj pod drzewem koło latarni z lewej strony", "item": "tree1"}
+        {"command": "Poszukaj pod drzewem koło latarni z lewej strony", "item": "tree1"},
+        {"command": "Poszukaj pod choinką koło latarni z prawej strony", "item": "tree5"},
+        {"command": "Poszukaj za latarnią z lewej strony", "item": "streetlamp1"},
+        {"command": "Poszukaj za latarnią z prawej strony", "item": "streetlamp2"},
+        {"command": "Sprawdź za krzakiem na lewo od piaskownicy", "item": "bush1"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 2},
@@ -332,12 +403,17 @@
       ],
       "stolenItem": "phone",
       "scene": "beach",
+      "cluesNumber": 5,
       "searchingCommands": [
         {"command": "Sprawdź pod kocem", "item": "blanket"},
         {"command": "Zajrzyj do łódki", "item": "boat"},
+        {"command": "Poszukaj na czerwonym leżaku", "item": "sunbed1"},
         {"command": "Poszukaj na zielonym leżaku", "item": "sunbed2"},
         {"command": "Poszukaj koło zamku z piasku", "item": "sandcastle"},
-        {"command": "Przesuń koło ratunkowe", "item": "safering"}
+        {"command": "Przesuń koło ratunkowe", "item": "safering"},
+        {"command": "Przesuń piłkę", "item": "ball"},
+        {"command": "Przesuń wiaderko", "item": "bucket"},
+        {"command": "Przesuń parasol", "item": "umbrella"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 2},
@@ -363,12 +439,19 @@
       ],
       "stolenItem": "wallet",
       "scene": "garden",
+      "cluesNumber": 5,
       "searchingCommands": [
         {"command": "Poszukaj w hamaku", "item": "hammock"},
         {"command": "Zajrzyj do taczki", "item": "wheelbarrow"},
         {"command": "Przesuń konewkę", "item": "watering_can"},
-        {"command": "Sprawdź w koszyku pod jabłonką", "item": "basket"},
-        {"command": "Poszukaj za krzakiem malin", "item": "bush"}
+        {"command": "Sprawdź w koszyku pod jabłonią", "item": "basket"},
+        {"command": "Poszukaj za krzakiem malin", "item": "bush"},
+        {"command": "Przeszukaj słoneczniki", "item": "sunflowers"},
+        {"command": "Sprawdź za jabłonią", "item": "apple_tree"},
+        {"command": "Sprawdź za drzewem z prawej strony", "item": "tree2"},
+        {"command": "Poszukaj w grządce marchewek", "item": "carrot_patch"},
+        {"command": "Sprawdź drzewko za ławką z prawej strony", "item": "conifer4"},
+        {"command": "Sprawdź drzewko za ławką z lewej strony", "item": "conifer3"}
       ],
       "exercises": [
         {"type": "wordGroups", "amount": 2},
