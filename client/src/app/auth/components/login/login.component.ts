@@ -56,11 +56,11 @@ export class LoginComponent implements OnInit {
       this.authenticationService.requestReset(this.requestResetControl.value).then(
         user => {
           this.resetErr = null;
-          this.resetMsg = 'Wysłano wiadomość na podany adres email.';
+          this.resetMsg = 'Wysłano wiadomość na podany adres e-mail.';
           this.requestResetVisible = false;
         },
         err => {
-          this.resetErr = err.status === 422 ? 'Nie znaleziono podanego adresu email.' : 'Błąd wysyłania wiadomości.';
+          this.resetErr = err.status === 422 ? 'Nie znaleziono podanego adresu e-mail.' : 'Błąd wysyłania wiadomości.';
         });
     }
   }

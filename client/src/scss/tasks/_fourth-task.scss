@@ -16,7 +16,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-top: 5px;
+        margin-top: 10px;
       }
       .digit {
         width: 30px;
@@ -40,7 +40,7 @@
       }
       .safe-box {
         width: calc(100%-50px);
-        height: 350px;
+        height: 335px;
         background: $light-gray;
         margin: 25px;
         border-radius: 40px;
@@ -75,7 +75,7 @@
       .exercise-sentence {
         display: block;
         margin-top: 10px;
-        color: $primary;
+        color: $dark-primary;
       }
     }
     width: 100%;
@@ -103,5 +103,16 @@
       font-size: 2em;
       padding-right: 10px;
     }
+    &.animated-button {
+      animation-name: complete-button-animation;
+      animation-duration: 1.5s;
+      animation-iteration-count: infinite;
+    }
   }
+}
+
+@keyframes complete-button-animation {
+  0%   {transform: scale(1);}
+  50%  {transform: scale(1.1);}
+  100%  {transform: scale(1);}
 }

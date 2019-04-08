@@ -31,7 +31,7 @@
       </mat-card-content>
     </mat-card>
   </div>
-  <button *ngIf="isOpen" mat-flat-button color="primary" class="complete-button" (click)="isCompleted = true">
+  <button *ngIf="isOpen" mat-flat-button color="primary" [ngClass]="{'animated-button': !isCompleted}" class="complete-button" (click)="isCompleted = true">
     <i class="fa  fa-arrow-circle-right" aria-hidden="true"></i> Zakończ sprawę</button>
 </div>
 

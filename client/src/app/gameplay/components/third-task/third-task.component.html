@@ -2,10 +2,10 @@
   <div class="profiles" *ngIf="taskData && taskData.people" [ngClass]="{'culprit-found': isCompleted}">
     <mat-card *ngFor="let person of taskData.people" [ngClass]="{'person-failure': person.mistake}">
       <ng-container *ngIf="person.sex === 'male'">
-        <img mat-card-image src="assets/img/man_profile.png" [ngClass]="{'innocent-img': !person.isCulprit}">
+        <img mat-card-image src="assets/img/man_profile.svg" [ngClass]="{'innocent-img': !person.isCulprit}">
       </ng-container>
       <ng-container *ngIf="person.sex === 'female'">
-        <img mat-card-image src="assets/img/woman_profile.png" [ngClass]="{'innocent-img': !person.isCulprit}">
+        <img mat-card-image src="assets/img/woman_profile.svg" [ngClass]="{'innocent-img': !person.isCulprit}">
       </ng-container>
       <mat-card-title>{{person.name}}</mat-card-title>
       <mat-card-content>{{person.description}}</mat-card-content>

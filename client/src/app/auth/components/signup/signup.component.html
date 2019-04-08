@@ -4,7 +4,7 @@
     <input matInput type="email" placeholder="Adres e-mail" formControlName="mail" required class="form-control">
     <mat-hint *ngIf="signupForm?.get('mail')?.dirty">
       <div *ngIf="signupForm?.get('mail')?.errors?.required" class="failure">To pole jest wymagane</div>
-      <div *ngIf="signupForm?.get('mail')?.errors?.email" class="failure">Niepoprawny adres email</div>
+      <div *ngIf="signupForm?.get('mail')?.errors?.email" class="failure">Niepoprawny adres e-mail</div>
     </mat-hint>
   </mat-form-field>
   <mat-form-field class="full-width">

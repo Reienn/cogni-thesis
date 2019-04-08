@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../../../auth/services/authentication.
         <p *ngIf="taskId === 2">Teraz musisz wskazać złodzieja!</p>
         <p *ngIf="taskId === 3">Pora udać się do kryjówki złodzieja, by odzyskać skradziony przedmiot!</p>
         <p *ngIf="taskId === 4">Udało Ci się znaleźć złodzieja i odzyskać skradziony przedmiot!</p>
-        <div *ngIf="pointsSum" class="completed-points">
+        <div *ngIf="taskId === 4" class="completed-points">
           Twój {{isBestScore ? 'nowy rekord' : 'wynik'}} to:
           <div>
             <span class="fa-stack fa-1x">

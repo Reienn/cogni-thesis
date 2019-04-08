@@ -5,7 +5,7 @@
       <input matInput type="email" formControlName="mail" required class="form-control">
       <mat-hint *ngIf="editUserForm.get('mail')?.dirty" class="form-hint" >
         <div *ngIf="editUserForm.get('mail').errors?.required" class="failure">To pole jest wymagane</div>
-        <div *ngIf="editUserForm.get('mail')?.errors?.email" class="failure">Niepoprawny adres email</div>
+        <div *ngIf="editUserForm.get('mail')?.errors?.email" class="failure">Niepoprawny adres e-mail</div>
       </mat-hint>
     </mat-form-field>
     <ng-container *ngTemplateOutlet="fieldButtons; context: {control: editUserForm.get('mail'), initial: this.user.mail, name: 'mail'}"></ng-container>

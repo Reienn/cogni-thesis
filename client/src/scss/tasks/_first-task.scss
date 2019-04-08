@@ -50,7 +50,7 @@ app-notepad2 {
     min-height: 500px;
     text-align: center;
     padding: 15% 5%;
-    color: $primary;
+    color: $dark-primary;
   }
   .questions {
     .question {
@@ -103,6 +103,6 @@ app-notepad2 {
   font-weight: 500;
   cursor: pointer;
   &:hover {
-    background: #556cec;
+    background: $dark-primary;
   }
 }
