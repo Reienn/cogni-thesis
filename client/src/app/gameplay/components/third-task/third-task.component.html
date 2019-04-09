@@ -1,11 +1,13 @@
 <div class="profiles-wrapper">
+  <!-- <h2 class="profiles-title">Podejrzani</h2> -->
   <div class="profiles" *ngIf="taskData && taskData.people" [ngClass]="{'culprit-found': isCompleted}">
     <mat-card *ngFor="let person of taskData.people" [ngClass]="{'person-failure': person.mistake}">
+      <div class="pin-img"><img src="assets/img/pin.svg"></div>
       <ng-container *ngIf="person.sex === 'male'">
-        <img mat-card-image src="assets/img/man_profile.svg" [ngClass]="{'innocent-img': !person.isCulprit}">
+        <img mat-card-image class="profile-img" src="assets/img/man_profile.svg" [ngClass]="{'innocent-img': !person.isCulprit}">
       </ng-container>
       <ng-container *ngIf="person.sex === 'female'">
-        <img mat-card-image src="assets/img/woman_profile.svg" [ngClass]="{'innocent-img': !person.isCulprit}">
+        <img mat-card-image class="profile-img" src="assets/img/woman_profile.svg" [ngClass]="{'innocent-img': !person.isCulprit}">
       </ng-container>
       <mat-card-title>{{person.name}}</mat-card-title>
       <mat-card-content>{{person.description}}</mat-card-content>
