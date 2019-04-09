@@ -51,7 +51,8 @@
       {"name": "flower", "description": {"unisex": "Pracuje w kwiaciarni."}},
       {"name": "scissors", "description": {"male": "Jest fryzjerem.", "female": "Jest fryzjerką."}},
       {"name": "syringe", "description": {"male": "Jest pielęgniarzem.", "female": "Jest pielęgniarką."}},
-      {"name": "wrench", "description": {"unisex": "Pracuje w zakładzie samochodowym."}}
+      {"name": "wrench", "description": {"unisex": "Pracuje w zakładzie samochodowym."}},
+      {"name": "needle", "description": {"male": "Jest krawcem.", "female": "Jest krawcową."}}
     ],
     "other": [
       {"name": "coffee", "description": {"unisex": "Często odwiedza pobliską kawiarnię."}},
