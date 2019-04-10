@@ -46,3 +46,25 @@
     color: black;
   }
 }
+.control-panel-toolbar {
+  .navbar-menu {
+    display: none;
+    .fa-bars {
+      margin-right: 20px;
+      font-size: 1.2em;
+      &:hover {
+        color: $light-primary;
+      }
+    }
+  }
+}
+@media (max-width: 800px) {
+  .control-panel-toolbar {
+    .navbar-menu {
+      display: block;
+    }
+    .navbar-right {
+      display: none;
+    }
+  }
+}

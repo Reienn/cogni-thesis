@@ -1,14 +1,18 @@
 <mat-toolbar color="primary" class="control-panel-toolbar">
-  <span class="navbar-left">
-    <span class="settings-icon"><i class="fa fa-cog" (click)="showSettings = true" aria-label="Ustawienia"></i></span>
-  </span>
+  <div class="navbar-menu">
+    <i class="fa fa-bars" [matMenuTriggerFor]="menu" aria-label="Menu"></i>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="showSettings = true"><i class="fa fa-cog" aria-hidden="true"></i> Ustawienia</button>
+      <button mat-menu-item (click)="showSurvey = true"><i class="fa fa-check-square-o" aria-hidden="true"></i> Ankieta</button>
+      <button mat-menu-item (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Wyloguj</button>
+    </mat-menu>
+  </div>
   <h2 class="title">Gra &bdquo;AHA!&rdquo; - panel nauczyciela</h2>
   <span class="navbar-right">
     <span class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user?.name}}</span>
-    <button mat-flat-button (click)="logout()">
-      <i class="fa fa-sign-out" aria-hidden="true"></i> Wyloguj</button>
-    <button mat-flat-button (click)="showAbout = true">
-      <i class="fa fa-info-circle" aria-hidden="true"></i> O grze</button>
+    <button mat-flat-button (click)="showSettings = true"><i class="fa fa-cog" aria-hidden="true"></i> Ustawienia</button>
+    <button mat-flat-button (click)="showSurvey = true"><i class="fa fa-check-square-o" aria-hidden="true"></i> Ankieta</button>
+    <button mat-flat-button (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Wyloguj</button>
   </span>
 </mat-toolbar>
 
@@ -25,7 +29,10 @@
         </button>
       </div>
     </div>
-    <ng-template #noPlayers>Brak graczy</ng-template>
+    <ng-template #noPlayers>
+      <ng-container *ngIf="!loading">Brak graczy</ng-container>
+      <ng-container *ngIf="loading"><i *ngIf="loading" class="fa fa-spinner loading-icon dark-spinner" aria-label="Trwa ładowanie"></i></ng-container>
+    </ng-template>
   </div>
   <div class="player-details" *ngIf="selectedPlayer">
     <h3>Gracz {{selectedPlayer.name}}</h3>
@@ -40,12 +47,17 @@
   </div>
 </div>
 
-<app-about *ngIf="showAbout" (modalClose)="showAbout = false"></app-about>
-
 <div *ngIf="showSettings" class="modal about-modal" (click)="showSettings = false">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <h2>Nauczyciel {{user.name}}</h2>
     <app-edit-user [user]="user" (updatedUser)="updatedUser($event)"></app-edit-user>
     <button class="button-close-modal" (click)="showSettings = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
+  </div>
+</div>
+<div *ngIf="showSurvey" class="modal survey-modal" (click)="showSurvey = false">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Ankieta</h2>
+    <app-survey-form (surveySent)="showSurvey = false"></app-survey-form>
+    <button class="button-close-modal" (click)="showSurvey = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
   </div>
 </div>

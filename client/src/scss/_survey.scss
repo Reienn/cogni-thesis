@@ -1,0 +1,46 @@
+app-survey-form {
+  .header, .question {
+    padding: 5px;
+    &.header {
+      background: $light-primary;
+    }
+    &:nth-child(even) {
+      background: $light-gray;
+    }
+    &:last-child {
+      border-bottom: 2px solid $light-gray;
+    }
+    .label, .option {
+      display: table-cell;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .label {
+      width: 35%;
+      text-align: left;
+    }
+    .option {
+      width: 13%;
+      text-align: center;
+      .mat-radio-label-content {
+        padding: 0;
+      }
+    }
+  }
+  .full-width {
+    margin-top: 10px;
+    width: 100%;
+  }
+  .required {
+    color: $primary;
+  }
+  .required-legend {
+    color: $primary;
+    text-align: left;
+    font-size: 0.8em;
+    margin: 5px 5px 10px;
+  }
+  .survey-close {
+    margin-top: 20px;
+  }
+}

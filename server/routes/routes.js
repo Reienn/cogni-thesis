@@ -9,6 +9,7 @@ const authUserController = require('../controllers/auth-user');
 const updateUserController = require('../controllers/update-user');
 const updatePerformanceController = require('../controllers/update-performance');
 const playersPerformanceController = require('../controllers/players-performance');
+const surveyController = require('../controllers/survey');
 const jwt = require('../services/jwt');
 
 
@@ -28,6 +29,8 @@ module.exports = function(app) {
   app.post('/api/new-password', newPassword.newPassword);
 
   app.post('/api/update-user', jwt.verifyToken, updateUserController.updateUser);
+
+  app.post('/api/survey', jwt.verifyToken, surveyController.survey);
 
   app.get('/api/auth-user', jwt.verifyToken, authUserController.authUser);
 

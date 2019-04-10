@@ -13,6 +13,7 @@
 @import 'menu';
 @import 'cases';
 @import 'start';
+@import 'survey';
 
 @import 'dragula';
 
@@ -49,20 +50,13 @@ body { margin: 0; font-family: Roboto, 'Helvetica Neue', sans-serif; }
 }
 
 mat-toolbar {
-  .settings-icon {
-    font-size: 1.7em;
-    width: 40px;
-    display: inline-block;
-    text-align: center;
-    &:hover {
-      font-size: 2em;
-      cursor: pointer;
-    }
-  }
   &.control-panel-toolbar {
     position: fixed;
     top: 0;
     z-index: 50;
+    .title {
+      text-align: left;
+    }
   }
 }
 
@@ -114,6 +108,9 @@ mat-toolbar {
   color: #ffffff;
   font-size: 4em;
   animation: spinner-animation 1s steps(8, end) infinite;
+  &.dark-spinner {
+    color: $primary;
+  }
 }
 
 @keyframes spinner-animation {

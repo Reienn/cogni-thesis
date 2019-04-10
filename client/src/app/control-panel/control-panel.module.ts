@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatButtonModule, MatTableModule, MatSortModule, MatPaginatorModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatTableModule, MatSortModule, MatPaginatorModule, MatMenuModule } from '@angular/material';
 
 import { StartModule } from '../start/start.module';
 import { AuthModule } from '../auth/auth.module';
+import { SurveyModule } from '../survey/survey.module';
 
 import { ControlPanelComponent } from './components/control-panel/control-panel.component';
 import { NewPlayerComponent } from './components/new-player/new-player.component';
@@ -47,8 +48,10 @@ const ROUTES: Routes = [
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatMenuModule,
     StartModule,
-    AuthModule
+    AuthModule,
+    SurveyModule
   ],
   declarations: [
     ControlPanelComponent,

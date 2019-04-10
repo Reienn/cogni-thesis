@@ -20,7 +20,8 @@ export class ControlPanelComponent implements OnInit {
   user: User;
   players: Player[];
   selectedPlayer: Player;
-  showAbout = false;
+  loading = true;
+  showSurvey = false;
   showSettings = false;
 
   constructor(private authenticationService: AuthenticationService,
@@ -30,6 +31,7 @@ export class ControlPanelComponent implements OnInit {
     this.user = this.authenticationService.getUser();
     this.controlService.getPlayers().then(players => {
       this.players = players;
+      this.loading = false;
     });
   }
 

@@ -1,0 +1,37 @@
+<form *ngIf="surveyForm && !isSent" id="surveyForm" class="survey-form" (ngSubmit)="submit()" [formGroup]="surveyForm">
+  <p *ngIf="err" class="failure">{{ err }}</p>
+  <div class="survey-table">
+    <div class="header">
+      <div class="label"></div>
+      <div class="option">Nie</div>
+      <div class="option">Raczej nie</div>
+      <div class="option">Nie mam zdania</div>
+      <div class="option">Raczej tak</div>
+      <div class="option">Tak</div>
+    </div>
+    <div class="table" formGroupName="likert">
+      <div *ngFor="let question of surveyQuestions" class="question">
+        <div class="label">{{question.label}} <span class="required">&#42;</span></div>
+        <mat-radio-group [formControlName]="question.id" class="form-control">
+          <mat-radio-button class="option" *ngFor="let i of [1,2,3,4,5]" color="primary" [value]="i"></mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+  </div>
+  <div class="required-legend">&#42; wymagane</div>
+  <mat-form-field class="full-width">
+    <textarea matInput formControlName="comments" placeholder="Dodatkowe uwagi"
+              cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1" cdkAutosizeMaxRows="6"></textarea>
+    <mat-hint *ngIf="surveyForm.get('comments')?.dirty">
+      <div *ngIf="surveyForm.get('comments')?.errors?.maxlength" class="failure">Maksymalna liczba znaków: {{maxCommentLength}}</div>
+    </mat-hint>
+  </mat-form-field>
+  <button mat-flat-button color="primary" type="submit" class="survey-button" [disabled]="!(surveyForm.valid && surveyForm.dirty)">Wyślij</button>
+</form>
+
+<div *ngIf="isSent">
+  <div>Ankieta została zapisana.</div>
+  <button mat-flat-button color="primary" class="survey-close" (click)="surveySent.emit(true)">Zamknij</button>
+</div>
+
