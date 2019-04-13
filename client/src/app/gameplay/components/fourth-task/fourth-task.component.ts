@@ -16,6 +16,8 @@ export class FourthTaskComponent extends AbstractTaskComponent implements OnInit
   isOpen = false;
   isCompleted = false;
 
+  currentQuestion = 0;
+
   constructor() {
     super();
     this.taskId = 4;
@@ -27,6 +29,9 @@ export class FourthTaskComponent extends AbstractTaskComponent implements OnInit
     this.taskData.exercises.find(item => item.id === id).done = selected === correct ? true : false;
     this.pointsChange.emit(selected === correct ? 1 : -1);
     this.hasCode = this.taskData.exercises.filter(item => !item.done).length ? false : true;
+    if (selected === correct && !this.hasCode) {
+      this.currentQuestion++;
+    }
   }
 
 }

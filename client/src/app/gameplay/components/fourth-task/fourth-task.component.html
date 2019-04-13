@@ -1,35 +1,42 @@
 <div *ngIf="taskData && taskData.exercises" class="fourth-task">
-  <h3 *ngIf="!hasCode" class="centered">Skradziony przedmiot znajduje się w sejfie.<br>Odpowiedz na pytania, aby odkryć tajny szyfr!</h3>
-  <h3 *ngIf="hasCode && !isOpen" class="centered">Brawo!<br>Teraz możesz otworzyć sejf!</h3>
-  <h3 *ngIf="isOpen" class="centered">Udało się!<br>W sejfie jest skradziony przedmiot!</h3>
-  <div class="cipher-container">
-    <div class="cipher-box" [ngClass]="{'has-code': hasCode}">
-      <div class="digits">
-        <div class="digit" *ngFor="let exercise of taskData.exercises"
-          [ngClass]="{'incorrect-digit': (exercise.selected && !exercise.done),
-                      'correct-digit': (exercise.selected && exercise.done)}">
-          {{ exercise.selected }}
+  <div class="cipher-task">
+    <div class="cipher-container">
+      <div class="cipher-box" [ngClass]="{'has-code': hasCode}">
+        <div class="digits">
+          <div class="digit" *ngFor="let exercise of taskData.exercises"
+            [ngClass]="{'incorrect-digit': (exercise.selected && !exercise.done),
+                        'correct-digit': (exercise.selected && exercise.done)}">
+            {{ exercise.selected }}
+          </div>
         </div>
-      </div>
-      <div *ngIf="hasCode" class="safe-box">
-        <button *ngIf="!isOpen" mat-raised-button (click)="isOpen = true">OTWÓRZ</button>
-        <div *ngIf="isOpen">
-          <img class="stolen-item" src="assets/img/stolen/{{taskData.stolenItem}}.png">
+        <div class="safe-box">
+          <div *ngIf="!isOpen" class="safe-door" [ngClass]="{'can-open': hasCode}">
+            <button *ngIf="hasCode" mat-button (click)="isOpen = true">OTWÓRZ</button>
+          </div>
+          <div *ngIf="isOpen">
+            <img class="stolen-item" src="assets/img/stolen/{{taskData.stolenItem}}.png">
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="!hasCode" class="exercises">
-    <mat-card *ngFor="let exercise of taskData.exercises; let i = index">
-      <mat-card-title class="centered">{{i + 1}}. <span [innerHTML]="exercise.question"></span>
-        <span *ngIf="exercise.sentence" class="exercise-sentence">&bdquo;<span [innerHTML]="exercise.sentence"></span>&rdquo;</span>
-      </mat-card-title>
-      <mat-card-content>
-        <mat-button-toggle-group [(ngModel)]="exercise.selected" class="options" [disabled]="exercise.done">
-          <mat-button-toggle class="option" *ngFor="let option of exercise.options; index as i" [value]="i + 1" (change)="selectAnswer(option.id, exercise.correct, exercise.id)" >{{option.text}}</mat-button-toggle>
-        </mat-button-toggle-group>
-      </mat-card-content>
-    </mat-card>
+    <div class="exercises">
+      <mat-card>
+        <ng-container *ngIf="hasCode && !isOpen"><h3>Brawo!<br>Teraz możesz otworzyć sejf!</h3></ng-container>
+        <ng-container *ngIf="isOpen"><h3>Udało się!<br>W sejfie jest skradziony przedmiot!</h3></ng-container>
+        <ng-container *ngIf="!hasCode">
+          <mat-card-title class="centered">{{currentQuestion + 1}}. <span [innerHTML]="taskData.exercises[currentQuestion].question"></span>
+            <span *ngIf="taskData.exercises[currentQuestion].sentence" class="exercise-sentence">
+              &bdquo;<span [innerHTML]="taskData.exercises[currentQuestion].sentence"></span>&rdquo;</span>
+          </mat-card-title>
+          <mat-card-content>
+            <mat-button-toggle-group [(ngModel)]="taskData.exercises[currentQuestion].selected" class="options" [disabled]="taskData.exercises[currentQuestion].done">
+              <mat-button-toggle class="option" *ngFor="let option of taskData.exercises[currentQuestion].options; index as i" [value]="i + 1"
+              (change)="selectAnswer(option.id, taskData.exercises[currentQuestion].correct, taskData.exercises[currentQuestion].id)" >{{option.text}}</mat-button-toggle>
+            </mat-button-toggle-group>
+          </mat-card-content>
+        </ng-container>
+      </mat-card>
+    </div>
   </div>
   <button *ngIf="isOpen" mat-flat-button color="primary" [ngClass]="{'animated-button': !isCompleted}" class="complete-button" (click)="isCompleted = true">
     <i class="fa  fa-arrow-circle-right" aria-hidden="true"></i> Zakończ sprawę</button>
