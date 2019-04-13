@@ -2,27 +2,74 @@
   <div *ngSwitchCase="1">
     <h2>Uzupełnij szczegóły sprawy</h2>
     <p>Pora rozwiązać nową zagadkę! Najpierw musisz zanotować szczegóły sprawy.</p>
-    <p>Przeczytaj uważnie wypowiedź i odpowiedz na pytania</p>
-    <p>Wybierz z ramki poprawną odpowiedź i kliknij w nią.</p>
+    <div class="task-symbols">
+      <div class="task-step">
+        <div class="task-step-number">1</div>
+        <img src="assets/img/symbols/symbol-1-1.svg">
+        <p>Przeczytaj tekst.</p>
+      </div>
+      <div class="task-step">
+        <div class="task-step-number">2</div>
+        <img src="assets/img/symbols/symbol-1-2.svg">
+        <p>Przeczytaj pytanie i kliknij w poprawną odpowiedź.</p>
+      </div>
+    </div>
   </div>
   <div *ngSwitchCase="2">
-    <h2>Odszukaj poszlaki</h2>
+    <h2>Odszukaj ślady</h2>
     <p>Musisz przeszukać miejsce przestępstwa. Złodziej na pewno zostawił jakieś ślady!</p>
-    <p>Instrukcja w ramce wskazuje, gdzie należy szukać.</p>
-    <p>Kliknij w miejsce, które chcesz przeszukać, a odnaleziona poszlaka pojawi się na pasku w dolnej części ekranu</p>
+    <div class="task-symbols">
+      <div class="task-step">
+        <div class="task-step-number">1</div>
+        <img src="assets/img/symbols/symbol-2-1.svg">
+        <p>Przeczytaj polecenie w ramce.</p>
+      </div>
+      <div class="task-step">
+        <div class="task-step-number">2</div>
+        <img src="assets/img/symbols/symbol-2-2.svg">
+        <p>Kliknij w miejsce, które chcesz przeszukać.</p>
+      </div>
+    </div>
+    <p>Odnaleziony ślad pojawi się na pasku w dolnej części ekranu.</p>
   </div>
   <div *ngSwitchCase="3">
     <h2>Wskaż sprawcę</h2>
-    <p>Wszystkie poszlaki z miejsca przestępstwa zostały odnalezione.</p>
+    <p>Wszystkie ślady z miejsca przestępstwa zostały odnalezione.</p>
     <p>Kto z podejrzanych mógł zostawić takie ślady?</p>
-    <p>Przeczytaj uważnie opisy podejrzanych.</p>
-    <p>Wybierz osobę, z którą łączy się najwięcej poszlak.</p>
+    <div class="task-symbols">
+      <div class="task-step">
+        <div class="task-step-number">1</div>
+        <img src="assets/img/symbols/symbol-3-1.svg">
+        <p>Przyjrzyj się odnalezionym śladom.</p>
+      </div>
+      <div class="task-step">
+        <div class="task-step-number">2</div>
+        <img src="assets/img/symbols/symbol-3-2.svg">
+        <p>Przeczytaj opisy podejrzanych.</p>
+      </div>
+      <div class="task-step">
+        <div class="task-step-number">3</div>
+        <img src="assets/img/symbols/symbol-3-3.svg">
+        <p>Wybierz osobę, z którą łączy się najwięcej śladów.</p>
+      </div>
+    </div>
   </div>
   <div *ngSwitchCase="4">
     <h2>Odzyskaj skradziony przedmiot</h2>
-    <p>Złodziej został odnaleziony!</p>
-    <p>Musisz jeszcze odzyskać przedmiot, który złodziej schował w sejfie.</p>
+    <p>Złodziej został odnaleziony! Musisz jeszcze odzyskać przedmiot, który złodziej schował w sejfie.</p>
     <p>Odpowiedz na pytania, aby odkryć tajny szyfr!</p>
+    <div class="task-symbols">
+      <div class="task-step">
+        <div class="task-step-number">1</div>
+        <img src="assets/img/symbols/symbol-4-1.svg">
+        <p>Przeczytaj pytanie.</p>
+      </div>
+      <div class="task-step">
+        <div class="task-step-number">2</div>
+        <img src="assets/img/symbols/symbol-4-2.svg">
+        <p>Kliknij w poprawną odpowiedź.</p>
+      </div>
+    </div>
   </div>
   <div *ngSwitchDefault></div>
 </ng-container>

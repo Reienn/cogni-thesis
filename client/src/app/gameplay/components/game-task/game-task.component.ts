@@ -15,7 +15,7 @@ const AUDIO_SET = [
 const TASKS_NUMBER = 4;
 const TASKS_HEADERS = [
   {id: 1, text: 'Uzupełnij szczegóły sprawy', icon: 'comment'},
-  {id: 2, text: 'Odszukaj poszlaki', icon: 'search'},
+  {id: 2, text: 'Odszukaj ślady', icon: 'search'},
   {id: 3, text: 'Wskaż sprawcę', icon: 'user'},
   {id: 4, text: 'Odzyskaj skradziony przedmiot', icon: 'unlock-alt'}
 ];
