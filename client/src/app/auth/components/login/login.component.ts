@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
   resetMsg: string;
   requestResetVisible = false;
 
+  loading = false;
+
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
@@ -36,11 +38,13 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.loading = true;
     this.authenticationService.login(this.loginForm.getRawValue()).then(
       user => {
         this.redirectLogged(user);
       },
       err => {
+        this.loading = false;
         this.err = err.status === 422 ? 'Błędne dane' : 'Błąd logowania';
       });
   }

@@ -1,35 +1,40 @@
-<form id="loginForm" class="auth-form" (ngSubmit)="login()" [formGroup]="loginForm">
-  <p *ngIf="err" class="failure">{{ err }}</p>
-  <p *ngIf="msg">{{ msg }}</p>
-  <mat-form-field class="full-width">
-    <input matInput type="text" placeholder="Nazwa użytkownika" formControlName="name" required>
-    <mat-hint *ngIf="loginForm?.get('name')?.dirty">
-      <div *ngIf="loginForm?.get('name')?.errors?.required" class="failure">To pole jest wymagane</div>
-    </mat-hint>
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <input matInput type="password" placeholder="Hasło" formControlName="psw" required>
-    <mat-hint *ngIf="loginForm?.get('psw')?.dirty">
-      <div *ngIf="loginForm?.get('psw')?.errors?.required" class="failure">To pole jest wymagane</div>
-    </mat-hint>
-  </mat-form-field>
-  <button mat-flat-button color="primary" type="submit" class="auth-button" [disabled]="!loginForm.valid">Zaloguj się</button>
-</form>
+<ng-container *ngIf="loading"><i *ngIf="loading" class="fa fa-spinner loading-icon dark-spinner" aria-label="Trwa ładowanie"></i></ng-container>
 
-<button *ngIf="!requestResetVisible" mat-flat-button class="forget-psw-button" (click)="showRequestReset()">Nie pamiętam hasła</button>
-
-<p *ngIf="resetErr" class="failure">{{ resetErr }}</p>
-<p *ngIf="resetMsg">{{ resetMsg }}</p>
-<ng-container *ngIf="requestResetVisible">
-  <p>Podaj adres e-mail, aby otrzymać link do zresetowania hasła</p>
-  <div class="request-reset">
+<ng-container *ngIf="!loading">
+  <form id="loginForm" class="auth-form" (ngSubmit)="login()" [formGroup]="loginForm">
+    <p *ngIf="err" class="failure">{{ err }}</p>
+    <p *ngIf="msg">{{ msg }}</p>
     <mat-form-field class="full-width">
-      <input matInput type="email" placeholder="Adres e-mail" [formControl]="requestResetControl" required class="form-control">
-      <mat-hint *ngIf="requestResetControl.dirty">
-        <div *ngIf="requestResetControl.errors?.required" class="failure">To pole jest wymagane</div>
-        <div *ngIf="requestResetControl.errors?.email" class="failure">Niepoprawny adres e-mail</div>
+      <input matInput type="text" placeholder="Nazwa użytkownika" formControlName="name" required>
+      <mat-hint *ngIf="loginForm?.get('name')?.dirty">
+        <div *ngIf="loginForm?.get('name')?.errors?.required" class="failure">To pole jest wymagane</div>
       </mat-hint>
     </mat-form-field>
-    <button mat-flat-button color="primary" class="request-reset-button" (click)="requestReset()" [disabled]="!requestResetControl.valid">Wyślij</button>
-  </div>
+    <mat-form-field class="full-width">
+      <input matInput type="password" placeholder="Hasło" formControlName="psw" required>
+      <mat-hint *ngIf="loginForm?.get('psw')?.dirty">
+        <div *ngIf="loginForm?.get('psw')?.errors?.required" class="failure">To pole jest wymagane</div>
+      </mat-hint>
+    </mat-form-field>
+    <button mat-flat-button color="primary" type="submit" class="auth-button" [disabled]="!loginForm.valid">Zaloguj się</button>
+  </form>
+
+  <button *ngIf="!requestResetVisible" mat-flat-button class="forget-psw-button" (click)="showRequestReset()">Nie pamiętam hasła</button>
+
+  <p *ngIf="resetErr" class="failure">{{ resetErr }}</p>
+    <p *ngIf="resetMsg">{{ resetMsg }}</p>
+  <ng-container *ngIf="requestResetVisible">
+    <p>Podaj adres e-mail, aby otrzymać link do zresetowania hasła</p>
+    <div class="request-reset">
+      <mat-form-field class="full-width">
+        <input matInput type="email" placeholder="Adres e-mail" [formControl]="requestResetControl" required class="form-control">
+        <mat-hint *ngIf="requestResetControl.dirty">
+          <div *ngIf="requestResetControl.errors?.required" class="failure">To pole jest wymagane</div>
+          <div *ngIf="requestResetControl.errors?.email" class="failure">Niepoprawny adres e-mail</div>
+        </mat-hint>
+      </mat-form-field>
+      <button mat-flat-button color="primary" class="request-reset-button" (click)="requestReset()" [disabled]="!requestResetControl.valid">Wyślij</button>
+    </div>
+  </ng-container>
+
 </ng-container>

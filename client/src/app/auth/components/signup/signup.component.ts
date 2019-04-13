@@ -15,6 +15,8 @@ export class SignupComponent implements OnInit {
 
   err: string;
 
+  loading = false;
+
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
@@ -37,13 +39,16 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
+    this.loading = true;
     this.authenticationService.signup(this.signupForm.getRawValue()).then(
       userName => {
         this.err = '';
         this.signupForm.reset();
         this.signedUp.emit(`Witaj ${userName}, możesz się zalogować`);
+        this.loading = false;
       },
       err => {
+        this.loading = false;
         this.err = err.status === 409 ? 'Nazwa użytkownika jest już zajęta' : 'Błąd rejestracji';
     });
   }
