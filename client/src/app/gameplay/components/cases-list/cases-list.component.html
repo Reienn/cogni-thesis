@@ -26,4 +26,11 @@
       </mat-card-actions>
     </mat-card>
   </div>
+  <div *ngIf="pointsSum || pointsSum === 0" class="task-points">
+    <span class="fa-stack fa-1x">
+      <i class="fa fa-star fa-stack-2x"></i>
+      <i class="fa fa-star fa-stack-2x fa-rotate-180"></i>
+      <span class="fa fa-stack-1x points-number">{{pointsSum}}</span>
+    </span>
+  </div>
 </div>

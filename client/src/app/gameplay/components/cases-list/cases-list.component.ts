@@ -17,6 +17,8 @@ export class CasesListComponent implements OnInit {
 
   errorMsg: string;
 
+  pointsSum: number;
+
   constructor(
     private router: Router,
     private casesService: CasesService,
@@ -26,6 +28,8 @@ export class CasesListComponent implements OnInit {
   ngOnInit() {
     this.getCases();
     this.user = this.authenticationService.getUser();
+    this.pointsSum = this.user.bestScores && this.user.bestScores.length ?
+                     this.user.bestScores.reduce((partialSum, a) => partialSum + a) : 0;
   }
 
   selectCase(id: number) {

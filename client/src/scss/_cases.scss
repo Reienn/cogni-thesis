@@ -75,5 +75,19 @@
       }
     }
   }
+  .task-points {
+    position: fixed;
+    bottom: 5px;
+    right: 20px;
+    font-size: 3em;
+    text-align: center;
+    z-index: 100;
+    color: $points-bg;
+    .points-number {
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.8em;
+    }
+  }
 }
 
