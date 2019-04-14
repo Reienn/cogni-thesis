@@ -77,13 +77,15 @@ export interface SourceTaskData {
   cases: {
     id: number;
     name: string;
-    description: string;
-    character: string;
-    notes: {
-      question: string;
-      answer: string
-    }[];
-    stolenItem: string;
+    versions: {
+      character: string;
+      stolenItem: string;
+      description: string;
+      notes: {
+        question: string;
+        answer: string
+      }[];
+    }[]
     scene: string;
     cluesNumber: number;
     searchingCommands: {

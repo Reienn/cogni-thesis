@@ -53,6 +53,10 @@ export class CasesService {
         const item = this.dynamicTasksContent.cases.find(el => el.id === caseId);
         const cluesNumber = item.cluesNumber;
 
+        const versions = item.versions;
+        versions.sort(() => 0.5 - Math.random());
+        const version = versions[0];
+
         const preparedClues = this.prepareClues(this.dynamicTasksContent.clues, cluesNumber);
         const people = this.preparePeople([...this.dynamicTasksContent.people], preparedClues, cluesNumber);
         const exercises = this.prepareExercises({...this.dynamicTasksContent.exercises}, [...item.exercises]);
@@ -66,9 +70,9 @@ export class CasesService {
 
         resolve({
           firstTask: {
-            entry: item.description,
-            notes: item.notes.map((note, index) => ({...note, id: index + 1})),
-            character: item.character
+            entry: version.description,
+            notes: version.notes.map((note, index) => ({...note, id: index + 1})),
+            character: version.character
           },
           secondTask: {
             scene: item.scene,
@@ -80,8 +84,8 @@ export class CasesService {
           },
           fourthTask: {
             exercises: exercises,
-            character: item.character,
-            stolenItem: item.stolenItem
+            character: version.character,
+            stolenItem: version.stolenItem
           }
         });
       } else {

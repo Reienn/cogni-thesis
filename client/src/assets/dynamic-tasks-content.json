@@ -98,15 +98,30 @@
     {
       "id": 1,
       "name": "Sprawa pierwsza",
-      "description": "Dzień dobry! Mam na imię Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na biurku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
-      "character": "boy_01",
-      "notes": [
-        {"question": "Co zginęło?", "answer": "zegarek"},
-        {"question": "Kiedy doszło do kradzieży?", "answer": "w sobotę"},
-        {"question": "Gdzie doszło do kradzieży?", "answer": "w domu Jasia"},
-        {"question": "distractor", "answer": "w domu babci"}
+      "versions": [
+        {
+          "character": "boy_01",
+          "stolenItem": "watch",
+          "description": "Dzień dobry! Mam na imię Jaś i mam kłopot. Ktoś ukradł mój zegarek! W sobotę rano zostawiłem go na stoliku, a wieczorem już go nie było! To był bardzo cenny zegarek, dostałem go od babci z Ameryki. Proszę mi pomóc!",
+          "notes": [
+            {"question": "Co zginęło?", "answer": "zegarek Jasia"},
+            {"question": "Kiedy doszło do kradzieży?", "answer": "w sobotę"},
+            {"question": "Gdzie doszło do kradzieży?", "answer": "w domu Jasia"},
+            {"question": "distractor", "answer": "w domu babci"}
+          ]
+        },
+        {
+          "character": "boy_01",
+          "stolenItem": "camera",
+          "description": "Dzień dobry! Mam na imię Kamil i potrzebuję pomocy. Ktoś ukradł mój aparat fotograficzny! W ostatnią niedzielę odwiedziłem mojego kolegę, Damiana. Zostawiłem aparat na kanapie i poszliśmy się bawić do ogrodu. Kiedy wróciliśmy, aparatu już nie było! Proszę go znaleźć!",
+          "notes": [
+            {"question": "Co zginęło?", "answer": "aparat fotograficzny Kamila"},
+            {"question": "Kiedy doszło do kradzieży?", "answer": "w niedzielę"},
+            {"question": "Gdzie doszło do kradzieży?", "answer": "w domu Damiana"},
+            {"question": "distractor", "answer": "w domu Kamila"}
+          ]
+        }
       ],
-      "stolenItem": "watch",
       "scene": "room",
       "cluesNumber": 4,
       "searchingCommands": [
@@ -127,16 +142,20 @@
     {
       "id": 2,
       "name": "Sprawa druga",
-      "description": "Dzień dobry! Jestem Ola i potrzebna mi pomoc. Moja skarbonka zniknęła! Kiedy w poniedziałek wróciłam ze szkoły, już jej nie było! W tej skarbonce trzymałam całe kieszonkowe. Chciałam kupić za nie nowy rower.",
-      "character": "girl_01",
-      "notes": [
-        {"question": "Co zginęło?", "answer": "skarbonka"},
-        {"question": "Kiedy doszło do kradzieży?", "answer": "w poniedziałek"},
-        {"question": "Gdzie doszło do kradzieży?", "answer": "w domu Oli"},
-        {"question": "Co chciała kupić Ola?", "answer": "rower"},
-        {"question": "distractor", "answer": "w szkole"}
+      "versions": [
+        {
+          "character": "girl_01",
+          "stolenItem": "piggybank",
+          "description": "Dzień dobry! Jestem Ola i potrzebna mi pomoc. Moja skarbonka zniknęła! Kiedy w poniedziałek wróciłam ze szkoły, już jej nie było! W tej skarbonce trzymałam całe kieszonkowe. Chciałam kupić za nie nowy rower.",
+          "notes": [
+            {"question": "Co zginęło?", "answer": "skarbonka"},
+            {"question": "Kiedy doszło do kradzieży?", "answer": "w poniedziałek"},
+            {"question": "Gdzie doszło do kradzieży?", "answer": "w domu Oli"},
+            {"question": "Co chciała kupić Ola?", "answer": "rower"},
+            {"question": "distractor", "answer": "w szkole"}
+          ]
+        }
       ],
-      "stolenItem": "piggybank",
       "scene": "room2",
       "cluesNumber": 5,
       "searchingCommands": [
@@ -169,16 +188,20 @@
     {
       "id": 3,
       "name": "Sprawa trzecia",
-      "description": "Dzień dobry. Mam na imię Adam, jestem sprzedawcą w sklepie elektronicznym. Przychodzę w sprawie kradzieży sprzętu. We wtorek wieczorem zamknąłem sklep, a następnego ranka okazało się, że ktoś włamał się i ukradł drogi laptop. Proszę jak najszybciej znaleźć złodzieja!",
-      "character": "man_01",
-      "notes": [
-        {"question": "Kim jest Adam?", "answer": "sprzedawcą"},
-        {"question": "Co zginęło?", "answer": "laptop"},
-        {"question": "Kiedy doszło do kradzieży?", "answer": "w nocy z wtorku na środę"},
-        {"question": "Gdzie doszło do kradzieży?", "answer": "w sklepie elektronicznym"},
-        {"question": "distractor", "answer": "we wtorek rano"}
+      "versions": [
+        {
+          "character": "man_01",
+          "stolenItem": "laptop",
+          "description": "Dzień dobry. Mam na imię Adam, jestem sprzedawcą w sklepie elektronicznym. Przychodzę w sprawie kradzieży sprzętu. We wtorek wieczorem zamknąłem sklep, a następnego ranka okazało się, że ktoś włamał się i ukradł drogi laptop. Proszę jak najszybciej znaleźć złodzieja!",
+          "notes": [
+            {"question": "Kim jest Adam?", "answer": "sprzedawcą"},
+            {"question": "Co zginęło?", "answer": "laptop"},
+            {"question": "Kiedy doszło do kradzieży?", "answer": "w nocy z wtorku na środę"},
+            {"question": "Gdzie doszło do kradzieży?", "answer": "w sklepie elektronicznym"},
+            {"question": "distractor", "answer": "we wtorek rano"}
+          ]
+        }
       ],
-      "stolenItem": "laptop",
       "scene": "store1",
       "cluesNumber": 5,
       "searchingCommands": [
@@ -206,16 +229,20 @@
     {
       "id": 4,
       "name": "Sprawa czwarta",
-      "description": "Dzień dobry. Mam na imię Maria, jestem dyrektorką muzeum. Chciałam zgłosić kradzież dzieła sztuki. W niedzielę z powodu awarii prądu przez godzinę nie działały kamery i alarm. W tym czasie ktoś włamał się do muzeum i ukradł cenny obraz. Proszę rozwiązać tę sprawę!",
-      "character": "woman_01",
-      "notes": [
-        {"question": "Co zginęło?", "answer": "obraz"},
-        {"question": "Kiedy doszło do kradzieży?", "answer": "w niedzielę"},
-        {"question": "Gdzie doszło do kradzieży?", "answer": "w muzeum"},
-        {"question": "Dlaczego nie działał alarm?", "answer": "z powodu awarii prądu"},
-        {"question": "distractor", "answer": "kamery"}
+      "versions": [
+        {
+          "character": "woman_01",
+          "stolenItem": "painting",
+          "description": "Dzień dobry. Mam na imię Maria, jestem dyrektorką muzeum. Chciałam zgłosić kradzież dzieła sztuki. W niedzielę z powodu awarii prądu przez godzinę nie działały kamery i alarm. W tym czasie ktoś włamał się do muzeum i ukradł cenny obraz. Proszę rozwiązać tę sprawę!",
+          "notes": [
+            {"question": "Co zginęło?", "answer": "obraz"},
+            {"question": "Kiedy doszło do kradzieży?", "answer": "w niedzielę"},
+            {"question": "Gdzie doszło do kradzieży?", "answer": "w muzeum"},
+            {"question": "Dlaczego nie działał alarm?", "answer": "z powodu awarii prądu"},
+            {"question": "distractor", "answer": "kamery"}
+          ]
+        }
       ],
-      "stolenItem": "painting",
       "scene": "museum",
       "cluesNumber": 5,
       "searchingCommands": [
@@ -235,16 +262,20 @@
     {
       "id": 5,
       "name": "Sprawa piąta",
-      "description": "Dzień dobry. Mam na imię Alicja, pracuję w sklepie z zabawkami. W piątek po zamknięciu sklepu, około godziny dziewiętnastej, mieliśmy włamanie. Złodziej wybił szybę w oknie, dostał się do środka i ukradł wszystkie pieniądze z kasy! Zanim przyjechała firma ochroniarska, zdążył uciec. Proszę odnaleźć włamywacza!",
-      "character": "woman_02",
-      "notes": [
-        {"question": "Co zginęło?", "answer": "pieniądze z kasy"},
-        {"question": "Kiedy doszło do kradzieży?", "answer": "w piątek wieczorem"},
-        {"question": "Gdzie doszło do kradzieży?", "answer": "w sklepie z zabawkami"},
-        {"question": "Jak złodziej dostał się do sklepu?", "answer": "przez okno"},
-        {"question": "distractor", "answer": "w piątek rano"}
+      "versions": [
+        {
+          "character": "woman_02",
+          "stolenItem": "money",
+          "description": "Dzień dobry. Mam na imię Alicja, pracuję w sklepie z zabawkami. W piątek po zamknięciu sklepu, około godziny dziewiętnastej, mieliśmy włamanie. Złodziej wybił szybę w oknie, dostał się do środka i ukradł wszystkie pieniądze z kasy! Zanim przyjechała firma ochroniarska, zdążył uciec. Proszę odnaleźć włamywacza!",
+          "notes": [
+            {"question": "Co zginęło?", "answer": "pieniądze z kasy"},
+            {"question": "Kiedy doszło do kradzieży?", "answer": "w piątek wieczorem"},
+            {"question": "Gdzie doszło do kradzieży?", "answer": "w sklepie z zabawkami"},
+            {"question": "Jak złodziej dostał się do sklepu?", "answer": "przez okno"},
+            {"question": "distractor", "answer": "w piątek rano"}
+          ]
+        }
       ],
-      "stolenItem": "money",
       "scene": "store2",
       "cluesNumber": 5,
       "searchingCommands": [
@@ -272,17 +303,21 @@
     {
       "id": 6,
       "name": "Sprawa szósta",
-      "description": "Dzień dobry! Mam na imię Edward, jestem właścicielem niewielkiej restauracji. Niestety w ostatnią środę doszło w niej do kradzieży. Kiedy jedna z klientek wyszła do toalety, ktoś zabrał jej torebkę! W środku znajdowały się pieniądze i dokumenty. Zdarzenie miało miejsce w porze obiadowej, gdy w restauracji przebywało dużo ludzi, więc nikt nie zwrócił uwagi na przestępcę. Liczę na szybkie rozwiązanie tej sprawy.",
-      "character": "man_02",
-      "notes": [
-        {"question": "Co zginęło?", "answer": "torebka"},
-        {"question": "Kiedy doszło do kradzieży?", "answer": "w środę w porze obiadowej"},
-        {"question": "Gdzie doszło do kradzieży?", "answer": "w restauracji Edwarda"},
-        {"question": "Dlaczego nikt nie zauważył kradzieży?", "answer": "ponieważ restauracja była zatłoczona"},
-        {"question": "distractor", "answer": "w toalecie"},
-        {"question": "distractor", "answer": "w środę rano"}
+      "versions": [
+        {
+          "character": "man_02",
+          "stolenItem": "handbag",
+          "description": "Dzień dobry! Mam na imię Edward, jestem właścicielem niewielkiej restauracji. Niestety w ostatnią środę doszło w niej do kradzieży. Kiedy jedna z klientek wyszła do toalety, ktoś zabrał jej torebkę! W środku znajdowały się pieniądze i dokumenty. Zdarzenie miało miejsce w porze obiadowej, gdy w restauracji przebywało dużo ludzi, więc nikt nie zwrócił uwagi na przestępcę. Liczę na szybkie rozwiązanie tej sprawy.",
+          "notes": [
+            {"question": "Co zginęło?", "answer": "torebka"},
+            {"question": "Kiedy doszło do kradzieży?", "answer": "w środę w porze obiadowej"},
+            {"question": "Gdzie doszło do kradzieży?", "answer": "w restauracji Edwarda"},
+            {"question": "Dlaczego nikt nie zauważył kradzieży?", "answer": "ponieważ restauracja była zatłoczona"},
+            {"question": "distractor", "answer": "w toalecie"},
+            {"question": "distractor", "answer": "w środę rano"}
+          ]
+        }
       ],
-      "stolenItem": "handbag",
       "scene": "restaurant",
       "cluesNumber": 5,
       "searchingCommands": [
@@ -311,19 +346,23 @@
     {
       "id": 7,
       "name": "Sprawa siódma",
-      "description": "Dzień dobry. Mam na imię Antonii, jestem dyrektorem szkoły podstawowej. W piątek po czwartej lekcji doszło u nas do kradzieży. Gdy nikogo nie było w sali geograficznej, ktoś zabrał plecak Wojtka z klasy piątej C. Oprócz książek i zeszytów w plecaku znajdowały się pieniądze, które chłopiec miał wpłacić na wycieczkę do Warszawy. Proszę szybko znaleźć złodzieja.",
-      "character": "man_03",
-      "notes": [
-        {"question": "Co zginęło?", "answer": "plecak"},
-        {"question": "Kiedy doszło do kradzieży?", "answer": "w piątek po czwartej lekcji"},
-        {"question": "Gdzie doszło do kradzieży?", "answer": "w szkole"},
-        {"question": "W której sali?", "answer": "geograficznej"},
-        {"question": "Do kogo należał plecak?", "answer": "do Wojtka"},
-        {"question": "distractor", "answer": "do Warszawy"},
-        {"question": "distractor", "answer": "w czwartek po piątej lekcji"},
-        {"question": "distractor", "answer": "do Antoniego"}
+      "versions": [
+        {
+          "character": "man_03",
+          "stolenItem": "rucksack",
+          "description": "Dzień dobry. Mam na imię Antonii, jestem dyrektorem szkoły podstawowej. W piątek po czwartej lekcji doszło u nas do kradzieży. Gdy nikogo nie było w sali geograficznej, ktoś zabrał plecak Wojtka z klasy piątej C. Oprócz książek i zeszytów w plecaku znajdowały się pieniądze, które chłopiec miał wpłacić na wycieczkę do Warszawy. Proszę szybko znaleźć złodzieja.",
+          "notes": [
+            {"question": "Co zginęło?", "answer": "plecak"},
+            {"question": "Kiedy doszło do kradzieży?", "answer": "w piątek po czwartej lekcji"},
+            {"question": "Gdzie doszło do kradzieży?", "answer": "w szkole"},
+            {"question": "W której sali?", "answer": "geograficznej"},
+            {"question": "Do kogo należał plecak?", "answer": "do Wojtka"},
+            {"question": "distractor", "answer": "do Warszawy"},
+            {"question": "distractor", "answer": "w czwartek po piątej lekcji"},
+            {"question": "distractor", "answer": "do Antoniego"}
+          ]
+        }
       ],
-      "stolenItem": "rucksack",
       "scene": "classroom",
       "cluesNumber": 5,
       "searchingCommands": [
@@ -351,20 +390,24 @@
     {
       "id": 8,
       "name": "Sprawa ósma",
-      "description": "Dzień dobry! Mam na imię Emilia, jestem mamą pięcioletniego Krzysia. W sobotę po południu byliśmy na placu zabaw. Mój synek huśtał się na huśtawce, a ja siedziałam na ławce i robiłam mu zdjęcia. Nagle Krzyś spadł z huśtawki, a ja pobiegłam mu pomóc. Zostawiłam aparat fotograficzny na ławce. Na szczeście Krzysiowi nic się nie stało, więc wróciliśmy po aparat, jednak okazało się, że ktoś go ukradł! Proszę odnaleźć złodzieja!",
-      "character": "woman_03",
-      "notes": [
-        {"question": "Co zginęło?", "answer": "aparat fotograficzny"},
-        {"question": "Kiedy doszło do kradzieży?", "answer": "w sobotę po południu"},
-        {"question": "Gdzie doszło do kradzieży?", "answer": "na placu zabaw"},
-        {"question": "Jak ma na imię synek Emilii?", "answer": "Krzyś"},
-        {"question": "Ile lat ma synek Emilii?", "answer": "pięć"},
-        {"question": "Dlaczego mama pobiegła do synka?", "answer": "bo spadł z huśtawki"},
-        {"question": "Gdzie mama położyła aparat?", "answer": "na ławce"},
-        {"question": "distractor", "answer": "na huśtawce"},
-        {"question": "distractor", "answer": "bo chciała zrobić mu zdjęcie"}
+      "versions": [
+        {
+          "character": "woman_03",
+          "stolenItem": "camera",
+          "description": "Dzień dobry! Mam na imię Emilia, jestem mamą pięcioletniego Krzysia. W sobotę po południu byliśmy na placu zabaw. Mój synek huśtał się na huśtawce, a ja siedziałam na ławce i robiłam mu zdjęcia. Nagle Krzyś spadł z huśtawki, a ja pobiegłam mu pomóc. Zostawiłam aparat fotograficzny na ławce. Na szczeście Krzysiowi nic się nie stało, więc wróciliśmy po aparat, jednak okazało się, że ktoś go ukradł! Proszę odnaleźć złodzieja!",
+          "notes": [
+            {"question": "Co zginęło?", "answer": "aparat fotograficzny"},
+            {"question": "Kiedy doszło do kradzieży?", "answer": "w sobotę po południu"},
+            {"question": "Gdzie doszło do kradzieży?", "answer": "na placu zabaw"},
+            {"question": "Jak ma na imię synek Emilii?", "answer": "Krzyś"},
+            {"question": "Ile lat ma synek Emilii?", "answer": "pięć"},
+            {"question": "Dlaczego mama pobiegła do synka?", "answer": "bo spadł z huśtawki"},
+            {"question": "Gdzie mama położyła aparat?", "answer": "na ławce"},
+            {"question": "distractor", "answer": "na huśtawce"},
+            {"question": "distractor", "answer": "bo chciała zrobić mu zdjęcie"}
+          ]
+        }
       ],
-      "stolenItem": "camera",
       "scene": "playground",
       "cluesNumber": 5,
       "searchingCommands": [
@@ -389,20 +432,24 @@
     {
       "id": 9,
       "name": "Sprawa dziewiąta",
-      "description": "Dzień dobry. Mam na imię Zofia. W ostatnią niedzielę około południa wybrałam się razem z moją wnuczką Hanią na plażę. Opalałam się na leżaku, a Hania bawiła się w pobliżu. W pewnej chwili zawołała mnie, żebym pomogła jej zbudować zamek z piasku. Zostawiłam swoje rzeczy na leżaku i podeszłam do Hani. Pół godziny później postanowiłyśmy wrócić do domu, więc zaczęłam się pakować. Wtedy zauważyłam, że mój telefon zniknął! Bardzo proszę go odszukać!",
-      "character": "woman_04",
-      "notes": [
-        {"question": "Co zginęło?", "answer": "telefon"},
-        {"question": "Kiedy doszło do kradzieży?", "answer": "w niedzielę"},
-        {"question": "Gdzie doszło do kradzieży?", "answer": "na plaży"},
-        {"question": "Z kim Zofia poszła na plażę?", "answer": "z wnuczką"},
-        {"question": "Dlaczego Hania zawołała babcię?", "answer": "żeby pomogła jej zbudować zamek z piasku"},
-        {"question": "Gdzie Zofia zostawiła swoje rzeczy?", "answer": "na leżaku"},
-        {"question": "Kiedy Zofia zauważyła brak telefonu?", "answer": "gdy się pakowała"},
-        {"question": "distractor", "answer": "z babcią"},
-        {"question": "distractor", "answer": "żeby pomogła jej się spakować"}
+      "versions": [
+        {
+          "character": "woman_04",
+          "stolenItem": "phone",
+          "description": "Dzień dobry. Mam na imię Zofia. W ostatnią niedzielę około południa wybrałam się razem z moją wnuczką Hanią na plażę. Opalałam się na leżaku, a Hania bawiła się w pobliżu. W pewnej chwili zawołała mnie, żebym pomogła jej zbudować zamek z piasku. Zostawiłam swoje rzeczy na leżaku i podeszłam do Hani. Pół godziny później postanowiłyśmy wrócić do domu, więc zaczęłam się pakować. Wtedy zauważyłam, że mój telefon zniknął! Bardzo proszę go odszukać!",
+          "notes": [
+            {"question": "Co zginęło?", "answer": "telefon"},
+            {"question": "Kiedy doszło do kradzieży?", "answer": "w niedzielę"},
+            {"question": "Gdzie doszło do kradzieży?", "answer": "na plaży"},
+            {"question": "Z kim Zofia poszła na plażę?", "answer": "z wnuczką"},
+            {"question": "Dlaczego Hania zawołała babcię?", "answer": "żeby pomogła jej zbudować zamek z piasku"},
+            {"question": "Gdzie Zofia zostawiła swoje rzeczy?", "answer": "na leżaku"},
+            {"question": "Kiedy Zofia zauważyła brak telefonu?", "answer": "gdy się pakowała"},
+            {"question": "distractor", "answer": "z babcią"},
+            {"question": "distractor", "answer": "żeby pomogła jej się spakować"}
+          ]
+        }
       ],
-      "stolenItem": "phone",
       "scene": "beach",
       "cluesNumber": 5,
       "searchingCommands": [
@@ -425,20 +472,24 @@
     {
       "id": 10,
       "name": "Sprawa dziesiąta",
-      "description": "Dzień dobry! Mam na imię Paweł. Mieszkam za miastem, w dużym domu z ogrodem. W piątek po południu postanowiłem skosić trawnik. Podczas pracy zrobiło mi się gorąco, więc zdjąłem kurtkę i położyłem ją na ławce. W kieszeni kurtki znajdował się portfel z pieniędzmi, kartą bankomatową i dokumentami. Gdy skosiłem trawnik, poszedłem po kurtkę i zauważyłem, że kieszeń jest pusta! Ktoś musiał ukraść portfel. Proszę znaleźć złodzieja.",
-      "character": "man_04",
-      "notes": [
-        {"question": "Co zginęło?", "answer": "portfel"},
-        {"question": "Kiedy doszło do kradzieży?", "answer": "w piątek po południu"},
-        {"question": "Gdzie doszło do kradzieży?", "answer": "w ogrodzie"},
-        {"question": "Co Paweł robił w ogrodzie?", "answer": "kosił trawnik"},
-        {"question": "Gdzie był portfel?", "answer": "w kieszeni kurtki"},
-        {"question": "Dlaczego Paweł zdjął kurtkę?", "answer": "bo zrobiło mu się gorąco"},
-        {"question": "Gdzie Paweł położył kurtkę?", "answer": "na ławce"},
-        {"question": "distractor", "answer": "w domu"},
-        {"question": "distractor", "answer": "bo chciał skosić trawnik"}
+      "versions": [
+        {
+          "character": "man_04",
+          "stolenItem": "wallet",
+          "description": "Dzień dobry! Mam na imię Paweł. Mieszkam za miastem, w dużym domu z ogrodem. W piątek po południu postanowiłem skosić trawnik. Podczas pracy zrobiło mi się gorąco, więc zdjąłem kurtkę i położyłem ją na ławce. W kieszeni kurtki znajdował się portfel z pieniędzmi, kartą bankomatową i dokumentami. Gdy skosiłem trawnik, poszedłem po kurtkę i zauważyłem, że kieszeń jest pusta! Ktoś musiał ukraść portfel. Proszę znaleźć złodzieja.",
+          "notes": [
+            {"question": "Co zginęło?", "answer": "portfel"},
+            {"question": "Kiedy doszło do kradzieży?", "answer": "w piątek po południu"},
+            {"question": "Gdzie doszło do kradzieży?", "answer": "w ogrodzie"},
+            {"question": "Co Paweł robił w ogrodzie?", "answer": "kosił trawnik"},
+            {"question": "Gdzie był portfel?", "answer": "w kieszeni kurtki"},
+            {"question": "Dlaczego Paweł zdjął kurtkę?", "answer": "bo zrobiło mu się gorąco"},
+            {"question": "Gdzie Paweł położył kurtkę?", "answer": "na ławce"},
+            {"question": "distractor", "answer": "w domu"},
+            {"question": "distractor", "answer": "bo chciał skosić trawnik"}
+          ]
+        }
       ],
-      "stolenItem": "wallet",
       "scene": "garden",
       "cluesNumber": 5,
       "searchingCommands": [
