@@ -23,6 +23,11 @@
       position: relative;
       top: 50%;
       transform: translateY(-50%);
+      opacity: 1;
+      &.opacity-hidden {
+        opacity: 0;
+      }
+      transition: opacity 1s;
     }
   }
   &.fixed-bar {

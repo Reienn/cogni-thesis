@@ -13,9 +13,7 @@
           <div *ngIf="!isOpen" class="safe-door" [ngClass]="{'can-open': hasCode}">
             <button *ngIf="hasCode" mat-button (click)="isOpen = true">OTWÓRZ</button>
           </div>
-          <div *ngIf="isOpen">
-            <img class="stolen-item" src="assets/img/stolen/{{taskData.stolenItem}}.png">
-          </div>
+          <img class="stolen-item" [ngClass]="{'opacity-hidden': !isOpen}" src="assets/img/stolen/{{taskData.stolenItem}}.png">
         </div>
       </div>
     </div>

@@ -13,6 +13,8 @@ export class SecondTaskComponent extends AbstractTaskComponent implements OnInit
   isCompleted = false;
   mistake = false;
 
+  sceneLoading = true;
+
   currentCommand = 0;
   svgSource: SafeHtml;
 

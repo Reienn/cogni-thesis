@@ -81,28 +81,36 @@ app-game-task {
     }
   }
 }
-.completed-points {
+.completed-last {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   padding-bottom: 20px;
-  font-size: 1.2em;
-  .fa-stack {
-    color: $points-bg;
-    font-size: 2em;
+  .completed-points {
+    width: 40%;
+    font-size: 1.2em;
+    padding: 50px 0 20px;
+    .fa-stack {
+      color: $points-bg;
+      font-size: 2em;
+    }
+    .points-number {
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.8em;
+    }
   }
-  .points-number {
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 0.8em;
+  .completed-character {
+    width: 40%;
+    min-width: 210px;
+    img {
+      height: 200px;
+      width: 200px;
+      border: 6px solid $primary;
+      border-radius: 50%;
+    }
   }
 }
-.completed-character {
-  display: block;
-  margin: 20px auto;
-  height: 200px;
-  width: 200px;
-  border: 6px solid $primary;
-  border-radius: 50%;
-}
-
 .task-symbols{
   display: flex;
   justify-content: center;
@@ -112,8 +120,9 @@ app-game-task {
     border-radius: 10px;
     padding: 5px;
     margin: 0 10px 10px;
-    width: 40%;
+    width: 30%;
     min-width: 200px;
+    min-height: 200px;
     position: relative;
     .task-step-number {
       position: absolute;

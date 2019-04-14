@@ -15,12 +15,12 @@
     .cipher-box {
       background: #888888;
       margin: 0 auto;
-      height: 70px;
+      height: calc(100vh - 200px);
+      min-height: 450px;
       width: 100%;
       max-width: 500px;
       padding: 10px;
       border-radius: 32px;
-      height: 450px;
       .digits {
         width: 100%;
         display: flex;
@@ -46,7 +46,8 @@
       }
       .safe-box {
         width: calc(100%-50px);
-        height: 335px;
+        min-height: 335px;
+        height: calc(100vh - 340px);
         background: $light-gray;
         margin: 25px;
         border-radius: 40px;
@@ -55,11 +56,13 @@
         align-items: center;
         justify-content: center;
         .safe-door {
+          position: absolute;
           background: #888888;
           color: #ffffff;
           border-radius: 50%;
           width: 200px;
           height: 200px;
+          z-index: 10;
           &.can-open:hover {
             transform: scale(1.1);
           }
@@ -70,16 +73,21 @@
             &:hover {
               background: transparent;
               div {
-                background: transparent;  
+                background: transparent;
               }
             }
           }
         }
-        img {
+        img.stolen-item {
           height: auto;
           width: auto;
           max-height: 200px;
           max-width: 200px;
+          transition: opacity 1s;
+          z-index: 1;
+          &.opacity-hidden {
+            opacity: 0;
+          }
         }
       }
     }

@@ -1,8 +1,10 @@
+<i *ngIf="sceneLoading" class="fa fa-spinner loading-icon dark-spinner" aria-label="Trwa ładowanie"></i>
 <div class="scene">
-  <object type="image/svg+xml" class="scene-svg" id="scene-object" *ngIf="svgSource" [data]="svgSource">
+  <object *ngIf="svgSource" type="image/svg+xml" class="scene-svg" id="scene-object"
+          [data]="svgSource" [ngClass]="{'visibility-hidden': sceneLoading}" (load)="sceneLoading = false">
   </object>
 </div>
-<div class="command-box">
+<div *ngIf="!sceneLoading" class="command-box">
   <p class="command" *ngIf="taskData.clues">
     {{ taskData.clues[currentCommand].command }}<br>
     <span *ngIf="mistake" class="failure">Źle, spróbuj jeszcze raz</span>
@@ -10,7 +12,7 @@
 </div>
 <div class="clues-bar" *ngIf="taskData && taskData.clues">
   <div class="clue-item" *ngFor="let clue of taskData.clues">
-    <img class="clue-img" *ngIf="clue.found" src="assets/img/clues/{{ clue.clueName }}.png">
+    <img [ngClass]="{'opacity-hidden': !clue.found}" class="clue-img" src="assets/img/clues/{{ clue.clueName }}.png">
   </div>
 </div>
 

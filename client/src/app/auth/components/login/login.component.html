@@ -1,4 +1,4 @@
-<ng-container *ngIf="loading"><i *ngIf="loading" class="fa fa-spinner loading-icon dark-spinner" aria-label="Trwa ładowanie"></i></ng-container>
+<i *ngIf="loading" class="fa fa-spinner loading-icon dark-spinner" aria-label="Trwa ładowanie"></i>
 
 <ng-container *ngIf="!loading">
   <form id="loginForm" class="auth-form" (ngSubmit)="login()" [formGroup]="loginForm">

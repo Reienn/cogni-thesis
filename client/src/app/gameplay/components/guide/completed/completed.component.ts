@@ -11,21 +11,23 @@ import { AuthenticationService } from '../../../../auth/services/authentication.
         <p *ngIf="taskId === 2">Teraz musisz wskazać złodzieja!</p>
         <p *ngIf="taskId === 3">Pora udać się do kryjówki złodzieja, by odzyskać skradziony przedmiot!</p>
         <p *ngIf="taskId === 4">Udało Ci się znaleźć złodzieja i odzyskać skradziony przedmiot!</p>
-        <div *ngIf="taskId === 4" class="completed-points">
-          Twój {{isBestScore ? 'nowy rekord' : 'wynik'}} to:
-          <div>
-            <span class="fa-stack fa-1x">
-              <i class="fa fa-star fa-stack-2x"></i>
-              <i class="fa fa-star fa-stack-2x fa-rotate-180"></i>
-              <span class="fa fa-stack-1x points-number">{{pointsSum}}</span>
-            </span>
+        <div *ngIf="taskId === 4" class="completed-last">
+          <div class="completed-points">
+            Twój {{isBestScore ? 'nowy rekord' : 'wynik'}} to:
+            <div>
+              <span class="fa-stack fa-1x">
+                <i class="fa fa-star fa-stack-2x"></i>
+                <i class="fa fa-star fa-stack-2x fa-rotate-180"></i>
+                <span class="fa fa-stack-1x points-number">{{pointsSum}}</span>
+              </span>
+            </div>
           </div>
+          <div *ngIf="character" class="completed-character"><img src="assets/img/characters/faces/face_{{character}}.png"></div>
         </div>
         <button class="next-task-button" mat-flat-button color="primary" (click)="next()" [disabled]="freezeButton">
           <ng-container *ngIf="taskId !== 4">Dalej</ng-container>
           <ng-container *ngIf="taskId === 4">Zakończ</ng-container>
         </button>
-        <img *ngIf="character" src="assets/img/characters/faces/face_{{character}}.png" class="completed-character">
       </div>
     </div>
   `
