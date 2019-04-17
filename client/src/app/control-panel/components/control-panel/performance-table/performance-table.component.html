@@ -1,31 +1,31 @@
-<div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-      <ng-container matColumnDef="case">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Sprawa </th>
-        <td mat-cell *matCellDef="let element"> {{element.case}} </td>
-      </ng-container>
-      <ng-container matColumnDef="task">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Zadanie </th>
-        <td mat-cell *matCellDef="let element"> {{element.task}} </td>
-      </ng-container>
-      <ng-container matColumnDef="timestamp">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Data </th>
-        <td mat-cell *matCellDef="let element"> {{element.timestamp | date: 'dd.MM.yyyy HH:mm'}} </td>
-      </ng-container>
-      <ng-container matColumnDef="points">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Punkty </th>
-        <td mat-cell *matCellDef="let element"> {{element.points}} </td>
-      </ng-container>
-      <ng-container matColumnDef="maxPoints">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Max </th>
-        <td mat-cell *matCellDef="let element"> {{element.maxPoints}} </td>
-      </ng-container>
-      <ng-container matColumnDef="ratio">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Poprawność </th>
-        <td mat-cell *matCellDef="let element"> {{element.ratio}}</td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  </div>
+<div class="mat-elevation-z2 performance-table">
+  <table mat-table [dataSource]="dataSource" matSort matSortActive="timestamp" matSortDirection="desc">
+    <ng-container matColumnDef="case">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Sprawa </th>
+      <td mat-cell *matCellDef="let element"> {{element.case}} </td>
+    </ng-container>
+    <ng-container matColumnDef="task">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Zadanie </th>
+      <td mat-cell *matCellDef="let element"> {{element.task}} </td>
+    </ng-container>
+    <ng-container matColumnDef="timestamp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Data </th>
+      <td mat-cell *matCellDef="let element"> {{element.timestamp | date: 'dd.MM.yyyy HH:mm'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="points">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Punkty </th>
+      <td mat-cell *matCellDef="let element"> {{element.points}} </td>
+    </ng-container>
+    <ng-container matColumnDef="maxPoints">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Max </th>
+      <td mat-cell *matCellDef="let element"> {{element.maxPoints}} </td>
+    </ng-container>
+    <ng-container matColumnDef="ratio">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear"> Poprawność (Punkty / Max) </th>
+      <td mat-cell *matCellDef="let element"> {{element.ratio}}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

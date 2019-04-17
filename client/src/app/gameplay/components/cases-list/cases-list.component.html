@@ -11,7 +11,7 @@
   <div class="case-list" [ngClass]="{'visibility-hidden': loading}">
     <mat-card *ngFor="let case of cases; let i = index" class="case-item" [ngClass]="{'disabled-case': case.id > currentCase + 1}">
       <img *ngIf="case.image" (load)="onImageLoad(i)" mat-card-image src="assets/img/scenes/{{case.image}}.png">
-      <mat-card-title>{{i + 1}}. {{case.name}}</mat-card-title>
+      <div class="case-number">{{i + 1}}</div>
       <mat-card-actions>
         <button mat-flat-button color="primary" [disabled]="case.id > currentCase + 1" (click)="selectCase(case.id)">
           <ng-container *ngIf="case.id > currentCase"><i class="fa fa-play" aria-hidden="true"></i> Zacznij</ng-container>

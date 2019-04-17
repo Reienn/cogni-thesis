@@ -1,13 +1,11 @@
-export const EXERCISE_TYPE_WORD_GROUPS = 'wordGroups';
-export const EXERCISE_TYPE_CLOZE_TEST = 'clozeTest';
-export const EXERCISE_TYPE_CLOZE_TEST_REVERSED = 'clozeTestReversed';
-
 export const EXERCISE_QUESTIONS = {
-  [EXERCISE_TYPE_WORD_GROUPS]: 'Które słowo <b>NIE pasuje</b> do pozostałych?',
-  [EXERCISE_TYPE_CLOZE_TEST]: 'Która odpowiedź <b>pasuje</b> w puste miejse?',
-  [EXERCISE_TYPE_CLOZE_TEST_REVERSED]: 'Która odpowiedź <b>NIE pasuje</b> w puste miejsce?'
+  wordGroups: 'Które słowo <b>NIE pasuje</b> do pozostałych?',
+  clozeTest: 'Która odpowiedź <b>pasuje</b> w puste miejse?',
+  clozeTestReversed: 'Która odpowiedź <b>NIE pasuje</b> w puste miejsce?'
 };
 export const EXERCISE_BLANK = '....................';
+export const CHARACTERS = ['boy_01', 'girl_01', 'man_01', 'man_02', 'man_03', 'man_04', 'woman_01', 'woman_02', 'woman_03', 'woman_04'];
+export const STOLEN_ITEMS = ['camera', 'handbag', 'laptop', 'money', 'painting', 'phone', 'piggybank', 'rucksack', 'wallet', 'watch'];
 
 export interface FirstTaskData {
   entry: string;
@@ -74,29 +72,33 @@ export interface SourceTaskData {
     wordGroups: string[][];
     clozeTest: {sentence: string, correct: string[], incorrect: string[]}[];
   };
-  cases: {
-    id: number;
-    name: string;
-    versions: {
-      character: string;
-      stolenItem: string;
-      description: string;
-      notes: {
-        question: string;
-        answer: string
-      }[];
-    }[]
-    scene: string;
-    cluesNumber: number;
-    searchingCommands: {
-      command: string;
-      item: string
+  cases: CaseData[];
+}
+
+export interface CaseData {
+  id: number;
+  versions: {
+    character: string;
+    stolenItem: string;
+    description: string;
+    notes: {
+      question: string;
+      answer: string
     }[];
-    exercises: {
-      type: string;
-      amount: number
-    }[]
   }[];
+  scene: string;
+  cluesNumber: number;
+  searchingCommands: {
+    command: string;
+    item: string
+  }[];
+  exercises: Exercises;
+}
+
+export interface Exercises {
+  wordGroups: number;
+  clozeTest: number;
+  clozeTestReversed: number;
 }
 
 export interface SourceClues {

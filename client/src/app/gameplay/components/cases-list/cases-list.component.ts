@@ -60,15 +60,14 @@ export class CasesListComponent implements OnInit {
   }
 
   private getCases() {
-    this.casesService.getCases().then(
-      (val) => {
-        this.cases = val.cases;
-        this.currentCase = val.currentCase ? val.currentCase : 0;
-      },
-      (err) => {
-        this.errorMsg = err;
+    this.casesService.getCases().then( data => {
+      if (data) {
+        this.cases = data.cases;
+        this.currentCase = data.currentCase ? data.currentCase : 0;
+      } else {
+        this.errorMsg = 'Nie udało się pobrać listy spraw.';
       }
-    );
+    });
   }
 
 }

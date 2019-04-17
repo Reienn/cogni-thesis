@@ -25,6 +25,9 @@
     // animation: slidein-animation 1s forwards;
     opacity: 0;
     animation: fadein-animation 0.4s forwards;
+    box-shadow: 0 11px 15px -7px #00000033,
+                0 24px 38px 3px #00000024,
+                0 9px 46px 8px #0000001f;
     h2 {
       padding-top: 0;
       margin-top: 0;

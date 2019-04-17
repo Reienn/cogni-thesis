@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService, User } from '../../../auth/services/authentication.service';
 import { ControlService } from '../../services/control.service';
-import { Performance } from '../../../gameplay/models/game-data.data';
-
-interface PlayerPerformance extends Performance {
-  ratio: string;
-}
-interface Player {
-  name: string;
-  performance: PlayerPerformance[];
-}
+import { Player } from '../../models/player.data';
+import { SourceTaskData } from 'src/app/gameplay/models/task-content.data';
 
 @Component({
   selector: 'app-control-panel',
@@ -23,6 +16,8 @@ export class ControlPanelComponent implements OnInit {
   loading = true;
   showSurvey = false;
   showSettings = false;
+  showGamePerformance = false;
+  showGameSettings = false;
 
   constructor(private authenticationService: AuthenticationService,
               private controlService: ControlService) { }
@@ -35,24 +30,15 @@ export class ControlPanelComponent implements OnInit {
     });
   }
 
-  selectPlayer(name: string) {
-    const selectedPlayer = this.players.find(item => item.name === name);
-    if (selectedPlayer.performance && selectedPlayer.performance.length) {
-      selectedPlayer.performance = selectedPlayer.performance.map(item => {
-        item.ratio = (item.points / item.maxPoints).toFixed(2);
-        return item;
-      });
-      this.selectedPlayer = selectedPlayer;
-    } else {
-      this.selectedPlayer = null;
-    }
-  }
-
   logout() {
     this.authenticationService.logout();
   }
 
   updatedUser(user) {
     this.user = user;
+  }
+
+  updateTaskData(taskData: SourceTaskData) {
+    this.selectedPlayer.customTaskData = taskData;
   }
 }

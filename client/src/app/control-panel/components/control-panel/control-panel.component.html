@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="control-panel-toolbar">
+<mat-toolbar color="primary" class="control-panel-toolbar mat-elevation-z2">
   <div class="navbar-menu">
     <i class="fa fa-bars" [matMenuTriggerFor]="menu" aria-label="Menu"></i>
     <mat-menu #menu="matMenu">
@@ -17,35 +17,22 @@
 </mat-toolbar>
 
 <div class="control-panel-container">
-  <div class="players-list" >
+  <div>
     <h3>Lista graczy:</h3>
-    <div *ngIf="players && players.length; else noPlayers">
-      <div class="player-record" *ngFor="let player of players">
-        <span class="player-name"><i class="fa fa-user-o" aria-hidden="true"></i>{{player.name}}</span>
-        <button mat-raised-button class="select-player"
-          (click)="selectPlayer(player.name)"
-          [ngClass]="{'active-player': selectedPlayer && selectedPlayer.name === player.name}">
-          <i class="fa fa-list-ul" aria-hidden="true"></i> szczegóły
-        </button>
-      </div>
-    </div>
+    <p class="info-hint">Aby umożliwić nauczycielowi dostęp do statystyk i ustawień gry, gracz w ustawieniach swojego konta może podać login nauczyciela.</p>
+
+    <app-players-list *ngIf="players && players.length; else noPlayers" [players]="players"
+      (showGamePerformance)="selectedPlayer = $event;showGamePerformance = true"
+      (showGameSettings)="selectedPlayer = $event;showGameSettings = true"
+    ></app-players-list>
+
     <ng-template #noPlayers>
       <ng-container *ngIf="!loading">Brak graczy</ng-container>
       <i *ngIf="loading" class="fa fa-spinner loading-icon dark-spinner" aria-label="Trwa ładowanie"></i>
     </ng-template>
   </div>
-  <div class="player-details" *ngIf="selectedPlayer">
-    <h3>Gracz {{selectedPlayer.name}}</h3>
-    <app-performance-table [performance]="selectedPlayer.performance"
-      *ngIf="selectedPlayer.performance && selectedPlayer.performance.length; else noData">
-    </app-performance-table>
-
-    <!-- <app-performance-chart [performance]="selectedPlayer.performance"
-      *ngIf="selectedPlayer.performance && selectedPlayer.performance.length; else noData">
-    </app-performance-chart> -->
-    <ng-template #noData>Brak danych</ng-template>
-  </div>
 </div>
+<ng-template #noData>Brak danych</ng-template>
 
 <div *ngIf="showSettings" class="modal about-modal" (click)="showSettings = false">
   <div class="modal-content" (click)="$event.stopPropagation()">
@@ -61,3 +48,24 @@
     <button class="button-close-modal" (click)="showSurvey = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
   </div>
 </div>
+<div *ngIf="showGamePerformance" class="modal case-form-modal" (click)="showGamePerformance = false">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Gracz {{selectedPlayer.name}}: statystyki gry</h2>
+    <app-performance-table [performance]="selectedPlayer.performance"
+      *ngIf="selectedPlayer.performance && selectedPlayer.performance.length; else noData">
+    </app-performance-table>
+    <button class="button-close-modal" (click)="showGamePerformance = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
+  </div>
+</div>
+<div *ngIf="showGameSettings" class="modal case-form-modal" (click)="showGameSettings = false">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Gracz {{selectedPlayer.name}}: ustawienia gry</h2>
+    <app-modify-tasks [player]="selectedPlayer" (hide)="showGameSettings = false" (saved)="updateTaskData($event)"></app-modify-tasks>
+    <button class="button-close-modal" (click)="showGameSettings = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
+  </div>
+</div>
+
+
+<!-- <app-performance-chart [performance]="selectedPlayer.performance"
+  *ngIf="selectedPlayer.performance && selectedPlayer.performance.length; else noData">
+</app-performance-chart> -->

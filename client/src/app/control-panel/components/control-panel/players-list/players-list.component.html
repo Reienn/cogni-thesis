@@ -1,0 +1,43 @@
+<div class="mat-elevation-z2 players-table">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear">
+        <i class="fa fa-user" aria-hidden="true"></i>Nazwa gracza </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="pointsSum">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear">
+        <i class="fa fa-trophy" aria-hidden="true"></i>Suma najlepszych wyników </th>
+      <td mat-cell *matCellDef="let element"> {{element.pointsSum}} </td>
+    </ng-container>
+    <ng-container matColumnDef="lastActivityAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>Ostatnia aktywność </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastActivityAt | date: 'dd.MM.yyyy HH:mm'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="currentCase">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disableClear]="disableClear">
+        <i class="fa fa-play-circle" aria-hidden="true"></i>Ukończone sprawy </th>
+      <td mat-cell *matCellDef="let element"> {{element.currentCase}} </td>
+    </ng-container>
+    <ng-container matColumnDef="gamePerformance">
+      <th mat-header-cell *matHeaderCellDef>
+        <i class="fa fa-th-list" aria-hidden="true"></i>Statystyki </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button (click)="showGamePerformance.emit(element)" aria-label="Statystyki"><i class="fa fa-th-list" aria-hidden="true"></i>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="gameSettings">
+      <th mat-header-cell *matHeaderCellDef>
+        <i class="fa fa-cog" aria-hidden="true"></i>Ustawienia gry </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button (click)="showGameSettings.emit(element)" aria-label="Ustawienia gry"><i class="fa fa-cog" aria-hidden="true"></i>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

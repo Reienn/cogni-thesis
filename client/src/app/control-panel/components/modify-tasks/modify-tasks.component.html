@@ -1,0 +1,193 @@
+<div *ngIf="isSent">
+  <div>Zmiany zostały zapisane.</div>
+  <button mat-flat-button color="primary" class="case-form-button" (click)="hide.emit(true)">Zamknij</button>
+</div>
+
+<ng-container *ngIf="!isSent">
+  <p class="info-hint">Możesz modyfikować treść gry w celu dopasowania poziomu trudności oraz urozmaicenia rozgrywki.</p>
+  <mat-form-field *ngIf="taskData && taskData.cases" appearance="outline" class="select-case">
+    <mat-label>Wybierz sprawę</mat-label>
+    <mat-select [(value)]="selectedCaseId" (selectionChange)="selectCase($event)">
+      <mat-select-trigger style="height: 120px">
+        <img *ngIf="selectedCaseScene" src="assets/img/scenes/{{selectedCaseScene}}.png" style="height: 100px;">
+      </mat-select-trigger>
+      <mat-option *ngFor="let case of taskData.cases" [value]="case.id" style="height: 90px; padding-top: 10px; text-align: center">
+        <img src="assets/img/scenes/{{case.scene}}.png" style="height: 70px">
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <ng-container *ngIf="caseForm">
+
+    <form *ngIf="caseForm" id="caseForm" class="case-form" [formGroup]="caseForm">
+      <p *ngIf="err" class="failure">{{ err }}</p>
+
+      <div class="form-collapse-button"><button mat-button (click)="showVersions = !showVersions"><i class="fa" [ngClass]="{'fa-chevron-right': !showVersions, 'fa-chevron-down': showVersions}" aria-hidden="true"></i> Szczegóły sprawy</button></div>
+      <div class="form-group" *ngIf="showVersions">
+        <div class="form-description">Warianty szczegółów sprawy (w każdej rozgrywce losowany jest jeden wariant z poniższych)</div>
+        <div formArrayName="versions" *ngFor="let item of caseForm.get('versions').controls; let i = index">
+          <div class="form-collapse-button"><button mat-button (click)="showVersion[i] = !showVersion[i]"><i class="fa" [ngClass]="{'fa-chevron-right': !showVersion[i], 'fa-chevron-down': showVersion[i]}" aria-hidden="true"></i> Wariant {{i + 1}}.</button></div>
+          <div *ngIf="showVersion[i]" [formGroupName]="i" class="form-array-item">
+            <button mat-raised-button (click)="deleteVersion(i)" [disabled]="caseForm.get('versions').length < 2"
+            class="delete-version-button"><i class="fa fa-trash-o" aria-hidden="true"></i> Usuń wariant</button>
+            <mat-form-field appearance="outline" class="inline-field">
+              <mat-label>Postać</mat-label>
+              <mat-select formControlName="character" required>
+                <mat-select-trigger style="height: 100px">
+                  <img *ngIf="caseForm?.get('versions')?.get(''+i).get('character').value"
+                      src="assets/img/characters/faces/face_{{caseForm?.get('versions')?.get(''+i).get('character').value}}.png" style="height: 80px;">
+                </mat-select-trigger>
+                <mat-option *ngFor="let character of characters" [value]="character" style="height: 90px; padding-top: 10px; text-align: center">
+                  <img src="assets/img/characters/faces/face_{{character}}.png" style="height: 70px;">
+                </mat-option>
+              </mat-select>
+              <mat-hint *ngIf="caseForm?.get('versions')?.get(''+i).get('character')?.dirty">
+                <div *ngIf="caseForm?.get('versions')?.get(''+i).get('character')?.errors?.required" class="failure">To pole jest wymagane</div>
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="inline-field">
+              <mat-label>Skradziony przedmiot</mat-label>
+              <mat-select formControlName="stolenItem" required>
+                <mat-select-trigger style="height: 100px">
+                  <img *ngIf="caseForm?.get('versions')?.get(''+i).get('stolenItem').value"
+                      src="assets/img/stolen/{{caseForm?.get('versions')?.get(''+i).get('stolenItem').value}}.png" style="height: 80px;">
+                </mat-select-trigger>
+                <mat-option *ngFor="let stolen of stolenItems" [value]="stolen" style="height: 90px; padding-top: 10px; text-align: center">
+                  <img src="assets/img/stolen/{{stolen}}.png" style="height: 70px;">
+                </mat-option>
+              </mat-select>
+              <mat-hint *ngIf="caseForm?.get('versions')?.get(''+i).get('stolenItem')?.dirty">
+                <div *ngIf="caseForm?.get('versions')?.get(''+i).get('stolenItem')?.errors?.required" class="failure">To pole jest wymagane</div>
+              </mat-hint>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Wypowiedź postaci</mat-label>
+              <textarea matInput formControlName="description" required
+                cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="3" cdkAutosizeMaxRows="6"></textarea>
+              <mat-hint *ngIf="caseForm?.get('versions')?.get(''+i).get('description')?.dirty">
+                <div *ngIf="caseForm?.get('versions')?.get(''+i).get('description')?.errors?.required" class="failure">To pole jest wymagane</div>
+              </mat-hint>
+            </mat-form-field>
+            <h4>Pytania</h4>
+            <div class="questions-table"><table>
+              <thead><tr>
+                <th></th>
+                <th>Pytanie</th>
+                <th>Odpowiedź</th>
+                <th>Usuń</th>
+              </tr></thead>
+              <tbody>
+                <tr formArrayName="notes" *ngFor="let note of caseForm.get('versions').get(''+i).get('notes').controls; let j = index">
+                  <td>{{j + 1}}.</td>
+                  <td>
+                    <mat-form-field [formGroupName]="j" class="half-width">
+                      <input matInput type="text" formControlName="question" required>
+                      <mat-hint *ngIf="caseForm?.get('versions')?.get(''+i).get('notes')?.get(''+j)?.get('question')?.dirty">
+                        <div *ngIf="caseForm?.get('versions')?.get(''+i).get('notes')?.get(''+j)?.get('question')?.errors?.required" class="failure">To pole jest wymagane</div>
+                      </mat-hint>
+                    </mat-form-field>
+                  </td>
+                  <td>
+                    <mat-form-field [formGroupName]="j" class="half-width">
+                      <input matInput type="text" formControlName="answer" required>
+                      <mat-hint *ngIf="caseForm?.get('versions')?.get(''+i).get('notes')?.get(''+j)?.get('answer')?.dirty">
+                        <div *ngIf="caseForm?.get('versions')?.get(''+i).get('notes')?.get(''+j)?.get('answer')?.errors?.required" class="failure">To pole jest wymagane</div>
+                      </mat-hint>
+                    </mat-form-field>
+                  </td>
+                  <td>
+                    <button mat-button (click)="caseForm.get('versions').get(''+i).get('notes').removeAt(j)"
+                      [disabled]="caseForm.get('versions').get(''+i).get('notes').length < 3"
+                      class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table></div>
+            <button mat-raised-button (click)="addQuestion(i)"><i class="fa fa-plus" aria-hidden="true"></i> Dodaj pytanie</button>
+          </div>
+        </div>
+        <button mat-raised-button (click)="addVersion()"><i class="fa fa-plus" aria-hidden="true"></i> Dodaj wariant</button>
+      </div>
+
+      <div class="form-collapse-button"><button mat-button (click)="showClues = !showClues"><i class="fa" [ngClass]="{'fa-chevron-right': !showClues, 'fa-chevron-down': showClues}" aria-hidden="true"></i> Ślady</button></div>
+      <div class="form-group" *ngIf="showClues">
+        <div *ngIf="caseForm?.errors?.cluesMax" class="group-err failure">Liczba śladów nie może być wyższa niż liczba instrukcji przeszukiwania</div>
+        <mat-form-field class="number-field" appearance="outline">
+          <mat-label>Liczba śladów do odnalezienia</mat-label>
+          <input matInput type="number" formControlName="cluesNumber" required>
+          <mat-hint *ngIf="caseForm?.get('cluesNumber')?.dirty">
+            <div *ngIf="caseForm?.get('cluesNumber')?.errors?.required" class="failure">To pole jest wymagane</div>
+            <div *ngIf="caseForm?.get('cluesNumber')?.errors?.min" class="failure">Minimalna wartość: {{minCluesNumber}}</div>
+            <div *ngIf="caseForm?.get('cluesNumber')?.errors?.max" class="failure">Maksymalna wartość: {{maxCluesNumber}}</div>
+          </mat-hint>
+        </mat-form-field>
+        <h4>Poszukiwanie śladów</h4>
+        <table>
+          <thead><tr>
+            <th></th>
+            <th>Polecenie</th>
+            <th>Usuń</th>
+          </tr></thead>
+          <tbody>
+            <tr formArrayName="searchingCommands" *ngFor="let command of caseForm.get('searchingCommands').controls; let i = index">
+              <td>{{i + 1}}.</td>
+              <td>
+                <mat-form-field [formGroupName]="i" class="half-width">
+                  <input matInput type="text" formControlName="command" required>
+                  <mat-hint *ngIf="caseForm?.get('searchingCommands')?.get(''+i).get('command')?.dirty">
+                    <div *ngIf="caseForm?.get('searchingCommands')?.get(''+i).get('command')?.errors?.required" class="failure">To pole jest wymagane</div>
+                  </mat-hint>
+                </mat-form-field>
+              </td>
+              <td>
+                <button mat-button (click)="caseForm.get('searchingCommands').removeAt(i)"
+                  [disabled]="caseForm.get('searchingCommands').length < 6"
+                  class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-collapse-button"><button mat-button (click)="showSingleChoice = !showSingleChoice"><i class="fa" [ngClass]="{'fa-chevron-right': !showSingleChoice, 'fa-chevron-down': showSingleChoice}" aria-hidden="true"></i> Pytania jednokrotnego wyboru</button></div>
+      <div *ngIf="showSingleChoice" formGroupName="exercises" class="form-group">
+        <div class="form-description">Liczba przykładów w zadaniu jednokrotnego wyboru</div>
+        <mat-form-field class="number-field" appearance="outline">
+          <mat-label>Niepasujące słowo</mat-label>
+          <input matInput type="number" formControlName="wordGroups" required>
+          <mat-hint *ngIf="caseForm?.get('exercises')?.get('wordGroups')?.dirty">
+            <div *ngIf="caseForm?.get('exercises')?.get('wordGroups')?.errors?.required" class="failure">To pole jest wymagane</div>
+            <div *ngIf="caseForm?.get('exercises')?.get('wordGroups')?.errors?.min" class="failure">Minimalna wartość: 0</div>
+            <div *ngIf="caseForm?.get('exercises')?.get('wordGroups')?.errors?.max" class="failure">Maksymalna wartość: {{maxWordGroups}}</div>
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field class="number-field" appearance="outline">
+          <mat-label>Zdanie z luką</mat-label>
+          <input matInput type="number" formControlName="clozeTest" required>
+          <mat-hint *ngIf="caseForm?.get('exercises')?.get('clozeTest')?.dirty">
+            <div *ngIf="caseForm?.get('exercises')?.get('clozeTest')?.errors?.required" class="failure">To pole jest wymagane</div>
+            <div *ngIf="caseForm?.get('exercises')?.get('clozeTest')?.errors?.min" class="failure">Minimalna wartość: 0</div>
+            <div *ngIf="caseForm?.get('exercises')?.get('clozeTest')?.errors?.max" class="failure">Maksymalna wartość: {{maxClozeTest}}</div>
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field class="number-field" appearance="outline">
+          <mat-label>Zdanie z luką - która fraza nie pasuje</mat-label>
+          <input matInput type="number" formControlName="clozeTestReversed" required>
+          <mat-hint *ngIf="caseForm?.get('exercises')?.get('clozeTestReversed')?.dirty">
+            <div *ngIf="caseForm?.get('exercises')?.get('clozeTestReversed')?.errors?.required" class="failure">To pole jest wymagane</div>
+            <div *ngIf="caseForm?.get('exercises')?.get('clozeTestReversed')?.errors?.min" class="failure">Minimalna wartość: 0</div>
+            <div *ngIf="caseForm?.get('exercises')?.get('clozeTestReversed')?.errors?.max" class="failure">Maksymalna wartość: {{maxClozeTest}}</div>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+    </form>
+    <div *ngIf="loading" class="save-loading"><i class="fa fa-spinner loading-icon dark-spinner" aria-label="Trwa ładowanie"></i></div>
+    <button *ngIf="!loading" mat-flat-button color="primary" (click)="reset()" class="case-form-button"><i class="fa fa-undo" aria-hidden="true"></i> Resetuj do ustawień domyślnych</button>
+    <button *ngIf="!loading" mat-flat-button color="primary" (click)="save()" class="case-form-button" [disabled]="!caseForm.valid"><i class="fa fa-check" aria-hidden="true"></i> Zapisz</button>
+
+  </ng-container>
+
+  <div *ngIf="!loading"><button mat-flat-button color="primary" (click)="hide.emit(true)"><i class="fa fa-times" aria-hidden="true"></i> Anuluj</button></div>
+
+</ng-container>

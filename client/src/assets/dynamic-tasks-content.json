@@ -97,7 +97,6 @@
   "cases": [
     {
       "id": 1,
-      "name": "Sprawa pierwsza",
       "versions": [
         {
           "character": "boy_01",
@@ -134,14 +133,14 @@
         {"command": "Sprawdź w szufladzie stolika", "item": "table_drawer"},
         {"command": "Zajrzyj pod kanapę", "item": "sofa"}
       ],
-      "exercises": [
-        {"type": "wordGroups", "amount": 2},
-        {"type": "clozeTest", "amount": 1}
-      ]
+      "exercises": {
+        "wordGroups": 2,
+        "clozeTest": 1,
+        "clozeTestReversed": 0
+      }
     },
     {
       "id": 2,
-      "name": "Sprawa druga",
       "versions": [
         {
           "character": "girl_01",
@@ -180,14 +179,14 @@
         {"command": "Przesuń krzesło obrotowe", "item": "chair"},
         {"command": "Przesuń wazonik", "item": "vase"}
       ],
-      "exercises": [
-        {"type": "wordGroups", "amount": 2},
-        {"type": "clozeTest", "amount": 1}
-      ]
+      "exercises": {
+        "wordGroups": 2,
+        "clozeTest": 1,
+        "clozeTestReversed": 0
+      }
     },
     {
       "id": 3,
-      "name": "Sprawa trzecia",
       "versions": [
         {
           "character": "man_01",
@@ -220,15 +219,14 @@
         {"command": "Przesuń środkowy telefon", "item": "smartphone2"},
         {"command": "Przesuń telefon leżący z prawej strony", "item": "smartphone3"}
       ],
-      "exercises": [
-        {"type": "wordGroups", "amount": 1},
-        {"type": "clozeTest", "amount": 1},
-        {"type": "clozeTestReversed", "amount": 1}
-      ]
+      "exercises": {
+        "wordGroups": 1,
+        "clozeTest": 1,
+        "clozeTestReversed": 1
+      }
     },
     {
       "id": 4,
-      "name": "Sprawa czwarta",
       "versions": [
         {
           "character": "woman_01",
@@ -253,15 +251,14 @@
         {"command": "Zajrzyj za obraz znajdujący się z lewej strony", "item": "painting1"},
         {"command": "Poszukaj w gablotce z mieczem", "item": "sword_box"}
       ],
-      "exercises": [
-        {"type": "wordGroups", "amount": 2},
-        {"type": "clozeTest", "amount": 1},
-        {"type": "clozeTestReversed", "amount": 1}
-      ]
+      "exercises": {
+        "wordGroups": 2,
+        "clozeTest": 1,
+        "clozeTestReversed": 1
+      }
     },
     {
       "id": 5,
-      "name": "Sprawa piąta",
       "versions": [
         {
           "character": "woman_02",
@@ -294,15 +291,14 @@
         {"command": "Poszukaj za piłką do piłki nożnej", "item": "ball2"}
 
       ],
-      "exercises": [
-        {"type": "wordGroups", "amount": 2},
-        {"type": "clozeTest", "amount": 1},
-        {"type": "clozeTestReversed", "amount": 1}
-      ]
+      "exercises": {
+        "wordGroups": 2,
+        "clozeTest": 1,
+        "clozeTestReversed": 1
+      }
     },
     {
       "id": 6,
-      "name": "Sprawa szósta",
       "versions": [
         {
           "character": "man_02",
@@ -337,15 +333,14 @@
         {"command": "Sprawdź za filiżanką stojącą obok talerzyka z ciastem", "item": "cup1"},
         {"command": "Sprawdź za filiżanką stojącą obok pustego talerzyka", "item": "cup2"}
       ],
-      "exercises": [
-        {"type": "wordGroups", "amount": 2},
-        {"type": "clozeTest", "amount": 1},
-        {"type": "clozeTestReversed", "amount": 1}
-      ]
+      "exercises": {
+        "wordGroups": 2,
+        "clozeTest": 1,
+        "clozeTestReversed": 1
+      }
     },
     {
       "id": 7,
-      "name": "Sprawa siódma",
       "versions": [
         {
           "character": "man_03",
@@ -381,15 +376,14 @@
         {"command": "Przesuń krzesło stojące z prawej strony", "item": "chair3"},
         {"command": "Sprawdź za zegarem", "item": "clock"}
       ],
-      "exercises": [
-        {"type": "wordGroups", "amount": 2},
-        {"type": "clozeTest", "amount": 2},
-        {"type": "clozeTestReversed", "amount": 1}
-      ]
+      "exercises": {
+        "wordGroups": 2,
+        "clozeTest": 2,
+        "clozeTestReversed": 1
+      }
     },
     {
       "id": 8,
-      "name": "Sprawa ósma",
       "versions": [
         {
           "character": "woman_03",
@@ -423,15 +417,14 @@
         {"command": "Poszukaj za latarnią z prawej strony", "item": "streetlamp2"},
         {"command": "Sprawdź za krzakiem na lewo od piaskownicy", "item": "bush1"}
       ],
-      "exercises": [
-        {"type": "wordGroups", "amount": 2},
-        {"type": "clozeTest", "amount": 2},
-        {"type": "clozeTestReversed", "amount": 1}
-      ]
+      "exercises": {
+        "wordGroups": 2,
+        "clozeTest": 2,
+        "clozeTestReversed": 1
+      }
     },
     {
       "id": 9,
-      "name": "Sprawa dziewiąta",
       "versions": [
         {
           "character": "woman_04",
@@ -463,15 +456,14 @@
         {"command": "Przesuń wiaderko", "item": "bucket"},
         {"command": "Przesuń parasol", "item": "umbrella"}
       ],
-      "exercises": [
-        {"type": "wordGroups", "amount": 2},
-        {"type": "clozeTest", "amount": 1},
-        {"type": "clozeTestReversed", "amount": 2}
-      ]
+      "exercises": {
+        "wordGroups": 2,
+        "clozeTest": 1,
+        "clozeTestReversed": 2
+      }
     },
     {
       "id": 10,
-      "name": "Sprawa dziesiąta",
       "versions": [
         {
           "character": "man_04",
@@ -505,11 +497,11 @@
         {"command": "Sprawdź drzewko za ławką z prawej strony", "item": "conifer4"},
         {"command": "Sprawdź drzewko za ławką z lewej strony", "item": "conifer3"}
       ],
-      "exercises": [
-        {"type": "wordGroups", "amount": 2},
-        {"type": "clozeTest", "amount": 1},
-        {"type": "clozeTestReversed", "amount": 2}
-      ]
+      "exercises": {
+        "wordGroups": 2,
+        "clozeTest": 1,
+        "clozeTestReversed": 2
+      }
     }
   ]
 }

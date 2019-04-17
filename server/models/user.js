@@ -27,6 +27,7 @@ const UserSchema = new mongoose.Schema({
 
   gameplayTime: Number,
   loginDates: [Date],
+  lastActivityAt: Date,
   currentCase: Number,
   bestScores: [Number],
   performance: [{
@@ -35,8 +36,11 @@ const UserSchema = new mongoose.Schema({
     timestamp: Date,
     points: Number,
     maxPoints: Number
-  }]
-
+  }],
+  customTaskData: {
+    type: {},
+    required: false
+  }
 });
 
 module.exports = mongoose.model('User', UserSchema);

@@ -8,6 +8,10 @@ import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
 export class PerformanceTableComponent implements OnInit {
 
   @Input() set performance(value: any) {
+    value = value.map(item => {
+      item.ratio = (item.points / item.maxPoints).toFixed(2);
+      return item;
+    });
     this.dataSource = new MatTableDataSource(value);
     this.dataSource.paginator = this.paginator;
     this.dataSource.paginator.firstPage();
@@ -24,6 +28,13 @@ export class PerformanceTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.paginator._intl.itemsPerPageLabel = 'Wierszy na stronę:';
+    this.paginator._intl.firstPageLabel = 'Pierwsza strona';
+    this.paginator._intl.previousPageLabel = 'Poprzednia strona';
+    this.paginator._intl.nextPageLabel = 'Następna strona';
+    this.paginator._intl.lastPageLabel = 'Ostatnia strona';
+    this.paginator._intl.getRangeLabel = (page, pageSize, length) =>
+      `${(page * pageSize) + 1} - ${(page * pageSize) + pageSize} z ${length}`;
   }
 
 }

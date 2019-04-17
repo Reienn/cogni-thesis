@@ -7,6 +7,7 @@ module.exports.updatePerformance = function(req, res, next) {
   User.findOneAndUpdate({name: user.name}, {
     $push: { performance: req.body.performance },
     $set: { bestScores: req.body.bestScores },
+    $set: { lastActivityAt: Date.now() },
     $max: { currentCase: req.body.id }
   }, function(err){
     if (err) { res.status(400).send('Nie można zaktualizować danych'); }
