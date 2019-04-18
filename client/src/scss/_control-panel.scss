@@ -10,7 +10,7 @@ app-control-panel {
   th.mat-sort-header-sorted {
     color: black;
   }
-  .performance-table, .players-table, .questions-table {
+  .performance-table, .players-table, .questions-table, .commands-table {
     display: block;
     overflow-x: auto;
   }
@@ -98,7 +98,7 @@ app-modify-tasks {
     }
     .number-field {
       display: block;
-      width: 300px;
+      max-width: 300px;
     }
     table {
       width: 100%;
