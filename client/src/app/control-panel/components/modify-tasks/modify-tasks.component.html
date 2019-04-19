@@ -24,7 +24,7 @@
 
       <div class="form-collapse-button"><button mat-button (click)="showVersions = !showVersions"><i class="fa" [ngClass]="{'fa-chevron-right': !showVersions, 'fa-chevron-down': showVersions}" aria-hidden="true"></i> Szczegóły sprawy</button></div>
       <div class="form-group" *ngIf="showVersions">
-        <div class="form-description">Warianty szczegółów sprawy (w każdej rozgrywce losowany jest jeden wariant z poniższych)</div>
+        <div class="info-hint">Warianty szczegółów sprawy (w każdej rozgrywce losowany jest jeden wariant z poniższych)</div>
         <div formArrayName="versions" *ngFor="let item of caseForm.get('versions').controls; let i = index">
           <div class="form-collapse-button"><button mat-button (click)="showVersion[i] = !showVersion[i]"><i class="fa" [ngClass]="{'fa-chevron-right': !showVersion[i], 'fa-chevron-down': showVersion[i]}" aria-hidden="true"></i> Wariant {{i + 1}}.</button></div>
           <div *ngIf="showVersion[i]" [formGroupName]="i" class="form-array-item">
@@ -69,6 +69,7 @@
               </mat-hint>
             </mat-form-field>
             <h4>Pytania</h4>
+            <p class="info-hint">Możesz utrudnić zadanie podając dodatkową odpowiedź, niepasującą do żadnego pytania. W tym celu pozostaw pole &bdquo;pytanie&rdquo; puste</p>
             <div class="questions-table"><table>
               <thead><tr>
                 <th></th>
@@ -81,10 +82,10 @@
                   <td>{{j + 1}}.</td>
                   <td>
                     <mat-form-field [formGroupName]="j" class="half-width">
-                      <input matInput type="text" formControlName="question" required>
-                      <mat-hint *ngIf="caseForm?.get('versions')?.get(''+i).get('notes')?.get(''+j)?.get('question')?.dirty">
+                      <input matInput type="text" formControlName="question">
+                      <!-- <mat-hint *ngIf="caseForm?.get('versions')?.get(''+i).get('notes')?.get(''+j)?.get('question')?.dirty">
                         <div *ngIf="caseForm?.get('versions')?.get(''+i).get('notes')?.get(''+j)?.get('question')?.errors?.required" class="failure">To pole jest wymagane</div>
-                      </mat-hint>
+                      </mat-hint> -->
                     </mat-form-field>
                   </td>
                   <td>

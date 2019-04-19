@@ -20,7 +20,7 @@ export class Notepad2Component implements OnInit {
   ngOnInit() {
     this.taskData.map(item => { item.correct = false; item.empty = true; return item; });
     this.randomizedTaskData = Array.from(this.taskData).sort(() => 0.5 - Math.random());
-    this.questions = this.taskData.filter(el => el.question !== 'distractor');
+    this.questions = this.taskData.filter(el => !!el.question);
   }
 
   chooseAnswer(answerId) {

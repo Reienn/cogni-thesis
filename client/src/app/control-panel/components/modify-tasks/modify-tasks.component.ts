@@ -103,11 +103,11 @@ export class ModifyTasksComponent implements OnInit {
       description: ['', Validators.required],
       notes: this.formBuilder.array([
         this.formBuilder.group({
-          question: ['', Validators.required],
+          question: [''],
           answer: ['', Validators.required]
         }),
         this.formBuilder.group({
-          question: ['', Validators.required],
+          question: [''],
           answer: ['', Validators.required]
         })])
     }));
@@ -122,7 +122,7 @@ export class ModifyTasksComponent implements OnInit {
   addQuestion(i: number) {
     const questions = this.caseForm.get('versions').get('' + i).get('notes') as FormArray;
     questions.push(this.formBuilder.group({
-      question: ['', Validators.required],
+      question: [''],
       answer: ['', Validators.required]
     }));
   }
@@ -140,7 +140,7 @@ export class ModifyTasksComponent implements OnInit {
           description: [ver.description, Validators.required],
           notes: this.formBuilder.array(ver.notes.map(note => {
             return this.formBuilder.group({
-              question: [note.question, Validators.required],
+              question: [note.question],
               answer: [note.answer, Validators.required]
             });
           }))

@@ -106,7 +106,7 @@
             {"question": "Co zginęło?", "answer": "zegarek Jasia"},
             {"question": "Kiedy doszło do kradzieży?", "answer": "w sobotę"},
             {"question": "Gdzie doszło do kradzieży?", "answer": "w domu Jasia"},
-            {"question": "distractor", "answer": "w domu babci"}
+            {"question": "", "answer": "w domu babci"}
           ]
         },
         {
@@ -117,7 +117,7 @@
             {"question": "Co zginęło?", "answer": "aparat fotograficzny Kamila"},
             {"question": "Kiedy doszło do kradzieży?", "answer": "w niedzielę"},
             {"question": "Gdzie doszło do kradzieży?", "answer": "w domu Damiana"},
-            {"question": "distractor", "answer": "w domu Kamila"}
+            {"question": "", "answer": "w domu Kamila"}
           ]
         }
       ],
@@ -151,7 +151,7 @@
             {"question": "Kiedy doszło do kradzieży?", "answer": "w poniedziałek"},
             {"question": "Gdzie doszło do kradzieży?", "answer": "w domu Oli"},
             {"question": "Co chciała kupić Ola?", "answer": "rower"},
-            {"question": "distractor", "answer": "w szkole"}
+            {"question": "", "answer": "w szkole"}
           ]
         }
       ],
@@ -197,7 +197,7 @@
             {"question": "Co zginęło?", "answer": "laptop"},
             {"question": "Kiedy doszło do kradzieży?", "answer": "w nocy z wtorku na środę"},
             {"question": "Gdzie doszło do kradzieży?", "answer": "w sklepie elektronicznym"},
-            {"question": "distractor", "answer": "we wtorek rano"}
+            {"question": "", "answer": "we wtorek rano"}
           ]
         }
       ],
@@ -237,7 +237,7 @@
             {"question": "Kiedy doszło do kradzieży?", "answer": "w niedzielę"},
             {"question": "Gdzie doszło do kradzieży?", "answer": "w muzeum"},
             {"question": "Dlaczego nie działał alarm?", "answer": "z powodu awarii prądu"},
-            {"question": "distractor", "answer": "kamery"}
+            {"question": "", "answer": "kamery"}
           ]
         }
       ],
@@ -269,7 +269,7 @@
             {"question": "Kiedy doszło do kradzieży?", "answer": "w piątek wieczorem"},
             {"question": "Gdzie doszło do kradzieży?", "answer": "w sklepie z zabawkami"},
             {"question": "Jak złodziej dostał się do sklepu?", "answer": "przez okno"},
-            {"question": "distractor", "answer": "w piątek rano"}
+            {"question": "", "answer": "w piątek rano"}
           ]
         }
       ],
@@ -309,8 +309,8 @@
             {"question": "Kiedy doszło do kradzieży?", "answer": "w środę w porze obiadowej"},
             {"question": "Gdzie doszło do kradzieży?", "answer": "w restauracji Edwarda"},
             {"question": "Dlaczego nikt nie zauważył kradzieży?", "answer": "ponieważ restauracja była zatłoczona"},
-            {"question": "distractor", "answer": "w toalecie"},
-            {"question": "distractor", "answer": "w środę rano"}
+            {"question": "", "answer": "w toalecie"},
+            {"question": "", "answer": "w środę rano"}
           ]
         }
       ],
@@ -352,9 +352,9 @@
             {"question": "Gdzie doszło do kradzieży?", "answer": "w szkole"},
             {"question": "W której sali?", "answer": "geograficznej"},
             {"question": "Do kogo należał plecak?", "answer": "do Wojtka"},
-            {"question": "distractor", "answer": "do Warszawy"},
-            {"question": "distractor", "answer": "w czwartek po piątej lekcji"},
-            {"question": "distractor", "answer": "do Antoniego"}
+            {"question": "", "answer": "do Warszawy"},
+            {"question": "", "answer": "w czwartek po piątej lekcji"},
+            {"question": "", "answer": "do Antoniego"}
           ]
         }
       ],
@@ -397,8 +397,8 @@
             {"question": "Ile lat ma synek Emilii?", "answer": "pięć"},
             {"question": "Dlaczego mama pobiegła do synka?", "answer": "bo spadł z huśtawki"},
             {"question": "Gdzie mama położyła aparat?", "answer": "na ławce"},
-            {"question": "distractor", "answer": "na huśtawce"},
-            {"question": "distractor", "answer": "bo chciała zrobić mu zdjęcie"}
+            {"question": "", "answer": "na huśtawce"},
+            {"question": "", "answer": "bo chciała zrobić mu zdjęcie"}
           ]
         }
       ],
@@ -438,8 +438,8 @@
             {"question": "Dlaczego Hania zawołała babcię?", "answer": "żeby pomogła jej zbudować zamek z piasku"},
             {"question": "Gdzie Zofia zostawiła swoje rzeczy?", "answer": "na leżaku"},
             {"question": "Kiedy Zofia zauważyła brak telefonu?", "answer": "gdy się pakowała"},
-            {"question": "distractor", "answer": "z babcią"},
-            {"question": "distractor", "answer": "żeby pomogła jej się spakować"}
+            {"question": "", "answer": "z babcią"},
+            {"question": "", "answer": "żeby pomogła jej się spakować"}
           ]
         }
       ],
@@ -477,8 +477,8 @@
             {"question": "Gdzie był portfel?", "answer": "w kieszeni kurtki"},
             {"question": "Dlaczego Paweł zdjął kurtkę?", "answer": "bo zrobiło mu się gorąco"},
             {"question": "Gdzie Paweł położył kurtkę?", "answer": "na ławce"},
-            {"question": "distractor", "answer": "w domu"},
-            {"question": "distractor", "answer": "bo chciał skosić trawnik"}
+            {"question": "", "answer": "w domu"},
+            {"question": "", "answer": "bo chciał skosić trawnik"}
           ]
         }
       ],
