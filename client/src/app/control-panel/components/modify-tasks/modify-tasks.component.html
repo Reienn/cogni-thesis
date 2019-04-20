@@ -5,7 +5,17 @@
 
 <ng-container *ngIf="!isSent">
   <p class="info-hint">Możesz modyfikować treść gry w celu dopasowania poziomu trudności oraz urozmaicenia rozgrywki.</p>
-  <mat-form-field *ngIf="taskData && taskData.cases" appearance="outline" class="select-case">
+  <ng-container *ngIf="chooseEdit">
+    <mat-form-field appearance="outline" class="select-edit">
+      <mat-label>Wybierz ustawienia</mat-label>
+      <mat-select (selectionChange)="selectEdit($event)">
+        <mat-option value="case">Treść poszczególnych spraw</mat-option>
+        <mat-option value="shared">Treść wspólna dla wszystkich spraw</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>
+
+  <mat-form-field *ngIf="taskData && taskData.cases && editCase" appearance="outline" class="select-case">
     <mat-label>Wybierz sprawę</mat-label>
     <mat-select [(value)]="selectedCaseId" (selectionChange)="selectCase($event)">
       <mat-select-trigger style="height: 120px">
@@ -188,6 +198,196 @@
     <button *ngIf="!loading" mat-flat-button color="primary" (click)="save()" class="case-form-button" [disabled]="!caseForm.valid"><i class="fa fa-check" aria-hidden="true"></i> Zapisz</button>
 
   </ng-container>
+
+  <ng-container *ngIf="sharedForm">
+    <form *ngIf="sharedForm" id="sharedForm" class="shared-form" [formGroup]="sharedForm">
+      <p *ngIf="err" class="failure">{{ err }}</p>
+      <div class="form-collapse-button"><button mat-button (click)="showSharedClues = !showSharedClues"><i class="fa" [ngClass]="{'fa-chevron-right': !showSharedClues, 'fa-chevron-down': showSharedClues}" aria-hidden="true"></i> Opisy podejrzanych</button></div>
+      <div class="form-group" *ngIf="showSharedClues">
+        <div class="clues-table"><table formGroupName="clues">
+          <thead><tr>
+            <th></th>
+            <th>Ślad</th>
+            <th>Cecha podejrzanego</th>
+            <th>Cecha podejrzanej</th>
+            <th>Usuń</th>
+          </tr></thead>
+          <tbody>
+            <tr class="row-title"><td colspan="5">Zawody</td></tr>
+            <tr formArrayName="jobs" *ngFor="let job of sharedForm.get('clues').get('jobs').controls; let i = index">
+              <td>{{i + 1}}</td>
+              <td class="form-clue-img"><img src="assets/img/clues/{{ sharedForm.get('clues').get('jobs').get(''+i).get('name').value }}.png"></td>
+              <td [formGroupName]="i">
+                <mat-form-field formGroupName="description" class="half-width">
+                  <input matInput type="text" formControlName="male" required>
+                  <mat-hint *ngIf="sharedForm?.get('clues')?.get('jobs').get(''+i)?.get('description')?.get('male')?.dirty">
+                    <div *ngIf="sharedForm?.get('clues')?.get('jobs').get(''+i)?.get('description')?.get('male')?.errors?.required" class="failure">To pole jest wymagane</div>
+                  </mat-hint>
+                </mat-form-field>
+              </td>
+              <td [formGroupName]="i">
+                <mat-form-field formGroupName="description" class="half-width">
+                  <input matInput type="text" formControlName="female" required>
+                  <mat-hint *ngIf="sharedForm?.get('clues')?.get('jobs').get(''+i)?.get('description')?.get('female')?.dirty">
+                    <div *ngIf="sharedForm?.get('clues')?.get('jobs').get(''+i)?.get('description')?.get('female')?.errors?.required" class="failure">To pole jest wymagane</div>
+                  </mat-hint>
+                </mat-form-field>
+              </td>
+              <td>
+                <button mat-button (click)="sharedForm.get('clues').get('jobs').removeAt(i)"
+                  [disabled]="sharedForm.get('clues').get('jobs').length < 5"
+                  class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+              </td>
+            </tr>
+            <tr class="row-title"><td colspan="5">Inne cechy</td></tr>
+            <tr formArrayName="other" *ngFor="let job of sharedForm.get('clues').get('other').controls; let i = index">
+              <td>{{i + 1}}</td>
+              <td class="form-clue-img"><img src="assets/img/clues/{{ sharedForm.get('clues').get('other').get(''+i).get('name').value }}.png"></td>
+              <td [formGroupName]="i">
+                <mat-form-field formGroupName="description" class="half-width">
+                  <input matInput type="text" formControlName="male" required>
+                  <mat-hint *ngIf="sharedForm?.get('clues')?.get('other').get(''+i)?.get('description')?.get('male')?.dirty">
+                    <div *ngIf="sharedForm?.get('clues')?.get('other').get(''+i)?.get('description')?.get('male')?.errors?.required" class="failure">To pole jest wymagane</div>
+                  </mat-hint>
+                </mat-form-field>
+              </td>
+              <td [formGroupName]="i">
+                <mat-form-field formGroupName="description" class="half-width">
+                  <input matInput type="text" formControlName="female" required>
+                  <mat-hint *ngIf="sharedForm?.get('clues')?.get('other').get(''+i)?.get('description')?.get('female')?.dirty">
+                    <div *ngIf="sharedForm?.get('clues')?.get('other').get(''+i)?.get('description')?.get('female')?.errors?.required" class="failure">To pole jest wymagane</div>
+                  </mat-hint>
+                </mat-form-field>
+              </td>
+              <td>
+                <button mat-button (click)="sharedForm.get('clues').get('other').removeAt(i)"
+                  [disabled]="sharedForm.get('clues').get('other').length < 6"
+                  class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="form-collapse-button"><button mat-button (click)="showExercises = !showExercises"><i class="fa" [ngClass]="{'fa-chevron-right': !showExercises, 'fa-chevron-down': showExercises}" aria-hidden="true"></i> Pytania jednokrotnego wyboru</button></div>
+      <div class="form-group" *ngIf="showExercises" formGroupName="exercises">
+        <div class="form-collapse-button"><button mat-button (click)="showWordGroups = !showWordGroups"><i class="fa" [ngClass]="{'fa-chevron-right': !showWordGroups, 'fa-chevron-down': showWordGroups}" aria-hidden="true"></i> Grupy słów</button></div>
+        <div class="form-group" *ngIf="showWordGroups">
+          <div class="exercises-table"><table>
+            <thead><tr>
+              <th></th>
+              <th>Grupa</th>
+              <th>Usuń</th>
+            </tr></thead>
+            <tbody>
+              <tr formArrayName="wordGroups" *ngFor="let wordGroup of sharedForm.get('exercises').get('wordGroups').controls; let i = index">
+                <td>{{i + 1}}</td>
+                <td [formGroupName]="i">
+                  <div class="inline-words" *ngFor="let word of sharedForm.get('exercises').get('wordGroups').get(''+i).controls; let j = index">
+                    <mat-form-field>
+                      <input matInput type="text" [formControlName]="j" required>
+                      <span matPrefix class="field-prefix">{{j + 1}})&nbsp;</span>
+                      <span matSuffix>
+                        <button mat-button (click)="sharedForm.get('exercises').get('wordGroups').get(''+i).removeAt(j)"
+                          [disabled]="sharedForm.get('exercises').get('wordGroups').get(''+i).length < 5"
+                          class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                      </span>
+                      <mat-hint *ngIf="sharedForm.get('exercises').get('wordGroups').get(''+i)?.get(''+j)?.dirty">
+                        <div *ngIf="sharedForm.get('exercises').get('wordGroups').get(''+i)?.get(''+j)?.errors?.required" class="failure">To pole jest wymagane</div>
+                      </mat-hint>
+                    </mat-form-field>
+                  </div>
+                  <div class="add-inline">
+                    <button mat-raised-button (click)="addWord(i)"><i class="fa fa-plus" aria-hidden="true"></i> Dodaj</button>
+                  </div>
+                </td>
+                <td>
+                  <button mat-button (click)="sharedForm.get('exercises').get('wordGroups').removeAt(i)"
+                    [disabled]="sharedForm.get('exercises').get('wordGroups').length < 6"
+                    class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table></div>
+          <button mat-raised-button (click)="addWordGroup()"><i class="fa fa-plus" aria-hidden="true"></i> Dodaj grupę</button>
+        </div>
+        <div class="form-collapse-button"><button mat-button (click)="showClozeTest = !showClozeTest"><i class="fa" [ngClass]="{'fa-chevron-right': !showClozeTest, 'fa-chevron-down': showClozeTest}" aria-hidden="true"></i> Zdania z luką</button></div>
+        <div class="form-group" *ngIf="showClozeTest">
+          <div class="exercises-table"><table>
+            <thead><tr>
+              <th></th>
+              <th>Zdanie</th>
+              <th>Pasujące odpowiedzi</th>
+              <th>Niepasujące odpowiedzi</th>
+              <th>Usuń</th>
+            </tr></thead>
+            <tbody>
+              <tr formArrayName="clozeTest" *ngFor="let cloze of sharedForm.get('exercises').get('clozeTest').controls; let i = index">
+                <td>{{i + 1}}</td>
+                <td [formGroupName]="i">
+                  <mat-form-field>
+                    <textarea matInput type="text" formControlName="sentence" required cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="6"></textarea>
+                    <mat-hint *ngIf="sharedForm.get('exercises').get('clozeTest').get(''+i)?.get('sentence')?.dirty">
+                      <div *ngIf="sharedForm.get('exercises').get('clozeTest').get(''+i)?.get('sentence')?.errors?.required" class="failure">To pole jest wymagane</div>
+                      <div *ngIf="sharedForm.get('exercises').get('clozeTest').get(''+i)?.get('sentence')?.errors?.noGap" class="failure">Oznacz lukę w zdaniu znakiem * (gwiazdki)</div>
+                    </mat-hint>
+                  </mat-form-field>
+                </td>
+                <td [formGroupName]="i">
+                  <div formArrayName="correct" *ngFor="let word of sharedForm.get('exercises').get('clozeTest').get(''+i).get('correct').controls; let j = index">
+                    <mat-form-field>
+                      <input matInput type="text" [formControlName]="j" required>
+                      <span matPrefix class="field-prefix">{{j + 1}})&nbsp;</span>
+                      <span matSuffix>
+                        <button mat-button (click)="sharedForm.get('exercises').get('clozeTest').get(''+i).get('correct').removeAt(j)"
+                          [disabled]="sharedForm.get('exercises').get('clozeTest').get(''+i).get('correct').length < 5"
+                          class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                      </span>
+                      <mat-hint *ngIf="sharedForm.get('exercises').get('clozeTest').get(''+i)?.get('correct').get(''+j)?.dirty">
+                        <div *ngIf="sharedForm.get('exercises').get('clozeTest').get(''+i)?.get('correct').get(''+j)?.errors?.required" class="failure">To pole jest wymagane</div>
+                      </mat-hint>
+                    </mat-form-field>
+                  </div>
+                  <div class="add-inline">
+                    <button mat-raised-button (click)="addClozeAnswer(i, 'correct')"><i class="fa fa-plus" aria-hidden="true"></i> Dodaj</button>
+                  </div>
+                </td>
+                <td [formGroupName]="i">
+                  <div formArrayName="incorrect" *ngFor="let word of sharedForm.get('exercises').get('clozeTest').get(''+i).get('incorrect').controls; let j = index">
+                    <mat-form-field>
+                      <input matInput type="text" [formControlName]="j" required>
+                      <span matPrefix class="field-prefix">{{j + 1}})&nbsp;</span>
+                      <span matSuffix>
+                        <button mat-button (click)="sharedForm.get('exercises').get('clozeTest').get(''+i).get('incorrect').removeAt(j)"
+                          [disabled]="sharedForm.get('exercises').get('clozeTest').get(''+i).get('incorrect').length < 5"
+                          class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                      </span>
+                      <mat-hint *ngIf="sharedForm.get('exercises').get('clozeTest').get(''+i)?.get('incorrect').get(''+j)?.dirty">
+                        <div *ngIf="sharedForm.get('exercises').get('clozeTest').get(''+i)?.get('incorrect').get(''+j)?.errors?.required" class="failure">To pole jest wymagane</div>
+                      </mat-hint>
+                    </mat-form-field>
+                  </div>
+                  <div class="add-inline">
+                    <button mat-raised-button (click)="addClozeAnswer(i, 'incorrect')"><i class="fa fa-plus" aria-hidden="true"></i> Dodaj</button>
+                  </div>
+                </td>
+                <td>
+                  <button mat-button (click)="sharedForm.get('exercises').get('clozeTest').removeAt(i)"
+                    [disabled]="sharedForm.get('exercises').get('clozeTest').length < 6"
+                    class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table></div>
+          <button mat-raised-button (click)="addCloze()"><i class="fa fa-plus" aria-hidden="true"></i> Dodaj zdanie</button>
+        </div>
+      </div>
+    </form>
+    <div *ngIf="loading" class="save-loading"><i class="fa fa-spinner loading-icon dark-spinner" aria-label="Trwa ładowanie"></i></div>
+    <button *ngIf="!loading" mat-flat-button color="primary" (click)="resetShared()" class="case-form-button"><i class="fa fa-undo" aria-hidden="true"></i> Resetuj do ustawień domyślnych</button>
+    <button *ngIf="!loading" mat-flat-button color="primary" (click)="saveShared()" class="case-form-button" [disabled]="!sharedForm.valid"><i class="fa fa-check" aria-hidden="true"></i> Zapisz</button>
+
+  </ng-container>
+
 
   <div *ngIf="!loading"><button mat-flat-button color="primary" (click)="hide.emit(true)"><i class="fa fa-times" aria-hidden="true"></i> Anuluj</button></div>
 

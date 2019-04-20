@@ -48,21 +48,21 @@
 
   "clues": {
     "jobs": [
-      {"name": "flower", "description": {"unisex": "Pracuje w kwiaciarni."}},
+      {"name": "flower", "description": {"male": "Pracuje w kwiaciarni.", "female": "Pracuje w kwiaciarni."}},
       {"name": "scissors", "description": {"male": "Jest fryzjerem.", "female": "Jest fryzjerką."}},
       {"name": "syringe", "description": {"male": "Jest pielęgniarzem.", "female": "Jest pielęgniarką."}},
-      {"name": "wrench", "description": {"unisex": "Pracuje w zakładzie samochodowym."}},
+      {"name": "wrench", "description": {"male": "Pracuje w zakładzie samochodowym.", "female": "Pracuje w zakładzie samochodowym."}},
       {"name": "needle", "description": {"male": "Jest krawcem.", "female": "Jest krawcową."}}
     ],
     "other": [
-      {"name": "coffee", "description": {"unisex": "Często odwiedza pobliską kawiarnię."}},
-      {"name": "banana", "description": {"unisex": "Bardzo lubi owoce."}},
-      {"name": "ticket", "description": {"unisex": "Często chodzi do kina."}},
-      {"name": "glasses", "description": {"unisex": "Ma słaby wzrok."}},
-      {"name": "cookie", "description": {"unisex": "Lubi słodycze."}},
-      {"name": "scarf", "description": {"unisex": "Jest zmarzluchem."}},
-      {"name": "hat", "description": {"unisex": "Lubi eleganckie nakrycia głowy."}},
-      {"name": "brush", "description": {"unisex": "Uwielbia malować."}},
+      {"name": "coffee", "description": {"male": "Często odwiedza pobliską kawiarnię.", "female": "Często odwiedza pobliską kawiarnię."}},
+      {"name": "banana", "description": {"male": "Bardzo lubi owoce.", "female": "Bardzo lubi owoce."}},
+      {"name": "ticket", "description": {"male": "Często chodzi do kina.", "female": "Często chodzi do kina."}},
+      {"name": "glasses", "description": {"male": "Ma słaby wzrok.", "female": "Ma słaby wzrok."}},
+      {"name": "cookie", "description": {"male": "Lubi słodycze.", "female": "Lubi słodycze."}},
+      {"name": "scarf", "description": {"male": "Jest zmarzluchem.", "female": "Jest zmarzluchem."}},
+      {"name": "hat", "description": {"male": "Lubi eleganckie nakrycia głowy.", "female": "Lubi eleganckie nakrycia głowy."}},
+      {"name": "brush", "description": {"male": "Uwielbia malować.", "female": "Uwielbia malować."}},
       {"name": "dice", "description": {"male": "Jego hobby to gry planszowe.", "female": "Jej hobby to gry planszowe."}}
     ]
   },

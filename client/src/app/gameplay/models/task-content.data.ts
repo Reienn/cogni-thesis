@@ -108,8 +108,7 @@ export interface SourceClues {
 export interface SourceClue {
   name: string;
   description: {
-    unisex?: string;
-    male?: string;
-    female?: string;
+    male: string;
+    female: string;
   };
 }

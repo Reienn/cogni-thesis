@@ -133,8 +133,7 @@ export class CasesService {
     people.sort(() => 0.5 - Math.random());
     people = people.slice(0, cluesNumber);
 
-    culpritDescription = [...clues.active.jobs, ...clues.active.other].map(el =>
-      el.description.unisex ? el.description.unisex : el.description[people[0].sex]);
+    culpritDescription = [...clues.active.jobs, ...clues.active.other].map(el => el.description[people[0].sex]);
     culpritDescription.sort(() => 0.5 - Math.random());
     people[0] = {...people[0],
       isCulprit: true,
@@ -152,7 +151,7 @@ export class CasesService {
       cluesForInnocent = cluesForInnocent.slice(0, cluesNumber);
       people[i] = {...people[i],
         isCulprit: false,
-        description: cluesForInnocent.map(el => el.description.unisex ? el.description.unisex : el.description[people[i].sex]).join(' ')
+        description: cluesForInnocent.map(el => el.description[people[i].sex]).join(' ')
       };
     }
     people.sort(() => 0.5 - Math.random());
