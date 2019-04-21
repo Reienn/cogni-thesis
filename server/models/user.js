@@ -25,8 +25,6 @@ const UserSchema = new mongoose.Schema({
 
   students: [String],
 
-  gameplayTime: Number,
-  loginDates: [Date],
   lastActivityAt: Date,
   currentCase: Number,
   bestScores: [Number],
