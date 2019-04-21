@@ -179,7 +179,13 @@ app-modify-tasks {
     }
   }
   .case-form-button {
-    margin: 20px 5px;
+    margin: 20px 5px 10px;
+  }
+  .cancel-button {
+    margin-top: 10px;
+  }
+  .last-modification {
+    margin: 0;
   }
   .save-loading {
     position: relative;

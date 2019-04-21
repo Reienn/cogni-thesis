@@ -43,6 +43,8 @@ export class ModifyTasksComponent implements OnInit {
   showWordGroups = false;
   showClozeTest = false;
 
+  lastModified: Date;
+
   characters = CHARACTERS;
   stolenItems = STOLEN_ITEMS;
 
@@ -95,8 +97,9 @@ export class ModifyTasksComponent implements OnInit {
         }
         return el;
       });
-      this.controlService.updateCustomTaskData(this.player.name, this.taskData).then(
+      this.controlService.updateCustomTaskData(this.player.name, this.taskData, 'case_' + this.selectedCaseId).then(
         res => {
+          this.player.customTaskModified.push({contentType: 'case_' + this.selectedCaseId, date: new Date()});
           this.loading = false;
           this.isSent = true;
           this.saved.emit(this.taskData);
@@ -114,8 +117,9 @@ export class ModifyTasksComponent implements OnInit {
       const update = this.sharedForm.getRawValue();
       this.taskData.exercises = update.exercises;
       this.taskData.clues = update.clues;
-      this.controlService.updateCustomTaskData(this.player.name, this.taskData).then(
+      this.controlService.updateCustomTaskData(this.player.name, this.taskData, 'shared').then(
         res => {
+          this.player.customTaskModified.push({contentType: 'shared', date: new Date()});
           this.loading = false;
           this.isSent = true;
           this.saved.emit(this.taskData);
@@ -200,6 +204,7 @@ export class ModifyTasksComponent implements OnInit {
   }
 
   private initForm(caseData: CaseData) {
+    this.lastModified = this.getLastModified('case_' + this.selectedCaseId);
     const caseFormData: CaseData = JSON.parse(JSON.stringify(caseData));
 
     this.caseForm = this.formBuilder.group({
@@ -234,6 +239,8 @@ export class ModifyTasksComponent implements OnInit {
   }
 
   private initSharedForm(sharedFormData: Partial<SourceTaskData>) {
+    this.lastModified = this.getLastModified('shared');
+
     this.sharedForm = this.formBuilder.group({
       clues: this.formBuilder.group({
         jobs: this.formBuilder.array(sharedFormData.clues.jobs.map(job => this.cluesFormGroup(job))),
@@ -270,6 +277,12 @@ export class ModifyTasksComponent implements OnInit {
 
   private hasGapValidator(control: FormControl) {
     return control.value && !control.value.includes('*') ? {'noGap': true} : null;
+  }
+
+  private getLastModified(type: string): Date {
+    const modifications = this.player.customTaskModified.filter(el => el.contentType === type);
+    const lastModified = modifications && modifications.length ? Math.max(...modifications.map(el => new Date(el.date).getTime())) : null;
+    return lastModified ? new Date(lastModified) : null;
   }
 
 }

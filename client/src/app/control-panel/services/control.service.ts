@@ -22,8 +22,9 @@ export class ControlService {
     })).toPromise();
   }
 
-  updateCustomTaskData(playerName: string, taskData: SourceTaskData): Promise<any> {
-    return this.http.post<any>(environment.baseUrl + '/api/custom-task-data', {playerName: playerName, customTaskData: taskData})
+  updateCustomTaskData(playerName: string, taskData: SourceTaskData, type: string): Promise<any> {
+    return this.http.post<any>(environment.baseUrl + '/api/custom-task-data',
+      {playerName: playerName, customTaskData: taskData, type: type})
       .pipe(map((response: any) => {
         return response;
       }), catchError((err) => {

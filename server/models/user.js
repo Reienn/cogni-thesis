@@ -40,7 +40,11 @@ const UserSchema = new mongoose.Schema({
   customTaskData: {
     type: {},
     required: false
-  }
+  },
+  customTaskModified: [{
+    contentType: String,
+    date: Date
+  }]
 });
 
 module.exports = mongoose.model('User', UserSchema);

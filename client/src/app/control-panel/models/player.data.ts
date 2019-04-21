@@ -8,4 +8,5 @@ export interface Player {
   lastActivityAt?: number;
   performance?: Performance[];
   customTaskData?: SourceTaskData;
+  customTaskModified?: {contentType: string, date: Date}[];
 }
