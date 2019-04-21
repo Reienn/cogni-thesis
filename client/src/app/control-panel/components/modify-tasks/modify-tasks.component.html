@@ -388,7 +388,7 @@
 
   </ng-container>
 
-  <p class="info-hint last-modification" *ngIf="lastModified">Ostatnia modyfikacja: {{ lastModified  | date: 'dd.MM.yyyy HH:mm' }}</p>
+  <p class="info-hint last-modification" *ngIf="!loading && lastModified">Ostatnia modyfikacja: {{ lastModified  | date: 'dd.MM.yyyy HH:mm' }}</p>
 
   <div *ngIf="!loading" class="cancel-button"><button mat-flat-button color="primary" (click)="hide.emit(true)"><i class="fa fa-times" aria-hidden="true"></i> Anuluj</button></div>
 
