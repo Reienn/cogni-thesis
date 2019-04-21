@@ -15,6 +15,8 @@ export class StartComponent implements OnInit {
   showSignup = false;
   showLogin = false;
 
+  showCookiesInfo = true;
+
   constructor(private authGuardService: AuthGuardService) { }
 
   ngOnInit() {
@@ -22,6 +24,9 @@ export class StartComponent implements OnInit {
       this.err = this.authGuardService.getErr();
       // this.selectedAuthForm = 1;
       this.showLogin = true;
+    }
+    if (localStorage.getItem('confirmedCookies')) {
+      this.showCookiesInfo = false;
     }
   }
 
@@ -32,4 +37,8 @@ export class StartComponent implements OnInit {
     this.showLogin = true;
   }
 
+  hideCookiesInfo() {
+    this.showCookiesInfo = false;
+    localStorage.setItem('confirmedCookies', 'true');
+  }
 }

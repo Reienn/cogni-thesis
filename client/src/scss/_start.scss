@@ -37,4 +37,38 @@
       }
     }
   }
+  .cookies-info {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    width: calc(100vw - 11px);
+    max-width: 700px;
+    font-style: italic;
+    background: rgba(20, 68, 102, 0.7);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    display: flex;
+    flex-wrap: wrap;
+    .cookies-text {
+      width: 75%;
+      min-width: 100px;
+      flex-grow: 1;
+    }
+    .cookies-button {
+      width: 20%;
+      min-width: 130px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+  }
+  .beta-info {
+    position: fixed;
+    z-index: -1;
+    color: $light-primary;
+    right: 10px;
+    bottom: 10px;
+    font-style: italic;
+  }
 }

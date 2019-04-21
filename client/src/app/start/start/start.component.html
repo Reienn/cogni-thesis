@@ -8,6 +8,11 @@
     <button mat-flat-button (click)="showAbout = true">
         <i class="fa fa-info-circle" aria-hidden="true"></i> O grze</button>
   </div>
+  <div class="beta-info">2019. Wersja beta</div>
+  <div *ngIf="showCookiesInfo" class="cookies-info">
+    <div class="cookies-text">Ta strona wykorzystuje pliki cookies do prawidłowego działania. Dalsze korzystanie ze strony oznacza zgodę na ich użycie. Pliki cookies można zablokować w ustawieniach przeglądarki.</div>
+    <div class="cookies-button"><button mat-flat-button (click)="hideCookiesInfo()">Zgadzam się</button></div>
+  </div>
 </div>
 
 <!-- <mat-toolbar color="primary">
