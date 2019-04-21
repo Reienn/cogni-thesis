@@ -19,7 +19,7 @@
 <div class="control-panel-container">
   <div>
     <h3>Lista graczy:</h3>
-    <p class="info-hint">Aby umożliwić nauczycielowi dostęp do statystyk i ustawień gry, gracz w ustawieniach swojego konta może podać login nauczyciela.</p>
+    <p class="info-hint">Aby umożliwić nauczycielowi dostęp do statystyk i edycji treści gry, gracz w ustawieniach swojego konta może podać login nauczyciela.</p>
 
     <app-players-list *ngIf="players && players.length; else noPlayers" [players]="players"
       (showGamePerformance)="selectedPlayer = $event;showGamePerformance = true"
