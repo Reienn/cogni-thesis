@@ -18,6 +18,7 @@ export class ControlPanelComponent implements OnInit {
   showSettings = false;
   showGamePerformance = false;
   showGameSettings = false;
+  visualizationType: string;
 
   constructor(private authenticationService: AuthenticationService,
               private controlService: ControlService) { }

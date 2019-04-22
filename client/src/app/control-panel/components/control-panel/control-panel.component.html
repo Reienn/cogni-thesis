@@ -22,7 +22,7 @@
     <p class="info-hint">Aby umożliwić nauczycielowi dostęp do statystyk i edycji treści gry, gracz w ustawieniach swojego konta może podać login nauczyciela.</p>
 
     <app-players-list *ngIf="players && players.length; else noPlayers" [players]="players"
-      (showGamePerformance)="selectedPlayer = $event;showGamePerformance = true"
+      (showGamePerformance)="selectedPlayer = $event;visualizationType = null;showGamePerformance = true"
       (showGameSettings)="selectedPlayer = $event;showGameSettings = true"
     ></app-players-list>
 
@@ -51,9 +51,19 @@
 <div *ngIf="showGamePerformance" class="modal case-form-modal" (click)="showGamePerformance = false">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <h2>Gracz {{selectedPlayer.name}}: statystyki gry</h2>
-    <app-performance-table [performance]="selectedPlayer.performance"
-      *ngIf="selectedPlayer.performance && selectedPlayer.performance.length; else noData">
-    </app-performance-table>
+    <ng-container *ngIf="selectedPlayer.performance && selectedPlayer.performance.length; else noData">
+      <mat-form-field appearance="outline" class="select-visualization">
+        <mat-label>Wybierz wizualizację</mat-label>
+        <mat-select [(ngModel)]="visualizationType">
+          <mat-option value="table">Tabela</mat-option>
+          <mat-option value="scatterChart">Wykres punktowy</mat-option>
+          <mat-option value="lineChart">Wykres liniowy</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-container>
+    <app-performance-table *ngIf="visualizationType === 'table'" [performance]="selectedPlayer.performance"></app-performance-table>
+    <app-performance-chart *ngIf="visualizationType === 'scatterChart'" type="scatter" [performance]="selectedPlayer.performance" [currentCase]="selectedPlayer.currentCase"></app-performance-chart>
+    <app-performance-chart *ngIf="visualizationType === 'lineChart'" type="line" [performance]="selectedPlayer.performance" [currentCase]="selectedPlayer.currentCase"></app-performance-chart>
     <button class="button-close-modal" (click)="showGamePerformance = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
   </div>
 </div>
@@ -64,8 +74,3 @@
     <button class="button-close-modal" (click)="showGameSettings = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
   </div>
 </div>
-
-
-<!-- <app-performance-chart [performance]="selectedPlayer.performance"
-  *ngIf="selectedPlayer.performance && selectedPlayer.performance.length; else noData">
-</app-performance-chart> -->
