@@ -42,6 +42,9 @@ export class PerformanceChartComponent {
   constructor() { }
 
   prepareChart(change: MatSelectChange) {
+    if (this.chart) {
+      this.chart.destroy();
+    }
     const performanceData = this.performance.filter(item => item.case === change.value).map(item => {
       item.ratio = (item.points / item.maxPoints).toFixed(2);
       return item;
@@ -61,7 +64,7 @@ export class PerformanceChartComponent {
       });
     }
 
-    this.chart = new Chart('canvas', {
+    const chart = new Chart('canvas', {
       type: this.type,
       data: {
         // labels: performanceData.map(item => moment(item.timestamp)),
@@ -97,6 +100,9 @@ export class PerformanceChartComponent {
         //   }
         // }
       }
+    });
+    setTimeout(() => {
+      this.chart = chart;
     });
   }
 
