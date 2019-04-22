@@ -12,6 +12,8 @@
         <i class="fa fa-play-circle" aria-hidden="true"></i> START</button>
     <button mat-flat-button (click)="showSettings = true">
         <i class="fa fa-cog" aria-hidden="true"></i> Ustawienia</button>
+    <button mat-flat-button (click)="showSurvey = true">
+        <i class="fa fa-star" aria-hidden="true"></i> Oceń grę</button>
     <button mat-flat-button (click)="logout()">
         <i class="fa fa-sign-out" aria-hidden="true"></i> Wyloguj</button>
   </div>
@@ -22,5 +24,13 @@
     <h2>Gracz {{user.name}}</h2>
     <app-edit-user [user]="user" (updatedUser)="updatedUser($event)"></app-edit-user>
     <button class="button-close-modal" (click)="showSettings = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
+  </div>
+</div>
+
+<div *ngIf="showSurvey" class="modal survey-modal" (click)="showSurvey = false">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Ankieta</h2>
+    <app-player-survey-form (surveySent)="showSurvey = false"></app-player-survey-form>
+    <button class="button-close-modal" (click)="showSurvey = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
   </div>
 </div>

@@ -10,6 +10,7 @@ export class MenuComponent implements OnInit {
 
   user: User;
   showSettings = false;
+  showSurvey = false;
 
   constructor(
     private router: Router,

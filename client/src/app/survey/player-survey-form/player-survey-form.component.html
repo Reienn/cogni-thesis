@@ -1,19 +1,18 @@
+<h3 *ngIf="!isSent">Oceń, jak podoba Ci się gra</h3>
 <form *ngIf="surveyForm && !isSent" id="surveyForm" class="survey-form" (ngSubmit)="submit()" [formGroup]="surveyForm">
   <p *ngIf="err" class="failure">{{ err }}</p>
   <div class="survey-table">
     <div class="header">
       <div class="label"></div>
-      <div class="option">Nie</div>
-      <div class="option">Raczej nie</div>
-      <div class="option">Nie mam zdania</div>
-      <div class="option">Raczej tak</div>
-      <div class="option">Tak</div>
+      <div class="option"><i class="fa fa-frown-o" aria-hidden="true"></i>Nie</div>
+      <div class="option"><i class="fa fa-meh-o" aria-hidden="true"></i>Nie wiem</div>
+      <div class="option"><i class="fa fa-smile-o" aria-hidden="true"></i>Tak</div>
     </div>
     <div class="table" formGroupName="likert">
       <div *ngFor="let question of surveyQuestions" class="question">
         <div class="label">{{question.label}} <span class="required">&#42;</span></div>
         <mat-radio-group [formControlName]="question.id" class="form-control">
-          <mat-radio-button class="option" *ngFor="let i of [1,2,3,4,5]" color="primary" [value]="i"></mat-radio-button>
+          <mat-radio-button class="option" *ngFor="let i of [1,3,5]" color="primary" [value]="i"></mat-radio-button>
         </mat-radio-group>
       </div>
     </div>
@@ -34,4 +33,3 @@
   <div>Dziękuję za wypełnienie ankiety.</div>
   <button mat-flat-button color="primary" class="survey-close" (click)="surveySent.emit(true)">Zamknij</button>
 </div>
-

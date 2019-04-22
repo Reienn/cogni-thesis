@@ -6,6 +6,10 @@ const SurveySchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  userGroup: {
+    type: String,
+    required: true
+  },
   date: { type: Date, default: Date.now },
   surveyData: {
     likert: {},

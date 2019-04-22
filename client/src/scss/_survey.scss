@@ -1,4 +1,4 @@
-app-survey-form {
+app-survey-form, app-player-survey-form {
   .header, .question {
     padding: 5px;
     &.header {
@@ -42,5 +42,18 @@ app-survey-form {
   }
   .survey-close {
     margin-top: 20px;
+  }
+}
+app-player-survey-form {
+  .header, .question {
+    .label {
+      width: 60%;
+      text-align: left;
+    }
+  }
+  .option .fa {
+    display: block;
+    font-size: 2.5em;
+    color: $primary;
   }
 }

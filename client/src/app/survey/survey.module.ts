@@ -4,9 +4,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule, MatRadioModule, MatButtonModule } from '@angular/material';
 
 import { SurveyFormComponent } from './survey-form/survey-form.component';
+import { PlayerSurveyFormComponent } from './player-survey-form/player-survey-form.component';
 
 @NgModule({
-  declarations: [SurveyFormComponent],
+  declarations: [SurveyFormComponent, PlayerSurveyFormComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,7 +18,8 @@ import { SurveyFormComponent } from './survey-form/survey-form.component';
     MatButtonModule
   ],
   exports: [
-    SurveyFormComponent
+    SurveyFormComponent,
+    PlayerSurveyFormComponent
   ]
 })
 export class SurveyModule { }

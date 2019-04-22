@@ -6,6 +6,7 @@ module.exports.survey = async function(req, res, next) {
   try {
     const newSurvey = new Survey({
       userName: req.userData.name,
+      userGroup: req.userData.group,
       surveyData: req.body.survey
     });
     const saved = await newSurvey.save();

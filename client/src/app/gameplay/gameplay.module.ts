@@ -14,6 +14,7 @@ import {
 
 import { StartModule } from '../start/start.module';
 import { AuthModule } from '../auth/auth.module';
+import { SurveyModule } from '../survey/survey.module';
 
 import { CasesListComponent } from './components/cases-list/cases-list.component';
 import { FirstTaskComponent } from './components/first-task/first-task.component';
@@ -59,7 +60,8 @@ const ROUTES: Routes = [
     MatFormFieldModule,
     MatInputModule,
     StartModule,
-    AuthModule
+    AuthModule,
+    SurveyModule
   ],
   declarations: [
     CasesListComponent,
