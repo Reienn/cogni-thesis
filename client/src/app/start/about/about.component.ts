@@ -13,7 +13,7 @@ export class AboutComponent {
 
   @Output() modalClose = new EventEmitter<boolean>();
 
-  allImg = 9;
+  allImg = 10;
   currentImg = 1;
   labels = {
     1: 'Panel gracza: lista spraw',
@@ -24,7 +24,8 @@ export class AboutComponent {
     6: 'Panel gracza: zadanie 4. (uzyskanie kodu do sejfu)',
     7: 'Panel nauczyciela: lista graczy',
     8: 'Panel nauczyciela: statystyki gracza',
-    9: 'Panel nauczyciela: edycja treści gry'
+    9: 'Panel nauczyciela: statystyki gracza',
+    10: 'Panel nauczyciela: edycja treści gry'
   };
 
   @HostListener('window:keyup', ['$event'])
