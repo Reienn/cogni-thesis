@@ -26,10 +26,18 @@ export class ModifyTasksComponent implements OnInit {
   selectedCaseId: number;
   selectedCaseScene: string;
 
+  minVersionsArray = 1;
+  minQuestionsArray = 2;
+  minCluesArray = 6;
+  minSearchingCommands = 5;
+  minWordGroupsArray = 7;
+  minClozeTestArray = 7;
+  minAnswersArray = 4;
+
   minCluesNumber = 3;
-  maxCluesNumber: number;
-  maxWordGroups: number;
-  maxClozeTest: number;
+  maxCluesNumber = 6;
+  maxWordGroups = 7;
+  maxClozeTest = 7;
 
   showVersions = false;
   showVersion: {[key: number]: boolean} = {};
@@ -63,9 +71,8 @@ export class ModifyTasksComponent implements OnInit {
     } else {
       this.taskData = JSON.parse(JSON.stringify(DYNAMIC_TASKS_CONTENT));
     }
-    this.maxCluesNumber = this.taskData.clues.jobs.length + this.taskData.clues.other.length - 1;
-    this.maxWordGroups = this.taskData.exercises.wordGroups.length;
-    this.maxClozeTest = this.taskData.exercises.clozeTest.length;
+    // this.maxWordGroups = this.taskData.exercises.wordGroups.length;
+    // this.maxClozeTest = this.taskData.exercises.clozeTest.length;
   }
 
   selectEdit(change: MatSelectChange) {

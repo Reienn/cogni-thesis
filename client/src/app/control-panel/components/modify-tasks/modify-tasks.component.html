@@ -38,7 +38,7 @@
         <div formArrayName="versions" *ngFor="let item of caseForm.get('versions').controls; let i = index">
           <div class="form-collapse-button"><button mat-button (click)="showVersion[i] = !showVersion[i]"><i class="fa" [ngClass]="{'fa-chevron-right': !showVersion[i], 'fa-chevron-down': showVersion[i]}" aria-hidden="true"></i> Wariant {{i + 1}}.</button></div>
           <div *ngIf="showVersion[i]" [formGroupName]="i" class="form-array-item">
-            <button mat-raised-button (click)="deleteVersion(i)" [disabled]="caseForm.get('versions').length < 2"
+            <button mat-raised-button (click)="deleteVersion(i)" [disabled]="caseForm.get('versions').length <= minVersionsArray"
             class="delete-version-button"><i class="fa fa-trash-o" aria-hidden="true"></i> Usuń wariant</button>
             <mat-form-field appearance="outline" class="inline-field">
               <mat-label>Postać</mat-label>
@@ -108,7 +108,7 @@
                   </td>
                   <td>
                     <button mat-button (click)="caseForm.get('versions').get(''+i).get('notes').removeAt(j)"
-                      [disabled]="caseForm.get('versions').get(''+i).get('notes').length < 3"
+                      [disabled]="caseForm.get('versions').get(''+i).get('notes').length <= minQuestionsArray"
                       class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                   </td>
                 </tr>
@@ -144,7 +144,7 @@
               <td>{{i + 1}}.</td>
               <td>
                 <mat-form-field [formGroupName]="i" class="half-width">
-                  <input matInput type="text" formControlName="command" required>
+                  <input matInput type="text" formControlName="command" required readonly="true">
                   <mat-hint *ngIf="caseForm?.get('searchingCommands')?.get(''+i).get('command')?.dirty">
                     <div *ngIf="caseForm?.get('searchingCommands')?.get(''+i).get('command')?.errors?.required" class="failure">To pole jest wymagane</div>
                   </mat-hint>
@@ -152,7 +152,7 @@
               </td>
               <td>
                 <button mat-button (click)="caseForm.get('searchingCommands').removeAt(i)"
-                  [disabled]="caseForm.get('searchingCommands').length < 6"
+                  [disabled]="caseForm.get('searchingCommands').length <= minSearchingCommandsArray"
                   class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
               </td>
             </tr>
@@ -235,7 +235,7 @@
               </td>
               <td>
                 <button mat-button (click)="sharedForm.get('clues').get('jobs').removeAt(i)"
-                  [disabled]="sharedForm.get('clues').get('jobs').length < 5"
+                  [disabled]="sharedForm.get('clues').get('jobs').length <= minCluesArray"
                   class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
               </td>
             </tr>
@@ -261,7 +261,7 @@
               </td>
               <td>
                 <button mat-button (click)="sharedForm.get('clues').get('other').removeAt(i)"
-                  [disabled]="sharedForm.get('clues').get('other').length < 6"
+                  [disabled]="sharedForm.get('clues').get('other').length <= minCluesArray"
                   class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
               </td>
             </tr>
@@ -288,7 +288,7 @@
                       <span matPrefix class="field-prefix">{{j + 1}})&nbsp;</span>
                       <span matSuffix>
                         <button mat-button (click)="sharedForm.get('exercises').get('wordGroups').get(''+i).removeAt(j)"
-                          [disabled]="sharedForm.get('exercises').get('wordGroups').get(''+i).length < 5"
+                          [disabled]="sharedForm.get('exercises').get('wordGroups').get(''+i).length <= minAnswersArray"
                           class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                       </span>
                       <mat-hint *ngIf="sharedForm.get('exercises').get('wordGroups').get(''+i)?.get(''+j)?.dirty">
@@ -302,7 +302,7 @@
                 </td>
                 <td>
                   <button mat-button (click)="sharedForm.get('exercises').get('wordGroups').removeAt(i)"
-                    [disabled]="sharedForm.get('exercises').get('wordGroups').length < 6"
+                    [disabled]="sharedForm.get('exercises').get('wordGroups').length <= minWordGroupsArray"
                     class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 </td>
               </tr>
@@ -339,7 +339,7 @@
                       <span matPrefix class="field-prefix">{{j + 1}})&nbsp;</span>
                       <span matSuffix>
                         <button mat-button (click)="sharedForm.get('exercises').get('clozeTest').get(''+i).get('correct').removeAt(j)"
-                          [disabled]="sharedForm.get('exercises').get('clozeTest').get(''+i).get('correct').length < 5"
+                          [disabled]="sharedForm.get('exercises').get('clozeTest').get(''+i).get('correct').length <= minAnswersArray"
                           class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                       </span>
                       <mat-hint *ngIf="sharedForm.get('exercises').get('clozeTest').get(''+i)?.get('correct').get(''+j)?.dirty">
@@ -358,7 +358,7 @@
                       <span matPrefix class="field-prefix">{{j + 1}})&nbsp;</span>
                       <span matSuffix>
                         <button mat-button (click)="sharedForm.get('exercises').get('clozeTest').get(''+i).get('incorrect').removeAt(j)"
-                          [disabled]="sharedForm.get('exercises').get('clozeTest').get(''+i).get('incorrect').length < 5"
+                          [disabled]="sharedForm.get('exercises').get('clozeTest').get(''+i).get('incorrect').length <= minAnswersArray"
                           class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                       </span>
                       <mat-hint *ngIf="sharedForm.get('exercises').get('clozeTest').get(''+i)?.get('incorrect').get(''+j)?.dirty">
@@ -372,7 +372,7 @@
                 </td>
                 <td>
                   <button mat-button (click)="sharedForm.get('exercises').get('clozeTest').removeAt(i)"
-                    [disabled]="sharedForm.get('exercises').get('clozeTest').length < 6"
+                    [disabled]="sharedForm.get('exercises').get('clozeTest').length <= minClozeTestArray"
                     class="delete-field-button" aria-label="Usuń"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 </td>
               </tr>
