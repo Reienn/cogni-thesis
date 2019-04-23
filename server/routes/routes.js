@@ -18,7 +18,7 @@ const jwt = require('../services/jwt');
 
 module.exports = function(app) {
   const corsOptions = {
-    origin: 'http://localhost:4200',
+    origin: 'http://www.gra-aha.pl',
     optionsSuccessStatus: 200
   }
   app.use(cors(corsOptions));
