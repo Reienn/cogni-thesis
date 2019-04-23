@@ -1,7 +1,4 @@
-<div *ngIf="errorMsg" class="error-container"><div class="error-msg">
-  <h2><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Błąd</h2>{{errorMsg}}
-  <a mat-flat-button color="primary" href="/gameplay/list"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Powrót</a>
-</div></div>
+<app-error-msg *ngIf="errorMsg" [msg]="errorMsg" link="/gameplay/list"></app-error-msg>
 
 <ng-container *ngIf="!errorMsg && caseId && currentTask && dynamicTasksContent">
   <div class="task-points" [@add]="addPoint ? 'add' : 'noChange'" [@lose]="losePoint ? 'lose' : 'noChange'" >

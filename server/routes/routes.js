@@ -12,6 +12,7 @@ const playersPerformanceController = require('../controllers/players-performance
 const surveyController = require('../controllers/survey');
 const customTaskDataController = require('../controllers/custom-task-data');
 const getCustomTaskDataController = require('../controllers/get-custom-task-data');
+const reportBugController = require('../controllers/report-bug');
 const jwt = require('../services/jwt');
 
 
@@ -33,6 +34,8 @@ module.exports = function(app) {
   app.post('/api/update-user', jwt.verifyToken, updateUserController.updateUser);
 
   app.post('/api/survey', jwt.verifyToken, surveyController.survey);
+
+  app.post('/api/report-bug', jwt.verifyToken, reportBugController.reportBug);
 
   app.get('/api/get-custom-task-data', jwt.verifyToken, getCustomTaskDataController.getCustomTaskData);
 

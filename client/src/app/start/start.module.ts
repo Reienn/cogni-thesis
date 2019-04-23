@@ -6,6 +6,7 @@ import { AuthModule } from '../auth/auth.module';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { StartComponent } from './start/start.component';
+import { ErrorMsgComponent } from './error-msg/error-msg.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { StartComponent } from './start/start.component';
     MatTabsModule,
     MatButtonModule
   ],
-  declarations: [AboutComponent, NotFoundComponent, StartComponent],
-  exports: [AboutComponent]
+  declarations: [AboutComponent, NotFoundComponent, StartComponent, ErrorMsgComponent],
+  exports: [AboutComponent, ErrorMsgComponent]
 })
 export class StartModule { }

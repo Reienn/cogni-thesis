@@ -1,7 +1,4 @@
-<div *ngIf="errorMsg" class="error-container"><div class="error-msg">
-  <h2><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Błąd</h2>{{errorMsg}}
-  <a mat-flat-button color="primary" href="/gameplay"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Powrót</a>
-</div></div>
+<app-error-msg *ngIf="errorMsg" [msg]="errorMsg" link="/gameplay"></app-error-msg>
 
 <div class="cases-wrapper" *ngIf="user && !errorMsg">
   <span class="back-icon"><i class="fa fa-arrow-circle-left" (click)="back()" aria-label="Wstecz"></i></span>
