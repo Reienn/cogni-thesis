@@ -22,10 +22,10 @@ export class AboutComponent {
     4: 'Panel gracza: zadanie 2. (poszukiwanie śladów)',
     5: 'Panel gracza: zadanie 3. (wskazanie sprawcy)',
     6: 'Panel gracza: zadanie 4. (uzyskanie kodu do sejfu)',
-    7: 'Panel nauczyciela: lista graczy',
-    8: 'Panel nauczyciela: statystyki gracza',
-    9: 'Panel nauczyciela: statystyki gracza',
-    10: 'Panel nauczyciela: edycja treści gry'
+    7: 'Panel kontrolny: lista graczy',
+    8: 'Panel kontrolny: statystyki gracza',
+    9: 'Panel kontrolny: statystyki gracza',
+    10: 'Panel kontrolny: edycja treści gry'
   };
 
   @HostListener('window:keyup', ['$event'])

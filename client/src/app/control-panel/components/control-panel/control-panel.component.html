@@ -7,7 +7,7 @@
       <button mat-menu-item (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Wyloguj</button>
     </mat-menu>
   </div>
-  <h2 class="title">Gra &bdquo;AHA!&rdquo; - panel nauczyciela</h2>
+  <h2 class="title">Gra &bdquo;AHA!&rdquo; - panel kontrolny</h2>
   <span class="navbar-right">
     <span class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user?.name}}</span>
     <button mat-flat-button (click)="showSettings = true"><i class="fa fa-cog" aria-hidden="true"></i> Ustawienia</button>
@@ -19,7 +19,7 @@
 <div class="control-panel-container">
   <div>
     <h3>Lista graczy:</h3>
-    <p class="info-hint">Aby umożliwić nauczycielowi dostęp do statystyk i edycji treści gry, gracz w ustawieniach swojego konta może podać login nauczyciela.</p>
+    <p class="info-hint">Aby umożliwić opiekunowi dostęp do statystyk i edycji treści gry, gracz w ustawieniach swojego konta może podać login opiekuna.</p>
 
     <app-players-list *ngIf="players && players.length; else noPlayers" [players]="players"
       (showGamePerformance)="selectedPlayer = $event;visualizationType = null;showGamePerformance = true"
@@ -36,7 +36,7 @@
 
 <div *ngIf="showSettings" class="modal about-modal" (click)="showSettings = false">
   <div class="modal-content" (click)="$event.stopPropagation()">
-    <h2>Nauczyciel {{user.name}}</h2>
+    <h2><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user.name}}</h2>
     <app-edit-user [user]="user" (updatedUser)="updatedUser($event)"></app-edit-user>
     <button class="button-close-modal" (click)="showSettings = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
   </div>

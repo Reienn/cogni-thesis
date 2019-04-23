@@ -7,7 +7,7 @@ const SURVEY_QUESTIONS = [
   {id: 'interestingSubject', label: 'Czy tematyka gry jest ciekawa?'},
   {id: 'visuallyAppealing', label: 'Czy gra jest atrakcyjna wizualnie?'},
   {id: 'gameEasyInUse', label: 'Czy gra jest łatwa w użytkowaniu?'},
-  {id: 'controlPanelEasyInUse', label: 'Czy panel nauczyciela jest prosty w obsłudze?'},
+  {id: 'controlPanelEasyInUse', label: 'Czy panel kontrolny jest prosty w obsłudze?'},
   {id: 'difficulty', label: 'Czy trudność zadań jest odpowiednia?'},
   {id: 'educational', label: 'Czy gra jest użyteczna w ćwiczeniu czytania ze zrozumieniem?'},
   {id: 'recommend', label: 'Czy poleciłby/aby Pan/i tę grę jako pomoc edukacyjną?'}

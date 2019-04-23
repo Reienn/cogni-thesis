@@ -11,10 +11,10 @@
     <ng-container *ngTemplateOutlet="fieldButtons; context: {control: editUserForm.get('mail'), initial: this.user.mail, name: 'mail'}"></ng-container>
   </div>
   <div *ngIf="user.group === 'student'" class="form-field">
-    <div class="form-label">Login nauczyciela:</div>
+    <div class="form-label">Login opiekuna:</div>
     <mat-form-field class="form-edit">
       <input matInput type="text" formControlName="educator" class="form-control">
-      <mat-hint class="form-hint">Ten nauczyciel może śledzić twój postęp w grze</mat-hint>
+      <mat-hint class="form-hint">Ta osoba może obserwować twój postęp w grze</mat-hint>
     </mat-form-field>
     <ng-container *ngTemplateOutlet="fieldButtons; context: {control: editUserForm.get('educator'), initial: this.user.educator, name: 'educator'}"></ng-container>
   </div>

@@ -21,7 +21,7 @@
 
 <div *ngIf="showSettings" class="modal about-modal" (click)="showSettings = false">
   <div class="modal-content" (click)="$event.stopPropagation()">
-    <h2>Gracz {{user.name}}</h2>
+    <h2><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user.name}}</h2>
     <app-edit-user [user]="user" (updatedUser)="updatedUser($event)"></app-edit-user>
     <button class="button-close-modal" (click)="showSettings = false" aria-label="Zamknij"><i class="fa fa-times" aria-hidden="true"></i></button>
   </div>
