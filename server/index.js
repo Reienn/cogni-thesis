@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+const enforce = require('express-sslify');
 
 const DB_URL = process.env.DATABASE_URL ? process.env.DATABASE_URL : require('./settings.conf.json').db.url;
 
@@ -11,6 +12,8 @@ const port = process.env.PORT || 8080;
 
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 app.use(express.static(__dirname + '/../client/dist/client'));
 require('./routes/routes')(app);
