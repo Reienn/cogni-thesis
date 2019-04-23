@@ -47,8 +47,8 @@ module.exports.resetPassword = async function(req, res, next) {
           subject: 'Gra AHA - resetowanie hasła',
           html: `<h3>Gra &bdquo;AHA!&rdquo; - resetowanie hasła</h3>
             <p>Aby zresetować hasło, kliknij w poniższy link:</p>
-            <p><a href="https://asd-reading-game.herokuapp.com/reset;id=${user.name};token=${token}">
-              https://asd-reading-game.herokuapp.com/reset;id=${user.name};token=${token}
+            <p><a href="https://www.gra-aha.pl/reset;id=${user.name};token=${token}">
+              https://www.gra-aha.pl/reset;id=${user.name};token=${token}
             </a></p>`
         };
         const info = await transporter.sendMail(mailOptions)
