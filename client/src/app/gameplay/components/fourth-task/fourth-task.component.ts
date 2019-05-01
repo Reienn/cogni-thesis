@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { AbstractTaskComponent } from '../abstract-task/abstract-task.component';
 import { FourthTaskData } from '../../models/task-content.data';
 
@@ -18,7 +18,7 @@ export class FourthTaskComponent extends AbstractTaskComponent implements OnInit
 
   currentQuestion = 0;
 
-  constructor() {
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
     super();
     this.taskId = 4;
   }
@@ -31,6 +31,7 @@ export class FourthTaskComponent extends AbstractTaskComponent implements OnInit
     this.hasCode = this.taskData.exercises.filter(item => !item.done).length ? false : true;
     if (selected === correct && !this.hasCode) {
       this.currentQuestion++;
+      this.changeDetectorRef.detectChanges();
     }
   }
 
