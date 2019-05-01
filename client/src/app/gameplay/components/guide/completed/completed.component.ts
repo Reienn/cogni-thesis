@@ -49,7 +49,7 @@ export class CompletedComponent implements OnInit {
   ngOnInit() {
     const user = this.authenticationService.getUser();
     this.isBestScore = !(user.bestScores && user.bestScores[this.caseId - 1] !== null &&
-                        user.bestScores[this.caseId - 1] > this.pointsSum);
+                        user.bestScores[this.caseId - 1] >= this.pointsSum);
   }
 
   next() {
