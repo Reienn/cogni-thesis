@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService, User } from '../../../auth/services/authentication.service';
 import { ControlService } from '../../services/control.service';
 import { Player } from '../../models/player.data';
-import { SourceTaskData } from 'src/app/gameplay/models/task-content.data';
+import { SourceTaskData } from '../../../gameplay/models/task-content.data';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-control-panel',
@@ -20,6 +21,8 @@ export class ControlPanelComponent implements OnInit {
   showGameSettings = false;
   visualizationType: string;
 
+  showExportButton: boolean;
+
   constructor(private authenticationService: AuthenticationService,
               private controlService: ControlService) { }
 
@@ -27,6 +30,7 @@ export class ControlPanelComponent implements OnInit {
     this.user = this.authenticationService.getUser();
     this.controlService.getPlayers().then(players => {
       this.players = players;
+      this.showExportButton = !!this.players.find(el => !!el.performance && !!el.performance.length);
       this.loading = false;
     });
   }
@@ -41,5 +45,25 @@ export class ControlPanelComponent implements OnInit {
 
   updateTaskData(taskData: SourceTaskData) {
     this.selectedPlayer.customTaskData = taskData;
+  }
+
+  export() {
+    const allData = [];
+    this.players.forEach(player => {
+      if (player.performance && player.performance.length) {
+        const performance = player.performance.map(el => ({
+          'Gracz': player.name,
+          'Data': moment(el.timestamp).format('DD.MM.YYYY HH:mm'),
+          'Sprawa': el.case,
+          'Zadanie': el.task,
+          'Punkty': el.points,
+          'Max': el.maxPoints,
+          'Poprawność (punkty / max)': +(el.points / el.maxPoints).toFixed(2)
+
+        }));
+        allData.push(...performance);
+      }
+    });
+    this.controlService.exportAsExcelFile(allData, 'stytystyki_gry');
   }
 }

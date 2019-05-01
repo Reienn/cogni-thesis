@@ -26,6 +26,10 @@
       (showGameSettings)="selectedPlayer = $event;showGameSettings = true"
     ></app-players-list>
 
+    <div *ngIf="showExportButton" class="export-button"><button mat-raised-button color="primary" (click)="export()">
+      <i class="fa fa-share-square-o" aria-hidden="true"></i> Eksportuj dane
+    </button></div>
+
     <ng-template #noPlayers>
       <ng-container *ngIf="!loading">Brak graczy</ng-container>
       <i *ngIf="loading" class="fa fa-spinner loading-icon dark-spinner" aria-label="Trwa ładowanie"></i>
