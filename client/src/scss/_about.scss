@@ -1,4 +1,7 @@
 .about-modal  {
+  .modal-content {
+    max-height: 90vh;
+  }
   .about-logo {
     margin-top: 40px;
     img {
@@ -34,6 +37,22 @@
         font-size: 2em;
         padding: 10px 0;
       }
+    }
+  }
+  h2 {
+    color: $primary;
+  }
+  .contact {
+    border-top: 1px solid $light-primary;
+    margin-top: 30px;
+    padding-top: 20px;
+    a {
+      color: $dark-primary;
+      text-decoration: none;
+    }
+    .fa {
+      color: $primary;
+      margin-right: 10px;
     }
   }
 }
