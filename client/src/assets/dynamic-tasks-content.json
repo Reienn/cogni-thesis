@@ -390,7 +390,7 @@
         {
           "character": "woman_03",
           "stolenItem": "camera",
-          "description": "Dzień dobry! Mam na imię Emilia, jestem mamą pięcioletniego Krzysia. W sobotę po południu byliśmy na placu zabaw. Mój synek huśtał się na huśtawce, a ja siedziałam na ławce i robiłam mu zdjęcia. Nagle Krzyś spadł z huśtawki, a ja pobiegłam mu pomóc. Zostawiłam aparat fotograficzny na ławce. Na szczeście Krzysiowi nic się nie stało, więc wróciliśmy po aparat, jednak okazało się, że ktoś go ukradł! Proszę odnaleźć złodzieja!",
+          "description": "Dzień dobry! Mam na imię Emilia, jestem mamą pięcioletniego Krzysia. W sobotę po południu byliśmy na placu zabaw. Mój synek huśtał się na huśtawce, a ja siedziałam na ławce i robiłam mu zdjęcia. Nagle Krzyś spadł z huśtawki, a ja pobiegłam mu pomóc. Zostawiłam aparat fotograficzny na ławce. Na szczęście Krzysiowi nic się nie stało, więc wróciliśmy po aparat, jednak okazało się, że ktoś go ukradł! Proszę odnaleźć złodzieja!",
           "notes": [
             {"question": "Co zginęło?", "answer": "aparat fotograficzny"},
             {"question": "Kiedy doszło do kradzieży?", "answer": "w sobotę po południu"},
