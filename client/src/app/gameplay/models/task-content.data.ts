@@ -1,6 +1,6 @@
 export const EXERCISE_QUESTIONS = {
   wordGroups: 'Które słowo <b>NIE pasuje</b> do pozostałych?',
-  clozeTest: 'Która odpowiedź <b>pasuje</b> w puste miejse?',
+  clozeTest: 'Która odpowiedź <b>pasuje</b> w puste miejsce?',
   clozeTestReversed: 'Która odpowiedź <b>NIE pasuje</b> w puste miejsce?'
 };
 export const EXERCISE_BLANK = '....................';
