@@ -29,7 +29,7 @@ export class ModifyTasksComponent implements OnInit {
   minVersionsArray = 1;
   minQuestionsArray = 2;
   minCluesArray = 6;
-  minSearchingCommands = 5;
+  minSearchingCommandsArray = 5;
   minWordGroupsArray = 7;
   minClozeTestArray = 7;
   minAnswersArray = 4;
