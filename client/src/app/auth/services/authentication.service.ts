@@ -51,8 +51,8 @@ export class AuthenticationService {
     ).toPromise();
   }
 
-  requestReset(mail: string): Promise<any> {
-    return this.http.post<any>(environment.baseUrl + '/api/reset-password', {mail: mail})
+  requestReset(resetData: {name: string, mail: string}): Promise<any> {
+    return this.http.post<any>(environment.baseUrl + '/api/reset-password', resetData)
       .pipe(map((user: any) => {
         return user.name;
       }), catchError((err) => {

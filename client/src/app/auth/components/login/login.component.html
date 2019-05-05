@@ -1,7 +1,7 @@
 <i *ngIf="loading" class="fa fa-spinner loading-icon dark-spinner" aria-label="Trwa ładowanie"></i>
 
 <ng-container *ngIf="!loading">
-  <form id="loginForm" class="auth-form" (ngSubmit)="login()" [formGroup]="loginForm">
+  <form *ngIf="!requestResetVisible" id="loginForm" class="auth-form" (ngSubmit)="login()" [formGroup]="loginForm">
     <p *ngIf="err" class="failure">{{ err }}</p>
     <p *ngIf="msg">{{ msg }}</p>
     <mat-form-field class="full-width">
@@ -22,19 +22,25 @@
   <button *ngIf="!requestResetVisible" mat-flat-button class="forget-psw-button" (click)="showRequestReset()">Nie pamiętam hasła</button>
 
   <p *ngIf="resetErr" class="failure">{{ resetErr }}</p>
-    <p *ngIf="resetMsg">{{ resetMsg }}</p>
-  <ng-container *ngIf="requestResetVisible">
-    <p>Podaj adres e-mail, aby otrzymać link do zresetowania hasła</p>
-    <div class="request-reset">
+  <p *ngIf="resetMsg">{{ resetMsg }}</p>
+  <ng-container *ngIf="requestResetVisible && requestResetForm">
+    <p>Podaj nazwę użytkownika i adres e-mail, aby otrzymać link do zresetowania hasła</p>
+    <form class="request-reset" [formGroup]="requestResetForm">
       <mat-form-field class="full-width">
-        <input matInput type="email" placeholder="Adres e-mail" [formControl]="requestResetControl" required class="form-control">
-        <mat-hint *ngIf="requestResetControl.dirty">
-          <div *ngIf="requestResetControl.errors?.required" class="failure">To pole jest wymagane</div>
-          <div *ngIf="requestResetControl.errors?.email" class="failure">Niepoprawny adres e-mail</div>
+        <input matInput type="text" placeholder="Nazwa użytkownika" formControlName="name" required>
+        <mat-hint *ngIf="requestResetForm.get('name')?.dirty">
+          <div *ngIf="requestResetForm.get('name')?.errors?.required" class="failure">To pole jest wymagane</div>
         </mat-hint>
       </mat-form-field>
-      <button mat-flat-button color="primary" class="request-reset-button" (click)="requestReset()" [disabled]="!requestResetControl.valid">Wyślij</button>
-    </div>
+      <mat-form-field class="full-width">
+        <input matInput type="email" placeholder="Adres e-mail" formControlName="mail" required class="form-control">
+        <mat-hint *ngIf="requestResetForm.get('mail').dirty">
+          <div *ngIf="requestResetForm.get('mail').errors?.required" class="failure">To pole jest wymagane</div>
+          <div *ngIf="requestResetForm.get('mail').errors?.email" class="failure">Niepoprawny adres e-mail</div>
+        </mat-hint>
+      </mat-form-field>
+      <div><button mat-flat-button color="primary" class="request-reset-button" (click)="requestReset()" [disabled]="!requestResetForm.valid">Wyślij</button></div>
+    </form>
   </ng-container>
 
 </ng-container>

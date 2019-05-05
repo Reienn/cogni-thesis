@@ -13,7 +13,7 @@ const TOKEN_EXPIRY = 3600; // seconds
 
 module.exports.resetPassword = async function(req, res, next) {
   try {
-    const user = await User.findOne({mail: req.body.mail});
+    const user = await User.findOne({mail: req.body.mail, name: req.body.name});
     if (!user) { throw 'nouser'; }
     const resetPsw = await ResetPassword.findOne({userName: user.name});
     let removed;

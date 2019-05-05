@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  requestResetControl: FormControl;
+  requestResetForm: FormGroup;
   resetErr: string;
   resetMsg: string;
   requestResetVisible = false;
@@ -32,9 +32,10 @@ export class LoginComponent implements OnInit {
       name: ['', Validators.required],
       psw: ['', Validators.required]
     });
-    this.requestResetControl = new FormControl('', [
-      Validators.required, Validators.email
-    ]);
+    this.requestResetForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      mail: ['', [Validators.required, Validators.email]]
+    });
   }
 
   login() {
@@ -56,15 +57,18 @@ export class LoginComponent implements OnInit {
   }
 
   requestReset() {
-    if (this.requestResetControl.valid) {
-      this.authenticationService.requestReset(this.requestResetControl.value).then(
+    if (this.requestResetForm.valid) {
+      this.loading = true;
+      this.authenticationService.requestReset(this.requestResetForm.getRawValue()).then(
         user => {
           this.resetErr = null;
           this.resetMsg = 'Wysłano wiadomość na podany adres e-mail.';
           this.requestResetVisible = false;
+          this.loading = false;
         },
         err => {
-          this.resetErr = err.status === 422 ? 'Nie znaleziono podanego adresu e-mail.' : 'Błąd wysyłania wiadomości.';
+          this.resetErr = err.status === 422 ? 'Nie znaleziono podanego użytkownika.' : 'Błąd wysyłania wiadomości.';
+          this.loading = false;
         });
     }
   }
