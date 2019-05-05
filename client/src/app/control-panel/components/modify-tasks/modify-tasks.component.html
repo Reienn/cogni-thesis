@@ -164,6 +164,7 @@
       <div class="form-collapse-button"><button mat-button (click)="showSingleChoice = !showSingleChoice"><i class="fa" [ngClass]="{'fa-chevron-right': !showSingleChoice, 'fa-chevron-down': showSingleChoice}" aria-hidden="true"></i> Pytania jednokrotnego wyboru</button></div>
       <div *ngIf="showSingleChoice" formGroupName="exercises" class="form-group">
         <div class="form-description">Liczba przykładów w zadaniu jednokrotnego wyboru</div>
+        <div *ngIf="caseForm?.errors?.exercisesMin" class="group-err failure">Liczba przykładów musi być większa niż 1.</div>
         <mat-form-field class="number-field" appearance="outline">
           <mat-label>Niepasujące słowo</mat-label>
           <input matInput type="number" formControlName="wordGroups" required>

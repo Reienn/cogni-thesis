@@ -242,7 +242,7 @@ export class ModifyTasksComponent implements OnInit {
         clozeTestReversed: [caseFormData.exercises.clozeTestReversed,
           [Validators.required, Validators.min(0), Validators.max(this.maxClozeTest)]],
       })
-    }, {validator: this.cluesNumberValidator});
+    }, {validator: [this.cluesNumberValidator, this.exercisesMinValidator]});
   }
 
   private initSharedForm(sharedFormData: Partial<SourceTaskData>) {
@@ -280,6 +280,13 @@ export class ModifyTasksComponent implements OnInit {
 
   private cluesNumberValidator(frm: FormGroup) {
     return frm.get('cluesNumber').value <= frm.get('searchingCommands')['controls'].length ? null : {'cluesMax': true};
+  }
+
+  private exercisesMinValidator(frm: FormGroup) {
+    const wordGroups = frm.get('exercises').get('wordGroups').value;
+    const clozeTest = frm.get('exercises').get('clozeTest').value;
+    const clozeTestReversed = frm.get('exercises').get('clozeTestReversed').value;
+    return wordGroups + clozeTest + clozeTestReversed > 1 ? null : {'exercisesMin': true};
   }
 
   private hasGapValidator(control: FormControl) {
