@@ -33,6 +33,9 @@ export class FourthTaskComponent extends AbstractTaskComponent implements OnInit
       this.currentQuestion++;
       this.changeDetectorRef.detectChanges();
     }
+    if (this.hasCode) {
+      this.changeDetectorRef.detectChanges();
+    }
   }
 
 }
